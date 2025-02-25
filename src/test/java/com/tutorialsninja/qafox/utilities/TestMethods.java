@@ -160,6 +160,64 @@ public class TestMethods extends BaseTest{
         assertTrue(registerLoginDashboardPage.isLoginButtonDisplayed(), "The register/login dashboard page login button isn't displayed");
     }
 
+    //register page web element assert test method
+    protected void isRegisterPageWebElementDisplayed(RegisterPage registerPage) {
+        //assert register page title is displayed
+        assertTrue(registerPage.isRegisterPageTitleDisplayed(), "The register page title isn't displayed");
+        //assert register page subtitle is displayed
+        assertTrue(registerPage.isRegisterPageSubtitleDisplayed(), "The register page subtitle isn't displayed");
+        //assert register page login page link is displayed
+        assertTrue(registerPage.isRegisterPageLoginPageLinkDisplayed(), "The register page login page link isn't displayed");
+        //personal details section
+        //assert register page personal details section title is displayed
+        assertTrue(registerPage.isRegisterPagePersonalDetailsSectionTitleDisplayed(), "The register page personal details section title isn't displayed");
+        //assert register page first name subtitle is displayed
+        assertTrue(registerPage.isRegisterPageFirstNameSubtitleDisplayed(), "The register page first name subtitle isn't displayed");
+        //assert register page first name input field is displayed
+        assertTrue(registerPage.isRegisterPageFirstNameInputFieldDisplayed(), "The register page first name input field isn't displayed");
+        //assert register page last name subtitle is displayed
+        assertTrue(registerPage.isRegisterPageLastNameSubtitleDisplayed(), "The register page last name subtitle isn't displayed");
+        //assert register page last name input field is displayed
+        assertTrue(registerPage.isRegisterPageLastNameInputFieldDisplayed(), "The register page last name input field isn't displayed");
+        //assert register page email subtitle is displayed
+        assertTrue(registerPage.isRegisterPageEmailSubtitleDisplayed(), "The register page email subtitle isn't displayed");
+        //assert register page email input field is displayed
+        assertTrue(registerPage.isRegisterPageEmailInputFieldDisplayed(), "The register page email input field isn't displayed");
+        //assert register page phone subtitle is displayed
+        assertTrue(registerPage.isRegisterPagePhoneSubtitleDisplayed(), "The register page phone subtitle isn't displayed");
+        //assert register page phone input field is displayed
+        assertTrue(registerPage.isRegisterPagePhoneInputFieldDisplayed(), "The register page phone input field isn't displayed");
+        //password section
+        //assert register page password section title is displayed
+        assertTrue(registerPage.isRegisterPagePasswordSectionTitleDisplayed(), "The register page password section title isn't displayed");
+        //assert register page password subtitle is displayed
+        assertTrue(registerPage.isRegisterPagePasswordSubtitleDisplayed(), "The register page password subtitle isn't displayed");
+        //assert register page password input field is displayed
+        assertTrue(registerPage.isRegisterPagePasswordInputFieldDisplayed(), "The register page password input field isn't displayed");
+        //assert register page confirm password subtitle is displayed
+        assertTrue(registerPage.isRegisterPageConfirmPasswordSubtitleDisplayed(), "The register page confirm password subtitle isn't displayed");
+        //assert register page confirm password input field is displayed
+        assertTrue(registerPage.isRegisterPageConfirmPasswordInputFieldDisplayed(), "The register page confirm password input field isn't displayed");
+        //newsletter section
+        //assert register page newsletter section title is displayed
+        assertTrue(registerPage.isRegisterPageNewsletterSectionTitleDisplayed(), "The register page newsletter section title isn't displayed");
+        //assert register page newsletter subtitle is displayed
+        assertTrue(registerPage.isRegisterPageNewsletterSubtitleDisplayed(), "The register page newsletter subtitle isn't displayed");
+        //assert register page newsletter subscribe radio button is displayed
+        assertTrue(registerPage.isRegisterPageNewsletterSubscribeRadioButtonDisplayed(), "The register page newsletter subscribe radio button isn't displayed");
+        //assert register page newsletter don't subscribe radio button is displayed
+        assertTrue(registerPage.isRegisterPageNewsletterDontSubscribeRadioButtonDisplayed(), "The register page newsletter don't subscribe radio button isn't displayed");//assert register page newsletter section title is displayed
+        //remaining elements
+        //assert register page privacy policy subtext is displayed
+        assertTrue(registerPage.isRegisterPagePrivacyPolicySubtextDisplayed(), "The register page privacy policy subtext isn't displayed");
+        //assert register page privacy policy link is displayed
+        assertTrue(registerPage.isRegisterPagePrivacyPolicyLinkDisplayed(), "The register page privacy policy link isn't displayed");
+        //assert register page privacy policy checkbox is displayed
+        assertTrue(registerPage.isRegisterPagePrivacyPolicyCheckboxDisplayed(), "The register page privacy policy checkbox isn't displayed");
+        //assert register page continue button is displayed
+        assertTrue(registerPage.isRegisterPageContinueButtonDisplayed(), "The register page continue button isn't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
