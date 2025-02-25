@@ -79,6 +79,19 @@ public class MyAccountPage extends BasePage {
     private WebElement asideNewsletterLink;
     @FindBy(xpath = "//aside//a[13]")
     private WebElement asideLogoutLink;
+    //account creation success elements
+    @FindBy(xpath = "//div[@id='content']/h1")
+    private WebElement successMessageTitle;
+    @FindBy(xpath = "//div[@id='content']/p[1]")
+    private WebElement successMessageOne;
+    @FindBy(xpath = "//div[@id='content']/p[2]")
+    private WebElement successMessageTwo;
+    @FindBy(xpath = "//div[@id='content']/p[3]")
+    private WebElement successMessageThree;
+    @FindBy(xpath = "//div[@id='content']/p[4]")
+    private WebElement successMessageFour;
+    @FindBy(xpath = "//div[@class='pull-right']/a")
+    private WebElement accountCreationSuccessContinueButton;
 
     public MyAccountPage(WebDriver driver) {super(driver);}
 
@@ -87,6 +100,24 @@ public class MyAccountPage extends BasePage {
     public String getMyOrdersSectionTitle() {return myAccountPageMyOrdersSectionTitle.getText();}
     public String getMyAffiliateAccountSectionTitle() {return myAccountPageMyAffiliateAccountSectionTitle.getText();}
     public String getMyAccountPageNewsletterSectionTitle() {return myAccountPageNewsletterSectionTitle.getText();}
+
+    //success message text getters
+    public String getSuccessMessageTitle(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2300));
+        wait.until(ExpectedConditions.visibilityOf(successMessageTitle));
+        return successMessageTitle.getText();
+    }
+    public String successMessageOne(){return successMessageOne.getText();}
+    public String getSuccessMessageTwo(){return successMessageTwo.getText();}
+    public String getSuccessMessageThree(){return successMessageThree.getText();}
+    public String getSuccessMessageFour(){return successMessageFour.getText();}
+
+    //click 'Continue' button
+    public void clickContinueButton(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(accountCreationSuccessContinueButton));
+        accountCreationSuccessContinueButton.click();
+    }
 
     //my account page web element assert methods
     public boolean isPageBreadcrumbDisplayed() {

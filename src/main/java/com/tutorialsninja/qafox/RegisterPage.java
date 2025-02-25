@@ -63,7 +63,52 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = "//div[@class='pull-right']/input[2]")
     private WebElement registerPageContinueButton;
 
+    //valid user register data
+    private static String userFirstName;
+    private static String userLastName;
+    private static String userEmail;
+    private static String userPassword;
+    private String userPhoneNumber;
+    private String userConfirmPassword;
+
     public RegisterPage(WebDriver driver) {super(driver);}
+
+    //valid user register data getter
+    public void validUserRegisterDataGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Valid user register data generated: " + "\n");
+        logger.info("Valid user first name: " + userFirstName);
+        logger.info("Valid user last name: " + userLastName);
+        logger.info("Valid user email: " + userEmail);
+        logger.info("Valid user phone number: " + userPhoneNumber);
+        logger.info("Valid user password: " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //valid user data input methods
+    public void inputFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(userFirstName);}
+    public void inputLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(userLastName);}
+    public void inputEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(userEmail);}
+    public void inputPhoneIntoPhoneInputField(){registerPagePhoneInputField.sendKeys(userPhoneNumber);}
+    public void inputPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(userPassword);}
+    public void inputConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(userConfirmPassword);}
+
+    //click 'Agree to Privacy Policy' checkbox method
+    public void clickAgreeToPrivacyPolicyCheckbox(){registerPagePrivacyPolicyCheckbox.click();}
+
+    //click 'Continue' (register) button
+    public void clickRegisterPageContinueButton(){
+        Actions actions = new Actions(driver);
+        actions.click(registerPageContinueButton).click().perform();
+    }
 
     //register page text getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}

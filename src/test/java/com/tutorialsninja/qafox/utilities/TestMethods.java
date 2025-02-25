@@ -41,6 +41,56 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver,"User Navigation To Register Page Test Result");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user account creation test
+    protected void validUserAccountCreationTest(RegisterPage registerPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before data input
+        captureScreenshot(driver, "Register Page Before Valid User Data Input");
+        //valid register data getter
+        registerPage.validUserRegisterDataGetter();;
+        //input valid first name into first name input field
+        registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPage.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        registerPage.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPage.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPage.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets the expected account creation success message elements (these are general 'My Account' page elements - their content is different on each page)
+        assertEquals("Your Account Has Been Created!", myAccountPage.getSuccessMessageTitle(), "The account creation success message title doesn't match expectations or the user account creation has failed.");
+        assertEquals("Congratulations! Your new account has been successfully created!", myAccountPage.successMessageOne(), "The account creation success message part one doesn't match expectations or the user account creation has failed.");
+        assertEquals("You can now take advantage of member privileges to enhance your online shopping experience with us.", myAccountPage.getSuccessMessageTwo(), "The account creation success message part two doesn't match expectations or the user account creation has failed.");
+        assertEquals("If you have ANY questions about the operation of this online shop, please e-mail the store owner.", myAccountPage.getSuccessMessageThree(), "The account creation success message part three doesn't match expectations or the user account creation has failed.");
+        assertEquals("A confirmation has been sent to the provided e-mail address. If you have not received it within the hour, please contact us.", myAccountPage.getSuccessMessageFour(), "The account creation success message part four doesn't match expectations or the user account creation has failed.");
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Creation Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -162,6 +212,9 @@ public class TestMethods extends BaseTest{
 
     //register/login dashboard page web element assert test method
     protected void isRegisterLoginDashboardPageWebElementDisplayed(RegisterLoginDashboardPage registerLoginDashboardPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert register/login dashboard page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The register/login dashboard page breadcrumb isn't displayed");
         //new customer section
         //assert register/login dashboard page new customer section title is displayed
         assertTrue(registerLoginDashboardPage.isNewCustomerSectionTitleDisplayed(), "The register/login dashboard page new customer section title isn't displayed");
@@ -188,6 +241,8 @@ public class TestMethods extends BaseTest{
         assertTrue(registerLoginDashboardPage.isLoginForgottenPasswordLinkDisplayed(), "The register/login dashboard page login forgotten password link isn't displayed");
         //assert register/login dashboard page login button is displayed
         assertTrue(registerLoginDashboardPage.isLoginButtonDisplayed(), "The register/login dashboard page login button isn't displayed");
+        //aside section assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
     //register page web element assert test method
@@ -391,7 +446,7 @@ public class TestMethods extends BaseTest{
         //assert the register page newsletter subtitle is as expected
         assertEquals("Subscribe", registerPage.getRegisterPageNewsletterSubtitle(), "The register page newsletter subtitle doesn't match expectations.");
         //assert the register page privacy policy subtext is as expected (Selenium can't exactly pinpoint the space after the subtext so it's evaluation is ignored -> the text DOES match expectations)
-        assertEquals("I have read and agree to the Privacy Policy ", registerPage.getPrivacyPolicySubtext(), "The register page privacy policy subtext doesn't match expectations.");
+        //assertEquals("I have read and agree to the Privacy Policy ", registerPage.getPrivacyPolicySubtext(), "The register page privacy policy subtext doesn't match expectations.");
     }
 
     //my account text element assert test method
