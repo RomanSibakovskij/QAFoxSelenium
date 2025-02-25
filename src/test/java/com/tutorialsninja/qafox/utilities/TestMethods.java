@@ -99,7 +99,6 @@ public class TestMethods extends BaseTest{
     protected void invalidAccountCreationNoFirstNameTest(RegisterPageNoSingularInput registerPageNoSingularInput) {
         GeneralPage generalPage = new GeneralPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
         //general page web element assert
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert
@@ -110,7 +109,7 @@ public class TestMethods extends BaseTest{
         isRegisterPageTextElementAsExpected(registerPage);
         //capture screenshot before invalid data input
         captureScreenshot(driver, "Register Page Before Invalid User Data Input");
-        //valid register data getter
+        //invalid register data getter - no first name
         registerPageNoSingularInput.invalidUserRegDataNoFirstNameGetter();
         //don't input first name into first name input field
         registerPageNoSingularInput.inputNoFirstNameIntoFirstNameInputField();
@@ -134,6 +133,46 @@ public class TestMethods extends BaseTest{
         assertEquals("First Name must be between 1 and 32 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The invalid singular input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No First Name");
+    }
+
+    //invalid user account creation test method - no last name
+    protected void invalidAccountCreationNoLastNameTest(RegisterPageNoSingularInput registerPageNoSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - no last name
+        registerPageNoSingularInput.invalidUserRegDataNoLastNameGetter();
+        //input valid first name into first name input field
+        registerPageNoSingularInput.inputFirstNameIntoFirstNameInputField();
+        //don't input last name into last name input field
+        registerPageNoSingularInput.inputNoLastNameIntoLastNameInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - No Last Name");
+        //input valid email into email input field
+        registerPageNoSingularInput.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPageNoSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageNoSingularInput.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageNoSingularInput.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("Last Name must be between 1 and 32 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The invalid singular input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Last Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -33,6 +33,7 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //missing singular input
     private String noFirstName;
+    private String noLastName;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -54,18 +55,41 @@ public class RegisterPageNoSingularInput extends BasePage{
         userPassword = TestDataGenerator.generateRandomPassword();
         userConfirmPassword = userPassword;
 
-        System.out.println("Valid user register data generated: " + "\n");
-        logger.info("Valid user first name: " + userFirstName);
-        logger.info("Valid user last name: " + userLastName);
-        logger.info("Valid user email: " + userEmail);
-        logger.info("Valid user phone number: " + userPhoneNumber);
-        logger.info("Valid user password: " + userPassword);
+        System.out.println("Invalid user register data generated (no user first name): " + "\n");
+        logger.info("No user first name: " + noFirstName);
+        logger.info("Valid user last name (no user first name): " + userLastName);
+        logger.info("Valid user email (no user first name): " + userEmail);
+        logger.info("Valid user phone number (no user first name): " + userPhoneNumber);
+        logger.info("Valid user password (no user first name): " + userPassword);
 
         System.out.println("\n");
     }
 
     //invalid singular input methods - no user first name
     public void inputNoFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(noFirstName);}
+
+    //invalid user register data getter - no user last name
+    public void invalidUserRegDataNoLastNameGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        noLastName = "";
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (no user last name): " + "\n");
+        logger.info("Valid user first name (no user last name): " + userFirstName);
+        logger.info("No user last name: " + noLastName);
+        logger.info("Valid user email (no user last name): " + userEmail);
+        logger.info("Valid user phone number (no user last name): " + userPhoneNumber);
+        logger.info("Valid user password (no user last name): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - no user last name
+    public void inputNoLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(noLastName);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
