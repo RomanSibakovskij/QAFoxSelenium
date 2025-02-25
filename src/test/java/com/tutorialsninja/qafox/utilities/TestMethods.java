@@ -99,6 +99,37 @@ public class TestMethods extends BaseTest{
         assertTrue(generalPage.isFooterOpenCartLinkDisplayed(), "The footer Opencart link isn't displayed");
     }
 
+    //home page web element assert test method
+    protected void isHomePageWebElementDisplayed(HomePage homePage) {
+        //main
+        //assert home page product image carousel is displayed
+        assertTrue(homePage.isHomePageProductImgCarouselDisplayed(), "The home page product image carousel isn't displayed");
+        //assert home page product image carousel dot left button is displayed
+        assertTrue(homePage.isHomePageProductImgCarouselDotLeftButtonDisplayed(), "The home page product image carousel dot left button isn't displayed");
+        //assert home page product image carousel dot right button is displayed
+        assertTrue(homePage.isHomePageProductImgCarouselDotRightButtonDisplayed(), "The home page product image carousel dot right button isn't displayed");
+        //assert home page featured product section title is displayed
+        assertTrue(homePage.isHomePageFeaturedProductSectionTitleDisplayed(), "The home page featured product section title isn't displayed");
+        //assert home page featured product image links are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductImgLinkDisplayed(), "The home page featured product image links aren't displayed");
+        //assert home page featured product name links are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductNameLinkDisplayed(), "The home page featured product name links aren't displayed");
+        //assert home page featured product descriptions are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductDescDisplayed(), "The home page featured product descriptions aren't displayed");
+        //assert home page featured product unit price are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductUnitPriceDisplayed(), "The home page featured product unit prices aren't displayed");
+        //assert home page featured product 'Add to cart' buttons are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductAddToCartButtonDisplayed(), "The home page featured product 'Add to cart' buttons aren't displayed");
+        //assert home page featured product 'Add to wishlist' buttons are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductAddToWishlistButtonDisplayed(), "The home page featured product 'Add to wishlist' buttons aren't displayed");
+        //assert home page featured product 'Add to compare' buttons are displayed (as a list)
+        assertTrue(homePage.isHomePageFeaturedProductAddToCompareButtonDisplayed(), "The home page featured product 'Add to compare' buttons aren't displayed");
+        //assert home page brands image carousel is displayed
+        assertTrue(homePage.isHomePageBrandsImageCarouselDisplayed(), "The home page brands image carousel isn't displayed");
+        //assert home page brands image carousel dot buttons are displayed (as a list)
+        assertTrue(homePage.isHomePageBrandsImageCarouselDotButtonDisplayed(), "The home page brands image carousel dot buttons aren't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -114,6 +145,23 @@ public class TestMethods extends BaseTest{
         assertEquals("My Account", generalPage.getFooterMyAccountSectionTitle(), "The footer my account section title doesn't match expectations.");
         //assert footer copyright text is as expected
         assertEquals("Powered By OpenCart\n" + "Qafox.com © 2025", generalPage.getFooterCopyrightText(), "The footer copyright text doesn't match expectations.");
+    }
+
+    //home page text element assert test method
+    protected void isHomePageTextElementAsExpected(HomePage homePage){
+        //assert home page featured product section title is as expected
+        assertEquals("Featured", homePage.getHomePageFeaturedProductSectionTitle(), "The home page featured section title doesn't match expectations.");
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //home page featured product data logger method
+    protected void logHomePageFeaturedProductData(HomePage homePage){
+        System.out.println("Home page featured product displayed data: " + "\n");
+        logger.info("Home page featured product name(s): " + homePage.getFeaturedProductNames());
+        logger.info("Home page featured product description(s): " + homePage.getFeaturedProductDescriptions());
+        logger.info("Home page featured product unit price(s): " + homePage.getFeaturedProductUnitPrices() + "\n");
+        System.out.println("\n");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
