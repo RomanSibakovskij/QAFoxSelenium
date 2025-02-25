@@ -1,5 +1,6 @@
 package com.tutorialsninja.qafox;
 
+import com.tutorialsninja.qafox.utilities.RegisterPageNoSingularInput;
 import com.tutorialsninja.qafox.utilities.TestMethods;
 import org.junit.jupiter.api.*;
 
@@ -15,6 +16,23 @@ public class RegisterPageTest extends TestMethods {
         userNavigationToRegisterPageTest();
         //valid user account creation
         validUserAccountCreationTest(registerPage);
+    }
+
+    //invalid user account creation tests
+
+    //no singular input
+
+    //Test 002a -> invalid user account creation test - no user first name
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccCreationNoFirstNameTest(){
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - no user first name
+        invalidAccountCreationNoFirstNameTest(registerPageNoSingularInput);
     }
 
 }
