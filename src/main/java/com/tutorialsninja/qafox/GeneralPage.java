@@ -2,6 +2,7 @@ package com.tutorialsninja.qafox;
 
 import com.tutorialsninja.qafox.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
 
 import java.util.*;
@@ -119,6 +120,15 @@ public class GeneralPage extends BasePage {
     private WebElement footerOpenCartLink;
 
     public GeneralPage(WebDriver driver) {super(driver);}
+
+    //click 'Account' dropdown menu link method
+    public void clickAccountDropdownMenuLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(accountDropdownMenu).click().perform();
+    }
+
+    //click 'Register' option link method
+    public void clickRegisterOptionLink(){registerLinkOption.click();}
 
     //general page footer text element getters
     public String getFooterInformationSectionTitle() {return footerInformationSectionTitle.getText();}

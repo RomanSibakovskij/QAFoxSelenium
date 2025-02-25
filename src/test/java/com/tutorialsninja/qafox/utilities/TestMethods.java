@@ -11,6 +11,36 @@ public class TestMethods extends BaseTest{
 
     protected static final Logger logger = LoggerFactory.getLogger(TestMethods.class);
 
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //user navigation to 'Register' page test method
+    protected void userNavigationToRegisterPageTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page featured product data
+        logHomePageFeaturedProductData(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click account dropdown menu
+        generalPage.clickAccountDropdownMenuLink();
+        //click 'Register' option
+        generalPage.clickRegisterOptionLink();
+        //assert the user gets onto 'Register' page
+        assertEquals("Register Account", registerPage.getRegisterPageTitle(), "The register page title doesn't match expectations or the user is on the wrong page");
+        //capture screenshot of the test result
+        captureScreenshot(driver,"User Navigation To Register Page Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -257,6 +287,36 @@ public class TestMethods extends BaseTest{
         assertEquals("E-Mail Address", registerLoginDashboardPage.getLoginEmailSubtitle(), "The register/login dashboard page login email title doesn't match expectations.");
         //assert register/login dashboard page 'Returning Customer' login password subtitle is as expected
         assertEquals("Password", registerLoginDashboardPage.getLoginPasswordSubtitle(), "The register/login dashboard page login password subtitle doesn't match expectations.");
+    }
+
+    //register page text element assert test method
+    protected void isRegisterPageTextElementAsExpected(RegisterPage registerPage){
+        //assert the register page title is as expected
+        assertEquals("Register Account", registerPage.getRegisterPageTitle(), "The register page title doesn't match expectations.");
+        //assert the register page subtitle is as expected
+        assertEquals("If you already have an account with us, please login at the login page.", registerPage.getRegisterPageSubtitle(), "The register page subtitle doesn't match expectations.");
+        //assert the register page personal details section title is as expected
+        assertEquals("Your Personal Details", registerPage.getPersonalDetailsSectionTitle(), "The register page personal details section title doesn't match expectations.");
+        //assert the register page first name subtitle is as expected
+        assertEquals("First Name", registerPage.getRegisterPageFirstNameSubtitle(), "The register page first name subtitle doesn't match expectations.");
+        //assert the register page last name subtitle is as expected
+        assertEquals("Last Name", registerPage.getRegisterPageLastNameSubtitle(), "The register page last name subtitle doesn't match expectations.");
+        //assert the register page email subtitle is as expected
+        assertEquals("E-Mail", registerPage.getRegisterPageEmailSubtitle(), "The register page email subtitle doesn't match expectations.");
+        //assert the register page phone subtitle is as expected
+        assertEquals("Telephone", registerPage.getRegisterPagePhoneSubtitle(), "The register page phone subtitle doesn't match expectations.");
+        //assert the register page password section is as expected
+        assertEquals("Your Password", registerPage.getPasswordSectionTitle(), "The register page password section doesn't match expectations.");
+        //assert the register page password subtitle is as expected
+        assertEquals("Password", registerPage.getRegisterPagePasswordSubtitle(), "The register page password subtitle doesn't match expectations.");
+        //assert the register page confirm password subtitle is as expected
+        assertEquals("Password Confirm", registerPage.getRegisterPageConfirmPasswordSubtitle(), "The register page confirm password subtitle doesn't match expectations.");
+        //assert the register page newsletter section title is as expected
+        assertEquals("Newsletter", registerPage.getNewsletterSectionTitle(), "The register page newsletter section title doesn't match expectations.");
+        //assert the register page newsletter subtitle is as expected
+        assertEquals("Subscribe", registerPage.getRegisterPageNewsletterSubtitle(), "The register page newsletter subtitle doesn't match expectations.");
+        //assert the register page privacy policy subtext is as expected (Selenium can't exactly pinpoint the space after the subtext so it's evaluation is ignored -> the text DOES match expectations)
+        assertEquals("I have read and agree to the Privacy Policy ", registerPage.getPrivacyPolicySubtext(), "The register page privacy policy subtext doesn't match expectations.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

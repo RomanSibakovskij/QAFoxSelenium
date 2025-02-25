@@ -65,7 +65,20 @@ public class RegisterPage extends BasePage{
 
     public RegisterPage(WebDriver driver) {super(driver);}
 
-
+    //register page text getters
+    public String getRegisterPageTitle() {return registerPageTitle.getText();}
+    public String getRegisterPageSubtitle() {return registerPageSubtitle.getText();}
+    public String getPersonalDetailsSectionTitle(){return registerPagePersonalDetailsSectionTitle.getText();}
+    public String getRegisterPageFirstNameSubtitle() {return registerPageFirstNameSubtitle.getText();}
+    public String getRegisterPageLastNameSubtitle() {return registerPageLastNameSubtitle.getText();}
+    public String getRegisterPageEmailSubtitle() {return registerPageEmailSubtitle.getText();}
+    public String getRegisterPagePhoneSubtitle() {return registerPagePhoneSubtitle.getText();}
+    public String getPasswordSectionTitle(){return registerPagePasswordSectionTitle.getText();}
+    public String getRegisterPagePasswordSubtitle() {return registerPagePasswordSubtitle.getText();}
+    public String getRegisterPageConfirmPasswordSubtitle() {return registerPageConfirmPasswordSubtitle.getText();}
+    public String getNewsletterSectionTitle(){return registerPageNewsletterSectionTitle.getText();}
+    public String getRegisterPageNewsletterSubtitle() {return registerPageNewsletterSubtitle.getText();}
+    public String getPrivacyPolicySubtext() {return registerPagePrivacyPolicySubtext.getText();}
 
     //register page web element assert methods
     public boolean isRegisterPageTitleDisplayed() {return registerPageTitle.isDisplayed();}
