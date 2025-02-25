@@ -34,6 +34,7 @@ public class RegisterPageNoSingularInput extends BasePage{
     //missing singular input
     private String noFirstName;
     private String noLastName;
+    private String noEmail;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -90,6 +91,29 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //invalid singular input methods - no user last name
     public void inputNoLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(noLastName);}
+
+    //invalid user register data getter - no user email address
+    public void invalidUserRegDataNoEmailGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        noEmail = "";
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (no user email): " + "\n");
+        logger.info("Valid user first name (no user email): " + userFirstName);
+        logger.info("Valid user last name (no user email): " + userLastName);
+        logger.info("No user email: " + noEmail);
+        logger.info("Valid user phone number (no user email): " + userPhoneNumber);
+        logger.info("Valid user password (no user email): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - no user email address
+    public void inputNoEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(noEmail);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}

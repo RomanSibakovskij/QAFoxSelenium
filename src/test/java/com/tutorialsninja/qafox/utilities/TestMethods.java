@@ -130,7 +130,7 @@ public class TestMethods extends BaseTest{
         //click 'Continue' button
         registerPage.clickRegisterPageContinueButton();
         //assert the user gets an expected error message
-        assertEquals("First Name must be between 1 and 32 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The invalid singular input error message doesn't match expectations or the error wasn't triggered.");
+        assertEquals("First Name must be between 1 and 32 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing first name input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No First Name");
     }
@@ -170,9 +170,49 @@ public class TestMethods extends BaseTest{
         //click 'Continue' button
         registerPage.clickRegisterPageContinueButton();
         //assert the user gets an expected error message
-        assertEquals("Last Name must be between 1 and 32 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The invalid singular input error message doesn't match expectations or the error wasn't triggered.");
+        assertEquals("Last Name must be between 1 and 32 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing last name input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No Last Name");
+    }
+
+    //invalid user account creation test method - no email address
+    protected void invalidAccountCreationNoEmailTest(RegisterPageNoSingularInput registerPageNoSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - no email address
+        registerPageNoSingularInput.invalidUserRegDataNoEmailGetter();
+        //input valid first name into first name input field
+        registerPageNoSingularInput.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPageNoSingularInput.inputLastNameIntoLastNameInputField();
+        //don't input email into email input field
+        registerPageNoSingularInput.inputNoEmailIntoEmailInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - No Email Address");
+        //input valid phone number into phone input field
+        registerPageNoSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageNoSingularInput.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageNoSingularInput.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("E-Mail Address does not appear to be valid!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing email input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Email Address");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
