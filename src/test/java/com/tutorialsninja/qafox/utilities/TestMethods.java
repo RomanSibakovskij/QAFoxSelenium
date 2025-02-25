@@ -11,6 +11,110 @@ public class TestMethods extends BaseTest{
 
     protected static final Logger logger = LoggerFactory.getLogger(TestMethods.class);
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //general page web elements assert test method (elements all pages possess)
+    protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
+        //top navbar
+        //assert currency dropdown menu is displayed
+        assertTrue(generalPage.isCurrencyDropdownMenuDisplayed(), "The currency dropdown menu isn't displayed");
+        //assert phone contact icon link is displayed
+        assertTrue(generalPage.isPhoneContactIconLinkDisplayed(), "The phone contact icon link isn't displayed");
+        //assert account dropdown menu is displayed
+        assertTrue(generalPage.isAccountDropdownMenuDisplayed(), "The account dropdown menu isn't displayed");
+        //assert wishlist icon link is displayed
+        assertTrue(generalPage.isWishlistIconLinkDisplayed(), "The wishlist icon link isn't displayed");
+        //assert shopping cart icon link is displayed
+        assertTrue(generalPage.isShoppingCartIconLinkDisplayed(), "The shopping cart icon link isn't displayed");
+        //assert checkout icon link is displayed
+        assertTrue(generalPage.isCheckoutIconLinkDisplayed(), "The checkout icon link isn't displayed");
+        //header
+        //assert search bar input field is displayed
+        assertTrue(generalPage.isSearchBarInputFieldDisplayed(), "The search bar input field isn't displayed");
+        //assert search button is displayed
+        assertTrue(generalPage.isSearchButtonDisplayed(), "The search button isn't displayed");
+        //assert shopping cart button is displayed
+        assertTrue(generalPage.isShoppingCartButtonDisplayed(), "The shopping cart button isn't displayed");
+        //assert home page logo link is displayed
+        assertTrue(generalPage.isHomePageLogoLinkDisplayed(), "The home page logo link isn't displayed");
+        //header navbar
+        //assert desktops nav link is displayed
+        assertTrue(generalPage.isDesktopsNavLinkDisplayed(), "The desktops nav link isn't displayed");
+        //assert laptops and notebooks nav link is displayed
+        assertTrue(generalPage.isLaptopsNavLinkDisplayed(), "The laptops and notebooks nav link isn't displayed");
+        //assert components nav link is displayed
+        assertTrue(generalPage.isComponentsNavLinkDisplayed(), "The components nav link isn't displayed");
+        //assert tablets nav link is displayed
+        assertTrue(generalPage.isTabletsNavLinkDisplayed(), "The tablets nav link isn't displayed");
+        //assert software nav link is displayed
+        assertTrue(generalPage.isSoftwareNavLinkDisplayed(), "The software nav link isn't displayed");
+        //assert phones nav link is displayed
+        assertTrue(generalPage.isPhonesNavLinkDisplayed(), "The phones nav link isn't displayed");
+        //assert cameras nav link is displayed
+        assertTrue(generalPage.isCamerasNavLinkDisplayed(), "The cameras nav link isn't displayed");
+        //assert mp3 players nav link is displayed
+        assertTrue(generalPage.isMP3PlayersNavLinkDisplayed(), "The mp3 players nav link isn't displayed");
+        //footer
+        //assert footer information section title is displayed
+        assertTrue(generalPage.isFooterInformationSectionTitleDisplayed(), "The footer information section title isn't displayed");
+        //assert footer information 'About us' link is displayed
+        assertTrue(generalPage.isFooterInfoAboutUsLinkDisplayed(), "The footer information section 'About us' link isn't displayed");
+        //assert footer information 'Delivery information' link is displayed
+        assertTrue(generalPage.isFooterInfoDeliveryInfoLinkDisplayed(), "The footer information section 'Delivery information' link isn't displayed");
+        //assert footer information 'Privacy Policy' link is displayed
+        assertTrue(generalPage.isFooterInfoPrivacyPolicyLinkDisplayed(), "The footer information section 'Privacy Policy' link isn't displayed");
+        //assert footer information 'Terms and Conditions' link is displayed
+        assertTrue(generalPage.isFooterInfoTermsAndConditionsLinkDisplayed(), "The footer information section 'Terms and Conditions' link isn't displayed");
+        //assert footer customer service section title is displayed
+        assertTrue(generalPage.isFooterCustomerServiceSectionTitleDisplayed(), "The footer customer service section title isn't displayed");
+        //assert footer customer service 'Contact us' link is displayed
+        assertTrue(generalPage.isFooterCustServiceContactUsLinkDisplayed(), "The footer customer service section 'Contact us' link isn't displayed");
+        //assert footer customer service 'Returns' link is displayed
+        assertTrue(generalPage.isFooterCustServiceReturnsLinkDisplayed(), "The footer customer service section 'Returns' link isn't displayed");
+        //assert footer customer service 'Site Map' link is displayed
+        assertTrue(generalPage.isFooterCustServiceSiteMapLinkDisplayed(), "The footer customer service section 'Site Map' link isn't displayed");
+        //assert footer extras section title is displayed
+        assertTrue(generalPage.isFooterExtrasSectionTitleDisplayed(), "The footer extras section title isn't displayed");
+        //assert footer extras 'Brands' link is displayed
+        assertTrue(generalPage.isFooterExtrasBrandsLinkDisplayed(), "The footer extras section 'Brands' link isn't displayed");
+        //assert footer extras 'Gift Certificates' link is displayed
+        assertTrue(generalPage.isFooterExtrasGiftCertificatesLinkDisplayed(), "The footer extras section 'Gift Certificates' link isn't displayed");
+        //assert footer extras 'Affiliates' link is displayed
+        assertTrue(generalPage.isFooterExtrasAffiliatesLinkDisplayed(), "The footer extras section 'Affiliates' link isn't displayed");
+        //assert footer extras 'Specials' link is displayed
+        assertTrue(generalPage.isFooterExtrasSpecialsLinkDisplayed(), "The footer extras section 'Specials' link isn't displayed");
+        //assert footer my account section title is displayed
+        assertTrue(generalPage.isFooterMyAccountSectionTitleDisplayed(), "The footer my account section title isn't displayed");
+        //assert footer my account link is displayed
+        assertTrue(generalPage.isFooterMyAccountLinkDisplayed(), "The footer 'My account' link isn't displayed");
+        //assert footer my account order history link is displayed
+        assertTrue(generalPage.isFooterMyAccountOrderHistoryLinkDisplayed(), "The footer my account section 'Order history' link isn't displayed");
+        //assert footer my account wishlist link is displayed
+        assertTrue(generalPage.isFooterMyAccountWishListLinkDisplayed(), "The footer my account section 'Wishlist' link isn't displayed");
+        //assert footer my account newsletter link is displayed
+        assertTrue(generalPage.isFooterMyAccountNewsletterLinkDisplayed(), "The footer my account section 'Newsletter' link isn't displayed");
+        //assert footer copyright text is displayed
+        assertTrue(generalPage.isFooterCopyrightTextDisplayed(), "The footer copyright text isn't displayed");
+        //assert footer opencart link is displayed
+        assertTrue(generalPage.isFooterOpenCartLinkDisplayed(), "The footer Opencart link isn't displayed");
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //general page text element assert test method (elements all pages share)
+    protected void isGeneralPageTextElementAsExpected(GeneralPage generalPage){
+        //footer
+        //assert footer information section title is as expected
+        assertEquals("Information", generalPage.getFooterInformationSectionTitle(), "The footer information section title doesn't match expectations.");
+        //assert footer customer service section title is as expected
+        assertEquals("Customer Service", generalPage.getFooterCustomerServiceSectionTitle(), "The footer customer service section title doesn't match expectations.");
+        //assert footer extras section title is as expected
+        assertEquals("Extras", generalPage.getFooterExtrasSectionTitle(), "The footer extras section title doesn't match expectations.");
+        //assert footer my account section title is as expected
+        assertEquals("My Account", generalPage.getFooterMyAccountSectionTitle(), "The footer my account section title doesn't match expectations.");
+        //assert footer copyright text is as expected
+        assertEquals("Powered By OpenCart\n" + "Qafox.com © 2025", generalPage.getFooterCopyrightText(), "The footer copyright text doesn't match expectations.");
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
