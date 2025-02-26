@@ -295,6 +295,46 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No Password");
     }
 
+    //invalid user account creation test method - no user confirm password
+    protected void invalidAccountCreationNoConfirmPasswordTest(RegisterPageNoSingularInput registerPageNoSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - no confirm password
+        registerPageNoSingularInput.invalidUserRegDataNoConfirmPasswordGetter();
+        //input valid first name into first name input field
+        registerPageNoSingularInput.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPageNoSingularInput.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        registerPageNoSingularInput.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPageNoSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageNoSingularInput.inputPasswordIntoPasswordInputField();
+        //don't input confirm password into password input field
+        registerPageNoSingularInput.inputNoConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - No Confirm Password");
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("Password confirmation does not match password!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing email input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Password");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

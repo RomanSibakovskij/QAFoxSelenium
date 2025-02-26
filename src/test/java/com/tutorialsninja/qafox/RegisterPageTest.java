@@ -87,4 +87,17 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationNoPasswordTest(registerPageNoSingularInput);
     }
 
+    //Test 002f -> invalid user account creation test - no user confirm password (the output will be the same as mismatching passwords)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccCreationNoConfirmPasswordTest(){
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - no user confirm password
+        invalidAccountCreationNoConfirmPasswordTest(registerPageNoSingularInput);
+    }
+
 }

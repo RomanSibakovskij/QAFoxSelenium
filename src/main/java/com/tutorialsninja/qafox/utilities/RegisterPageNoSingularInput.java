@@ -37,6 +37,7 @@ public class RegisterPageNoSingularInput extends BasePage{
     private String noEmail;
     private String noPhoneNumber;
     private String noPassword;
+    private String noConfirmPassword;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -163,6 +164,29 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //invalid singular input methods - no user password
     public void inputNoPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(noPassword);}
+
+    //invalid user register data getter - no user confirm password
+    public void invalidUserRegDataNoConfirmPasswordGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        noConfirmPassword = "";
+
+        System.out.println("Invalid user register data generated (no user confirm password): " + "\n");
+        logger.info("Valid user first name (no user confirm password): " + userFirstName);
+        logger.info("Valid user last name (no user confirm password)): " + userLastName);
+        logger.info("Valid user email (no user confirm password): " + userEmail);
+        logger.info("Valid user phone number (no user confirm password): " + userPhoneNumber);
+        logger.info("Valid user password (no user confirm password): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - no user confirm password
+    public void inputNoConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(noConfirmPassword);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
