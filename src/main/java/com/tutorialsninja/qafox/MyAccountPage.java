@@ -135,6 +135,12 @@ public class MyAccountPage extends BasePage {
         actions.moveToElement(asideEditAccountLink).click().perform();
     }
 
+    //click 'Edit account information' link method
+    public void clickEditAccountInfoLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(myAccountPageEditAccountInfoLink).click().perform();
+    }
+
     //my account page success message getter
     public String getSuccessMessage(){return successMessage.getText();}
 

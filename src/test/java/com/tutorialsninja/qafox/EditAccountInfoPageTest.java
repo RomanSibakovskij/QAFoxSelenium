@@ -9,7 +9,7 @@ public class EditAccountInfoPageTest extends TestMethods{
 
     //Test 005 -> valid user first name edit test
     @Test
-    @DisplayName("Valid User First Name Editing Test")
+    @DisplayName("Valid User First Name Edit Test")
     @Tag("Valid_User_Account_Information_Edit")
     void validAccountFirstNameEditTest(){
         RegisterPage registerPage = new RegisterPage(driver);
@@ -19,6 +19,20 @@ public class EditAccountInfoPageTest extends TestMethods{
         validUserAccountCreationTest(registerPage);
         //valid user account information first name edit
         validEditFirstNameTest();
+    }
+
+    //Test 005a -> valid user last name edit test
+    @Test
+    @DisplayName("Valid User Last Name Edit Test")
+    @Tag("Valid_User_Account_Information_Edit")
+    void validAccountLastNameEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user account information last name edit
+        validEditLastNameTest();
     }
 
 

@@ -1290,6 +1290,39 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Edit User First Name Test Result");
     }
 
+    //valid user account last name edit test method
+    protected void validEditLastNameTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Edit account information' link
+        myAccountPage.clickEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page Before Edited Last Name Input");
+        //valid edited last name getter
+        editAccountInformationPage.validUserEditedLastNameGetter();
+        //input edited last name
+        editAccountInformationPage.inputEditedLastNameIntoLastNameInputField();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Edited Last Name Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected success message
+        assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
+        //click 'Edit account information' link to verify the first name has been indeed edited
+        myAccountPage.clickEditAccountInfoLink();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit User Last Name Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

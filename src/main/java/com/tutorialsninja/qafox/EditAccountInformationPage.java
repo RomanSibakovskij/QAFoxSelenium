@@ -36,6 +36,7 @@ public class EditAccountInformationPage extends BasePage{
 
     //valid user input data
     private String editedFirstName;
+    private String editedLastName;
 
     public EditAccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -49,10 +50,23 @@ public class EditAccountInformationPage extends BasePage{
         System.out.println("\n");
     }
 
-    //valid edited user input data method
+    public void validUserEditedLastNameGetter(){
+
+        editedLastName = "O'Broody";
+
+        System.out.println("Generated valid user edited last name: " + "\n");
+        logger.info("Edited last name: " + editedLastName);
+        System.out.println("\n");
+    }
+
+    //valid edited user input data methods
     public void inputEditedFirstNameIntoFirstNameInputField(){
         editAccountInfoFirstNameInputField.clear();
         editAccountInfoFirstNameInputField.sendKeys(editedFirstName);
+    }
+    public void inputEditedLastNameIntoLastNameInputField(){
+        editAccountInfoLastNameInputField.clear();
+        editAccountInfoLastNameInputField.sendKeys(editedLastName);
     }
 
     //click 'Continue' button method
@@ -60,6 +74,8 @@ public class EditAccountInformationPage extends BasePage{
         Actions actions = new Actions(driver);
         actions.click(editAccountInfoContinueButton).click().perform();
     }
+
+
 
     //edit account information text element getters
     public String getEditAccountInformationTitle() {return editAccountInformationTitle.getText();}
