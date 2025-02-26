@@ -35,6 +35,7 @@ public class RegisterPageNoSingularInput extends BasePage{
     private String noFirstName;
     private String noLastName;
     private String noEmail;
+    private String noPhoneNumber;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -68,6 +69,7 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //invalid singular input methods - no user first name
     public void inputNoFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(noFirstName);}
+
 
     //invalid user register data getter - no user last name
     public void invalidUserRegDataNoLastNameGetter(){
@@ -114,6 +116,29 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //invalid singular input methods - no user email address
     public void inputNoEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(noEmail);}
+
+    //invalid user register data getter - no user phone
+    public void invalidUserRegDataNoPhoneGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        noPhoneNumber = "";
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (no user phone): " + "\n");
+        logger.info("Valid user first name (no user phone): " + userFirstName);
+        logger.info("Valid user last name (no user phone): " + userLastName);
+        logger.info("Valid user email (no user phone): " + userEmail);
+        logger.info("No user phone number: " + noPhoneNumber);
+        logger.info("Valid user password (no user phone): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - no user phone number
+    public void inputNoPhoneIntoPhoneInputField(){registerPagePhoneInputField.sendKeys(noPhoneNumber);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
