@@ -95,6 +95,12 @@ public class MyAccountPage extends BasePage {
 
     public MyAccountPage(WebDriver driver) {super(driver);}
 
+    //click 'Logout' link method
+    public void clickLogoutLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(asideLogoutLink).click().perform();
+    }
+
     //my account page text element getters
     public String getMyAccountSectionTitle() {return myAccountPageMyAccountSectionTitle.getText();}
     public String getMyOrdersSectionTitle() {return myAccountPageMyOrdersSectionTitle.getText();}

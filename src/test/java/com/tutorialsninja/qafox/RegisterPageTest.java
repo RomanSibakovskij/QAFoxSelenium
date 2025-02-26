@@ -1,7 +1,6 @@
 package com.tutorialsninja.qafox;
 
 import com.tutorialsninja.qafox.utilities.*;
-import com.tutorialsninja.qafox.utilities.TestMethods;
 import org.junit.jupiter.api.*;
 
 public class RegisterPageTest extends TestMethods {

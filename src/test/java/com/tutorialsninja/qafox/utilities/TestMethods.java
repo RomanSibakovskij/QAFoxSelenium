@@ -949,6 +949,30 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Email Input Format");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //user logout test method
+    protected void userLogOutTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        myAccountPage.clickLogoutLink();
+        //assert the user gets the expected logout success message elements
+        assertLogoutSuccessMessageMatchesExpectations(myAccountPage);
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "User Log Out Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -1392,6 +1416,16 @@ public class TestMethods extends BaseTest{
     protected void isAddressBookEntriesPageTextElementAsExpected(AddressBookEntriesPage addressBookEntriesPage){
         //assert address book entries page title is as expected
         assertEquals("Address Book Entries", addressBookEntriesPage.getAddressBookEntriesPageTitle(), "The address book entries page title doesn't match expectations.");
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //logout success message assert method
+    protected void assertLogoutSuccessMessageMatchesExpectations(MyAccountPage myAccountPage){
+        //assert the user gets the expected logout success message elements (these are general 'My Account' page elements - their content is different on each page)
+        assertEquals("Account Logout", myAccountPage.getSuccessMessageTitle(), "The logout success message title doesn't match expectations or the user account creation has failed.");
+        assertEquals("You have been logged off your account. It is now safe to leave the computer.", myAccountPage.successMessageOne(), "The logout success message part one doesn't match expectations or the user account creation has failed.");
+        assertEquals("Your shopping cart has been saved, the items inside it will be restored whenever you log back into your account.", myAccountPage.getSuccessMessageTwo(), "The logout success message part two doesn't match expectations or the user account creation has failed.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
