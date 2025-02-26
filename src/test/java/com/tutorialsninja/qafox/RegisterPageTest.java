@@ -221,4 +221,17 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooLongEmailTest(registerPageTooLongSingularInput);
     }
 
+    //Test 002p -> invalid user account creation test - too long phone number (33 digits)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long Phone")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccCreationTooLongPhoneTest(){
+        RegisterPageTooLongSingularInput registerPageTooLongSingularInput = new RegisterPageTooLongSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - too long user phone number (33 digits)
+        invalidAccountCreationTooLongPhoneTest(registerPageTooLongSingularInput);
+    }
+
 }
