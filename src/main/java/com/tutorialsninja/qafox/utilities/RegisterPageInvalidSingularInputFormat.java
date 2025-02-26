@@ -33,6 +33,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid singular input format
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
+    private String invalidEmailFormat;
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -88,8 +89,30 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     }
 
     //invalid singular input methods - invalid user last name input format
-    public void inputInvalidLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidLastNameFormat);}
+    public void inputInvalidLastNameFormatIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidLastNameFormat);}
 
+    //invalid user register data getter - too long user email address (missing '@')
+    public void invalidUserRegDataInvalidEmailFormatGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        invalidEmailFormat = "frdsxcdfakemail.com";
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (invalid user email format): " + "\n");
+        logger.info("Valid user first name (invalid user email format): " + userFirstName);
+        logger.info("Valid user last name (invalid user email format): " + userLastName);
+        logger.info("Invalid user email input format: " + invalidEmailFormat);
+        logger.info("Valid user phone number (invalid user email format): " + userPhoneNumber);
+        logger.info("Valid user password (invalid user email format): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - invalid user email address format
+    public void inputInvalidEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidEmailFormat);}
 
 
     //invalid singular input error getter

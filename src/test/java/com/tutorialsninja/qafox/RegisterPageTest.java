@@ -275,4 +275,17 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationInvalidLastNameFormatTest(registerPageInvalidSingularInputFormat);
     }
 
+    //Test 002t -> invalid user account creation test - invalid email format (missing '@') (the error hasn't been triggered, however, user account creation has aborted, test has passed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid Email Input Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccCreationInvalidEmailFormatTest(){
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - invalid user email input format (missing '@')
+        invalidAccountCreationInvalidEmailFormatTest(registerPageInvalidSingularInputFormat);
+    }
+
 }
