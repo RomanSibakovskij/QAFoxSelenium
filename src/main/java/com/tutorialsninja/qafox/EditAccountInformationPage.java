@@ -37,6 +37,7 @@ public class EditAccountInformationPage extends BasePage{
     //valid user input data
     private String editedFirstName;
     private String editedLastName;
+    private String editedEmail;
 
     public EditAccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -59,6 +60,15 @@ public class EditAccountInformationPage extends BasePage{
         System.out.println("\n");
     }
 
+    public void validUserEditedEmailGetter(){
+
+        editedEmail = TestDataGenerator.generateRandomEmailAddress(9);
+
+        System.out.println("Generated valid user edited email: " + "\n");
+        logger.info("Edited email: " + editedEmail);
+        System.out.println("\n");
+    }
+
     //valid edited user input data methods
     public void inputEditedFirstNameIntoFirstNameInputField(){
         editAccountInfoFirstNameInputField.clear();
@@ -68,6 +78,10 @@ public class EditAccountInformationPage extends BasePage{
         editAccountInfoLastNameInputField.clear();
         editAccountInfoLastNameInputField.sendKeys(editedLastName);
     }
+    public void inputEditedEmailIntoEmailInputField(){
+        editAccountInfoEmailInputField.clear();
+        editAccountInfoEmailInputField.sendKeys(editedEmail);
+    }
 
     //click 'Continue' button method
     public void clickEditInfoContinueButton(){
@@ -75,7 +89,8 @@ public class EditAccountInformationPage extends BasePage{
         actions.click(editAccountInfoContinueButton).click().perform();
     }
 
-
+    //updated valid user login data getter
+    public String getUpdatedUserEmail() {return editedEmail;}
 
     //edit account information text element getters
     public String getEditAccountInformationTitle() {return editAccountInformationTitle.getText();}

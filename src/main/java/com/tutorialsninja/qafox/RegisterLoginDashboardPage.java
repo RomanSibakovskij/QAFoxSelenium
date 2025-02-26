@@ -52,6 +52,9 @@ public class RegisterLoginDashboardPage extends BasePage{
     private String invalidLoginEmail;
     private String invalidLoginPassword;
 
+    //updated singular input data
+    private String updatedEmail;
+
     public RegisterLoginDashboardPage(WebDriver driver) {super(driver);}
 
     //valid user login data getter
@@ -132,6 +135,23 @@ public class RegisterLoginDashboardPage extends BasePage{
     //invalid user login input data methods - invalid singular input
     public void inputInvalidLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(invalidLoginEmail);}
     public void inputInvalidLoginPasswordIntoPasswordInputField() {loginPasswordInputField.sendKeys(invalidLoginPassword);}
+
+    //valid user login data getter - updated user email
+    public void validUserLoginUpdatedEmailGetter(RegisterPage registerPage) {
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+
+        updatedEmail = editAccountInformationPage.getUpdatedUserEmail();
+        loginUserPassword = registerPage.getUserPassword();
+
+        System.out.println("Valid user login data (with updated email): " + "\n");
+        logger.info("Updated user login email: " + updatedEmail);
+        logger.info("Valid user password (with updated email): " + loginUserPassword);
+        System.out.println("\n");
+
+    }
+
+    //valid user login input data methods - updated singular input
+    public void inputUpdatedLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(updatedEmail);}
 
     //click 'Login' button
     public void clickLoginButton() {

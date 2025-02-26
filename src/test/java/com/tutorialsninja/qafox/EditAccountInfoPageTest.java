@@ -17,7 +17,7 @@ public class EditAccountInfoPageTest extends TestMethods{
         userNavigationToRegisterPageTest();
         //valid user account creation
         validUserAccountCreationTest(registerPage);
-        //valid user account information first name edit
+        //valid user account information first name edit test
         validEditFirstNameTest();
     }
 
@@ -31,8 +31,22 @@ public class EditAccountInfoPageTest extends TestMethods{
         userNavigationToRegisterPageTest();
         //valid user account creation
         validUserAccountCreationTest(registerPage);
-        //valid user account information last name edit
+        //valid user account information last name edit test
         validEditLastNameTest();
+    }
+
+    //Test 005b -> valid user email edit test
+    @Test
+    @DisplayName("Valid User Email Edit Test")
+    @Tag("Valid_User_Account_Information_Edit")
+    void validAccountEmailEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user account information email edit test
+        validEditEmailTest();
     }
 
 
