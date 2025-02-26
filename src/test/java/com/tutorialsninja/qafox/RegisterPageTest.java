@@ -100,9 +100,22 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationNoConfirmPasswordTest(registerPageNoSingularInput);
     }
 
+    //Test 002g -> invalid user account creation test - don't click 'Agree to Privacy policy' checkbox
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No 'Agree to Privacy Policy'")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccCreationNoAgreeToPrivacyPolicyTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - don't click 'Agree to Privacy policy' checkbox
+        invalidUserAccountCreationNoAgreeToPrivacyTest(registerPage);
+    }
+
     //too short singular input
 
-    //Test 002g -> invalid user account creation test - too short first name (1 char) (user account gets created - test has failed)
+    //Test 002h -> invalid user account creation test - too short first name (1 char) (user account gets created - test has failed)
     @Test
     @DisplayName("Invalid User Account Creation Test - Too Short First Name")
     @Tag("Invalid_User_Account_Creation")
@@ -115,7 +128,7 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooShortFirstNameTest(registerPageTooShortSingularInput);
     }
 
-    //Test 002h -> invalid user account creation test - too short user last name (1 char) (user account gets created - test has failed)
+    //Test 002i -> invalid user account creation test - too short user last name (1 char) (user account gets created - test has failed)
     @Test
     @DisplayName("Invalid User Account Creation Test - Too Short Last Name")
     @Tag("Invalid_User_Account_Creation")
@@ -128,7 +141,7 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooShortLastNameTest(registerPageTooShortSingularInput);
     }
 
-    //Test 002i -> invalid user account creation test - too short user email address (1 char -> name, domain) (user account gets created - test has failed)
+    //Test 002j -> invalid user account creation test - too short user email address (1 char -> name, domain) (user account gets created - test has failed)
     @Test
     @DisplayName("Invalid User Account Creation Test - Too Short Email")
     @Tag("Invalid_User_Account_Creation")
@@ -141,7 +154,7 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooShortEmailTest(registerPageTooShortSingularInput);
     }
 
-    //Test 002j -> invalid user account creation test - too short user phone number (2 digits)
+    //Test 002k -> invalid user account creation test - too short user phone number (2 digits)
     @Test
     @DisplayName("Invalid User Account Creation Test - Too Short Phone")
     @Tag("Invalid_User_Account_Creation")
@@ -154,7 +167,7 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooShortPhoneTest(registerPageTooShortSingularInput);
     }
 
-    //Test 002k -> invalid user account creation test - too short user password (3 chars)
+    //Test 002l -> invalid user account creation test - too short user password (3 chars)
     @Test
     @DisplayName("Invalid User Account Creation Test - Too Short Password")
     @Tag("Invalid_User_Account_Creation")

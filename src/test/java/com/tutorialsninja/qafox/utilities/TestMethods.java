@@ -290,7 +290,7 @@ public class TestMethods extends BaseTest{
         //click 'Continue' button
         registerPage.clickRegisterPageContinueButton();
         //assert the user gets an expected error message
-        assertEquals("Password must be between 4 and 20 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing email input error message doesn't match expectations or the error wasn't triggered.");
+        assertEquals("Password must be between 4 and 20 characters!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing password input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No Password");
     }
@@ -330,9 +330,45 @@ public class TestMethods extends BaseTest{
         //click 'Continue' button
         registerPage.clickRegisterPageContinueButton();
         //assert the user gets an expected error message
-        assertEquals("Password confirmation does not match password!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing email input error message doesn't match expectations or the error wasn't triggered.");
+        assertEquals("Password confirmation does not match password!", registerPageNoSingularInput.getInvalidSingularInputError(), "The missing confirm password input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Password");
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Confirm Password");
+    }
+
+    //invalid user account creation test - don't click 'Agree to PrivacyPolicy' checkbox
+    protected void invalidUserAccountCreationNoAgreeToPrivacyTest(RegisterPage registerPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before data input
+        captureScreenshot(driver, "Register Page Before Valid User Data Input");
+        //valid register data getter
+        registerPage.validUserRegisterDataGetter();;
+        //input valid first name into first name input field
+        registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPage.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        registerPage.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPage.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPage.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("Warning: You must agree to the Privacy Policy!", registerPageNoSingularInput.getAgreeToPrivacyPolicyError(), "The error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Don't Click 'Agree to Privacy Policy' checkbox.");
     }
 
     //too short singular input

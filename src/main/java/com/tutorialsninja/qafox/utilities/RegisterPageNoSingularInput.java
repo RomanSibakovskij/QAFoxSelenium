@@ -18,9 +18,12 @@ public class RegisterPageNoSingularInput extends BasePage{
     private WebElement registerPagePasswordInputField;
     @FindBy(xpath = "//fieldset[2]//input[@id='input-confirm']")
     private WebElement registerPageConfirmPasswordInputField;
-    //invalid singular input message
+    //invalid singular input message element
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement registerPageInvalidSingularInputError;
+    //missing 'Agree to Privacy Policy' checkbox click error element
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement registerPageMissingAgreeToPrivacyError;
 
     //valid user register data
     private static String userFirstName;
@@ -189,5 +192,7 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
+    //missing 'Agree to Privacy Policy' error getter
+    public String getAgreeToPrivacyPolicyError(){return registerPageMissingAgreeToPrivacyError.getText();}
 
 }
