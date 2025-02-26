@@ -82,7 +82,7 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditNoFirstNameTest();
     }
 
-    //Test 005d -> invalid user account information edit test - no last name
+    //Test 005e -> invalid user account information edit test - no last name
     @Test
     @DisplayName("Invalid User Account Info Edit Test - No Last Name")
     @Tag("Invalid_User_Account_Information_Edit")
@@ -95,6 +95,21 @@ public class EditAccountInfoPageTest extends TestMethods{
         validUserAccountCreationTest(registerPage);
         //invalid user account information edit test - no last name
         invalidEditNoLastNameTest();
+    }
+
+    //Test 005f -> invalid user account information edit test - no email
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - No Email")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("No_Singular_Input")
+    void invalidAccountNoEmailEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - no email
+        invalidEditNoEmailTest();
     }
 
 
