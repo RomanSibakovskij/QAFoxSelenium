@@ -33,6 +33,7 @@ public class RegisterPageTooLongSingularInput extends BasePage{
     //too long singular input
     private String tooLongFirstName;
     private String tooLongLastName;
+    private String tooLongEmail;
 
     public RegisterPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -89,6 +90,29 @@ public class RegisterPageTooLongSingularInput extends BasePage{
 
     //invalid singular input methods - too long user last name
     public void inputTooLongLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooLongLastName);}
+
+    //invalid user register data getter - too long user email address (100 chars -> name, domain)
+    public void invalidUserRegDataTooLongEmailGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        tooLongEmail = "Azfddfsfvxvxcbfgswerteryytiyuokjmsdsdffdxcxchgjhhjlkrtertrtuyuyoupjhdfsdcxcbgjgjgsdasdsderweqwqerter@gfzfddfsfvxvxcbfgswerteryytiyuokjmsdsdffdxcxchgjhhjlkrtertrtuyuyoupjhdfsdcxcbgjgjgsdasdsderweqwqerter.com";
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (too long user email): " + "\n");
+        logger.info("Valid user first name (too long user email): " + userFirstName);
+        logger.info("Valid user last name (too long user email): " + userLastName);
+        logger.info("Too long user email: " + tooLongEmail);
+        logger.info("Valid user phone number (too long user email): " + userPhoneNumber);
+        logger.info("Valid user password (too long user email): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - too long user email address
+    public void inputTooLongEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooLongEmail);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}

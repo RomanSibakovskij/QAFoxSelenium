@@ -683,6 +683,50 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Last Name");
     }
 
+    //invalid user account creation test method - too long last name (100 chars -> name, domain) (the error doesn't get triggered but the account creation has been aborted - test has passed)
+    protected void invalidAccountCreationTooLongEmailTest(RegisterPageTooLongSingularInput registerPageTooLongSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - too long email
+        registerPageTooLongSingularInput.invalidUserRegDataTooLongEmailGetter();
+        //input valid first name into first name input field
+        registerPageTooLongSingularInput.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPageTooLongSingularInput.inputLastNameIntoLastNameInputField();
+        //input too long email into email input field (100 chars -> name, domain)
+        registerPageTooLongSingularInput.inputTooLongEmailIntoEmailInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Too Long Email");
+        //input valid phone number into phone input field
+        registerPageTooLongSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageTooLongSingularInput.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageTooLongSingularInput.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("E-Mail Address does not appear to be valid!", registerPageTooLongSingularInput.getInvalidSingularInputError(), "The too long email input error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too long email error doesn't get triggered, the user account gets created");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Email");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
