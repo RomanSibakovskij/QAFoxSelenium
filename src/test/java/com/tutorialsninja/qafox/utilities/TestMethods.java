@@ -1236,6 +1236,42 @@ public class TestMethods extends BaseTest{
         assertTrue(myAccountPage.isMyAccountPageAsideLogoutLinkDisplayed(), "The my account page aside section logout link isn't displayed");
     }
 
+    //edit account information web element assert test method
+    protected void isEditAccountInfoPageWebElementDisplayed(EditAccountInformationPage editAccountInformationPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert register/login dashboard page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The register/login dashboard page breadcrumb isn't displayed");
+        //main section
+        //assert edit account information page title is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInformationTitleDisplayed(), "The edit account information page title isn't displayed");
+        //assert edit account information page subtitle is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInformationSubtitleDisplayed(), "The edit account information page subtitle isn't displayed");
+        //assert edit account information page first name subtitle is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoFirstNameSubtitleDisplayed(), "The edit account information page first name subtitle isn't displayed");
+        //assert edit account information page first name input field is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoFirstNameInputFieldDisplayed(), "The edit account information page first name input field isn't displayed");
+        //assert edit account information page last name subtitle is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoLastNameSubtitleDisplayed(), "The edit account information page last name subtitle isn't displayed");
+        //assert edit account information page last name input field is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoLastNameInputFieldDisplayed(), "The edit account information page last name input field isn't displayed");
+        //assert edit account information page email subtitle is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoEmailSubtitleDisplayed(), "The edit account information page email subtitle isn't displayed");
+        //assert edit account information page email input field is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoEmailInputFieldDisplayed(), "The edit account information page email input field isn't displayed");
+        //assert edit account information page phone subtitle is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoPhoneSubtitleDisplayed(), "The edit account information page phone subtitle isn't displayed");
+        //assert edit account information page phone input field is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoPhoneInputFieldDisplayed(), "The edit account information page phone input field isn't displayed");
+        //assert edit account information page first name input field is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoFirstNameInputFieldDisplayed(), "The edit account information page first name input field isn't displayed");
+        //assert edit account information page back button is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoBackButtonDisplayed(), "The edit account information page back button isn't displayed");
+        //assert edit account information page continue button is displayed
+        assertTrue(editAccountInformationPage.isEditAccountInfoContinueButtonDisplayed(), "The edit account information page continue button isn't displayed");
+        //aside section (register page, my account, register/login dashboard and edit account information pages share same aside links but with different names)
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
     //address book entries web element assert test method
     protected void isAddressBookEntriesPageWebElementDisplayed(AddressBookEntriesPage addressBookEntriesPage) {
         MyAccountPage myAccountPage = new MyAccountPage(driver);
@@ -1334,6 +1370,22 @@ public class TestMethods extends BaseTest{
         assertEquals("My Affiliate Account", myAccountPage.getMyAffiliateAccountSectionTitle(), "The my account page 'My Affiliate Account' section title doesn't match expectations.");
         //assert newsletter section title is as expected
         assertEquals("Newsletter", myAccountPage.getMyAccountPageNewsletterSectionTitle(), "The my account page 'Newsletter' section title doesn't match expectations.");
+    }
+
+    //edit account information page text element assert test method
+    protected void isEditAccountInfoPageTextElementAsExpected(EditAccountInformationPage editAccountInformationPage){
+        //assert edit account information page title is as expected
+        assertEquals("My Account Information", editAccountInformationPage.getEditAccountInformationTitle(), "The edit account information page title doesn't match expectations.");
+        //assert edit account information page subtitle is as expected
+        assertEquals("Your Personal Details", editAccountInformationPage.getEditAccountInformationSubtitle(), "The edit account information page subtitle doesn't match expectations.");
+        //assert edit account information first name subtitle is as expected
+        assertEquals("First Name", editAccountInformationPage.getEditAccountInfoFirstNameSubtitle(), "The edit account information page first name subtitle doesn't match expectations.");
+        //assert edit account information last name subtitle is as expected
+        assertEquals("Last Name", editAccountInformationPage.getEditAccountInfoLastNameSubtitle(), "The edit account information page last name subtitle doesn't match expectations.");
+        //assert edit account information email subtitle is as expected
+        assertEquals("E-Mail", editAccountInformationPage.getEditAccountInfoEmailSubtitle(), "The edit account information page email subtitle doesn't match expectations.");
+        //assert edit account information phone subtitle is as expected
+        assertEquals("Telephone", editAccountInformationPage.getEditAccountInfoPhoneSubtitle(), "The edit account information page phone subtitle doesn't match expectations.");
     }
 
     //address book entries page text element assert test method
