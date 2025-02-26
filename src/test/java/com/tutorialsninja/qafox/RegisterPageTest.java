@@ -102,7 +102,7 @@ public class RegisterPageTest extends TestMethods {
 
     //too short singular input
 
-    //Test 002g -> invalid user account creation test - too short first name
+    //Test 002g -> invalid user account creation test - too short first name (user account gets created - test has failed)
     @Test
     @DisplayName("Invalid User Account Creation Test - Too Short First Name")
     @Tag("Invalid_User_Account_Creation")
@@ -113,6 +113,19 @@ public class RegisterPageTest extends TestMethods {
         userNavigationToRegisterPageTest();
         //invalid user account creation - too short user first name
         invalidAccountCreationTooShortFirstNameTest(registerPageTooShortSingularInput);
+    }
+
+    //Test 002h -> invalid user account creation test - too short user last name (user account gets created - test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short Last Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccCreationTooShortLastNameTest(){
+        RegisterPageTooShortSingularInput registerPageTooShortSingularInput = new RegisterPageTooShortSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - too short user last name
+        invalidAccountCreationTooShortLastNameTest(registerPageTooShortSingularInput);
     }
 
 }
