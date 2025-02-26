@@ -35,6 +35,8 @@ public class RegisterPageTooShortSingularInput extends BasePage{
     private String tooShortLastName;
     private String tooShortEmail;
     private String tooShortPhone;
+    private String tooShortPassword;
+    private String tooShortConfirmPassword;
 
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -137,6 +139,31 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     //invalid singular input methods - too short user phone number (2 digits)
     public void inputTooShortPhoneIntoPhoneInputField(){registerPagePhoneInputField.sendKeys(tooShortPhone);}
+
+    //invalid user register data getter - too short user password (3 chars)
+    public void invalidUserRegDataTooShortPasswordGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        tooShortPassword = "F5#";
+        tooShortConfirmPassword = tooShortPassword;
+
+        System.out.println("Invalid user register data generated (too short user password): " + "\n");
+        logger.info("Valid user first name (too short user password): " + userFirstName);
+        logger.info("Valid user last name (too short user password): " + userLastName);
+        logger.info("Valid user email (too short user password): " + userEmail);
+        logger.info("Valid user phone number (too short user password): " + userPhoneNumber);
+        logger.info("Too short user password: " + tooShortPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - too short user password
+    public void inputTooShortPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(tooShortPassword);}
+    //invalid singular input methods - too short user confirm password
+    public void inputTooShortConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(tooShortConfirmPassword);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}

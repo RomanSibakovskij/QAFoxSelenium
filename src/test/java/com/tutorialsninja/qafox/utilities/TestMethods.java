@@ -469,7 +469,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Email");
     }
 
-    //invalid user account creation test method - too short phone (3 digits)
+    //invalid user account creation test method - too short phone (2 digits)
     protected void invalidAccountCreationTooShortPhoneTest(RegisterPageTooShortSingularInput registerPageTooShortSingularInput) {
         GeneralPage generalPage = new GeneralPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
@@ -511,6 +511,50 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Phone");
+    }
+
+    //invalid user account creation test method - too short phone (3 chars)
+    protected void invalidAccountCreationTooShortPasswordTest(RegisterPageTooShortSingularInput registerPageTooShortSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - too short password (3 chars)
+        registerPageTooShortSingularInput.invalidUserRegDataTooShortPasswordGetter();
+        //input valid first name into first name input field
+        registerPageTooShortSingularInput.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPageTooShortSingularInput.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        registerPageTooShortSingularInput.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPageTooShortSingularInput.inputPhoneIntoPhoneInputField();
+        //input too short password into password input field (3 chars)
+        registerPageTooShortSingularInput.inputTooShortPasswordIntoPasswordInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Too Short Password");
+        //input matching confirm password into confirm password input field
+        registerPageTooShortSingularInput.inputTooShortConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("Password must be between 4 and 20 characters!", registerPageTooShortSingularInput.getInvalidSingularInputError(), "The too short password input error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too short password error doesn't get triggered, the user account gets created");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Password");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
