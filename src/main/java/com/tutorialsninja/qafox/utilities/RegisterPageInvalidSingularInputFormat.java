@@ -21,6 +21,9 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid singular input message
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement registerPageInvalidSingularInputError;
+    //existing email error element
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement existingEmailError;
 
     //valid user register data
     private static String userFirstName;
@@ -34,6 +37,8 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
     private String invalidEmailFormat;
+    //pre-existing singular data
+    private String existingEmail;
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -114,6 +119,32 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid singular input methods - invalid user email address format
     public void inputInvalidEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidEmailFormat);}
 
+    //invalid user register data getter - pre-existing user email address format (user beforehand in manual testing)
+    public void invalidUserRegDataExistingEmailFormatGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        existingEmail = "m1@example.com";
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (pre-existing user email): " + "\n");
+        logger.info("Valid user first name (pre-existing user email): " + userFirstName);
+        logger.info("Valid user last name (pre-existing user email): " + userLastName);
+        logger.info("Pre-existing user email: " + existingEmail);
+        logger.info("Valid user phone number (pre-existing user email): " + userPhoneNumber);
+        logger.info("Valid user password (pre-existing user email): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - pre-existing user email address format
+    public void inputExistingEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(existingEmail);}
+
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
+
+    //existing email error message getter
+    public String getExistingEmailError() {return existingEmailError.getText();}
 }

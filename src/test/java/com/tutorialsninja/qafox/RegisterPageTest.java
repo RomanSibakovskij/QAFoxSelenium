@@ -287,4 +287,17 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationInvalidEmailFormatTest(registerPageInvalidSingularInputFormat);
     }
 
+    //Test 002u -> invalid user account creation test - existing email (used beforehand in manual testing) (the error hasn't been triggered, however, user account creation has aborted, test has passed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Existing Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Pre_Existing_Singular_Input")
+    void invalidAccCreationExistingEmailTest(){
+        RegisterPage registerPage = new RegisterPage(driver); //
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - existing email (used beforehand)
+        invalidAccountCreationExistingEmailTest(registerPage);
+    }
+
 }

@@ -921,7 +921,7 @@ public class TestMethods extends BaseTest{
         isRegisterPageTextElementAsExpected(registerPage);
         //capture screenshot before invalid data input
         captureScreenshot(driver, "Register Page Before Invalid User Data Input");
-        //invalid register data getter - invalid last name input format (missing '@')
+        //invalid register data getter - invalid email input format (missing '@')
         registerPageInvalidSingularInputFormat.invalidUserRegDataInvalidEmailFormatGetter();
         //input valid first name into first name input field
         registerPageInvalidSingularInputFormat.inputFirstNameIntoFirstNameInputField();
@@ -946,6 +946,84 @@ public class TestMethods extends BaseTest{
             assertEquals("E-Mail Address does not appear to be valid!", registerPageInvalidSingularInputFormat.getInvalidSingularInputError(), "The invalid email input format error message doesn't match expectations.");
         } catch (NoSuchElementException nse) {
             logger.error("The invalid email input format error doesn't get triggered, however, the user account creation gets aborted");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Email Input Format");
+    }
+
+    //invalid user account creation test method - existing email (used beforehand)
+    protected void invalidAccountCreationExistingEmailTest(RegisterPage registerPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before data input
+        captureScreenshot(driver, "Register Page Before Valid User Data Input");
+        //valid register data getter
+        registerPage.validUserRegisterDataGetter();;
+        //input valid first name into first name input field
+        registerPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPage.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        registerPage.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPage.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPage.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        myAccountPage.clickLogoutLink();
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //second account creation loop
+        //click account dropdown menu
+        generalPage.clickAccountDropdownMenuLink();
+        //click 'Register' option
+        generalPage.clickRegisterOptionLink();
+        //invalid register data getter - existing email (used beforehand in manual testing)
+        registerPageInvalidSingularInputFormat.invalidUserRegDataExistingEmailFormatGetter();
+        //input valid first name into first name input field
+        registerPageInvalidSingularInputFormat.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPageInvalidSingularInputFormat.inputLastNameIntoLastNameInputField();
+        //input existing email into email input field (used beforehand in manual testing)
+        registerPageInvalidSingularInputFormat.inputExistingEmailIntoEmailInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Existing Email");
+        //input valid phone number into phone input field
+        registerPageInvalidSingularInputFormat.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageInvalidSingularInputFormat.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageInvalidSingularInputFormat.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("Warning: E-Mail Address is already registered!", registerPageInvalidSingularInputFormat.getExistingEmailError(), "The existing email input error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The existing email input error doesn't get triggered.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Email Input Format");
