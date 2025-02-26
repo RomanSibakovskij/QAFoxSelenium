@@ -50,6 +50,7 @@ public class RegisterLoginDashboardPage extends BasePage{
 
     //invalid singular input data
     private String invalidLoginEmail;
+    private String invalidLoginPassword;
 
     public RegisterLoginDashboardPage(WebDriver driver) {super(driver);}
 
@@ -116,8 +117,21 @@ public class RegisterLoginDashboardPage extends BasePage{
 
     }
 
+    public void invalidUserLoginInvalidPasswordGetter(RegisterPage registerPage) {
+
+        loginUserEmail = registerPage.getUserEmail();
+        invalidLoginPassword = "Sxcxxcvb!#!@3";
+
+        System.out.println("Invalid user login data (invalid login password): " + "\n");
+        logger.info("Valid user login email (invalid login password): " + loginUserEmail);
+        logger.info("Invalid user password: " + invalidLoginPassword);
+        System.out.println("\n");
+
+    }
+
     //invalid user login input data methods - invalid singular input
     public void inputInvalidLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(invalidLoginEmail);}
+    public void inputInvalidLoginPasswordIntoPasswordInputField() {loginPasswordInputField.sendKeys(invalidLoginPassword);}
 
     //click 'Login' button
     public void clickLoginButton() {
