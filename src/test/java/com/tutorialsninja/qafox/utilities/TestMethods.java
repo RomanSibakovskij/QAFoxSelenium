@@ -1055,11 +1055,14 @@ public class TestMethods extends BaseTest{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //valid user login test
+    //valid user login tests
+
+    //valid user login test method
     protected void validUserLoginTest(RegisterPage registerPage) {
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
         RegisterLoginDashboardPage registerLoginDashboardPage = new RegisterLoginDashboardPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
         //general page web element assert
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert
@@ -1068,6 +1071,12 @@ public class TestMethods extends BaseTest{
         isHomePageWebElementDisplayed(homePage);
         //home page text element assert
         isHomePageTextElementAsExpected(homePage);
+        //click 'Logout' link
+        myAccountPage.clickLogoutLink();
+        //assert the user gets the expected logout success message elements
+        assertLogoutSuccessMessageMatchesExpectations(myAccountPage);
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
         //click account dropdown menu
         generalPage.clickAccountDropdownMenuLink();
         //click 'Login' option link
@@ -1092,11 +1101,65 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid User Login Test Result");
     }
 
+    //valid user login test method (with updated email)
+    protected void validUserLoginUpdatedEmailTest(RegisterPage registerPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        RegisterLoginDashboardPage registerLoginDashboardPage = new RegisterLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Edit account information' link
+        myAccountPage.clickEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page Before Edited Last Name Input");
+        //valid edited email getter
+        editAccountInformationPage.validUserEditedEmailGetter();
+        //input edited email
+        editAccountInformationPage.inputEditedEmailIntoEmailInputField();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Edited Email Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //click 'Logout' link
+        myAccountPage.clickLogoutLink();
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //click account dropdown menu
+        generalPage.clickAccountDropdownMenuLink();
+        //click 'Logout' option link
+        generalPage.clickLoginOptionLink();
+        //capture screenshot of the page before valid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Display Before Valid Updated User Login Data Input");
+        //register/login dashboard page web element assert
+        isRegisterLoginDashboardPageWebElementDisplayed(registerLoginDashboardPage);
+        //register/login dashboard page text element assert
+        isRegisterLoginDashboardPageTextElementAsExpected(registerLoginDashboardPage);
+        //valid user login data getter (with updated user email)
+        registerLoginDashboardPage.validUserLoginUpdatedEmailGetter(registerPage);
+        //input valid updated user login email into email input field
+        registerLoginDashboardPage.inputUpdatedLoginEmailIntoEmailInputField();
+        //input valid user login password into password input field
+        registerLoginDashboardPage.inputValidUserLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the valid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Valid User Login Data Input - With Updated Email");
+        //click 'Login' button
+        registerLoginDashboardPage.clickLoginButton();
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Valid User Login Test Result (with updated email)");
+    }
+
     //invalid login tests
 
     //no singular input
 
-    //invalid user login test - no login email
+    //invalid user login test method - no login email
     protected void invalidUserLoginNoEmailTest(RegisterPage registerPage) {
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -1135,7 +1198,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Login Test Result - No Login Email");
     }
 
-    //invalid user login test - no login password
+    //invalid user login test method - no login password
     protected void invalidUserLoginNoPaaswordTest(RegisterPage registerPage) {
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -1176,7 +1239,7 @@ public class TestMethods extends BaseTest{
 
     //invalid singular input
 
-    //invalid user login test - invalid login email
+    //invalid user login test method - invalid login email
     protected void invalidUserLoginInvalidEmailTest(RegisterPage registerPage) {
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -1215,7 +1278,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Email");
     }
 
-    //invalid user login test - invalid login password
+    //invalid user login test method - invalid login password
     protected void invalidUserLoginInvalidPasswordTest(RegisterPage registerPage) {
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);

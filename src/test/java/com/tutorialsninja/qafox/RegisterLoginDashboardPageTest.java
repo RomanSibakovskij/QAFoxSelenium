@@ -39,6 +39,21 @@ public class RegisterLoginDashboardPageTest extends TestMethods{
         validUserLoginTest(registerPage);
     }
 
+    //Test 004a -> valid user login test - with updated user email
+    @Test
+    @DisplayName("Valid User Login Test - Updated User Email")
+    @Tag("Valid_User_Login")
+    @Tag("Updated_Singular_Input")
+    void validAccountLoginUpdatedEmailTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user login test - with updated user email
+        validUserLoginUpdatedEmailTest(registerPage);
+    }
+
     //invalid user login tests
 
     //no singular input

@@ -37,7 +37,7 @@ public class EditAccountInformationPage extends BasePage{
     //valid user input data
     private String editedFirstName;
     private String editedLastName;
-    private String editedEmail;
+    private static String editedEmail;
 
     public EditAccountInformationPage(WebDriver driver) {super(driver);}
 
