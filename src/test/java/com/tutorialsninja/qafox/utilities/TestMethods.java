@@ -75,16 +75,8 @@ public class TestMethods extends BaseTest{
         registerPage.clickAgreeToPrivacyPolicyCheckbox();
         //click 'Continue' button
         registerPage.clickRegisterPageContinueButton();
-        /* (due to Selenium skipping the overview sometimes, the elements may not be discovered by Selenium even though they're present)
-        //assert the user gets the expected account creation success message elements (these are general 'My Account' page elements - their content is different on each page)
-        assertEquals("Your Account Has Been Created!", myAccountPage.getSuccessMessageTitle(), "The account creation success message title doesn't match expectations or the user account creation has failed.");
-        assertEquals("Congratulations! Your new account has been successfully created!", myAccountPage.successMessageOne(), "The account creation success message part one doesn't match expectations or the user account creation has failed.");
-        assertEquals("You can now take advantage of member privileges to enhance your online shopping experience with us.", myAccountPage.getSuccessMessageTwo(), "The account creation success message part two doesn't match expectations or the user account creation has failed.");
-        assertEquals("If you have ANY questions about the operation of this online shop, please e-mail the store owner.", myAccountPage.getSuccessMessageThree(), "The account creation success message part three doesn't match expectations or the user account creation has failed.");
-        assertEquals("A confirmation has been sent to the provided e-mail address. If you have not received it within the hour, please contact us.", myAccountPage.getSuccessMessageFour(), "The account creation success message part four doesn't match expectations or the user account creation has failed.");
-        */
-        //click 'Continue' button
-        myAccountPage.clickContinueButton();
+        //assert user account creation success message matches expectations
+        assertUserAccountCreationMessageMatchesExpectations(registerPage);
         //my account page web element assert
         isMyAccountPageWebElementDisplayed(myAccountPage);
         //my account page text element assert
@@ -2023,6 +2015,19 @@ public class TestMethods extends BaseTest{
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user account creation message assert method
+    protected void assertUserAccountCreationMessageMatchesExpectations(RegisterPage registerPage){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert the user gets the expected account creation success message elements (these are general 'My Account' page elements - their content is different on each page)
+        assertEquals("Your Account Has Been Created!", myAccountPage.getSuccessMessageTitle(), "The account creation success message title doesn't match expectations or the user account creation has failed.");
+        assertEquals("Congratulations! Your new account has been successfully created!", myAccountPage.successMessageOne(), "The account creation success message part one doesn't match expectations or the user account creation has failed.");
+        assertEquals("You can now take advantage of member privileges to enhance your online shopping experience with us.", myAccountPage.getSuccessMessageTwo(), "The account creation success message part two doesn't match expectations or the user account creation has failed.");
+        assertEquals("If you have ANY questions about the operation of this online shop, please e-mail the store owner.", myAccountPage.getSuccessMessageThree(), "The account creation success message part three doesn't match expectations or the user account creation has failed.");
+        assertEquals("A confirmation has been sent to the provided e-mail address. If you have not received it within the hour, please contact us.", myAccountPage.getSuccessMessageFour(), "The account creation success message part four doesn't match expectations or the user account creation has failed.");
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+    }
 
     //logout success message assert method
     protected void assertLogoutSuccessMessageMatchesExpectations(MyAccountPage myAccountPage){
