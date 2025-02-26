@@ -92,6 +92,10 @@ public class MyAccountPage extends BasePage {
     private WebElement successMessageFour;
     @FindBy(xpath = "//div[@class='pull-right']/a")
     private WebElement accountCreationSuccessContinueButton;
+    //success message element
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    private WebElement successMessage;
+
 
     public MyAccountPage(WebDriver driver) {super(driver);}
 
@@ -124,6 +128,15 @@ public class MyAccountPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(accountCreationSuccessContinueButton));
         accountCreationSuccessContinueButton.click();
     }
+
+    //click aside 'Edit account information' link method
+    public void clickAsideEditAccountInfoLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(asideEditAccountLink).click().perform();
+    }
+
+    //my account page success message getter
+    public String getSuccessMessage(){return successMessage.getText();}
 
     //my account page web element assert methods
     public boolean isPageBreadcrumbDisplayed() {

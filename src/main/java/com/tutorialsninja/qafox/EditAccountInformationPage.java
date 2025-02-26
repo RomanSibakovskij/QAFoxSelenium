@@ -34,7 +34,32 @@ public class EditAccountInformationPage extends BasePage{
     @FindBy(xpath = "//div[@class='buttons clearfix']//input")
     private WebElement editAccountInfoContinueButton;
 
+    //valid user input data
+    private String editedFirstName;
+
     public EditAccountInformationPage(WebDriver driver) {super(driver);}
+
+    //valid user input data getters
+    public void validUserEditedFirstNameGetter(){
+
+        editedFirstName = "Matthew";
+
+        System.out.println("Generated valid user edited first name: " + "\n");
+        logger.info("Edited first name: " + editedFirstName);
+        System.out.println("\n");
+    }
+
+    //valid edited user input data method
+    public void inputEditedFirstNameIntoFirstNameInputField(){
+        editAccountInfoFirstNameInputField.clear();
+        editAccountInfoFirstNameInputField.sendKeys(editedFirstName);
+    }
+
+    //click 'Continue' button method
+    public void clickEditInfoContinueButton(){
+        Actions actions = new Actions(driver);
+        actions.click(editAccountInfoContinueButton).click().perform();
+    }
 
     //edit account information text element getters
     public String getEditAccountInformationTitle() {return editAccountInformationTitle.getText();}

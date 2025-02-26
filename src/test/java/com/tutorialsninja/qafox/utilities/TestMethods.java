@@ -1254,6 +1254,42 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Password");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //valid user account first name edit test method
+    protected void validEditFirstNameTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page Before Edited First Name Input");
+        //valid edited first name getter
+        editAccountInformationPage.validUserEditedFirstNameGetter();
+        //input edited first name
+        editAccountInformationPage.inputEditedFirstNameIntoFirstNameInputField();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Edited First Name Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected success message
+        assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
+        //click aside 'Edit account information' link to verify the first name has been indeed edited
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit User First Name Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
