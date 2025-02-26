@@ -593,6 +593,52 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Password");
     }
 
+    //too long singular input
+
+    //invalid user account creation test method - too long first name (33 chars is usually too long)
+    protected void invalidAccountCreationTooLongFirstNameTest(RegisterPageTooLongSingularInput registerPageTooLongSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - too long first name
+        registerPageTooLongSingularInput.invalidUserRegDataTooLongFirstNameGetter();
+        //input too short first name into first name input field (33 chars)
+        registerPageTooLongSingularInput.inputTooLongFirstNameIntoFirstNameInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Too Long First Name");
+        //input valid last name into last name input field
+        registerPageTooLongSingularInput.inputLastNameIntoLastNameInputField();
+        //input valid email into email input field
+        registerPageTooLongSingularInput.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPageTooLongSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageTooLongSingularInput.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageTooLongSingularInput.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("First Name must be between 1 and 32 characters!", registerPageTooLongSingularInput.getInvalidSingularInputError(), "The too long first name input error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too long first name error doesn't get triggered, the user account gets created");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long First Name");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

@@ -180,4 +180,19 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooShortPasswordTest(registerPageTooShortSingularInput);
     }
 
+    //too long singular input
+
+    //Test 002m -> invalid user account creation test - too long first name (33 chars)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccCreationTooLongFirstNameTest(){
+        RegisterPageTooLongSingularInput registerPageTooLongSingularInput = new RegisterPageTooLongSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - too long user first name (33 chars)
+        invalidAccountCreationTooLongFirstNameTest(registerPageTooLongSingularInput);
+    }
+
 }
