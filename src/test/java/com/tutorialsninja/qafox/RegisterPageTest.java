@@ -247,4 +247,19 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooLongPasswordTest(registerPageTooLongSingularInput);
     }
 
+    //invalid singular input format
+
+    //Test 002r -> invalid user account creation test - invalid first name format (special symbols and digits) (user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid First Name Input Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccCreationInvalidFirstNameFormatTest(){
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - invalid user first name input format (special symbols and digits)
+        invalidAccountCreationInvalidFirstNameFormatTest(registerPageInvalidSingularInputFormat);
+    }
+
 }

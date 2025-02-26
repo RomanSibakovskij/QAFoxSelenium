@@ -22,7 +22,54 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement registerPageInvalidSingularInputError;
 
+    //valid user register data
+    private static String userFirstName;
+    private static String userLastName;
+    private static String userEmail;
+    private static String userPassword;
+    private String userPhoneNumber;
+    private String userConfirmPassword;
+
+    //invalid singular input format
+    private String invalidFirstNameFormat;
+
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
+    //valid user data input methods (for remaining inputs)
+    public void inputFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(userFirstName);}
+    public void inputLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(userLastName);}
+    public void inputEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(userEmail);}
+    public void inputPhoneIntoPhoneInputField(){registerPagePhoneInputField.sendKeys(userPhoneNumber);}
+    public void inputPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(userPassword);}
+    public void inputConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(userConfirmPassword);}
 
+    //invalid user register data getter - invalid user first name format (special symbols only and digits)
+    public void invalidUserRegDataInvalidFirstNameFormatGetter(){
+
+        invalidFirstNameFormat = "21!#@#$%#%^%$^$#%112";
+        userLastName = TestDataGenerator.getRandomLastName();
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (invalid user first name format): " + "\n");
+        logger.info("Invalid user first name input format: " + invalidFirstNameFormat);
+        logger.info("Valid user last name (invalid user first name format): " + userLastName);
+        logger.info("Valid user email (invalid user first name format): " + userEmail);
+        logger.info("Valid user phone number (invalid user first name format): " + userPhoneNumber);
+        logger.info("Valid user password (invalid user first name format): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - invalid user first name input format
+    public void inputInvalidFirstNameFormatIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(invalidFirstNameFormat);}
+
+
+
+
+
+    //invalid singular input error getter
+    public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
 }
