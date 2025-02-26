@@ -129,6 +129,8 @@ public class GeneralPage extends BasePage {
 
     //click 'Register' option link method
     public void clickRegisterOptionLink(){registerLinkOption.click();}
+    //click 'Login' option link method
+    public void clickLoginOptionLink(){loginLinkOption.click();}
 
     //general page footer text element getters
     public String getFooterInformationSectionTitle() {return footerInformationSectionTitle.getText();}

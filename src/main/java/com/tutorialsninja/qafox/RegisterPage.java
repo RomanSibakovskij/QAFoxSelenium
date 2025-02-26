@@ -110,6 +110,10 @@ public class RegisterPage extends BasePage{
         actions.click(registerPageContinueButton).click().perform();
     }
 
+    //valid user login data getters
+    public String getUserEmail() {return userEmail;}
+    public String getUserPassword() {return userPassword;}
+
     //register page text getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}
     public String getRegisterPageSubtitle() {return registerPageSubtitle.getText();}

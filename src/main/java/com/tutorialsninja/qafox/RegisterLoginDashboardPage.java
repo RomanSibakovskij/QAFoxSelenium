@@ -36,7 +36,34 @@ public class RegisterLoginDashboardPage extends BasePage{
     @FindBy(xpath = "//div[2]/div[@class='well']//input[@type='submit']")
     private WebElement loginButton;
 
+    //valid user login input data
+    private String loginUserEmail;
+    private String loginUserPassword;
+
     public RegisterLoginDashboardPage(WebDriver driver) {super(driver);}
+
+    //valid user login data getters
+    public void validUserLoginDataGetter(RegisterPage registerPage) {
+
+        loginUserEmail = registerPage.getUserEmail();
+        loginUserPassword = registerPage.getUserPassword();
+
+        System.out.println("Valid user login data: " + "\n");
+        logger.info("Valid user login email: " + loginUserEmail);
+        logger.info("Valid user password: " + loginUserPassword);
+        System.out.println("\n");
+
+    }
+
+    //valid user login input data methods
+    public void inputValidUserLoginEmailIntoEmailInputField(RegisterPage registerPage) {loginEmailInputField.sendKeys(loginUserEmail);}
+    public void inputValidUserLoginPasswordIntoPasswordInputField(RegisterPage registerPage) {loginPasswordInputField.sendKeys(loginUserPassword);}
+
+    //click 'Login' button
+    public void clickLoginButton() {
+        Actions actions = new Actions(driver);
+        actions.click(loginButton).click().perform();
+    }
 
     //register/login dashboard page text element getters
     public String getNewCustomerSectionTitle() {return newCustomerSectionTitle.getText();}

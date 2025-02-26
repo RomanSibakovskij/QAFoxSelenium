@@ -973,6 +973,45 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "User Log Out Test Result");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user login test
+    protected void validUserLoginTest(RegisterPage registerPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        RegisterLoginDashboardPage registerLoginDashboardPage = new RegisterLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //click account dropdown menu
+        generalPage.clickAccountDropdownMenuLink();
+        //click 'Login' option link
+        generalPage.clickLoginOptionLink();
+        //capture screenshot of the page before valid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Display Before Valid User Login Data Input");
+        //register/login dashboard page web element assert
+        isRegisterLoginDashboardPageWebElementDisplayed(registerLoginDashboardPage);
+        //register/login dashboard page text element assert
+        isRegisterLoginDashboardPageTextElementAsExpected(registerLoginDashboardPage);
+        //valid user login data getter
+        registerLoginDashboardPage.validUserLoginDataGetter(registerPage);
+        //input valid user login email into email input field
+        registerLoginDashboardPage.inputValidUserLoginEmailIntoEmailInputField(registerPage);
+        //input valid user login password into password input field
+        registerLoginDashboardPage.inputValidUserLoginPasswordIntoPasswordInputField(registerPage);
+        //capture screenshot of the valid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Valid User Login Data Input");
+        //click 'Login' button
+        registerLoginDashboardPage.clickLoginButton();
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Valid User Login Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
