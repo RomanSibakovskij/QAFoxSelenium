@@ -23,6 +23,7 @@ public class EditAccountPageNoSingularInput extends BasePage{
     private String noEditedFirstName = "";
     private String noEditedLastName = "";
     private String noEditedEmail = "";
+    private String noEditedPhone = "";
 
     public EditAccountPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -40,6 +41,11 @@ public class EditAccountPageNoSingularInput extends BasePage{
     public void inputNoEmailIntoEmailInputField(){
         editAccountInfoEmailInputField.clear();
         editAccountInfoEmailInputField.sendKeys(noEditedEmail);
+    }
+
+    public void inputNoPhoneIntoPhoneInputField(){
+        editAccountInfoPhoneInputField.clear();
+        editAccountInfoPhoneInputField.sendKeys(noEditedPhone);
     }
 
     //invalid singular input error getter

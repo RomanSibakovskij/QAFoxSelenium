@@ -112,5 +112,20 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditNoEmailTest();
     }
 
+    //Test 005g -> invalid user account information edit test - no phone
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - No Phone")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("No_Singular_Input")
+    void invalidAccountNoPhoneEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - no phone
+        invalidEditNoPhoneTest();
+    }
+
 
 }
