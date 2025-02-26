@@ -35,14 +35,21 @@ public class RegisterLoginDashboardPage extends BasePage{
     private WebElement loginForgottenPasswordLink;
     @FindBy(xpath = "//div[2]/div[@class='well']//input[@type='submit']")
     private WebElement loginButton;
+    //singular input error element
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement loginSingularInputError;
+
 
     //valid user login input data
     private String loginUserEmail;
     private String loginUserPassword;
 
+    //no singular input data
+    private String noLoginEmail;
+
     public RegisterLoginDashboardPage(WebDriver driver) {super(driver);}
 
-    //valid user login data getters
+    //valid user login data getter
     public void validUserLoginDataGetter(RegisterPage registerPage) {
 
         loginUserEmail = registerPage.getUserEmail();
@@ -56,14 +63,36 @@ public class RegisterLoginDashboardPage extends BasePage{
     }
 
     //valid user login input data methods
-    public void inputValidUserLoginEmailIntoEmailInputField(RegisterPage registerPage) {loginEmailInputField.sendKeys(loginUserEmail);}
-    public void inputValidUserLoginPasswordIntoPasswordInputField(RegisterPage registerPage) {loginPasswordInputField.sendKeys(loginUserPassword);}
+    public void inputValidUserLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(loginUserEmail);}
+    public void inputValidUserLoginPasswordIntoPasswordInputField() {loginPasswordInputField.sendKeys(loginUserPassword);}
+
+    //no singular input data getters
+
+    //invalid user login data getter - no login email
+    public void invalidUserLoginNoEmailGetter(RegisterPage registerPage) {
+
+        noLoginEmail = "";
+        loginUserPassword = registerPage.getUserPassword();
+
+        System.out.println("Invalid user login data (no login email): " + "\n");
+        logger.info("No user login email: " + noLoginEmail);
+        logger.info("Valid user password (no login email): " + loginUserPassword);
+        System.out.println("\n");
+
+    }
+
+    //invalid user login input data methods - no singular input
+    public void inputNoLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(noLoginEmail);}
+
 
     //click 'Login' button
     public void clickLoginButton() {
         Actions actions = new Actions(driver);
         actions.click(loginButton).click().perform();
     }
+
+    //singular input error message getter
+    public String getLoginSingularInputError() {return loginSingularInputError.getText();}
 
     //register/login dashboard page text element getters
     public String getNewCustomerSectionTitle() {return newCustomerSectionTitle.getText();}
