@@ -91,7 +91,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid singular input methods - invalid user last name input format
     public void inputInvalidLastNameFormatIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidLastNameFormat);}
 
-    //invalid user register data getter - too long user email address (missing '@')
+    //invalid user register data getter - invalid user email address format (missing '@')
     public void invalidUserRegDataInvalidEmailFormatGetter(){
 
         userFirstName = TestDataGenerator.getRandomFirstName();
@@ -113,7 +113,6 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
 
     //invalid singular input methods - invalid user email address format
     public void inputInvalidEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidEmailFormat);}
-
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
