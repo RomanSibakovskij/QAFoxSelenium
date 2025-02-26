@@ -15,8 +15,21 @@ public class EditAccountPageNoSingularInput extends BasePage{
     private WebElement editAccountInfoEmailInputField;
     @FindBy(xpath = "//input[@id='input-telephone']")
     private WebElement editAccountInfoPhoneInputField;
+    //invalid singular input message element
+    @FindBy(xpath = "//div[@class='text-danger']")
+    private WebElement editAccountInfoInvalidSingularInputError;
+
+    //missing singular input
+    private String noEditedFirstName = "";
 
     public EditAccountPageNoSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid edited user input data methods - no singular input
+    public void inputNoFirstNameIntoFirstNameInputField(){
+        editAccountInfoFirstNameInputField.clear();
+        editAccountInfoFirstNameInputField.sendKeys(noEditedFirstName);
+    }
 
+    //invalid singular input error getter
+    public String getInvalidSingularInputError(){return editAccountInfoInvalidSingularInputError.getText();}
 }

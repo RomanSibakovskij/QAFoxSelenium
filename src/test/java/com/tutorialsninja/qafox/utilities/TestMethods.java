@@ -1319,6 +1319,7 @@ public class TestMethods extends BaseTest{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user account information edit tests
 
     //valid user account first name edit test method
     protected void validEditFirstNameTest(){
@@ -1341,7 +1342,7 @@ public class TestMethods extends BaseTest{
         editAccountInformationPage.validUserEditedFirstNameGetter();
         //input edited first name
         editAccountInformationPage.inputEditedFirstNameIntoFirstNameInputField();
-        //capture screenshot before edited data input
+        //capture screenshot after edited data input
         captureScreenshot(driver, "Edit Account Information Page After Edited First Name Input");
         //click 'Continue' button
         editAccountInformationPage.clickEditInfoContinueButton();
@@ -1349,7 +1350,7 @@ public class TestMethods extends BaseTest{
         assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
         //click aside 'Edit account information' link to verify the first name has been indeed edited
         myAccountPage.clickAsideEditAccountInfoLink();
-        //capture screenshot before edited data input
+        //capture screenshot of the test result
         captureScreenshot(driver, "Edit User First Name Test Result");
     }
 
@@ -1374,7 +1375,7 @@ public class TestMethods extends BaseTest{
         editAccountInformationPage.validUserEditedLastNameGetter();
         //input edited last name
         editAccountInformationPage.inputEditedLastNameIntoLastNameInputField();
-        //capture screenshot before edited data input
+        //capture screenshot after edited data input
         captureScreenshot(driver, "Edit Account Information Page After Edited Last Name Input");
         //click 'Continue' button
         editAccountInformationPage.clickEditInfoContinueButton();
@@ -1382,7 +1383,7 @@ public class TestMethods extends BaseTest{
         assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
         //click 'Edit account information' link to verify the first name has been indeed edited
         myAccountPage.clickEditAccountInfoLink();
-        //capture screenshot before edited data input
+        //capture screenshot of the test result
         captureScreenshot(driver, "Edit User Last Name Test Result");
     }
 
@@ -1407,7 +1408,7 @@ public class TestMethods extends BaseTest{
         editAccountInformationPage.validUserEditedEmailGetter();
         //input edited email
         editAccountInformationPage.inputEditedEmailIntoEmailInputField();
-        //capture screenshot before edited data input
+        //capture screenshot after edited data input
         captureScreenshot(driver, "Edit Account Information Page After Edited Email Input");
         //click 'Continue' button
         editAccountInformationPage.clickEditInfoContinueButton();
@@ -1415,7 +1416,7 @@ public class TestMethods extends BaseTest{
         assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
         //click 'Edit account information' link to verify the first name has been indeed edited
         myAccountPage.clickEditAccountInfoLink();
-        //capture screenshot before edited data input
+        //capture screenshot of the test result
         captureScreenshot(driver, "Edit User Email Test Result");
     }
 
@@ -1440,7 +1441,7 @@ public class TestMethods extends BaseTest{
         editAccountInformationPage.validUserEditedPhoneGetter();
         //input edited phone
         editAccountInformationPage.inputEditedPhoneIntoPhoneInputField();
-        //capture screenshot before edited data input
+        //capture screenshot after edited data input
         captureScreenshot(driver, "Edit Account Information Page After Edited Phone Input");
         //click 'Continue' button
         editAccountInformationPage.clickEditInfoContinueButton();
@@ -1448,8 +1449,42 @@ public class TestMethods extends BaseTest{
         assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
         //click 'Edit account information' link to verify the first name has been indeed edited
         myAccountPage.clickEditAccountInfoLink();
-        //capture screenshot before edited data input
+        //capture screenshot of the test result
         captureScreenshot(driver, "Edit User Phone Test Result");
+    }
+
+    //invalid user account information edit tests
+
+    //no singular input
+
+    //invalid user account first name edit test method - no edited first name
+    protected void invalidEditNoFirstNameTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageNoSingularInput editAccountPageNoSingularInput = new EditAccountPageNoSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //don't input edited first name
+        editAccountPageNoSingularInput.inputNoFirstNameIntoFirstNameInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After No First Name Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("First Name must be between 1 and 32 characters!", editAccountPageNoSingularInput.getInvalidSingularInputError(), "The missing first name input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - No First Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
