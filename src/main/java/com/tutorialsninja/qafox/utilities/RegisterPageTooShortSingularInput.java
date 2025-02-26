@@ -33,6 +33,7 @@ public class RegisterPageTooShortSingularInput extends BasePage{
     //too short singular input
     private String tooShortFirstName;
     private String tooShortLastName;
+    private String tooShortEmail;
 
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -89,6 +90,29 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     //invalid singular input methods - too short user last name
     public void inputTooShortLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooShortLastName);}
+
+    //invalid user register data getter - too short user email address (1 char -> name, domain)
+    public void invalidUserRegDataTooShortEmailGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        userLastName = TestDataGenerator.getRandomLastName();
+        tooShortEmail = "k@g.com";
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (too short user email): " + "\n");
+        logger.info("Valid user first name (too short user email): " + userFirstName);
+        logger.info("Valid user last name (too short user email): " + userLastName);
+        logger.info("Too short user email: " + tooShortEmail);
+        logger.info("Valid user phone number (too short user email): " + userPhoneNumber);
+        logger.info("Valid user password (too short user email): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - too short user email address
+    public void inputTooShortEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooShortEmail);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}

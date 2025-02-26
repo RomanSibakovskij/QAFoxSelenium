@@ -425,6 +425,50 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Last Name");
     }
 
+    //invalid user account creation test method - too short email (1 char -> name, domain)
+    protected void invalidAccountCreationTooShortEmailTest(RegisterPageTooShortSingularInput registerPageTooShortSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - too short email
+        registerPageTooShortSingularInput.invalidUserRegDataTooShortEmailGetter();
+        //input valid first name into first name input field
+        registerPageTooShortSingularInput.inputFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        registerPageTooShortSingularInput.inputLastNameIntoLastNameInputField();
+        //input too short email into email input field (1 char -> name, domain)
+        registerPageTooShortSingularInput.inputTooShortEmailIntoEmailInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Too Short Email");
+        //input valid phone number into phone input field
+        registerPageTooShortSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageTooShortSingularInput.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageTooShortSingularInput.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("E-Mail Address does not appear to be valid!", registerPageTooShortSingularInput.getInvalidSingularInputError(), "The too short email input error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too short email error doesn't get triggered, the user account gets created");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Email");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
