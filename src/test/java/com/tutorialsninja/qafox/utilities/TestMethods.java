@@ -1369,7 +1369,7 @@ public class TestMethods extends BaseTest{
         //edit account information page text element assert
         isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
         //capture screenshot before edited data input
-        captureScreenshot(driver, "Edit Account Information Page Before Edited Last Name Input");
+        captureScreenshot(driver, "Edit Account Information Page Before Edited Valid Data Input");
         //valid edited last name getter
         editAccountInformationPage.validUserEditedLastNameGetter();
         //input edited last name
@@ -1402,7 +1402,7 @@ public class TestMethods extends BaseTest{
         //edit account information page text element assert
         isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
         //capture screenshot before edited data input
-        captureScreenshot(driver, "Edit Account Information Page Before Edited Last Name Input");
+        captureScreenshot(driver, "Edit Account Information Page Before Edited Valid Data Input");
         //valid edited email getter
         editAccountInformationPage.validUserEditedEmailGetter();
         //input edited email
@@ -1417,6 +1417,39 @@ public class TestMethods extends BaseTest{
         myAccountPage.clickEditAccountInfoLink();
         //capture screenshot before edited data input
         captureScreenshot(driver, "Edit User Email Test Result");
+    }
+
+    //valid user account phone edit test method
+    protected void validEditPhoneTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Edit account information' link
+        myAccountPage.clickEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page Before Edited Valid Data Input");
+        //valid edited phone getter
+        editAccountInformationPage.validUserEditedPhoneGetter();
+        //input edited phone
+        editAccountInformationPage.inputEditedPhoneIntoPhoneInputField();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Edited Phone Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected success message
+        assertEquals("Success: Your account has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
+        //click 'Edit account information' link to verify the first name has been indeed edited
+        myAccountPage.clickEditAccountInfoLink();
+        //capture screenshot before edited data input
+        captureScreenshot(driver, "Edit User Phone Test Result");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

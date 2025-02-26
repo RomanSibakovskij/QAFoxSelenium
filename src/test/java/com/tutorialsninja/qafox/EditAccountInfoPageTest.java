@@ -49,6 +49,20 @@ public class EditAccountInfoPageTest extends TestMethods{
         validEditEmailTest();
     }
 
+    //Test 005c -> valid user phone edit test
+    @Test
+    @DisplayName("Valid User Phone Edit Test")
+    @Tag("Valid_User_Account_Information_Edit")
+    void validAccountPhoneEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user account information phone edit test
+        validEditPhoneTest();
+    }
+
 
 
 }

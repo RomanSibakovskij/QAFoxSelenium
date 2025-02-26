@@ -38,6 +38,7 @@ public class EditAccountInformationPage extends BasePage{
     private String editedFirstName;
     private String editedLastName;
     private static String editedEmail;
+    private String editedPhone;
 
     public EditAccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -69,6 +70,15 @@ public class EditAccountInformationPage extends BasePage{
         System.out.println("\n");
     }
 
+    public void validUserEditedPhoneGetter(){
+
+        editedPhone = TestDataGenerator.generatePhoneNumber(13);
+
+        System.out.println("Generated valid user edited phone: " + "\n");
+        logger.info("Edited phone: " + editedPhone);
+        System.out.println("\n");
+    }
+
     //valid edited user input data methods
     public void inputEditedFirstNameIntoFirstNameInputField(){
         editAccountInfoFirstNameInputField.clear();
@@ -81,6 +91,10 @@ public class EditAccountInformationPage extends BasePage{
     public void inputEditedEmailIntoEmailInputField(){
         editAccountInfoEmailInputField.clear();
         editAccountInfoEmailInputField.sendKeys(editedEmail);
+    }
+    public void inputEditedPhoneIntoPhoneInputField(){
+        editAccountInfoPhoneInputField.clear();
+        editAccountInfoPhoneInputField.sendKeys(editedPhone);
     }
 
     //click 'Continue' button method
