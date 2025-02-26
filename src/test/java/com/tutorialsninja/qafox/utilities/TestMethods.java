@@ -1096,6 +1096,47 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Login Test Result - No Login Password");
     }
 
+    //invalid singular input
+
+    //invalid user login test - invalid login email
+    protected void invalidUserLoginInvalidEmailTest(RegisterPage registerPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        RegisterLoginDashboardPage registerLoginDashboardPage = new RegisterLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //click account dropdown menu
+        generalPage.clickAccountDropdownMenuLink();
+        //click 'Login' option link
+        generalPage.clickLoginOptionLink();
+        //capture screenshot of the page before invalid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Display Before Invalid User Login Data Input");
+        //register/login dashboard page web element assert
+        isRegisterLoginDashboardPageWebElementDisplayed(registerLoginDashboardPage);
+        //register/login dashboard page text element assert
+        isRegisterLoginDashboardPageTextElementAsExpected(registerLoginDashboardPage);
+        //invalid user login data getter - invalid login email
+        registerLoginDashboardPage.invalidUserLoginInvalidEmailGetter(registerPage);
+        //input invalid login email into email input field
+        registerLoginDashboardPage.inputInvalidLoginEmailIntoEmailInputField();
+        //capture screenshot of the invalid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Invalid User Login Data Input - Invalid Login Email");
+        //input valid user login password into password input field
+        registerLoginDashboardPage.inputValidUserLoginPasswordIntoPasswordInputField();
+        //click 'Login' button
+        registerLoginDashboardPage.clickLoginButton();
+        //assert the user gets the expected error message
+        assertEquals("Warning: No match for E-Mail Address and/or Password.", registerLoginDashboardPage.getLoginSingularInputError(), "The invalid login email input error message doesn't match expectations or the error hasn't been triggered.");
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Email");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
