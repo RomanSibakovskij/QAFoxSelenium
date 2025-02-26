@@ -74,4 +74,17 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationNoPhoneTest(registerPageNoSingularInput);
     }
 
+    //Test 002e -> invalid user account creation test - no user password
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccCreationNoPasswordTest(){
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - no user password
+        invalidAccountCreationNoPasswordTest(registerPageNoSingularInput);
+    }
+
 }
