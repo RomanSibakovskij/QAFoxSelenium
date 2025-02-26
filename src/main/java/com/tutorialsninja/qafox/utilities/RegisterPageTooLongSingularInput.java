@@ -82,8 +82,8 @@ public class RegisterPageTooLongSingularInput extends BasePage{
         userConfirmPassword = userPassword;
 
         System.out.println("Invalid user register data generated (too long user last name): " + "\n");
-        logger.info("Valid user first name: " + userFirstName);
-        logger.info("Too long user last name (too long user last name): " + tooLongLastName);
+        logger.info("Valid user first name (too long user last name): " + userFirstName);
+        logger.info("Too long user last name: " + tooLongLastName);
         logger.info("Valid user email (too long user last name): " + userEmail);
         logger.info("Valid user phone number (too long user last name): " + userPhoneNumber);
         logger.info("Valid user password (too long user last name): " + userPassword);

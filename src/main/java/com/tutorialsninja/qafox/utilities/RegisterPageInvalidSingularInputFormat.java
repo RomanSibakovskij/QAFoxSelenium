@@ -32,6 +32,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
 
     //invalid singular input format
     private String invalidFirstNameFormat;
+    private String invalidLastNameFormat;
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -66,7 +67,28 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid singular input methods - invalid user first name input format
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(invalidFirstNameFormat);}
 
+    //invalid user register data getter - invalid user last name format (special symbols only and digits)
+    public void invalidUserRegDataInvalidLastNameFormatGetter(){
 
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        invalidLastNameFormat = "124@#$#%$#%13232";
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (invalid user last name format): " + "\n");
+        logger.info("Valid user first name (invalid user last name format): " + userFirstName);
+        logger.info("Invalid user last name input format: " + invalidLastNameFormat);
+        logger.info("Valid user email (invalid user last name format): " + userEmail);
+        logger.info("Valid user phone number (invalid user last name format): " + userPhoneNumber);
+        logger.info("Valid user password (invalid user last name format): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - invalid user last name input format
+    public void inputInvalidLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidLastNameFormat);}
 
 
 

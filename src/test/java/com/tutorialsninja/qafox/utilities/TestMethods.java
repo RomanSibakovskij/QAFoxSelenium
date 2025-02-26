@@ -861,6 +861,50 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid First Name Input Format");
     }
 
+    //invalid user account creation test method - invalid last name input format (special symbols and digits) (user account gets created, test has failed)
+    protected void invalidAccountCreationInvalidLastNameFormatTest(RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - invalid last name input format (special symbols and digits)
+        registerPageInvalidSingularInputFormat.invalidUserRegDataInvalidLastNameFormatGetter();
+        //input valid first name into first name input field
+        registerPageInvalidSingularInputFormat.inputFirstNameIntoFirstNameInputField();
+        //input invalid last name format into last name input field (special symbols and digits)
+        registerPageInvalidSingularInputFormat.inputInvalidLastNameIntoLastNameInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Invalid Last Name Input Format");
+        //input valid email into email input field
+        registerPageInvalidSingularInputFormat.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPageInvalidSingularInputFormat.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageInvalidSingularInputFormat.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageInvalidSingularInputFormat.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("Last Name cannon consist of special symbols and digits only!", registerPageInvalidSingularInputFormat.getInvalidSingularInputError(), "The invalid last name input format error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The invalid last name input format error error doesn't get triggered, the user account gets created");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Last Name Input Format");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
