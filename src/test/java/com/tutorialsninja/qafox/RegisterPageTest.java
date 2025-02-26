@@ -1,6 +1,6 @@
 package com.tutorialsninja.qafox;
 
-import com.tutorialsninja.qafox.utilities.RegisterPageNoSingularInput;
+import com.tutorialsninja.qafox.utilities.*;
 import com.tutorialsninja.qafox.utilities.TestMethods;
 import org.junit.jupiter.api.*;
 
@@ -98,6 +98,21 @@ public class RegisterPageTest extends TestMethods {
         userNavigationToRegisterPageTest();
         //invalid user account creation - no user confirm password
         invalidAccountCreationNoConfirmPasswordTest(registerPageNoSingularInput);
+    }
+
+    //too short singular input
+
+    //Test 002g -> invalid user account creation test - too short first name
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAccCreationTooShortFirstNameTest(){
+        RegisterPageTooShortSingularInput registerPageTooShortSingularInput = new RegisterPageTooShortSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - too short user first name
+        invalidAccountCreationTooShortFirstNameTest(registerPageTooShortSingularInput);
     }
 
 }
