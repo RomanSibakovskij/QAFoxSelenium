@@ -234,4 +234,17 @@ public class RegisterPageTest extends TestMethods {
         invalidAccountCreationTooLongPhoneTest(registerPageTooLongSingularInput);
     }
 
+    //Test 002q -> invalid user account creation test - too long password (21 chars) (the user account gets created - test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccCreationTooLongPasswordTest(){
+        RegisterPageTooLongSingularInput registerPageTooLongSingularInput = new RegisterPageTooLongSingularInput(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //invalid user account creation - too long user password (21 chars)
+        invalidAccountCreationTooLongPasswordTest(registerPageTooLongSingularInput);
+    }
+
 }
