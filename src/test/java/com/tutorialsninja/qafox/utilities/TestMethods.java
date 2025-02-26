@@ -595,7 +595,7 @@ public class TestMethods extends BaseTest{
 
     //too long singular input
 
-    //invalid user account creation test method - too long first name (33 chars is usually too long)
+    //invalid user account creation test method - too long first name (33 chars)
     protected void invalidAccountCreationTooLongFirstNameTest(RegisterPageTooLongSingularInput registerPageTooLongSingularInput) {
         GeneralPage generalPage = new GeneralPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
@@ -637,6 +637,50 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long First Name");
+    }
+
+    //invalid user account creation test method - too long last name (33 chars)
+    protected void invalidAccountCreationTooLongLastNameTest(RegisterPageTooLongSingularInput registerPageTooLongSingularInput) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input");
+        //invalid register data getter - too long last name
+        registerPageTooLongSingularInput.invalidUserRegDataTooLongLastNameGetter();
+        //input valid first name into first name input field
+        registerPageTooLongSingularInput.inputFirstNameIntoFirstNameInputField();
+        //input too long last name into last name input field (33 chars)
+        registerPageTooLongSingularInput.inputTooLongLastNameIntoLastNameInputField();
+        //capture screenshot after invalid data input
+        captureScreenshot(driver, "Register Page Before Invalid User Data Input - Too Long Last Name");
+        //input valid email into email input field
+        registerPageTooLongSingularInput.inputEmailIntoEmailInputField();
+        //input valid phone number into phone input field
+        registerPageTooLongSingularInput.inputPhoneIntoPhoneInputField();
+        //input valid password into password input field
+        registerPageTooLongSingularInput.inputPasswordIntoPasswordInputField();
+        //input valid confirm password into confirm password input field
+        registerPageTooLongSingularInput.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Agree to Privacy Policy' checkbox
+        registerPage.clickAgreeToPrivacyPolicyCheckbox();
+        //click 'Continue' button
+        registerPage.clickRegisterPageContinueButton();
+        //assert the user gets an expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("Last Name must be between 1 and 32 characters!", registerPageTooLongSingularInput.getInvalidSingularInputError(), "The too long last name input error message doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too long last name error doesn't get triggered, the user account gets created");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Last Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

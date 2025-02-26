@@ -32,6 +32,7 @@ public class RegisterPageTooLongSingularInput extends BasePage{
 
     //too long singular input
     private String tooLongFirstName;
+    private String tooLongLastName;
 
     public RegisterPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -65,6 +66,29 @@ public class RegisterPageTooLongSingularInput extends BasePage{
 
     //invalid singular input methods - too long user first name
     public void inputTooLongFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(tooLongFirstName);}
+
+    //invalid user register data getter - too long user last name (33 chars)
+    public void invalidUserRegDataTooLongLastNameGetter(){
+
+        userFirstName = TestDataGenerator.getRandomFirstName();
+        tooLongLastName = "Azfddfsfvxvxcbfgswerteryytiyuokjm";
+        userEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        userPhoneNumber = TestDataGenerator.generatePhoneNumber(8);
+        userPassword = TestDataGenerator.generateRandomPassword();
+        userConfirmPassword = userPassword;
+
+        System.out.println("Invalid user register data generated (too long user last name): " + "\n");
+        logger.info("Valid user first name: " + userFirstName);
+        logger.info("Too long user last name (too long user last name): " + tooLongLastName);
+        logger.info("Valid user email (too long user last name): " + userEmail);
+        logger.info("Valid user phone number (too long user last name): " + userPhoneNumber);
+        logger.info("Valid user password (too long user last name): " + userPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid singular input methods - too long user last name
+    public void inputTooLongLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooLongLastName);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return registerPageInvalidSingularInputError.getText();}
