@@ -268,4 +268,19 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditInvalidFirstNameFormatTest();
     }
 
+    //Test 005q -> invalid user account information edit test - invalid last name format (special symbols and digits) (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Invalid Last Name Format")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountInvalidLastNameFormatEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - invalid last name format (special symbols and digits)
+        invalidEditInvalidLastNameFormatTest();
+    }
+
 }

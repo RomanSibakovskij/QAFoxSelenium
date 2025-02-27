@@ -1880,7 +1880,41 @@ public class TestMethods extends BaseTest{
             logger.error("The invalid first name format error wasn't triggered, first name edit hasn't been aborted.");
         }
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long First Name");
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Invalid First Name Format");
+    }
+
+    //invalid user account last name edit test method - invalid edited last name (special symbols and digits)  (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
+    protected void invalidEditInvalidLastNameFormatTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageInvalidSingularInput editAccountPageInvalidSingularInput = new EditAccountPageInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input invalid edited last name format (special symbols and digits)
+        editAccountPageInvalidSingularInput.inputInvalidLastNameFormatIntoLastNameInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Invalid Last Name Format Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Last Name cannot consist of special symbols and digits only!", editAccountPageInvalidSingularInput.getInvalidSingularInputError(), "The invalid last name format input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The invalid last name format error wasn't triggered, last name edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Invalid Last Name Format");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
