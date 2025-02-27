@@ -18,7 +18,20 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement editAccountInfoInvalidSingularInputError;
 
+    //too short singular input
+    private String tooShortFirstName;
+
     public EditAccountPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid user input data methods - too short singular input
+    public void inputTooShortFirstNameIntoFirstNameInputField(){
+        tooShortFirstName = "S";
+        editAccountInfoFirstNameInputField.clear();
+        editAccountInfoFirstNameInputField.sendKeys(tooShortFirstName);
+        logger.info("Too short edited first name: " + tooShortFirstName);
+    }
 
+
+    //invalid singular input error getter
+    public String getInvalidSingularInputError(){return editAccountInfoInvalidSingularInputError.getText();}
 }
