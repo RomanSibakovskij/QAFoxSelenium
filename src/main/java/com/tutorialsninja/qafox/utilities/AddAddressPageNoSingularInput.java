@@ -35,6 +35,8 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
     //missing singular input data
     private String noAddressFirstName;
+    private String noAddressLastName;
+
 
     public AddAddressPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -45,8 +47,8 @@ public class AddAddressPageNoSingularInput extends BasePage{
     public void inputValidCityIntoCityInputField(){addAddressCityInputField.sendKeys(city);}
     public void inputValidPostCodeIntoPostCodeInputField(){addAddressPostCodeInputField.sendKeys(String.valueOf(postCode));}
 
-    //valid user address data getter
-    public void validUserAddressDataGetter(RegisterPage registerPage) {
+    //invalid user address data getter - no first name
+    public void invalidUserAddressDataNoFirstNameGetter(RegisterPage registerPage) {
 
         noAddressFirstName = "";
         addressLastName = registerPage.getUserLastName();
@@ -63,9 +65,27 @@ public class AddAddressPageNoSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - no last name
+    public void invalidUserAddressDataNoLastNameGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        noAddressLastName = "";
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (no user last name): " + "\n");
+        logger.info("Valid user first name (no user last name): " + addressFirstName);
+        logger.info("No user last name: " + noAddressLastName);
+        logger.info("Valid user address 1 (no user last name): " + address1);
+        logger.info("Valid user city (no user last name): " + city);
+        logger.info("Valid user post code (no user last name): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - no singular input
     public void inputNoFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(noAddressFirstName);}
-
+    public void inputNoLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(noAddressLastName);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
