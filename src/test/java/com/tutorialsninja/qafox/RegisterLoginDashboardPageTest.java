@@ -54,11 +54,26 @@ public class RegisterLoginDashboardPageTest extends TestMethods{
         validUserLoginUpdatedEmailTest(registerPage);
     }
 
+    //Test 004b -> valid user login test - with updated user password
+    @Test
+    @DisplayName("Valid User Login Test - Updated User Password")
+    @Tag("Valid_User_Login")
+    @Tag("Updated_Singular_Input")
+    void validAccountLoginUpdatedPasswordTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user login test - with updated user password
+        validEditPasswordTest();
+    }
+
     //invalid user login tests
 
     //no singular input
 
-    //Test 004a -> invalid user login test - no login email
+    //Test 004c -> invalid user login test - no login email
     @Test
     @DisplayName("Invalid User Login Test - No Login Email")
     @Tag("Invalid_User_Login")
@@ -75,7 +90,7 @@ public class RegisterLoginDashboardPageTest extends TestMethods{
         invalidUserLoginNoEmailTest(registerPage);
     }
 
-    //Test 004b -> invalid user login test - no login password
+    //Test 004d -> invalid user login test - no login password
     @Test
     @DisplayName("Invalid User Login Test - No Login Password")
     @Tag("Invalid_User_Login")
@@ -94,7 +109,7 @@ public class RegisterLoginDashboardPageTest extends TestMethods{
 
     //invalid singular input
 
-    //Test 004c -> invalid user login test - invalid login email
+    //Test 004e -> invalid user login test - invalid login email
     @Test
     @DisplayName("Invalid User Login Test - Invalid Login Email")
     @Tag("Invalid_User_Login")
@@ -111,7 +126,7 @@ public class RegisterLoginDashboardPageTest extends TestMethods{
         invalidUserLoginInvalidEmailTest(registerPage);
     }
 
-    //Test 004d -> invalid user login test - invalid login email
+    //Test 004f -> invalid user login test - invalid login email
     @Test
     @DisplayName("Invalid User Login Test - Invalid Login Password")
     @Tag("Invalid_User_Login")

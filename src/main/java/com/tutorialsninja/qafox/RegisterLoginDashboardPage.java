@@ -54,6 +54,7 @@ public class RegisterLoginDashboardPage extends BasePage{
 
     //updated singular input data
     private String updatedEmail;
+    private String updatedPassword;
 
     public RegisterLoginDashboardPage(WebDriver driver) {super(driver);}
 
@@ -136,7 +137,7 @@ public class RegisterLoginDashboardPage extends BasePage{
     public void inputInvalidLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(invalidLoginEmail);}
     public void inputInvalidLoginPasswordIntoPasswordInputField() {loginPasswordInputField.sendKeys(invalidLoginPassword);}
 
-    //valid user login data getter - updated user email
+    //valid user login data getter - updated user email / password
     public void validUserLoginUpdatedEmailGetter(RegisterPage registerPage) {
         EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
 
@@ -150,8 +151,23 @@ public class RegisterLoginDashboardPage extends BasePage{
 
     }
 
+    public void validUserLoginDataWithUpdatedPasswordGetter(RegisterPage registerPage) {
+
+        EditPasswordPage editPasswordPage = new EditPasswordPage(driver);
+
+        loginUserEmail = registerPage.getUserEmail();
+        updatedPassword = editPasswordPage.getNewPassword();
+
+        System.out.println("Valid user login data (with updated password): " + "\n");
+        logger.info("Valid user login email (with updated password): " + loginUserEmail);
+        logger.info("Updated user login password: " + updatedPassword);
+        System.out.println("\n");
+
+    }
+
     //valid user login input data methods - updated singular input
     public void inputUpdatedLoginEmailIntoEmailInputField() {loginEmailInputField.sendKeys(updatedEmail);}
+    public void inputValidUpdatedLoginPasswordIntoPasswordInputField() {loginPasswordInputField.sendKeys(updatedPassword);}
 
     //click 'Login' button
     public void clickLoginButton() {

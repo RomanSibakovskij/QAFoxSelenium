@@ -141,6 +141,18 @@ public class MyAccountPage extends BasePage {
         actions.moveToElement(myAccountPageEditAccountInfoLink).click().perform();
     }
 
+    //click aside 'Edit account information' link method
+    public void clickAsidePasswordLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(asidePasswordLink).click().perform();
+    }
+
+    //click 'Change your password' link method
+    public void clickChangePasswordInfoLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(myAccountPageChangePasswordLink).click().perform();
+    }
+
     //my account page success message getter
     public String getSuccessMessage(){return successMessage.getText();}
 

@@ -2019,6 +2019,67 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Invalid Phone Format");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid edit password test method
+    protected void validEditPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        EditPasswordPage editPasswordPage = new EditPasswordPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterLoginDashboardPage registerLoginDashboardPage = new RegisterLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Change your password' link
+        myAccountPage.clickChangePasswordInfoLink();
+        //edit password page web element assert
+        isEditPasswordPageWebElementDisplayed(editPasswordPage);
+        //edit password page text element assert
+        isEditPasswordPageTextElementAsExpected(editPasswordPage);
+        //capture screenshot before new password input
+        captureScreenshot(driver, "Edit Account Information Page Before New Password Input");
+        //valid new password getter
+        editPasswordPage.validNewPasswordGetter();
+        //input new password into password input field
+        editPasswordPage.inputNewPasswordIntoPasswordInputField();
+        //input matching confirm password into confirm password input field
+        editPasswordPage.inputConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Continue' button
+        editPasswordPage.clickEditPasswordContinueButton();
+        //assert the user gets an expected success message
+        assertEquals("Success: Your password has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
+        //click aside 'Logout' link
+        myAccountPage.clickLogoutLink();
+        //assert the user gets the expected logout success message elements (these are general 'My Account' page elements - their content is different on each page)
+        assertLogoutSuccessMessageMatchesExpectations(myAccountPage);
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //click account dropdown menu
+        generalPage.clickAccountDropdownMenuLink();
+        //click 'Login' option link
+        generalPage.clickLoginOptionLink();
+        //capture screenshot of the page before valid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Display Before User Login Data With New Password Input");
+        //register/login dashboard page web element assert
+        isRegisterLoginDashboardPageWebElementDisplayed(registerLoginDashboardPage);
+        //register/login dashboard page text element assert
+        isRegisterLoginDashboardPageTextElementAsExpected(registerLoginDashboardPage);
+        //valid user login data getter (with updated password)
+        registerLoginDashboardPage.validUserLoginDataWithUpdatedPasswordGetter(registerPage);
+        //input valid user login email into email input field
+        registerLoginDashboardPage.inputValidUserLoginEmailIntoEmailInputField();
+        //input valid user updated login password into password input field
+        registerLoginDashboardPage.inputValidUpdatedLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the valid user login data input
+        captureScreenshot(driver, "Register and Login Dashboard Page Valid User Login Data With Updated Password Input");
+        //click 'Login' button
+        registerLoginDashboardPage.clickLoginButton();
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Valid User Login With Updated Password Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
