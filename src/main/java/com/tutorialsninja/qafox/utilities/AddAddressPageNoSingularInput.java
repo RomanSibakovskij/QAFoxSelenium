@@ -22,6 +22,11 @@ public class AddAddressPageNoSingularInput extends BasePage{
     private WebElement addAddressCityInputField;
     @FindBy(xpath = "//input[@id='input-postcode']")
     private WebElement addAddressPostCodeInputField;
+    //dropdown menu and the blank option web elements
+    @FindBy(xpath = "//select[@id='input-country']")
+    private WebElement addAddressCountryDropdownMenu;
+    @FindBy(xpath = "//select[@id='input-country']/option[1]")
+    private WebElement addAddressPleaseSelectOption;
     //invalid singular input message element
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement addAddressInvalidSingularInputError;
@@ -126,6 +131,15 @@ public class AddAddressPageNoSingularInput extends BasePage{
     public void inputNoLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(noAddressLastName);}
     public void inputNoAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(noAddress);}
     public void inputNoCityIntoCityInputField(){addAddressCityInputField.sendKeys(noCity);}
+
+    //click country dropdown menu
+    public void clickCountryDropdownMenu(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(addAddressCountryDropdownMenu).click().perform();
+    }
+
+    //select 'Please Select' country option
+    public void selectPleaseSelectCountryOption(){addAddressPleaseSelectOption.click();}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
