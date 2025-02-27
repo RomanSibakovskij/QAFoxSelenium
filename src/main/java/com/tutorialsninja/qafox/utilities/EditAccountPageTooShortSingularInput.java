@@ -20,6 +20,7 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
 
     //too short singular input
     private String tooShortFirstName;
+    private String tooShortLastName;
 
     public EditAccountPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -29,6 +30,13 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
         editAccountInfoFirstNameInputField.clear();
         editAccountInfoFirstNameInputField.sendKeys(tooShortFirstName);
         logger.info("Too short edited first name: " + tooShortFirstName);
+    }
+
+    public void inputTooShortLastNameIntoLastNameInputField(){
+        tooShortLastName = "B";
+        editAccountInfoLastNameInputField.clear();
+        editAccountInfoLastNameInputField.sendKeys(tooShortLastName);
+        logger.info("Too short edited last name: " + tooShortLastName);
     }
 
 

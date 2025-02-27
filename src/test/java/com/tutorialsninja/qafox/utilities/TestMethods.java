@@ -1571,7 +1571,7 @@ public class TestMethods extends BaseTest{
 
     //too short singular input
 
-    //invalid user account first name edit test method - too short edited first name
+    //invalid user account first name edit test method - too short edited first name (1 char) (first name edit hasn't been aborted, test has failed)
     protected void invalidEditTooShortFirstNameTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1589,7 +1589,7 @@ public class TestMethods extends BaseTest{
         isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
         //capture screenshot before invalid data input
         captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
-        //input too short edited first name
+        //input too short edited first name (1 char)
         editAccountPageTooShortSingularInput.inputTooShortFirstNameIntoFirstNameInputField();
         //capture screenshot after edited data input
         captureScreenshot(driver, "Edit Account Information Page After Too Short First Name Input");
@@ -1603,6 +1603,40 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short First Name");
+    }
+
+    //invalid user account first name edit test method - too short edited last name (1 char) (last name edit hasn't been aborted, test has failed)
+    protected void invalidEditTooShortLastNameTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageTooShortSingularInput editAccountPageTooShortSingularInput = new EditAccountPageTooShortSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input too short edited last name (1 char)
+        editAccountPageTooShortSingularInput.inputTooShortLastNameIntoLastNameInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Too Short Last Name Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Last Name must be between 1 and 32 characters!", editAccountPageTooShortSingularInput.getInvalidSingularInputError(), "The too short last name input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The too short last name wasn't triggered, last name edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short Last Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
