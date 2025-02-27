@@ -174,4 +174,19 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditTooShortEmailTest();
     }
 
+    //Test 005k -> invalid user account information edit test - too short phone (2 digits)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Too Short Phone")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAccountTooShortPhoneEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - too short phone (2 digits)
+        invalidEditTooShortPhoneTest();
+    }
+
 }

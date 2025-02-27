@@ -22,6 +22,7 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
     private String tooShortFirstName;
     private String tooShortLastName;
     private String tooShortEmail;
+    private String tooShortPhone;
 
     public EditAccountPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -47,6 +48,12 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
         logger.info("Too short edited last name: " + tooShortLastName);
     }
 
+    public void inputTooShortPhoneIntoPhoneInputField(){
+        tooShortPhone = "09";
+        editAccountInfoPhoneInputField.clear();
+        editAccountInfoPhoneInputField.sendKeys(tooShortPhone);
+        logger.info("Too short edited phone: " + tooShortPhone);
+    }
 
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return editAccountInfoInvalidSingularInputError.getText();}
