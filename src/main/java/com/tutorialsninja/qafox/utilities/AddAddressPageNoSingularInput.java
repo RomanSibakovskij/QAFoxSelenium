@@ -37,6 +37,7 @@ public class AddAddressPageNoSingularInput extends BasePage{
     private String noAddressFirstName;
     private String noAddressLastName;
     private String noAddress;
+    private String noCity;
 
 
     public AddAddressPageNoSingularInput(WebDriver driver) {super(driver);}
@@ -93,12 +94,30 @@ public class AddAddressPageNoSingularInput extends BasePage{
         city = TestDataGenerator.getRandomCity();
         postCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid generated user address data (no user last name): " + "\n");
-        logger.info("Valid user first name (no user last name): " + addressFirstName);
-        logger.info("No user last name: " + noAddressLastName);
-        logger.info("Valid user address 1 (no user last name): " + address1);
-        logger.info("Valid user city (no user last name): " + city);
-        logger.info("Valid user post code (no user last name): " + postCode);
+        System.out.println("Invalid generated user address data (no user address): " + "\n");
+        logger.info("Valid user first name (no user address): " + addressFirstName);
+        logger.info("Valid user last name (no user address): " + addressLastName);
+        logger.info("No user address 1: " + noAddress);
+        logger.info("Valid user city (no user address): " + city);
+        logger.info("Valid user post code (no user address): " + postCode);
+        System.out.println("\n");
+    }
+
+    //invalid user address data getter - no user city
+    public void invalidUserAddressDataNoCityGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        noCity = "";
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (no user city): " + "\n");
+        logger.info("Valid user first name (no user city): " + addressFirstName);
+        logger.info("Valid user last name (no user city): " + addressLastName);
+        logger.info("Valid user address 1 (no user city): " + address1);
+        logger.info("No user city: " + noCity);
+        logger.info("Valid user post code (no user city): " + postCode);
         System.out.println("\n");
     }
 
@@ -106,6 +125,7 @@ public class AddAddressPageNoSingularInput extends BasePage{
     public void inputNoFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(noAddressFirstName);}
     public void inputNoLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(noAddressLastName);}
     public void inputNoAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(noAddress);}
+    public void inputNoCityIntoCityInputField(){addAddressCityInputField.sendKeys(noCity);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
