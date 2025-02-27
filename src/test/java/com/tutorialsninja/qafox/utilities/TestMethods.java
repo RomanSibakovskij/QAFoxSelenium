@@ -2082,9 +2082,9 @@ public class TestMethods extends BaseTest{
 
     //invalid password edit tests
 
-    //no singular input
+    //no input
 
-    //invalid edit password test method - no password
+    //invalid edit password test method - no password/confirm password
     protected void invalidEditNoPasswordTest() {
         GeneralPage generalPage = new GeneralPage(driver);
         MyAccountPage myAccountPage = new MyAccountPage(driver);
@@ -2112,6 +2112,38 @@ public class TestMethods extends BaseTest{
         assertEquals("Password must be between 4 and 20 characters!", editPasswordInvalidSingularInput.getInvalidSingularInputError(), "The missing password input error doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test data result
         captureScreenshot(driver, "Invalid Password Edit Test Result - No Password");
+    }
+
+    //too short input
+
+    //invalid edit password test method - too short password/confirm password (3 chars)
+    protected void invalidEditTooShortPasswordTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        EditPasswordPage editPasswordPage = new EditPasswordPage(driver);
+        EditPasswordInvalidSingularInput editPasswordInvalidSingularInput = new EditPasswordInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Password' link
+        myAccountPage.clickAsidePasswordLink();
+        //edit password page web element assert
+        isEditPasswordPageWebElementDisplayed(editPasswordPage);
+        //edit password page text element assert
+        isEditPasswordPageTextElementAsExpected(editPasswordPage);
+        //capture screenshot before invalid password input
+        captureScreenshot(driver, "Edit Password Page Before Invalid Password Input");
+        //input too short password into password input field
+        editPasswordInvalidSingularInput.inputTooShortPasswordIntoPasswordInputField();
+        //input matching confirm password into confirm password input field
+        editPasswordInvalidSingularInput.inputTooShortConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Continue' button
+        editPasswordPage.clickEditPasswordContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("Password must be between 4 and 20 characters!", editPasswordInvalidSingularInput.getInvalidSingularInputError(), "The too short password input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Invalid Password Edit Test Result - Too Short Password");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
