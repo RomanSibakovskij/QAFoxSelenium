@@ -20,6 +20,7 @@ public class EditAccountPageTooLongSingularInput extends BasePage{
 
     //too long singular input
     private String tooLongFirstName;
+    private String tooLongLastName;
 
     public EditAccountPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -28,7 +29,14 @@ public class EditAccountPageTooLongSingularInput extends BasePage{
         tooLongFirstName = "Addfgfsdasfdsgfdhweqeeregdfsdzxcs";
         editAccountInfoFirstNameInputField.clear();
         editAccountInfoFirstNameInputField.sendKeys(tooLongFirstName);
-            logger.info("Too long edited first name: " + tooLongFirstName);
+        logger.info("Too long edited first name: " + tooLongFirstName);
+    }
+
+    public void inputTooLongLastNameIntoLastNameInputField(){
+        tooLongLastName = "Addfgfsdasfdsgfdhweqeeregdfsdzxcs";
+        editAccountInfoLastNameInputField.clear();
+        editAccountInfoLastNameInputField.sendKeys(tooLongLastName);
+        logger.info("Too long edited last name: " + tooLongLastName);
     }
 
     //invalid singular input error getter

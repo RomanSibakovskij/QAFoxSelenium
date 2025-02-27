@@ -1709,7 +1709,7 @@ public class TestMethods extends BaseTest{
 
     //too long singular input
 
-    //invalid user account first name edit test method - too long edited first name (33 chars) (first name edit hasn't been aborted, test has failed)
+    //invalid user account first name edit test method - too long edited first name (33 chars)
     protected void invalidEditTooLongFirstNameTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1740,7 +1740,41 @@ public class TestMethods extends BaseTest{
             logger.error("The too long first name error wasn't triggered, first name edit hasn't been aborted.");
         }
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short First Name");
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long First Name");
+    }
+
+    //invalid user account first name edit test method - too long edited last name (33 chars)
+    protected void invalidEditTooLongLastNameTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageTooLongSingularInput editAccountPageTooLongSingularInput = new EditAccountPageTooLongSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input too long edited last name (33 chars)
+        editAccountPageTooLongSingularInput.inputTooLongLastNameIntoLastNameInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Too Long Last Name Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Last Name must be between 1 and 32 characters!", editAccountPageTooLongSingularInput.getInvalidSingularInputError(), "The too long last name input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The too long last name error wasn't triggered, last name edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long Last Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

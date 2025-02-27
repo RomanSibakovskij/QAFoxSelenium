@@ -206,4 +206,19 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditTooLongFirstNameTest();
     }
 
+    //Test 005m -> invalid user account information edit test - too long last name (33 chars)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Too Long Last Name")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountTooLongLastNameEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - too long last name (33 chars)
+        invalidEditTooLongLastNameTest();
+    }
+
 }
