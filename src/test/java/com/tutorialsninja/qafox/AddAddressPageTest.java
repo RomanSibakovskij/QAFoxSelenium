@@ -123,4 +123,20 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionNoCountryTest(addAddressPage);
     }
 
+    //Test 007g -> invalid user address addition test - no state
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No State")
+    @Tag("Invalid_Singular_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidUserAddressAdditionNoStateTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no state
+        invalidUserSingleAddressAdditionNoStateTest(addAddressPage);
+    }
+
 }
