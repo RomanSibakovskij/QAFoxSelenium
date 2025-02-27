@@ -2049,7 +2049,7 @@ public class TestMethods extends BaseTest{
         //click 'Continue' button
         editPasswordPage.clickEditPasswordContinueButton();
         //assert the user gets an expected success message
-        assertEquals("Success: Your password has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the first name edition has failed.");
+        assertEquals("Success: Your password has been successfully updated.", myAccountPage.getSuccessMessage(), "The success message doesn't match expectations or the password edit has failed.");
         //click aside 'Logout' link
         myAccountPage.clickLogoutLink();
         //assert the user gets the expected logout success message elements (these are general 'My Account' page elements - their content is different on each page)
@@ -2078,6 +2078,40 @@ public class TestMethods extends BaseTest{
         registerLoginDashboardPage.clickLoginButton();
         //capture screenshot of the test data result
         captureScreenshot(driver, "Valid User Login With Updated Password Test Result");
+    }
+
+    //invalid password edit tests
+
+    //no singular input
+
+    //invalid edit password test method - no password
+    protected void invalidEditNoPasswordTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        EditPasswordPage editPasswordPage = new EditPasswordPage(driver);
+        EditPasswordInvalidSingularInput editPasswordInvalidSingularInput = new EditPasswordInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Password' link
+        myAccountPage.clickAsidePasswordLink();
+        //edit password page web element assert
+        isEditPasswordPageWebElementDisplayed(editPasswordPage);
+        //edit password page text element assert
+        isEditPasswordPageTextElementAsExpected(editPasswordPage);
+        //capture screenshot before invalid password input
+        captureScreenshot(driver, "Edit Password Page Before Invalid Password Input");
+        //don't input password into password input field
+        editPasswordInvalidSingularInput.inputNoPasswordIntoPasswordInputField();
+        //don't input confirm password into confirm password input field
+        editPasswordInvalidSingularInput.inputNoConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Continue' button
+        editPasswordPage.clickEditPasswordContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("Password must be between 4 and 20 characters!", editPasswordInvalidSingularInput.getInvalidSingularInputError(), "The missing password input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Invalid Password Edit Test Result - No Password");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
