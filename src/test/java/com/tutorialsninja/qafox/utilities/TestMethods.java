@@ -1849,7 +1849,7 @@ public class TestMethods extends BaseTest{
 
     //invalid singular input format
 
-    //invalid user account first name edit test method - invalid edited first name (special symbols and digits)  (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
+    //invalid user account first name edit test method - invalid edited first name format (special symbols and digits)  (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
     protected void invalidEditInvalidFirstNameFormatTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1883,7 +1883,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Invalid First Name Format");
     }
 
-    //invalid user account last name edit test method - invalid edited last name (special symbols and digits)  (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
+    //invalid user account last name edit test method - invalid edited last name format (special symbols and digits)  (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
     protected void invalidEditInvalidLastNameFormatTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1915,6 +1915,40 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Invalid Last Name Format");
+    }
+
+    //invalid user account email edit test method - invalid edited email format (missing '@')  (the error hasn't been triggered, but the email edit has been aborted, the test has passed)
+    protected void invalidEditInvalidEmailFormatTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageInvalidSingularInput editAccountPageInvalidSingularInput = new EditAccountPageInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input invalid edited email format (missing '@')
+        editAccountPageInvalidSingularInput.inputInvalidEmailFormatIntoEmailInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Invalid Email Format Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("E-Mail Address does not appear to be valid!", editAccountPageInvalidSingularInput.getInvalidSingularInputError(), "The invalid email format input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The invalid email format error wasn't triggered, email edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Invalid Email Format");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

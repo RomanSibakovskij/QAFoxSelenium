@@ -21,6 +21,7 @@ public class EditAccountPageInvalidSingularInput extends BasePage{
     //invalid singular input format
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
+    private String invalidEmailFormat;
 
     public EditAccountPageInvalidSingularInput(WebDriver driver) {super(driver);}
 
@@ -37,6 +38,13 @@ public class EditAccountPageInvalidSingularInput extends BasePage{
         editAccountInfoLastNameInputField.clear();
         editAccountInfoLastNameInputField.sendKeys(invalidLastNameFormat);
         logger.info("Invalid edited last name format: " + invalidLastNameFormat);
+    }
+
+    public void inputInvalidEmailFormatIntoEmailInputField(){
+        invalidEmailFormat = "hgyyahoo.com";
+        editAccountInfoEmailInputField.clear();
+        editAccountInfoEmailInputField.sendKeys(invalidEmailFormat);
+        logger.info("Invalid edited email format: " + invalidEmailFormat);
     }
 
     //invalid singular input error getter
