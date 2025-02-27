@@ -221,4 +221,19 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditTooLongLastNameTest();
     }
 
+    //Test 005n -> invalid user account information edit test - too long email (100 chars -> name,domain) (the error hasn't been triggered but the email edit has been aborted - test has passed)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Too Long Email")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountTooLongEmailEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - too long email (100 chars -> name, domain)
+        invalidEditTooLongEmailTest();
+    }
+
 }
