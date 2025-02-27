@@ -36,6 +36,7 @@ public class AddAddressPageNoSingularInput extends BasePage{
     //missing singular input data
     private String noAddressFirstName;
     private String noAddressLastName;
+    private String noAddress;
 
 
     public AddAddressPageNoSingularInput(WebDriver driver) {super(driver);}
@@ -83,9 +84,28 @@ public class AddAddressPageNoSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - no address data
+    public void invalidUserAddressDataNoAddressGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        noAddress = "";
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (no user last name): " + "\n");
+        logger.info("Valid user first name (no user last name): " + addressFirstName);
+        logger.info("No user last name: " + noAddressLastName);
+        logger.info("Valid user address 1 (no user last name): " + address1);
+        logger.info("Valid user city (no user last name): " + city);
+        logger.info("Valid user post code (no user last name): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - no singular input
     public void inputNoFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(noAddressFirstName);}
     public void inputNoLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(noAddressLastName);}
+    public void inputNoAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(noAddress);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}

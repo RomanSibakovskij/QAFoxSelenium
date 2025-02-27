@@ -75,4 +75,20 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionNoLastNameTest(addAddressPage);
     }
 
+    //Test 007d -> invalid user address addition test - no address (address 1)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No Address")
+    @Tag("Invalid_Singular_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidUserAddressAdditionNoAddressTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no address (address 1)
+        invalidUserSingleAddressAdditionNoAddress1Test(addAddressPage);
+    }
+
 }
