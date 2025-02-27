@@ -2543,23 +2543,6 @@ public class TestMethods extends BaseTest{
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
-    //address book entries web element assert test method
-    protected void isAddressBookEntriesPageWebElementDisplayed(AddressBookEntriesPage addressBookEntriesPage) {
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
-        //assert address book entries page breadcrumb is displayed (as a list)
-        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The address book entries page breadcrumb isn't displayed");
-        //main
-        //assert address book entries page title is displayed
-        assertTrue(addressBookEntriesPage.isAddressBookEntriesPageTitleDisplayed(), "The address book entries page title isn't displayed");
-        //singular elements
-        //assert address book entries back button is displayed
-        assertTrue(addressBookEntriesPage.isAddressBookEntriesPageBackButtonDisplayed(), "The address book entries page back button isn't displayed");
-        //assert address book entries 'New Address'' button is displayed
-        assertTrue(addressBookEntriesPage.isAddressBookEntriesPageNewAddressButtonDisplayed(), "The address book entries page 'New Address' button isn't displayed");
-        //aside section (register page, my account, register/login dashboard, edit account information, edit password, add address pages and address book entries share same aside links but with different names)
-        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
-    }
-
     //edit password page web element assert test method
     protected void isEditPasswordPageWebElementDisplayed(EditPasswordPage editPasswordPage) {
         MyAccountPage myAccountPage = new MyAccountPage(driver);
@@ -2583,6 +2566,81 @@ public class TestMethods extends BaseTest{
         //assert edit password page continue button is displayed
         assertTrue(editPasswordPage.isEditPasswordContinueButtonDisplayed(), "The edit password page back button isn't displayed");
         //aside section (register page, my account, register/login dashboard, edit account information and edit password pages share same aside links but with different names)
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
+    //address book entries web element assert test method
+    protected void isAddressBookEntriesPageWebElementDisplayed(AddressBookEntriesPage addressBookEntriesPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert address book entries page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The address book entries page breadcrumb isn't displayed");
+        //main
+        //assert address book entries page title is displayed
+        assertTrue(addressBookEntriesPage.isAddressBookEntriesPageTitleDisplayed(), "The address book entries page title isn't displayed");
+        //singular elements
+        //assert address book entries back button is displayed
+        assertTrue(addressBookEntriesPage.isAddressBookEntriesPageBackButtonDisplayed(), "The address book entries page back button isn't displayed");
+        //assert address book entries 'New Address'' button is displayed
+        assertTrue(addressBookEntriesPage.isAddressBookEntriesPageNewAddressButtonDisplayed(), "The address book entries page 'New Address' button isn't displayed");
+        //aside section (register page, my account, register/login dashboard, edit account information, edit password, add address pages and address book entries share same aside links but with different names)
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
+    //add address page web element assert test method
+    protected void isAddAddressPageWebElementDisplayed(AddAddressPage addAddressPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert add address page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The add address page breadcrumb isn't displayed");
+        //main
+        //assert add address page title is displayed
+        assertTrue(addAddressPage.isAddAddressPageTitleDisplayed(), "The add address page title isn't displayed");
+        //assert add address page first name subtext is displayed
+        assertTrue(addAddressPage.isAddAddressFirstNameSubtextDisplayed(), "The add address page first name subtext isn't displayed");
+        //assert add address page first name input field is displayed
+        assertTrue(addAddressPage.isAddAddressFirstNameInputFieldDisplayed(), "The add address page first name input field isn't displayed");
+        //assert add address page last name subtext is displayed
+        assertTrue(addAddressPage.isAddAddressLastNameSubtextDisplayed(), "The add address page last name subtext isn't displayed");
+        //assert add address page last name input field is displayed
+        assertTrue(addAddressPage.isAddAddressLastNameInputFieldDisplayed(), "The add address page last name input field isn't displayed");
+        //assert add address page company subtext is displayed
+        assertTrue(addAddressPage.isAddAddressCompanySubtextDisplayed(), "The add address page company subtext isn't displayed");
+        //assert add address page company input field is displayed
+        assertTrue(addAddressPage.isAddAddressCompanyInputFieldDisplayed(), "The add address page company input field isn't displayed");
+        //assert add address page address1 subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress1SubtextDisplayed(), "The add address page address1 subtext isn't displayed");
+        //assert add address page address1 input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress1InputFieldDisplayed(), "The add address page address1 input field isn't displayed");
+        //assert add address page address2 subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress2SubtextDisplayed(), "The add address page address2 subtext isn't displayed");
+        //assert add address page address2 input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress2InputFieldDisplayed(), "The add address page address2 input field isn't displayed");
+        //assert add address page city subtext is displayed
+        assertTrue(addAddressPage.isAddAddressCitySubtextDisplayed(), "The add address page city subtext isn't displayed");
+        //assert add address page city input field is displayed
+        assertTrue(addAddressPage.isAddAddressCityInputFieldDisplayed(), "The add address page city name input field isn't displayed");
+        //assert add address page post code subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPostCodeSubtextDisplayed(), "The add address page post code subtext isn't displayed");
+        //assert add address page post code input field is displayed
+        assertTrue(addAddressPage.isAddAddressPostCodeInputFieldDisplayed(), "The add address page post code input field isn't displayed");
+        //assert add address page country subtext is displayed
+        assertTrue(addAddressPage.isAddAddressCountrySubtextDisplayed(), "The add address page country subtext isn't displayed");
+        //assert add address page country dropdown menu is displayed
+        assertTrue(addAddressPage.isAddAddressCountryDropdownMenuDisplayed(), "The add address page country dropdown menu isn't displayed");
+        //assert add address page state subtext is displayed
+        assertTrue(addAddressPage.isAddAddressStateSubtextDisplayed(), "The add address page state subtext isn't displayed");
+        //assert add address page state dropdown menu is displayed
+        assertTrue(addAddressPage.isAddAddressStateDropdownMenuDisplayed(), "The add address page state dropdown menu isn't displayed");
+        //assert add address page default address subtext is displayed
+        assertTrue(addAddressPage.isAddAddressDefaultAddressSubtextDisplayed(), "The add address page default address subtext isn't displayed");
+        //assert add address page default address 'Yes' radio button is displayed
+        assertTrue(addAddressPage.isAddAddressDefaultAddressYesRadioButtonDisplayed(), "The add address page default address 'Yes' radio button isn't displayed");
+        //assert add address page default address 'No' radio button is displayed
+        assertTrue(addAddressPage.isAddAddressDefaultAddressNoRadioButtonDisplayed(), "The add address page default address 'No' radio button isn't displayed");
+        //assert add address page back button is displayed
+        assertTrue(addAddressPage.isAddAddressBackButtonDisplayed(), "The add address page back button isn't displayed");
+        //assert add address page continue button is displayed
+        assertTrue(addAddressPage.isAddAddressContinueButtonDisplayed(), "The add address page continue button isn't displayed");
+        //aside section (register page, my account, register/login dashboard, edit account information, edit password and add address pages share same aside links but with different names)
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
@@ -2703,6 +2761,32 @@ public class TestMethods extends BaseTest{
         assertEquals("Address Book Entries", addressBookEntriesPage.getAddressBookEntriesPageTitle(), "The address book entries page title doesn't match expectations.");
     }
 
+    //add address page text element assert test method
+    protected void isAddAddressPageTextElementAsExpected(AddAddressPage addAddressPage){
+        //assert add address page title is as expected
+        assertEquals("Add Address", addAddressPage.getAddAddressPageTitle(), "The add address page title doesn't match expectations.");
+        //assert add address page first name subtext is as expected
+        assertEquals("First Name", addAddressPage.getAddAddressFirstNameSubtext(), "The add address page first name subtext doesn't match expectations.");
+        //assert add address page last name subtext is as expected
+        assertEquals("Last Name", addAddressPage.getAddAddressLastNameSubtext(), "The add address page last name subtext doesn't match expectations.");
+        //assert add address page company subtext is as expected
+        assertEquals("Company", addAddressPage.getAddAddressCompanySubtext(), "The add address page company subtext doesn't match expectations.");
+        //assert add address page address 1 subtext is as expected
+        assertEquals("Address 1", addAddressPage.getAddAddressPageAddress1Subtext(), "The add address page address1 subtext doesn't match expectations.");
+        //assert add address page address2 subtext is as expected
+        assertEquals("Address 2", addAddressPage.getAddAddressPageAddress2Subtext(), "The add address page address2 subtext doesn't match expectations.");
+        //assert add address page city subtext is as expected
+        assertEquals("City", addAddressPage.getAddAddressCitySubtext(), "The add address page city subtext doesn't match expectations.");
+        //assert add address page post code subtext is as expected
+        assertEquals("Post Code", addAddressPage.getAddAddressPostCodeSubtext(), "The add address page post code subtext doesn't match expectations.");
+        //assert add address page country subtext is as expected
+        assertEquals("Country", addAddressPage.getAddAddressCountrySubtext(), "The add address page country subtext doesn't match expectations.");
+        //assert add address page state subtext is as expected
+        assertEquals("Region / State", addAddressPage.getAddAddressStateSubtext(), "The add address page state subtext doesn't match expectations.");
+        //assert add address page default address subtext is as expected
+        assertEquals("Default Address", addAddressPage.getAddAddressDefaultAddressSubtext(), "The add address page default address subtext doesn't match expectations.");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //valid user account creation message assert method
@@ -2734,6 +2818,13 @@ public class TestMethods extends BaseTest{
         logger.info("Home page featured product name(s): " + homePage.getFeaturedProductNames());
         logger.info("Home page featured product description(s): " + homePage.getFeaturedProductDescriptions());
         logger.info("Home page featured product unit price(s): " + homePage.getFeaturedProductUnitPrices() + "\n");
+        System.out.println("\n");
+    }
+
+    //address book entries page data logger method
+    protected void logAddressBookEntriesPageEntryData(AddressBookEntriesPage addressBookEntriesPage){
+        System.out.println("Available address(es) displayed on address book entries page: " + "\n");
+        logger.info("Displayed entry address(es) data: " + addressBookEntriesPage.getAddressBookEntryData() + "\n");
         System.out.println("\n");
     }
 

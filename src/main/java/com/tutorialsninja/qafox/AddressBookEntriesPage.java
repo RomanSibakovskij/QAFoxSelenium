@@ -6,6 +6,8 @@ import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddressBookEntriesPage extends BasePage{
 
@@ -17,8 +19,16 @@ public class AddressBookEntriesPage extends BasePage{
     private WebElement addressBookEntriesPageBackButton;
     @FindBy(xpath = "//div[@class='buttons clearfix']//a[@class='btn btn-primary']")
     private WebElement addressBookEntriesPageNewAddressButton;
+    //address book list elements
+    @FindBy(xpath = "//table//tr/td[1]")
+    private List<WebElement> addressBookEntryDataElements;
+    private List<WebElement> addressBookEntryEditButtonElements = driver.findElements(By.xpath("//table//tr/td[2]/a[1]"));
+    private List<WebElement> addressBookEntryDeleteButtonElements = driver.findElements(By.xpath("//table//tr/td[2]/a[2]"));
 
     public AddressBookEntriesPage(WebDriver driver) {super(driver);}
+
+    //address book entries data getter
+    public List<String> getAddressBookEntryData(){return addressBookEntryDataElements.stream().map(WebElement::getText).collect(Collectors.toList());}
 
     //address book entries text element getters
     public String getAddressBookEntriesPageTitle() {return addressBookEntriesPageTitle.getText();}
