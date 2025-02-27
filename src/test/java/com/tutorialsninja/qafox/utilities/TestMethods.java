@@ -1481,7 +1481,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - No First Name");
     }
 
-    //invalid user account first name edit test method - no edited last name
+    //invalid user account last name edit test method - no edited last name
     protected void invalidEditNoLastNameTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1511,7 +1511,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - No Last Name");
     }
 
-    //invalid user account first name edit test method - no edited email
+    //invalid user account email edit test method - no edited email
     protected void invalidEditNoEmailTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1541,7 +1541,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - No Email");
     }
 
-    //invalid user account first name edit test method - no edited phone
+    //invalid user account phone edit test method - no edited phone
     protected void invalidEditNoPhoneTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1607,7 +1607,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short First Name");
     }
 
-    //invalid user account first name edit test method - too short edited last name (1 char) (last name edit hasn't been aborted, test has failed)
+    //invalid user account last name edit test method - too short edited last name (1 char) (last name edit hasn't been aborted, test has failed)
     protected void invalidEditTooShortLastNameTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1641,7 +1641,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short Last Name");
     }
 
-    //invalid user account first name edit test method - too short edited email (1 char -> name, domain) (email edit hasn't been aborted, test has failed)
+    //invalid user account email edit test method - too short edited email (1 char -> name, domain) (email edit hasn't been aborted, test has failed)
     protected void invalidEditTooShortEmailTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1675,7 +1675,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short Email");
     }
 
-    //invalid user account first name edit test method - too short edited phone (2 digits)
+    //invalid user account phone edit test method - too short edited phone (2 digits)
     protected void invalidEditTooShortPhoneTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1745,7 +1745,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long First Name");
     }
 
-    //invalid user account first name edit test method - too long edited last name (33 chars)
+    //invalid user account last name edit test method - too long edited last name (33 chars)
     protected void invalidEditTooLongLastNameTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1779,7 +1779,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long Last Name");
     }
 
-    //invalid user account first name edit test method - too long edited email (100 chars -> name,domain) (the error hasn't been triggered but the email edit has been aborted - test has passed)
+    //invalid user account email edit test method - too long edited email (100 chars -> name,domain) (the error hasn't been triggered but the email edit has been aborted - test has passed)
     protected void invalidEditTooLongEmailTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1813,7 +1813,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long Email");
     }
 
-    //invalid user account first name edit test method - too long edited last name (33 digits)
+    //invalid user account phone edit test method - too long edited last name (33 digits)
     protected void invalidEditTooLongPhoneTest(){
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         GeneralPage generalPage = new GeneralPage(driver);
@@ -1845,6 +1845,42 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long Phone");
+    }
+
+    //invalid singular input format
+
+    //invalid user account first name edit test method - invalid edited first name (special symbols and digits)  (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
+    protected void invalidEditInvalidFirstNameFormatTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageInvalidSingularInput editAccountPageInvalidSingularInput = new EditAccountPageInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input invalid edited first name format (special symbols and digits)
+        editAccountPageInvalidSingularInput.inputInvalidFirstNameFormatIntoFirstNameInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Invalid First Name Format Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("First Name cannot consist of special symbols and digits only!", editAccountPageInvalidSingularInput.getInvalidSingularInputError(), "The invalid first name format input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The invalid first name format error wasn't triggered, first name edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long First Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -251,4 +251,21 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditTooLongPhoneTest();
     }
 
+    //invalid singular input format
+
+    //Test 005p -> invalid user account information edit test - invalid first name format (special symbols and digits) (the error hasn't been triggered, the first name edit hasn't been aborted, the test has failed)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Invalid First Name Format")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountInvalidFirstNameFormatEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - invalid first name format (special symbols and digits)
+        invalidEditInvalidFirstNameFormatTest();
+    }
+
 }
