@@ -153,6 +153,12 @@ public class MyAccountPage extends BasePage {
         actions.moveToElement(myAccountPageChangePasswordLink).click().perform();
     }
 
+    //click 'Modify Address Book Entries' link method
+    public void clickModifyAddressBookEntriesLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(myAccountPageModifyAddressBookLink).click().perform();
+    }
+
     //my account page success message getter
     public String getSuccessMessage(){return successMessage.getText();}
 

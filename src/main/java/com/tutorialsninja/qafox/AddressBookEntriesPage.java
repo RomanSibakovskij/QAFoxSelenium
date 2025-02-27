@@ -24,15 +24,24 @@ public class AddressBookEntriesPage extends BasePage{
     private List<WebElement> addressBookEntryDataElements;
     private List<WebElement> addressBookEntryEditButtonElements = driver.findElements(By.xpath("//table//tr/td[2]/a[1]"));
     private List<WebElement> addressBookEntryDeleteButtonElements = driver.findElements(By.xpath("//table//tr/td[2]/a[2]"));
+    //success message element
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    private WebElement addressSuccessMessage;
 
     public AddressBookEntriesPage(WebDriver driver) {super(driver);}
 
     //address book entries data getter
     public List<String> getAddressBookEntryData(){return addressBookEntryDataElements.stream().map(WebElement::getText).collect(Collectors.toList());}
 
+    //click 'New Address' button method
+    public void clickNewAddressButton(){addressBookEntriesPageNewAddressButton.click();}
+
     //address book entries text element getters
     public String getAddressBookEntriesPageTitle() {return addressBookEntriesPageTitle.getText();}
     public String getAddressBookEntriesPageNoAddressMessage() {return addressBookEntriesPageNoAddressMessage.getText();}
+
+    //address addition success message getter
+    public String getAddressAdditionSuccessMessage() {return addressSuccessMessage.getText();}
 
     //address book entries web element assert methods
     public boolean isAddressBookEntriesPageTitleDisplayed() {

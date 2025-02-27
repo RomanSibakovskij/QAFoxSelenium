@@ -2220,6 +2220,68 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Password Edit Test Result - Mismatched Confirm Password");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid singular user address addition test
+
+    //valid user address addition test method (setting as default address)
+    protected void validUserSingleMainAddressAdditionTest(AddAddressPage addAddressPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        AddressBookEntriesPage addressBookEntriesPage = new AddressBookEntriesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Modify Address Book Entries' link
+        myAccountPage.clickModifyAddressBookEntriesLink();
+        //address book entries text element assert
+        isAddressBookEntriesPageTextElementAsExpected(addressBookEntriesPage);
+        //assert the user gets an expected message (since the user doesn't have the address yet)
+        assertEquals("You have no addresses in your account.", addressBookEntriesPage.getAddressBookEntriesPageNoAddressMessage(), "The 'No address' message text doesn't match expectations or the message isn't displayed.");
+        //capture screenshot to verify no addresses have been input yet
+        captureScreenshot(driver, "Address Book Entries Page Display With No Addresses");
+        //click 'New Address' button
+        addressBookEntriesPage.clickNewAddressButton();
+        //add address page web element assert
+        isAddAddressPageWebElementDisplayed(addAddressPage);
+        //add address text element assert
+        isAddAddressPageTextElementAsExpected(addAddressPage);
+        //capture screenshot before valid user address input
+        captureScreenshot(driver, "Address Page Display Before Valid Address Data Input");
+        //valid user address data getter
+        addAddressPage.validUserAddressDataGetter(registerPage);
+        //input valid user first name
+        addAddressPage.inputValidFirstNameIntoFirstNameInputField();
+        //input valid user last name
+        addAddressPage.inputValidLastNameIntoLastNameInputField();
+        //input valid user address (address1)
+        addAddressPage.inputValidAddress1IntoAddress1InputField();
+        //input valid user city
+        addAddressPage.inputValidCityIntoCityInputField();
+        //input valid user post code
+        addAddressPage.inputValidPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        addAddressPage.clickCountryDropdownMenu();
+        //select 'United States'
+        addAddressPage.selectUsCountryOption();
+        //click state dropdown menu
+        addAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        addAddressPage.selectIllinoisStateOption();
+        //click 'Yes' default address radio button
+        addAddressPage.clickYesDefaultAddressRadioButton();
+        //click 'Continue' button
+        addAddressPage.clickAddressContinueButton();
+        //assert the user get an expected success message
+        assertEquals("Your address has been successfully added", addressBookEntriesPage.getAddressAdditionSuccessMessage(), "The address addition success message doesn't match expectations or the address addition has failed.");
+        //log default user address data
+        logAddressBookEntriesPageEntryData(addressBookEntriesPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Main Address Input Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

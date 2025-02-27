@@ -114,6 +114,10 @@ public class RegisterPage extends BasePage{
     public String getUserEmail() {return userEmail;}
     public String getUserPassword() {return userPassword;}
 
+    //name getters
+    public String getUserFirstName() {return userFirstName;}
+    public String getUserLastName() {return userLastName;}
+
     //register page text getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}
     public String getRegisterPageSubtitle() {return registerPageSubtitle.getText();}

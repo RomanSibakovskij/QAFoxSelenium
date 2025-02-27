@@ -66,8 +66,80 @@ public class AddAddressPage extends BasePage{
     @FindBy(xpath = "//div[@class='buttons clearfix']//input")
     private WebElement addAddressContinueButton;
 
+    //valid user address data
+    private String addressFirstName;
+    private String addressLastName;
+    private String address1;
+    private String city;
+    private int postCode;
+
     public AddAddressPage(WebDriver driver) {super(driver);}
 
+    //valid user address data getter
+    public void validUserAddressDataGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Valid generated user address data: " + "\n");
+        logger.info("Valid user first name: " + addressFirstName);
+        logger.info("Valid user last name: " + addressLastName);
+        logger.info("Valid user address 1: " + address1);
+        logger.info("Valid user city: " + city);
+        logger.info("Valid user post code: " + postCode);
+        System.out.println("\n");
+    }
+
+    //valid user data input methods
+    public void inputValidFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(addressFirstName);}
+    public void inputValidLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(addressLastName);}
+    public void inputValidAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(address1);}
+    public void inputValidCityIntoCityInputField(){addAddressCityInputField.sendKeys(city);}
+    public void inputValidPostCodeIntoPostCodeInputField(){addAddressPostCodeInputField.sendKeys(String.valueOf(postCode));}
+
+    //click country dropdown menu
+    public void clickCountryDropdownMenu(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(addAddressCountryDropdownMenu).click().perform();
+    }
+
+    //select 'United States' option
+    public void selectUsCountryOption(){addAddressUSCountryOption.click();}
+
+    //click state dropdown menu
+    public void clickStateDropdownMenu(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(addAddressStateDropdownMenu).click().perform();
+    }
+
+    //select 'Illinois' option
+    public void selectIllinoisStateOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(900));
+        wait.until(ExpectedConditions.elementToBeClickable(addAddressIllinoisStateOption));
+        addAddressIllinoisStateOption.click();
+    }
+
+    //select 'Alabama' option
+    public void selectAlabamaStateOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(900));
+        wait.until(ExpectedConditions.elementToBeClickable(addAddressAlabamaStateOption));
+        addAddressAlabamaStateOption.click();
+    }
+
+    //click 'Yes' default address radio button method (default selected is 'No')
+    public void clickYesDefaultAddressRadioButton(){
+        Actions actions = new Actions(driver);
+        actions.click(addAddressDefaultAddressYesRadioButton).click().perform();
+    }
+
+    //click 'Continue' button
+    public void clickAddressContinueButton(){
+        Actions actions = new Actions(driver);
+        actions.click(addAddressContinueButton).click().perform();
+    }
 
     //add address page text element getters
     public String getAddAddressPageTitle() {return addAddressPageTitle.getText();}
