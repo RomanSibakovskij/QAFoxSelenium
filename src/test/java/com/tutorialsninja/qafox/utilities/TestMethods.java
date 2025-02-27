@@ -1961,8 +1961,8 @@ public class TestMethods extends BaseTest{
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert
         isGeneralPageTextElementAsExpected(generalPage);
-        //click aside 'Edit account information' link
-        myAccountPage.clickAsideEditAccountInfoLink();
+        //click 'Edit account information' link
+        myAccountPage.clickEditAccountInfoLink();
         //edit account information page web element assert
         isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
         //edit account information page text element assert
@@ -1995,8 +1995,8 @@ public class TestMethods extends BaseTest{
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert
         isGeneralPageTextElementAsExpected(generalPage);
-        //click aside 'Edit account information' link
-        myAccountPage.clickAsideEditAccountInfoLink();
+        //click 'Edit account information' link
+        myAccountPage.clickEditAccountInfoLink();
         //edit account information page web element assert
         isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
         //edit account information page text element assert
@@ -2359,6 +2359,32 @@ public class TestMethods extends BaseTest{
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
+    //edit password page web element assert test method
+    protected void isEditPasswordPageWebElementDisplayed(EditPasswordPage editPasswordPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert register/login dashboard page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The register/login dashboard page breadcrumb isn't displayed");
+        //main
+        //assert edit password page title is displayed
+        assertTrue(editPasswordPage.isEditPasswordPageTitleDisplayed(), "The edit password page title isn't displayed");
+        //assert edit password page subtitle is displayed
+        assertTrue(editPasswordPage.isEditPasswordPageSubtitleDisplayed(), "The edit password page subtitle isn't displayed");
+        //assert password subtext is displayed
+        assertTrue(editPasswordPage.isPasswordSubtextDisplayed(), "The password subtext isn't displayed");
+        //assert password input field is displayed
+        assertTrue(editPasswordPage.isPasswordInputFieldDisplayed(), "The password input field isn't displayed");
+        //assert confirm password subtext is displayed
+        assertTrue(editPasswordPage.isConfirmPasswordSubtextDisplayed(), "The confirm password subtext isn't displayed");
+        //assert confirm password input field is displayed
+        assertTrue(editPasswordPage.isConfirmPasswordInputFieldDisplayed(), "The confirm password input field isn't displayed");
+        //assert edit password page back button is displayed
+        assertTrue(editPasswordPage.isEditPasswordBackButtonDisplayed(), "The edit password page back button isn't displayed");
+        //assert edit password page continue button is displayed
+        assertTrue(editPasswordPage.isEditPasswordContinueButtonDisplayed(), "The edit password page back button isn't displayed");
+        //aside section (register page, my account, register/login dashboard, edit account information and edit password pages share same aside links but with different names)
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -2456,6 +2482,18 @@ public class TestMethods extends BaseTest{
         assertEquals("E-Mail", editAccountInformationPage.getEditAccountInfoEmailSubtitle(), "The edit account information page email subtitle doesn't match expectations.");
         //assert edit account information phone subtitle is as expected
         assertEquals("Telephone", editAccountInformationPage.getEditAccountInfoPhoneSubtitle(), "The edit account information page phone subtitle doesn't match expectations.");
+    }
+
+    //edit password page text element assert test method
+    protected void isEditPasswordPageTextElementAsExpected(EditPasswordPage editPasswordPage){
+        //assert edit password page title is as expected
+        assertEquals("Change Password", editPasswordPage.getEditPasswordPageTitle(), "The edit password page title doesn't match expectations.");
+        //assert edit password page subtitle is as expected
+        assertEquals("Your Password", editPasswordPage.getEditPasswordPageSubtitle(), "The edit password page subtitle doesn't match expectations.");
+        //assert edit password page password subtext is as expected
+        assertEquals("Password", editPasswordPage.getPasswordSubtext(), "The edit password page password subtext doesn't match expectations.");
+        //assert edit password page confirm password subtext is as expected
+        assertEquals("Password Confirm", editPasswordPage.getConfirmPasswordSubtext(), "The edit password page confirm password subtext doesn't match expectations.");
     }
 
     //address book entries page text element assert test method
