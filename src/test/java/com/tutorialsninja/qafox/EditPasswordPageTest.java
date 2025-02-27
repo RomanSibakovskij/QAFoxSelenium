@@ -41,5 +41,22 @@ public class EditPasswordPageTest extends TestMethods{
         invalidEditTooShortPasswordTest();
     }
 
+    //too long input
+
+    //Test 006b -> invalid user password edit test - too long password / confirm password (the upper boundary error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid User Password Edit Test - Too Long Password")
+    @Tag("Invalid_User_Password_Edit")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountTooLongPasswordEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user password edit test - too long password/ confirm password
+        invalidEditTooLongPasswordTest();
+    }
+
 
 }

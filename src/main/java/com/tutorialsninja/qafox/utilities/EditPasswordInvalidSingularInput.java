@@ -23,6 +23,10 @@ public class EditPasswordInvalidSingularInput extends BasePage{
     private String tooShortEditedPassword = "G%c";
     private String tooShortConfirmPassword = tooShortEditedPassword;
 
+    //too long input data
+    private String tooLongEditedPassword = "Rfdfdg$%^*&%fgdfdfh23";
+    private String tooLongConfirmPassword = tooLongEditedPassword;
+
     public EditPasswordInvalidSingularInput(WebDriver driver) {super(driver);}
 
     //invalid new password input methods
@@ -38,6 +42,16 @@ public class EditPasswordInvalidSingularInput extends BasePage{
     public void inputTooShortConfirmPasswordIntoConfirmPasswordInputField(){
         confirmPasswordInputField.sendKeys(tooShortConfirmPassword);
         logger.info("Too short matching confirm password: " + tooShortConfirmPassword);
+    }
+
+    //too short input (21 chars)
+    public void inputTooLongPasswordIntoPasswordInputField(){
+        passwordInputField.sendKeys(tooLongEditedPassword);
+        logger.info("Too long edited password: " + tooLongEditedPassword);
+    }
+    public void inputTooLongConfirmPasswordIntoConfirmPasswordInputField(){
+        confirmPasswordInputField.sendKeys(tooLongConfirmPassword);
+        logger.info("Too long matching confirm password: " + tooLongConfirmPassword);
     }
 
     //invalid singular input error getter

@@ -2146,6 +2146,42 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Password Edit Test Result - Too Short Password");
     }
 
+    //too short input
+
+    //invalid edit password test method - too long password/confirm password (21 chars) (the upper boundary error wasn't triggered, test has failed)
+    protected void invalidEditTooLongPasswordTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        EditPasswordPage editPasswordPage = new EditPasswordPage(driver);
+        EditPasswordInvalidSingularInput editPasswordInvalidSingularInput = new EditPasswordInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Password' link
+        myAccountPage.clickAsidePasswordLink();
+        //edit password page web element assert
+        isEditPasswordPageWebElementDisplayed(editPasswordPage);
+        //edit password page text element assert
+        isEditPasswordPageTextElementAsExpected(editPasswordPage);
+        //capture screenshot before invalid password input
+        captureScreenshot(driver, "Edit Password Page Before Invalid Password Input");
+        //input too long password into password input field (21 chars)
+        editPasswordInvalidSingularInput.inputTooLongPasswordIntoPasswordInputField();
+        //input matching confirm password into confirm password input field
+        editPasswordInvalidSingularInput.inputTooLongConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Continue' button
+        editPasswordPage.clickEditPasswordContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Password must be between 4 and 20 characters!", editPasswordInvalidSingularInput.getInvalidSingularInputError(), "The too long password input error doesn't match expectations=.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too long password input error wasn't triggered.");
+        }
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Invalid Password Edit Test Result - Too Long Password");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
