@@ -20,7 +20,7 @@ public class EditPasswordPageTest extends TestMethods{
         userNavigationToRegisterPageTest();
         //valid user account creation
         validUserAccountCreationTest(registerPage);
-        //invalid user password edit test - no password/ confirm password
+        //invalid user password edit test - no password / confirm password
         invalidEditNoPasswordTest();
     }
 
@@ -37,7 +37,7 @@ public class EditPasswordPageTest extends TestMethods{
         userNavigationToRegisterPageTest();
         //valid user account creation
         validUserAccountCreationTest(registerPage);
-        //invalid user password edit test - too short password/ confirm password
+        //invalid user password edit test - too short password / confirm password
         invalidEditTooShortPasswordTest();
     }
 
@@ -54,9 +54,25 @@ public class EditPasswordPageTest extends TestMethods{
         userNavigationToRegisterPageTest();
         //valid user account creation
         validUserAccountCreationTest(registerPage);
-        //invalid user password edit test - too long password/ confirm password
+        //invalid user password edit test - too long password / confirm password
         invalidEditTooLongPasswordTest();
     }
 
+    //mismatched input
+
+    //Test 006c -> invalid user password edit test - mismatched confirm password
+    @Test
+    @DisplayName("Invalid User Password Edit Test - Mismatched Confirm Password")
+    @Tag("Invalid_User_Password_Edit")
+    @Tag("Mismatched_Singular_Input")
+    void invalidAccountMismatchedConfirmPasswordEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user password edit test - mismatched confirm password
+        invalidEditMismatchedConfirmPasswordTest();
+    }
 
 }

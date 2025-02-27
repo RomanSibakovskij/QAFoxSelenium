@@ -27,6 +27,10 @@ public class EditPasswordInvalidSingularInput extends BasePage{
     private String tooLongEditedPassword = "Rfdfdg$%^*&%fgdfdfh23";
     private String tooLongConfirmPassword = tooLongEditedPassword;
 
+    //mismatching input data
+    private String editedPassword;
+    private String mismatchedConfirmPassword;
+
     public EditPasswordInvalidSingularInput(WebDriver driver) {super(driver);}
 
     //invalid new password input methods
@@ -44,7 +48,7 @@ public class EditPasswordInvalidSingularInput extends BasePage{
         logger.info("Too short matching confirm password: " + tooShortConfirmPassword);
     }
 
-    //too short input (21 chars)
+    //too long input (21 chars)
     public void inputTooLongPasswordIntoPasswordInputField(){
         passwordInputField.sendKeys(tooLongEditedPassword);
         logger.info("Too long edited password: " + tooLongEditedPassword);
@@ -54,6 +58,24 @@ public class EditPasswordInvalidSingularInput extends BasePage{
         logger.info("Too long matching confirm password: " + tooLongConfirmPassword);
     }
 
+    //invalid password data getter - mismatched confirm password
+    public void invalidPasswordMismatchedConfirmPasswordGetter(){
+
+        System.out.println("Generated password data with mismatched confirm password: " + "\n");
+        editedPassword = TestDataGenerator.generateRandomPassword();
+        mismatchedConfirmPassword = "Fffdsasd*(^&7876";
+
+        logger.info("Acquired password: " + editedPassword);
+        logger.info("Mismatched confirm password: " + mismatchedConfirmPassword);
+        System.out.println("\n");
+
+    }
+
+    //mismatched input
+    public void inputPasswordIntoPasswordInputField(){passwordInputField.sendKeys(editedPassword);}
+    public void inputMismatchingConfirmPasswordIntoConfirmPasswordInputField(){confirmPasswordInputField.sendKeys(mismatchedConfirmPassword);}
+
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return editPasswordInvalidSingularInputError.getText();}
+
 }

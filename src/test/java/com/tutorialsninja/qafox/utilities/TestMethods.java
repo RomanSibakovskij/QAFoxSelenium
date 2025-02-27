@@ -2146,7 +2146,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Password Edit Test Result - Too Short Password");
     }
 
-    //too short input
+    //too long input
 
     //invalid edit password test method - too long password/confirm password (21 chars) (the upper boundary error wasn't triggered, test has failed)
     protected void invalidEditTooLongPasswordTest() {
@@ -2180,6 +2180,44 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test data result
         captureScreenshot(driver, "Invalid Password Edit Test Result - Too Long Password");
+    }
+
+    //mismatched input
+
+    //invalid edit password test method - mismatched confirm password (the upper boundary error wasn't triggered, test has failed)
+    protected void invalidEditMismatchedConfirmPasswordTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        EditPasswordPage editPasswordPage = new EditPasswordPage(driver);
+        EditPasswordInvalidSingularInput editPasswordInvalidSingularInput = new EditPasswordInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Password' link
+        myAccountPage.clickAsidePasswordLink();
+        //edit password page web element assert
+        isEditPasswordPageWebElementDisplayed(editPasswordPage);
+        //edit password page text element assert
+        isEditPasswordPageTextElementAsExpected(editPasswordPage);
+        //capture screenshot before invalid password input
+        captureScreenshot(driver, "Edit Password Page Before Invalid Password Input");
+        //valid password getter
+        editPasswordInvalidSingularInput.invalidPasswordMismatchedConfirmPasswordGetter();
+        //input password into password input field
+        editPasswordInvalidSingularInput.inputPasswordIntoPasswordInputField();
+        //input mismatching confirm password into confirm password input field
+        editPasswordInvalidSingularInput.inputMismatchingConfirmPasswordIntoConfirmPasswordInputField();
+        //click 'Continue' button
+        editPasswordPage.clickEditPasswordContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Password confirmation does not match password!", editPasswordInvalidSingularInput.getInvalidSingularInputError(), "The mismatched password input error doesn't match expectations=.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The mismatched password input error wasn't triggered.");
+        }
+        //capture screenshot of the test data result
+        captureScreenshot(driver, "Invalid Password Edit Test Result - Mismatched Confirm Password");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
