@@ -236,4 +236,19 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditTooLongEmailTest();
     }
 
+    //Test 005o -> invalid user account information edit test - too long phone (33 digits)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Too Long Phone")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountTooLongPhoneEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - too long phone (33 digits)
+        invalidEditTooLongPhoneTest();
+    }
+
 }

@@ -1813,6 +1813,40 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long Email");
     }
 
+    //invalid user account first name edit test method - too long edited last name (33 digits)
+    protected void invalidEditTooLongPhoneTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageTooLongSingularInput editAccountPageTooLongSingularInput = new EditAccountPageTooLongSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input too long edited phone (33 digits)
+        editAccountPageTooLongSingularInput.inputTooLongPhoneIntoPhoneInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Too Long Phone Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Telephone must be between 3 and 32 characters!", editAccountPageTooLongSingularInput.getInvalidSingularInputError(), "The too long phone input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The too long phone error wasn't triggered, phone edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Long Phone");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

@@ -22,6 +22,7 @@ public class EditAccountPageTooLongSingularInput extends BasePage{
     private String tooLongFirstName;
     private String tooLongLastName;
     private String tooLongEmail;
+    private String tooLongPhone;
 
     public EditAccountPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -45,6 +46,13 @@ public class EditAccountPageTooLongSingularInput extends BasePage{
         editAccountInfoEmailInputField.clear();
         editAccountInfoEmailInputField.sendKeys(tooLongEmail);
         logger.info("Too long edited email: " + tooLongEmail);
+    }
+
+    public void inputTooLongPhoneIntoPhoneInputField(){
+        tooLongPhone = "133465467423547685343566767853437";
+        editAccountInfoPhoneInputField.clear();
+        editAccountInfoPhoneInputField.sendKeys(tooLongPhone);
+        logger.info("Too long edited phone: " + tooLongPhone);
     }
 
     //invalid singular input error getter
