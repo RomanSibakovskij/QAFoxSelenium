@@ -1599,7 +1599,7 @@ public class TestMethods extends BaseTest{
         try {
             assertEquals("First Name must be between 1 and 32 characters!", editAccountPageTooShortSingularInput.getInvalidSingularInputError(), "The too short first name input error doesn't match expectations.");
         } catch (NoSuchElementException nse){
-            logger.error("The too short first name wasn't triggered, first name edit hasn't been aborted.");
+            logger.error("The too short first name error wasn't triggered, first name edit hasn't been aborted.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short First Name");
@@ -1633,10 +1633,44 @@ public class TestMethods extends BaseTest{
         try {
             assertEquals("Last Name must be between 1 and 32 characters!", editAccountPageTooShortSingularInput.getInvalidSingularInputError(), "The too short last name input error doesn't match expectations.");
         } catch (NoSuchElementException nse){
-            logger.error("The too short last name wasn't triggered, last name edit hasn't been aborted.");
+            logger.error("The too short last name error wasn't triggered, last name edit hasn't been aborted.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short Last Name");
+    }
+
+    //invalid user account first name edit test method - too short edited email (1 char -> name, domain) (email edit hasn't been aborted, test has failed)
+    protected void invalidEditTooShortEmailTest(){
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        EditAccountInformationPage editAccountInformationPage = new EditAccountInformationPage(driver);
+        EditAccountPageTooShortSingularInput editAccountPageTooShortSingularInput = new EditAccountPageTooShortSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Edit account information' link
+        myAccountPage.clickAsideEditAccountInfoLink();
+        //edit account information page web element assert
+        isEditAccountInfoPageWebElementDisplayed(editAccountInformationPage);
+        //edit account information page text element assert
+        isEditAccountInfoPageTextElementAsExpected(editAccountInformationPage);
+        //capture screenshot before invalid data input
+        captureScreenshot(driver, "Edit Account Information Page Before Invalid Data Input");
+        //input too short edited email (1 char -> name,domain)
+        editAccountPageTooShortSingularInput.inputTooShortEmailIntoEmailInputField();
+        //capture screenshot after edited data input
+        captureScreenshot(driver, "Edit Account Information Page After Too Short Email Input");
+        //click 'Continue' button
+        editAccountInformationPage.clickEditInfoContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("E-mail is too short!", editAccountPageTooShortSingularInput.getInvalidSingularInputError(), "The too short email input error doesn't match expectations.");
+        } catch (NoSuchElementException nse){
+            logger.error("The too short email error wasn't triggered, email edit hasn't been aborted.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit Account Info Test Result - Too Short Email");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

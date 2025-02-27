@@ -21,6 +21,7 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
     //too short singular input
     private String tooShortFirstName;
     private String tooShortLastName;
+    private String tooShortEmail;
 
     public EditAccountPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -30,6 +31,13 @@ public class EditAccountPageTooShortSingularInput extends BasePage{
         editAccountInfoFirstNameInputField.clear();
         editAccountInfoFirstNameInputField.sendKeys(tooShortFirstName);
         logger.info("Too short edited first name: " + tooShortFirstName);
+    }
+
+    public void inputTooShortEmailIntoEmailInputField(){
+        tooShortEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+        editAccountInfoEmailInputField.clear();
+        editAccountInfoEmailInputField.sendKeys(tooShortEmail);
+        logger.info("Too short edited email: " + tooShortEmail);
     }
 
     public void inputTooShortLastNameIntoLastNameInputField(){
