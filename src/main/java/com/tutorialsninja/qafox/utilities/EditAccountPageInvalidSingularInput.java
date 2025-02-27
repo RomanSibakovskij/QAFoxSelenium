@@ -25,6 +25,7 @@ public class EditAccountPageInvalidSingularInput extends BasePage{
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
     private String invalidEmailFormat;
+    private String invalidPhoneFormat;
     //pre-existing singular input
     private String existingEmail;
 
@@ -57,6 +58,13 @@ public class EditAccountPageInvalidSingularInput extends BasePage{
         editAccountInfoEmailInputField.clear();
         editAccountInfoEmailInputField.sendKeys(existingEmail);
         logger.info("Pre-existing edited email: " + existingEmail);
+    }
+
+    public void inputInvalidPhoneFormatIntoPhoneInputField(){
+        invalidPhoneFormat = "!#@#%$^%^&^%*&^$%#$#$";
+        editAccountInfoPhoneInputField.clear();
+        editAccountInfoPhoneInputField.sendKeys(invalidPhoneFormat);
+        logger.info("Invalid edited phone format: " + invalidPhoneFormat);
     }
 
     //invalid singular input error getter

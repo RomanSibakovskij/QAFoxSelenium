@@ -313,4 +313,19 @@ public class EditAccountInfoPageTest extends TestMethods{
         invalidEditExistingEmailTest();
     }
 
+    //Test 005t -> invalid user account information edit test - invalid phone format (special symbols) (the error hasn't been triggered, the phone edit hasn't been aborted, the test has failed)
+    @Test
+    @DisplayName("Invalid User Account Info Edit Test - Invalid Phone Format")
+    @Tag("Invalid_User_Account_Information_Edit")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountInvalidPhoneFormatEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user account information edit test - invalid phone format (special symbols)
+        invalidEditInvalidPhoneFormatTest();
+    }
+
 }
