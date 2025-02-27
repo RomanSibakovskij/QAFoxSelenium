@@ -159,6 +159,12 @@ public class MyAccountPage extends BasePage {
         actions.moveToElement(myAccountPageModifyAddressBookLink).click().perform();
     }
 
+    //click aside 'Address Book' link method
+    public void clickAsideAddressBookLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(asideAddressBookLink).click().perform();
+    }
+
     //my account page success message getter
     public String getSuccessMessage(){return successMessage.getText();}
 
