@@ -17,11 +17,16 @@ public class EditAccountPageInvalidSingularInput extends BasePage{
     //invalid singular input message element
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement editAccountInfoInvalidSingularInputError;
+    //singular input error element
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement editAccountSingularInputError;
 
     //invalid singular input format
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
     private String invalidEmailFormat;
+    //pre-existing singular input
+    private String existingEmail;
 
     public EditAccountPageInvalidSingularInput(WebDriver driver) {super(driver);}
 
@@ -47,6 +52,15 @@ public class EditAccountPageInvalidSingularInput extends BasePage{
         logger.info("Invalid edited email format: " + invalidEmailFormat);
     }
 
+    public void inputExistingEmailIntoEmailInputField(){
+        existingEmail = "m0@example.com";
+        editAccountInfoEmailInputField.clear();
+        editAccountInfoEmailInputField.sendKeys(existingEmail);
+        logger.info("Pre-existing edited email: " + existingEmail);
+    }
+
     //invalid singular input error getter
     public String getInvalidSingularInputError(){return editAccountInfoInvalidSingularInputError.getText();}
+    //invalid input error getter
+    public String getInvalidInputError(){return editAccountSingularInputError.getText();}
 }
