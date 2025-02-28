@@ -147,6 +147,15 @@ public class GeneralPage extends BasePage {
         action.moveToElement(wishlistIconLink).click().perform();
     }
 
+    //hover over 'Desktops' nav bar link method
+    public void hoverOverDesktopsNavBarLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(desktopsNavLink).perform();
+    }
+
+    //click 'Show all desktops' link method
+    public void clickShowAllDesktopsDropdownLink(){showAllDesktopsDropdownLink.click();}
+
     //element wait load method (so that Selenium would stop skipping test methods during run)
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));

@@ -13,4 +13,13 @@ public class HomePageTest extends TestMethods {
         userNavigationToRegisterPageTest();
     }
 
+    //Test 009 -> navigate to 'Desktops' category page test (as a guest)
+    @Test
+    @DisplayName("Navigate to 'Desktops' Category Dashboard Page Test (as a guest)")
+    @Tag("Navigate_To_Desktops_Category_Dashboard_Page")
+    @Tag("Test_As_A_Guest")
+    void navigateToDesktopsCategoryPageAsGuestTest() {
+        navigateToDesktopsCategoryDashboardPageTest();
+    }
+
 }

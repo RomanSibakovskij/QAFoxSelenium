@@ -3677,6 +3677,37 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Remove Featured Product (MacBook) From Wishlist Page Test Result");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //user navigation to single product category dashboard page (Desktops) test method - as a guest
+    protected void navigateToDesktopsCategoryDashboardPageTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //hover over 'Desktops' nav bar link
+        generalPage.hoverOverDesktopsNavBarLink();
+        //click 'Show all desktops' dropdown link
+        generalPage.clickShowAllDesktopsDropdownLink();
+        //assert the user is on the correct dashboard page
+        assertEquals("Desktops", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageTitle(), "The 'Desktops' category page title doesn't match expectations or the user is on the wrong category page.");
+        //single product category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category dashboard additional page web element assert(not all categories have them)
+        isSingleProductCategoryDashboardPageAdditionalWebElementDisplayed(singleProductCategoryDashboardPage);
+        //log 'Desktops' category page product table data
+        logSingleProductCategoryProductData(singleProductCategoryDashboardPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Navigation To 'Desktops' Category Dashboard Page Test Result (as a guest)");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
