@@ -135,10 +135,27 @@ public class GeneralPage extends BasePage {
     //click 'Login' option link method
     public void clickLoginOptionLink(){loginLinkOption.click();}
 
-    //element wait load method
+    //click homepage logo link method
+    public void clickHomePageLogoLink(){
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageLogoLink).click().perform();
+    }
+
+    //click wishlist header icon nav link method
+    public void clickWishlistIconLinkButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(wishlistIconLink).click().perform();
+    }
+
+    //element wait load method (so that Selenium would stop skipping test methods during run)
     public void waitForElementsToLoad() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(org.openqa.selenium.By.xpath("//*")));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
+        //wait for the document to be fully loaded
+        wait.until(webDriver -> Objects.equals(((JavascriptExecutor) webDriver)
+                .executeScript("return document.readyState"), "complete"));
+
+        //assert at least one visible element is present
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
     }
 
     //general page footer text element getters

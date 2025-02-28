@@ -50,8 +50,10 @@ public class HomePage extends BasePage {
 
     public List<String> getFeaturedProductUnitPrices() {return homePageFeaturedProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
 
-
-
+    //home page featured products 'Add to Wishlist' button click method
+    public void clickAddToWishlistButton(int index) {
+        homePageFeaturedProductAddToWishlistButtonElements.get(index).click();
+    }
 
     //home page web elements assert methods
     //main

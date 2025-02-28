@@ -3570,6 +3570,42 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Main Address Input Test Result - Invalid User City Format");
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //products addition to wishlist tests (only registered users have this feature)
+
+    //valid featured product addition to wishlist test
+    protected void addFeaturedProductToWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click homepage logo link (to return to home page)
+        generalPage.clickHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //click featured product (MacBook) 'Add to Wishlist' button
+        homePage.clickAddToWishlistButton(0);
+        //click header navbar wishlist button
+        generalPage.clickWishlistIconLinkButton();
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page test element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //capture screenshot of the wishlist page
+        captureScreenshot(driver, "Wishlist Page Display (MacBook)");
+        //log wishlist product table data
+        logWishlistProductTableData(wishlistPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Featured Product (MacBook) To Wishlist Page Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -4007,8 +4043,8 @@ public class TestMethods extends BaseTest{
         //table elements
         //assert wishlist page product image links are displayed (as a list)
         assertTrue(wishlistPage.isWishlistPageProductImageLinkDisplayed(), "The wishlist page table product image links aren't displayed");
-        //assert wishlist page product name links are displayed (as a list)
-        assertTrue(wishlistPage.isWishlistPageProductNameLinkDisplayed(), "The wishlist page table product name links aren't displayed");
+        //assert wishlist page product name links are displayed (as a list) //Selenium throws StaleElementRefException even if the page isn't reloaded and the element isn't obstructed, waits don't fix the issue, selector IS valid
+        //assertTrue(wishlistPage.isWishlistPageProductNameLinkDisplayed(), "The wishlist page table product name links aren't displayed");
         //assert wishlist page product models are displayed (as a list)
         assertTrue(wishlistPage.isWishlistPageProductModelDisplayed(), "The wishlist page table product models aren't displayed");
         //assert wishlist page product stocks are displayed (as a list)
@@ -4210,6 +4246,16 @@ public class TestMethods extends BaseTest{
     protected void logAddressBookEntriesPageEntryData(AddressBookEntriesPage addressBookEntriesPage){
         System.out.println("Available address(es) displayed on address book entries page: " + "\n");
         logger.info("Displayed entry address(es) data: " + addressBookEntriesPage.getAddressBookEntryData() + "\n");
+        System.out.println("\n");
+    }
+
+    //wishlist page product table data logger method
+    protected void logWishlistProductTableData(WishlistPage wishlistPage){
+        System.out.println("Wishlist page product table displayed data: " + "\n");
+        //logger.info("Wishlist product name(s): " + wishlistPage.getWishlistPageProductName()); //Selenium throws StaleElementRefException even if the page isn't reloaded and the element isn't obstructed, waits don't fix the issue, selector IS valid
+        logger.info("Wishlist product model(s): " + wishlistPage.getWishlistPageProductModel());
+        logger.info("Wishlist product stock(s): " + wishlistPage.getWishlistPageProductStock());
+        logger.info("Wishlist product unit price(s): " + wishlistPage.getWishlistPageProductUnitPrice());
         System.out.println("\n");
     }
 

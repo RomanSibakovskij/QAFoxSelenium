@@ -36,7 +36,11 @@ public class WishlistPage extends BasePage{
     public String getWishlistPageTitle() {return wishlistPageTitle.getText();}
 
     //wishlist page table data getters
-    public List<String> getWishlistPageProductName() {return wishlistPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getWishlistPageProductName() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
+        wait.until(ExpectedConditions.visibilityOfAllElements(wishlistPageProductNameLinkElements));
+        return wishlistPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList()); //Selenium throws StaleElementRefException even if the page isn't reloaded and the element isn't obstructed, waits don't fix the issue, selector IS valid
+    }
     public List<String> getWishlistPageProductModel() {return wishlistPageProductModelElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductStock() {return wishlistPageProductStockElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductUnitPrice() {return wishlistPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
