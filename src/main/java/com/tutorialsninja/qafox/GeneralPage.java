@@ -135,6 +135,12 @@ public class GeneralPage extends BasePage {
     //click 'Login' option link method
     public void clickLoginOptionLink(){loginLinkOption.click();}
 
+    //element wait load method
+    public void waitForElementsToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(org.openqa.selenium.By.xpath("//*")));
+    }
+
     //general page footer text element getters
     public String getFooterInformationSectionTitle() {return footerInformationSectionTitle.getText();}
     public String getFooterCustomerServiceSectionTitle() {return footerCustomerServiceSectionTitle.getText();}

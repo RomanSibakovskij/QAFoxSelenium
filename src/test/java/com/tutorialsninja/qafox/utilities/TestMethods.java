@@ -75,6 +75,8 @@ public class TestMethods extends BaseTest{
         registerPage.clickAgreeToPrivacyPolicyCheckbox();
         //click 'Continue' button
         registerPage.clickRegisterPageContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
         //assert user account creation success message matches expectations
         //assertUserAccountCreationMessageMatchesExpectations(registerPage);
         //click 'Continue' button
@@ -2417,7 +2419,7 @@ public class TestMethods extends BaseTest{
         //click 'Continue' button
         addAddressPage.clickAddressContinueButton();
         //assert the user get an expected success message
-        assertEquals("Your address has been successfully updated", addressBookEntriesPage.getAddressAdditionSuccessMessage(), "The address edit success message doesn't match expectations or the address addition has failed.");
+        assertEquals("Your address has been successfully updated", addressBookEntriesPage.getAddressAdditionSuccessMessage(), "The address edit success message doesn't match expectations or the address edit process has failed.");
         //log updated address data
         logAddressBookEntriesPageEntryData(addressBookEntriesPage);
         //capture screenshot of the test result
@@ -2435,9 +2437,25 @@ public class TestMethods extends BaseTest{
         //click 'Delete' address button
         addressBookEntriesPage.clickDeleteAddressButton(0);
         //assert the user get an expected success message
-        assertEquals("Warning: You can not delete your default address!", addressBookEntriesPage.getAddressRemovalWarningMessage(), "The default address removal warning message doesn't match expectations or the address addition has failed.");
+        assertEquals("Warning: You can not delete your default address!", addressBookEntriesPage.getAddressRemovalWarningMessage(), "The default address removal warning message doesn't match expectations or the address removal has failed.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Main User Address Delete Test Result");
+    }
+
+    //user address (one of addresses / not default) delete test
+    protected void deleteUserAddressTest(AddAddressPage addAddressPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        AddressBookEntriesPage addressBookEntriesPage = new AddressBookEntriesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Delete' address button
+        addressBookEntriesPage.clickDeleteAddressButton(1);
+        //assert the user get an expected success message
+        assertEquals("Your address has been successfully deleted", addressBookEntriesPage.getAddressAdditionSuccessMessage(), "The user address removal success message doesn't match expectations or the address removal has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Address Delete Test Result");
     }
 
     //invalid user address addition tests
