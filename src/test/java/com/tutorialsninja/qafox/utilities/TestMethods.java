@@ -4458,6 +4458,28 @@ public class TestMethods extends BaseTest{
         System.out.println("\n");
     }
 
+    //product comparison list page product table data logger method
+    protected void logProductComparisonListProductTableData(ProductCompareListPage productCompareListPage){
+        System.out.println("Product comparison list page product table displayed data: " + "\n");
+        logger.info("Compared product names: " + productCompareListPage.getProductCompareNames());
+        logger.info("Compared product prices: " + productCompareListPage.getProductComparePrices());
+        logger.info("Compared product models: " + productCompareListPage.getProductCompareModels());
+        logger.info("Compared product brands: " + productCompareListPage.getProductCompareBrands());
+        logger.info("Compared product availabilities: " + productCompareListPage.getProductCompareAvailabilities());
+        logger.info("Compared product summaries: " + productCompareListPage.getProductCompareSummaries());
+        logger.info("Compared product weights: " + productCompareListPage.getProductCompareWeights());
+        logger.info("Compared product dimensions: " + productCompareListPage.getProductCompareDimensions());
+        System.out.println("\n");
+    }
+
+    //product comparison list page product table data logger method (for HP LP3065)
+    protected void logHPLP3065ProductComparisonData(ProductCompareListPage productCompareListPage){
+        System.out.println("HP LP3065 product comparison table displayed data: " + "\n");
+        logger.info("HP LP3065 memory: " + productCompareListPage.getProductCompareMemory());
+        logger.info("HP LP3065 core number: " + productCompareListPage.getProductCompareCoreNumber());
+        System.out.println("\n");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //test result screenshot method

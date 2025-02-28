@@ -52,6 +52,19 @@ public class ProductCompareListPage extends BasePage {
     //product compare list page text element getter
     public String getProductCompareListPageTitle() {return productCompareListPageTitle.getText();}
 
+    //product compare list page comparison list table data getters
+    public List<String> getProductCompareNames() {return productCompareNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductComparePrices() {return productComparePriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductCompareModels() {return productCompareModelElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductCompareBrands() {return productCompareBrandElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductCompareAvailabilities() {return productCompareAvailabilityElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductCompareSummaries() {return productCompareSummaryElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductCompareWeights() {return productCompareWeightElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductCompareDimensions() {return productCompareDimensionElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    //singular elements
+    public String getProductCompareMemory() {return productCompareMemory.getText();}
+    public String getProductCompareCoreNumber() {return productCompareCoreNumber.getText();}
+
     //product compare list page web element assert methods
     public boolean isProductCompareListPageTitleDisplayed() {return productCompareListPageTitle.isDisplayed();}
     public boolean isProductCompareMemoryDisplayed() {return productCompareMemory.isDisplayed();}
