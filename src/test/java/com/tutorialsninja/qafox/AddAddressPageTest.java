@@ -223,7 +223,7 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionTooLongFirstNameTest(addAddressPage);
     }
 
-    //Test 007m -> invalid user address addition test - too long last name  (33 chars)
+    //Test 007m -> invalid user address addition test - too long last name (33 chars)
     @Test
     @DisplayName("Invalid User Address Addition Test - Too Long Last Name")
     @Tag("Invalid_Singular_Address_Addition")
@@ -239,7 +239,7 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionTooLongLastNameTest(addAddressPage);
     }
 
-    //Test 007n -> invalid user address addition test - too long address  (129 chars)
+    //Test 007n -> invalid user address addition test - too long address (129 chars)
     @Test
     @DisplayName("Invalid User Address Addition Test - Too Long Address")
     @Tag("Invalid_Singular_Address_Addition")
@@ -253,6 +253,22 @@ public class AddAddressPageTest extends TestMethods{
         validUserAccountCreationTest(registerPage);
         //invalid user address addition test - too long address (129 chars)
         invalidUserSingleAddressAdditionTooLongAddressTest(addAddressPage);
+    }
+
+    //Test 007o -> invalid user address addition test - too long city (129 chars)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long City")
+    @Tag("Invalid_Singular_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAddressAdditionTooLongCityTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - too long city (129 chars)
+        invalidUserSingleAddressAdditionTooLongCityTest(addAddressPage);
     }
 
 }

@@ -33,6 +33,7 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
     private String tooLongFirstName;
     private String tooLongLastName;
     private String tooLongAddress;
+    private String tooLongCity;
 
     public AddAddressPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -97,10 +98,29 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - too long user city (129 chars)
+    public void invalidUserAddressDataTooLongCityGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        tooLongCity = "Fcgjhdffdgfgfgdsdsdsfgjhdffgrretrthsfsgdghkmjnbhffwretyuiolukmjynhbgvdfsjghkmhjhgfsdasdsdsadsadwqwrwetrytyddddsfsfdgfhdfhtnbvsads";
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (too long user city): " + "\n");
+        logger.info("Valid user first name (too long user city): " + addressFirstName);
+        logger.info("Valid user last name (too long user city): " + addressLastName);
+        logger.info("Valid user address 1 (too long user city): " + address1);
+        logger.info("Too long user city: " + tooLongCity);
+        logger.info("Valid user post code (too long user city): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - too long singular input
     public void inputTooLongFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(tooLongFirstName);}
     public void inputTooLongLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(tooLongLastName);}
     public void inputTooLongAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(tooLongAddress);}
+    public void inputTooLongCityIntoCityInputField(){addAddressCityInputField.sendKeys(tooLongCity);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
