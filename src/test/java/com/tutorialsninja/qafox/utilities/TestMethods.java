@@ -4130,6 +4130,41 @@ public class TestMethods extends BaseTest{
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
+    //product comparison page web element assert test method
+    protected void isProductComparisonPageWebElementDisplayed(ProductCompareListPage productCompareListPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert wishlist page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The wishlist page breadcrumb isn't displayed");
+        //main
+        //assert product comparison page title is displayed
+        assertTrue(productCompareListPage.isProductCompareListPageTitleDisplayed(), "The product comparison page title isn't displayed");
+        //table elements
+        //assert product comparison list product name links are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductNameLinkDisplayed(), "The product comparison page product name links aren't displayed");
+        //assert product comparison list product images are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductImageDisplayed(), "The product comparison page product images aren't displayed");
+        //assert product comparison list product prices are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductPriceDisplayed(), "The product comparison page product prices aren't displayed");
+        //assert product comparison list product models are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductModelDisplayed(), "The product comparison page product models aren't displayed");
+        //assert product comparison list product brands are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductBrandDisplayed(), "The product comparison page product brands aren't displayed");
+        //assert product comparison list product availabilities are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductAvailabilityDisplayed(), "The product comparison page product availabilities aren't displayed");
+        //assert product comparison list product ratings are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductRatingDisplayed(), "The product comparison page product ratings aren't displayed");
+        //assert product comparison list product summaries are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductSummaryDisplayed(), "The product comparison page product summaries aren't displayed");
+        //assert product comparison list product weights are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductWeightDisplayed(), "The product comparison page product weights aren't displayed");
+        //assert product comparison list product dimensions are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductDimensionDisplayed(), "The product comparison page product dimensions aren't displayed");
+        //assert product comparison list product 'Add to Cart' buttons are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductAddToCartButtonDisplayed(), "The product comparison page product 'Add to Cart' buttons aren't displayed");
+        //assert product comparison list product 'Remove' buttons are displayed (as a list)
+        assertTrue(productCompareListPage.isProductCompareListProductRemoveButtonDisplayed(), "The product comparison page product 'Remove' buttons aren't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -4277,6 +4312,12 @@ public class TestMethods extends BaseTest{
     protected void isWishlistPageTextElementAsExpected(WishlistPage wishlistPage){
         //assert wishlist page title is as expected
         assertEquals("My Wish List", wishlistPage.getWishlistPageTitle(), "The wishlist page title doesn't match expectations.");
+    }
+
+    //product comparison list page text element assert test method
+    protected void isProductComparisonPageTextElementAsExpected(ProductCompareListPage productCompareListPage){
+        //assert product comparison list page title is as expected
+        assertEquals("Product Comparison", productCompareListPage.getProductCompareListPageTitle(), "The product comparison list page title doesn't match expectations.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
