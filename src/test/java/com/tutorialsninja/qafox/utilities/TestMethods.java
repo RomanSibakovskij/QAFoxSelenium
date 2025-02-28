@@ -3679,6 +3679,8 @@ public class TestMethods extends BaseTest{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //user navigation to single category page tests (all categories would have the same output but Desktops has most products in its list)
+
     //user navigation to single product category dashboard page (Desktops) test method - as a guest
     protected void navigateToDesktopsCategoryDashboardPageTest(){
         GeneralPage generalPage = new GeneralPage(driver);
@@ -3706,6 +3708,30 @@ public class TestMethods extends BaseTest{
         logSingleProductCategoryProductData(singleProductCategoryDashboardPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Navigation To 'Desktops' Category Dashboard Page Test Result (as a guest)");
+    }
+
+    //user navigation to single product category dashboard page (Desktops) test method - as a registered user
+    protected void navigateToDesktopsCategoryDashboardPageRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //hover over 'Desktops' nav bar link
+        generalPage.hoverOverDesktopsNavBarLink();
+        //click 'Show all desktops' dropdown link
+        generalPage.clickShowAllDesktopsDropdownLink();
+        //assert the user is on the correct dashboard page
+        assertEquals("Desktops", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageTitle(), "The 'Desktops' category page title doesn't match expectations or the user is on the wrong category page.");
+        //single product category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category dashboard additional page web element assert(not all categories have them)
+        isSingleProductCategoryDashboardPageAdditionalWebElementDisplayed(singleProductCategoryDashboardPage);
+        //log 'Desktops' category page product table data
+        logSingleProductCategoryProductData(singleProductCategoryDashboardPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Navigation To 'Desktops' Category Dashboard Page Test Result (as a registered user)");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
