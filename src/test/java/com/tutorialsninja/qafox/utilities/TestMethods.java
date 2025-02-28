@@ -3572,13 +3572,12 @@ public class TestMethods extends BaseTest{
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //products addition to wishlist tests (only registered users have this feature)
+    //products addition (all categories produce the same output - where products are available) to wishlist tests (only registered users have this feature) -> both in-stock and not in-stock products produce the same output
 
-    //valid featured product addition to wishlist test
+    //featured product addition to wishlist test
     protected void addFeaturedProductToWishlistTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
         WishlistPage wishlistPage = new WishlistPage(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
@@ -3604,6 +3603,41 @@ public class TestMethods extends BaseTest{
         logWishlistProductTableData(wishlistPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Add Featured Product (MacBook) To Wishlist Page Test Result");
+    }
+
+    //multiple featured products addition to wishlist test
+    protected void addMultipleFeaturedProductsToWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click homepage logo link (to return to home page)
+        generalPage.clickHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //click featured product (MacBook) 'Add to Wishlist' button
+        homePage.clickAddToWishlistButton(0);
+        //click featured product (Iphone) 'Add to Wishlist' button
+        homePage.clickAddToWishlistButton(1);
+        //click featured product (Apple Cinema 30'') 'Add to Wishlist' button
+        homePage.clickAddToWishlistButton(2);
+        //click header navbar wishlist button
+        generalPage.clickWishlistIconLinkButton();
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page test element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //capture screenshot of the wishlist page
+        captureScreenshot(driver, "Wishlist Page Display (MacBook, Iphone, Apple Cinema 30'')");
+        //log wishlist product table data
+        logWishlistProductTableData(wishlistPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Multiple Featured Products (MacBook, Iphone, Apple Cinema 30'') To Wishlist Page Test Result");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

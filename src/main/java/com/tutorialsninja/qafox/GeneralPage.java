@@ -155,7 +155,7 @@ public class GeneralPage extends BasePage {
                 .executeScript("return document.readyState"), "complete"));
 
         //assert at least one visible element is present
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*")));
     }
 
     //general page footer text element getters
