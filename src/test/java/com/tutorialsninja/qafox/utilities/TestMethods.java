@@ -4165,6 +4165,84 @@ public class TestMethods extends BaseTest{
         assertTrue(productCompareListPage.isProductCompareListProductRemoveButtonDisplayed(), "The product comparison page product 'Remove' buttons aren't displayed");
     }
 
+    //product comparison page web element assert test method (for additional HP LP3065 page specific elements)
+    protected void isProductComparisonPageHPWebElementDisplayed(ProductCompareListPage productCompareListPage) {
+        //assert product comparison page HP memory parameter is displayed
+        assertTrue(productCompareListPage.isProductCompareMemoryDisplayed(), "The product comparison page HP memory parameter isn't displayed");
+        //assert product comparison page HP core number parameter is displayed
+        assertTrue(productCompareListPage.isProductCompareCoreNumberDisplayed(), "The product comparison page HP core number parameter isn't displayed");
+    }
+
+    //single product category dashboard page web element assert test method
+    protected void isSingleProductCategoryDashboardPageWebElementDisplayed(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert single product category dashboard page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The single product category dashboard page breadcrumb isn't displayed");
+        //aside
+        //assert single product category dashboard aside desktops link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideDesktopsLinkDisplayed(), "The single product category dashboard aside desktops link isn't displayed");
+        //assert single product category dashboard aside laptops link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideLaptopsLinkDisplayed(), "The single product category dashboard aside laptops link isn't displayed");
+        //assert single product category dashboard aside components link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideComponentsLinkDisplayed(), "The single product category dashboard aside components link isn't displayed");
+        //assert single product category dashboard aside tablets link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideTabletsLinkDisplayed(), "The single product category dashboard aside tablets link isn't displayed");
+        //assert single product category dashboard aside software link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideSoftwareLinkDisplayed(), "The single product category dashboard aside software link isn't displayed");
+        //assert single product category dashboard aside phones link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsidePhonesLinkDisplayed(), "The single product category dashboard aside phones link isn't displayed");
+        //assert single product category dashboard aside cameras link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideCamerasLinkDisplayed(), "The single product category dashboard aside cameras link isn't displayed");
+        //assert single product category dashboard aside mp3 players link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideMP3PlayersLinkDisplayed(), "The single product category dashboard aside mp3 players link isn't displayed");
+        //assert single product category dashboard aside swiper image link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isAsideSwiperImageLinkDisplayed(), "The single product category dashboard aside swiper image link isn't displayed");
+        //main
+        //assert single product category dashboard page title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryPageTitleDisplayed(), "The single product category dashboard page title isn't displayed");
+        //assert single product category dashboard page grid view button is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryGridViewButtonDisplayed(), "The single product category dashboard page grid view button isn't displayed");
+        //assert single product category dashboard page list view button is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryListViewButtonDisplayed(), "The single product category dashboard page list view button isn't displayed");
+        //assert single product category dashboard page product compare link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryProductCompareLinkDisplayed(), "The single product category dashboard page product compare link isn't displayed");
+        //assert single product category dashboard page sort by dropdown menu is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategorySortByDropdownMenuDisplayed(), "The single product category dashboard page sort by dropdown menu isn't displayed");
+        //assert single product category dashboard page show dropdown menu is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryShowDropdownMenuDisplayed(), "The single product category dashboard page show dropdown menu isn't displayed");
+        //assert single product category dashboard page product counter is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryShowingProductCounterDisplayed(), "The single product category dashboard page product counter isn't displayed");
+        //product table list elements
+        //assert single product category dashboard page product image links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableImageLinkDisplayed(), "The single product category dashboard page product image links aren't displayed");
+        //assert single product category dashboard page product name links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableNameLinkDisplayed(), "The single product category dashboard page product name links aren't displayed");
+        //assert single product category dashboard page product descriptions are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableDescriptionDisplayed(), "The single product category dashboard page product name descriptions aren't displayed");
+        //assert single product category dashboard page product unit prices are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableUnitPriceDisplayed(), "The single product category dashboard page product unit prices aren't displayed");
+        //assert single product category dashboard page product 'add to cart' buttons are displayed (as a list) (buttons throw StaleElementReferenceException even if they are NOT obscured/refreshed)
+        //assertTrue(singleProductCategoryDashboardPage.isProductTableAddToCartButtonDisplayed(), "The single product category dashboard page product 'Add to cart' buttons aren't displayed");
+        //assert single product category dashboard page product 'add to wishlist' buttons are displayed (as a list)
+        //assertTrue(singleProductCategoryDashboardPage.isProductTableAddToWishlistButtonDisplayed(), "The single product category dashboard page product 'Add to wishlist' buttons aren't displayed");
+        //assert single product category dashboard page product 'add to compare' buttons are displayed (as a list)
+        //assertTrue(singleProductCategoryDashboardPage.isProductTableAddToCompareButtonDisplayed(), "The single product category dashboard page product 'Add to compare' buttons aren't displayed");
+    }
+
+    //single product category dashboard page additional (elements that not all category pages have) web element assert test method
+    protected void isSingleProductCategoryDashboardPageAdditionalWebElementDisplayed(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        //main
+        //assert single product category dashboard page main image is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryMainImageDisplayed(), "The single product category dashboard page main image isn't displayed");
+        //assert single product category dashboard page description is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDescriptionDisplayed(), "The single product category dashboard page description isn't displayed");
+        //assert single product category dashboard page subtitle is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategorySubtitleDisplayed(), "The single product category dashboard page subtitle isn't displayed");
+        //list elements
+        //assert single product category dashboard page product refined search links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryRefinedSearchLinkDisplayed(), "The single product category dashboard page product refined search links aren't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -4368,6 +4446,15 @@ public class TestMethods extends BaseTest{
         logger.info("Wishlist product model(s): " + wishlistPage.getWishlistPageProductModel());
         logger.info("Wishlist product stock(s): " + wishlistPage.getWishlistPageProductStock());
         logger.info("Wishlist product unit price(s): " + wishlistPage.getWishlistPageProductUnitPrice());
+        System.out.println("\n");
+    }
+
+    //single product category page data logger method
+    protected void logSingleProductCategoryProductData(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage){
+        System.out.println("Single product category dashboard page displayed product data: " + "\n");
+        logger.info("Product name(s): " + singleProductCategoryDashboardPage.getProductTableName());
+        logger.info("Product description(s): " + singleProductCategoryDashboardPage.getProductTableDescription());
+        logger.info("Product unit price(s): " + singleProductCategoryDashboardPage.getProductTableUnitPrice());
         System.out.println("\n");
     }
 
