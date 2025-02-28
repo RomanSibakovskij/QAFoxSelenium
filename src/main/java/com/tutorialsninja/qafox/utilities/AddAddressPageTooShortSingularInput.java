@@ -37,6 +37,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     private String tooShortFirstName;
     private String tooShortLastName;
     private String tooShortAddress;
+    private String tooShortCity;
 
     public AddAddressPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -101,12 +102,29 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - too short user city
+    public void invalidUserAddressDataTooShortCityGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        tooShortCity = "G";
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (too short user city): " + "\n");
+        logger.info("Valid user first name (too short user city): " + addressFirstName);
+        logger.info("Valid user last name (too short user city): " + addressLastName);
+        logger.info("Valid user address 1 (too short user city): " + address1);
+        logger.info("Too short user city: " + tooShortCity);
+        logger.info("Valid user post code (too short user city): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - too short singular input
     public void inputTooShortFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(tooShortFirstName);}
     public void inputTooShortLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(tooShortLastName);}
     public void inputTooShortAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(tooShortAddress);}
-
-
+    public void inputTooShortCityIntoCityInputField(){addAddressCityInputField.sendKeys(tooShortCity);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}

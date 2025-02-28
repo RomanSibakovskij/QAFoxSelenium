@@ -2923,6 +2923,69 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Main Address Input Test Result - Too Short User Address");
     }
 
+    //invalid user address addition test method - too short user city (1 char)
+    protected void invalidUserSingleAddressAdditionTooShortCityTest(AddAddressPage addAddressPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        AddressBookEntriesPage addressBookEntriesPage = new AddressBookEntriesPage(driver);
+        AddAddressPageTooShortSingularInput addAddressPageTooShortSingularInput = new AddAddressPageTooShortSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Address Book' link
+        myAccountPage.clickAsideAddressBookLink();
+        //address book entries text element assert
+        isAddressBookEntriesPageTextElementAsExpected(addressBookEntriesPage);
+        //assert the user gets an expected message (since the user doesn't have the address yet)
+        assertEquals("You have no addresses in your account.", addressBookEntriesPage.getAddressBookEntriesPageNoAddressMessage(), "The 'No address' message text doesn't match expectations or the message isn't displayed.");
+        //capture screenshot to verify no addresses have been input yet
+        captureScreenshot(driver, "Address Book Entries Page Display With No Addresses");
+        //click 'New Address' button
+        addressBookEntriesPage.clickNewAddressButton();
+        //add address page web element assert
+        isAddAddressPageWebElementDisplayed(addAddressPage);
+        //add address text element assert
+        isAddAddressPageTextElementAsExpected(addAddressPage);
+        //capture screenshot before invalid user address input
+        captureScreenshot(driver, "Address Page Display Before Invalid Address Data Input");
+        //invalid user address data getter - too short user city (1 char)
+        addAddressPageTooShortSingularInput.invalidUserAddressDataTooShortCityGetter(registerPage);
+        //input valid user first name
+        addAddressPageTooShortSingularInput.inputValidFirstNameIntoFirstNameInputField();
+        //input valid user last name
+        addAddressPageTooShortSingularInput.inputValidLastNameIntoLastNameInputField();
+        //input valid short user address (address1)
+        addAddressPageTooShortSingularInput.inputValidAddress1IntoAddress1InputField();
+        //input too short user city
+        addAddressPageTooShortSingularInput.inputTooShortCityIntoCityInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid Address Data Input - Too Short City");
+        //input valid user post code
+        addAddressPageTooShortSingularInput.inputValidPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        addAddressPage.clickCountryDropdownMenu();
+        //select 'United States'
+        addAddressPage.selectUsCountryOption();
+        //click state dropdown menu
+        addAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        addAddressPage.selectIllinoisStateOption();
+        //click 'Yes' default address radio button
+        addAddressPage.clickYesDefaultAddressRadioButton();
+        //click 'Continue' button
+        addAddressPage.clickAddressContinueButton();
+        //assert the user get an expected error message, otherwise, log the issue
+        try {
+            assertEquals("City must be between 2 and 128 characters!", addAddressPageTooShortSingularInput.getInvalidInputError(), "The too short city input error doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The too short city error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Main Address Input Test Result - Too Short User City");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
