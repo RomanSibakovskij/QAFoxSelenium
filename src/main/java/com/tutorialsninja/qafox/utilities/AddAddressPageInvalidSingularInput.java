@@ -32,6 +32,7 @@ public class AddAddressPageInvalidSingularInput extends BasePage{
     //invalid singular input format
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
+    private String invalidAddressFormat;
 
     public AddAddressPageInvalidSingularInput(WebDriver driver) {super(driver);}
 
@@ -78,10 +79,28 @@ public class AddAddressPageInvalidSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - invalid address format (special symbols only)
+    public void invalidUserAddressDataInvalidAddressFormatGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        invalidAddressFormat = "!@#$^%%$^*&&^*&%$%#@$#";
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (invalid user address format): " + "\n");
+        logger.info("Valid user first name (invalid user address format): " + addressFirstName);
+        logger.info("Valid user last name (invalid user address format): " + addressLastName);
+        logger.info("Invalid user address 1 format: " + invalidAddressFormat);
+        logger.info("Valid user city (invalid user address format): " + city);
+        logger.info("Valid user post code (invalid user address format): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - invalid singular input format
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(invalidFirstNameFormat);}
     public void inputInvalidLastNameFormatIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(invalidLastNameFormat);}
-
+    public void inputInvalidAddress1FormatIntoAddress1InputField(){addAddressAddress1InputField.sendKeys(invalidAddressFormat);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}

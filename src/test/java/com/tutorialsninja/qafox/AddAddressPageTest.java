@@ -305,4 +305,20 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionInvalidLastNameFormatTest(addAddressPage);
     }
 
+    //Test 007r -> invalid user address addition test - invalid user address (address1) format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid Address Format")
+    @Tag("Invalid_Singular_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserAddressAdditionInvalidAddressFormatTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - invalid user address (address1) format (special symbols only)
+        invalidUserSingleAddressAdditionInvalidAddress1FormatTest(addAddressPage);
+    }
+
 }
