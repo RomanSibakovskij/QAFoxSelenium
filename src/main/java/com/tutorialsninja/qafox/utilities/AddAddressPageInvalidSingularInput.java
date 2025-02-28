@@ -33,6 +33,7 @@ public class AddAddressPageInvalidSingularInput extends BasePage{
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
     private String invalidAddressFormat;
+    private String invalidCityFormat;
 
     public AddAddressPageInvalidSingularInput(WebDriver driver) {super(driver);}
 
@@ -97,10 +98,29 @@ public class AddAddressPageInvalidSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - invalid user city format (special symbols only)
+    public void invalidUserAddressDataInvalidCityFormatGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        invalidCityFormat = "!#@$%$#^^&^%*%$%#$";
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (invalid user city format): " + "\n");
+        logger.info("Valid user first name (invalid user city format): " + addressFirstName);
+        logger.info("Valid user last name (invalid user city format): " + addressLastName);
+        logger.info("Valid user address 1 (invalid user city format): " + address1);
+        logger.info("Invalid user city format: " + invalidCityFormat);
+        logger.info("Valid user post code (invalid user city format): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - invalid singular input format
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(invalidFirstNameFormat);}
     public void inputInvalidLastNameFormatIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(invalidLastNameFormat);}
     public void inputInvalidAddress1FormatIntoAddress1InputField(){addAddressAddress1InputField.sendKeys(invalidAddressFormat);}
+    public void inputInvalidCityFormatIntoCityInputField(){addAddressCityInputField.sendKeys(invalidCityFormat);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
