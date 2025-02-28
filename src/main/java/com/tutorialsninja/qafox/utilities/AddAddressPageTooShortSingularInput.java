@@ -44,7 +44,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     public void inputValidCityIntoCityInputField(){addAddressCityInputField.sendKeys(city);}
     public void inputValidPostCodeIntoPostCodeInputField(){addAddressPostCodeInputField.sendKeys(String.valueOf(postCode));}
 
-    //invalid user address data getter - too short first name
+    //invalid user address data getter - too short first name (1 char)
     public void invalidUserAddressDataTooShortFirstNameGetter(RegisterPage registerPage) {
 
         tooShortFirstName = "U";
@@ -62,7 +62,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
-    //invalid user address data getter - too short last name
+    //invalid user address data getter - too short last name (1 char)
     public void invalidUserAddressDataTooShortLastNameGetter(RegisterPage registerPage) {
 
         addressFirstName = registerPage.getUserFirstName();
@@ -80,7 +80,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
-    //invalid user address data getter - too short address
+    //invalid user address data getter - too short address (2 chars)
     public void invalidUserAddressDataTooShortAddressGetter(RegisterPage registerPage) {
 
         addressFirstName = registerPage.getUserFirstName();
@@ -98,7 +98,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
-    //invalid user address data getter - too short user city
+    //invalid user address data getter - too short user city (1 char)
     public void invalidUserAddressDataTooShortCityGetter(RegisterPage registerPage) {
 
         addressFirstName = registerPage.getUserFirstName();
