@@ -35,6 +35,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
     //too short singular input data
     private String tooShortFirstName;
+    private String tooShortLastName;
 
     public AddAddressPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -63,9 +64,27 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - too short last name
+    public void invalidUserAddressDataTooShortLastNameGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        tooShortLastName = "K";
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (too short user last name): " + "\n");
+        logger.info("Valid user first name (too short user last name): " + addressFirstName);
+        logger.info("Too short user last name: " + tooShortLastName);
+        logger.info("Valid user address 1 (too short user last name): " + address1);
+        logger.info("Valid user city (too short user last name): " + city);
+        logger.info("Valid user post code (too short user last name): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - too short singular input
     public void inputTooShortFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(tooShortFirstName);}
-
+    public void inputTooShortLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(tooShortLastName);}
 
 
 

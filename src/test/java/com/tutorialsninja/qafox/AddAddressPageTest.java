@@ -157,4 +157,20 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionTooShortFirstNameTest(addAddressPage);
     }
 
+    //Test 007i -> invalid user address addition test - too short last name  (1 char) (the user address gets added, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Short Last Name")
+    @Tag("Invalid_Singular_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserAddressAdditionTooShortLastNameTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - too short last name
+        invalidUserSingleAddressAdditionTooShortLastNameTest(addAddressPage);
+    }
+
 }
