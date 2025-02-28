@@ -31,6 +31,7 @@ public class AddAddressPageInvalidSingularInput extends BasePage{
 
     //invalid singular input format
     private String invalidFirstNameFormat;
+    private String invalidLastNameFormat;
 
     public AddAddressPageInvalidSingularInput(WebDriver driver) {super(driver);}
 
@@ -50,17 +51,37 @@ public class AddAddressPageInvalidSingularInput extends BasePage{
         city = TestDataGenerator.getRandomCity();
         postCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid generated user address data (too long user first name): " + "\n");
-        logger.info("Too long user first name: " + invalidFirstNameFormat);
-        logger.info("Valid user last name (too long user first name): " + addressLastName);
-        logger.info("Valid user address 1 (too long user first name): " + address1);
-        logger.info("Valid user city (too long user first name): " + city);
-        logger.info("Valid user post code (too long user first name): " + postCode);
+        System.out.println("Invalid generated user address data (invalid user first name format): " + "\n");
+        logger.info("Invalid user first name format: " + invalidFirstNameFormat);
+        logger.info("Valid user last name (invalid user first name format): " + addressLastName);
+        logger.info("Valid user address 1 (invalid user first name format): " + address1);
+        logger.info("Valid user city (invalid user first name format): " + city);
+        logger.info("Valid user post code (invalid user first name format): " + postCode);
+        System.out.println("\n");
+    }
+
+    //invalid user address data getter - invalid last name format (special symbols and digits)
+    public void invalidUserAddressDataInvalidLastNameFormatGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        invalidLastNameFormat = "65@#$#@#@354";
+        address1 = TestDataGenerator.generateRandomAddress(8);
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (invalid user last name format): " + "\n");
+        logger.info("Valid user first name (invalid user last name format): " + addressFirstName);
+        logger.info("Invalid user last name format: " + invalidLastNameFormat);
+        logger.info("Valid user address 1 (invalid user last name format): " + address1);
+        logger.info("Valid user city (invalid user last name format): " + city);
+        logger.info("Valid user post code (invalid user last name format): " + postCode);
         System.out.println("\n");
     }
 
     //invalid user data input methods - invalid singular input format
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(invalidFirstNameFormat);}
+    public void inputInvalidLastNameFormatIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(invalidLastNameFormat);}
+
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
