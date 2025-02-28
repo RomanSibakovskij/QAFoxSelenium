@@ -43,4 +43,23 @@ public class WishlistPageTest extends TestMethods{
         addMultipleFeaturedProductsToWishlistTest();
     }
 
+    //remove product from wishlist test - the result is similar for all categories / product quantities (only registered users have this feature)
+
+    //Test 008b -> valid featured product (MacBook) removal to wishlist test
+    @Test
+    @DisplayName("Valid Featured Product (MacBook) Removal To Wishlist Test")
+    @Tag("Featured_Single_Product_Remove_From_Wishlist")
+    @Tag("Reg_User_Tests")
+    void singleFeaturedProductRemoveFromWishlistTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserSingleMainAddressAdditionTest(addAddressPage);
+        //single featured product (MacBook) removal from wishlist test
+        removeFeaturedProductFromWishlistTest();
+    }
 }

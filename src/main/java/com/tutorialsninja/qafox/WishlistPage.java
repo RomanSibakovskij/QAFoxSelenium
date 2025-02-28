@@ -26,11 +26,19 @@ public class WishlistPage extends BasePage{
     private List<WebElement> wishlistPageProductUnitPriceElements;
     private List<WebElement> wishlistPageProductAddToCartButtonElements = driver.findElements(By.xpath("//table/tbody/tr/td[6]/button"));;
     private List<WebElement> wishlistPageProductRemoveButtonElements = driver.findElements(By.xpath("//table/tbody/tr/td[6]/a"));;
-    //button
+    //buttons
+    @FindBy(xpath = "//table/tbody/tr/td[6]/a")
+    private WebElement wishlistPageRemoveButton;
     @FindBy(xpath = "//div[@class='buttons clearfix']//a")
     private WebElement wishlistPageContinueButtonElements;
+    //success message element
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    private WebElement wishlistSuccessMessage;
 
     public WishlistPage(WebDriver driver) {super(driver);}
+
+    //wishlist product 'Remove' button click method
+    public void clickRemoveFromWishlistButton() {wishlistPageRemoveButton.click();}
 
     //wishlist page text element getter
     public String getWishlistPageTitle() {return wishlistPageTitle.getText();}
@@ -44,6 +52,9 @@ public class WishlistPage extends BasePage{
     public List<String> getWishlistPageProductModel() {return wishlistPageProductModelElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductStock() {return wishlistPageProductStockElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductUnitPrice() {return wishlistPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //wishlist success message getter
+    public String getWishlistSuccessMessage() {return wishlistSuccessMessage.getText();}
 
     //wishlist page web element assert methods
     public boolean isWishlistPageTitleDisplayed() {return wishlistPageTitle.isDisplayed();}

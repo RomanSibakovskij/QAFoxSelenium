@@ -3640,6 +3640,43 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Add Multiple Featured Products (MacBook, Iphone, Apple Cinema 30'') To Wishlist Page Test Result");
     }
 
+    //remove product from wishlist test - the result is similar for all categories / product quantities
+
+    //featured product removal to wishlist test
+    protected void removeFeaturedProductFromWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click homepage logo link (to return to home page)
+        generalPage.clickHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //click featured product (MacBook) 'Add to Wishlist' button
+        homePage.clickAddToWishlistButton(0);
+        //click header navbar wishlist button
+        generalPage.clickWishlistIconLinkButton();
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page test element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //capture screenshot of the wishlist page
+        captureScreenshot(driver, "Wishlist Page Display (MacBook)");
+        //log wishlist product table data
+        logWishlistProductTableData(wishlistPage);
+        //click 'Remove' product from wishlist button
+        wishlistPage.clickRemoveFromWishlistButton();
+        //assert the user gets an expected success message
+        assertEquals("Success: You have modified your wish list!\n" + "×", wishlistPage.getWishlistSuccessMessage(), "The wishlist success message doesn't match expectations or its update has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Remove Featured Product (MacBook) From Wishlist Page Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
