@@ -3771,6 +3771,47 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Add To Product Comparison Page (HP LP3065, Iphone, Canon EOS 5ED) Test Result");
     }
 
+    //remove products from compare list test (guest and registered user will have the same output so only guest branch here is tested)
+
+    //remove products (HP LP3065, Iphone, Canon EOS 5ED) from compare list test method (as a guest)
+    protected void removeProductsFromCompareListTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        ProductCompareListPage productCompareListPage = new ProductCompareListPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'List' view button
+        singleProductCategoryDashboardPage.clickListViewButton();
+        //click 'HP LP3065' product 'Add to Compare' button
+        singleProductCategoryDashboardPage.clickAddToCompareButton(2);
+        //click 'Iphone' product 'Add to Compare' button
+        singleProductCategoryDashboardPage.clickAddToCompareButton(4);
+        //click 'Canon EOS E5D' product 'Add to Compare' button
+        singleProductCategoryDashboardPage.clickAddToCompareButton(1);
+        //click 'Product compare' link
+        singleProductCategoryDashboardPage.clickProductCompareLink();
+        //product comparison page web element assert
+        isProductComparisonPageWebElementDisplayed(productCompareListPage);
+        //product comparison page web element assert (for HP LP3065 product specific table rows)
+        isProductComparisonPageHPWebElementDisplayed(productCompareListPage);
+        //product comparison page text element assert
+        isProductComparisonPageTextElementAsExpected(productCompareListPage);
+        //log product comparison page data
+        logProductComparisonListProductTableData(productCompareListPage);
+        //log product comparison HP LP3065 specific product data
+        logHPLP3065ProductComparisonData(productCompareListPage);
+        //click 'Remove' buttons on each product
+        productCompareListPage.clickRemoveProductFromCompareListButton(0);
+        productCompareListPage.clickRemoveProductFromCompareListButton(1);
+        productCompareListPage.clickRemoveProductFromCompareListButton(0);
+        //assert the user gets an expected confirmation message
+        assertEquals("You have not chosen any products to compare.", productCompareListPage.getProductRemovalSuccessMessage(), "The product removal from comparison list message doesn't match expectations or the product removal from comparison page process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Remove From Product Comparison Page (HP LP3065, Iphone, Canon EOS 5ED) Products Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

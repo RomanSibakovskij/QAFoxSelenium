@@ -45,13 +45,23 @@ public class ProductCompareListPage extends BasePage {
     //button list elements
     @FindBy(xpath = "//input[@value='Add to Cart']")
     private List<WebElement> productCompareAddToCartButtonElements;
-    @FindBy(xpath = "//a[@class='btn btn-danger btn-block']")
+    @FindBy(css = ".btn-danger")
     private List<WebElement> productCompareRemoveButtonElements;
+    //product removal from compare list success message element
+    @FindBy(xpath = "//div[@id='content']/p")
+    private WebElement productRemovalFromCompareSuccessMessage;
 
     public ProductCompareListPage(WebDriver driver) {super(driver);}
 
     //product compare list page text element getter
     public String getProductCompareListPageTitle() {return productCompareListPageTitle.getText();}
+
+    //click 'Remove' button method
+    public void clickRemoveProductFromCompareListButton(int index) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1150));
+        wait.until(ExpectedConditions.elementToBeClickable(productCompareRemoveButtonElements.get(index)));
+        productCompareRemoveButtonElements.get(index).click();
+    }
 
     //product compare list page comparison list table data getters
     public List<String> getProductCompareNames() {return productCompareNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
@@ -65,6 +75,9 @@ public class ProductCompareListPage extends BasePage {
     //singular elements
     public String getProductCompareMemory() {return productCompareMemory.getText();}
     public String getProductCompareCoreNumber() {return productCompareCoreNumber.getText();}
+
+    //product removal from compare list page success message getter
+    public String getProductRemovalSuccessMessage() {return productRemovalFromCompareSuccessMessage.getText();}
 
     //product compare list page web element assert methods
     public boolean isProductCompareListPageTitleDisplayed() {return productCompareListPageTitle.isDisplayed();}
