@@ -2424,6 +2424,22 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid User Address Edit Test Result");
     }
 
+    //user address (default) delete test
+    protected void deleteUserDefaultAddressTest(AddAddressPage addAddressPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        AddressBookEntriesPage addressBookEntriesPage = new AddressBookEntriesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Delete' address button
+        addressBookEntriesPage.clickDeleteAddressButton(0);
+        //assert the user get an expected success message
+        assertEquals("Warning: You can not delete your default address!", addressBookEntriesPage.getAddressRemovalWarningMessage(), "The default address removal warning message doesn't match expectations or the address addition has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Main User Address Delete Test Result");
+    }
+
     //invalid user address addition tests
 
     //no singular input

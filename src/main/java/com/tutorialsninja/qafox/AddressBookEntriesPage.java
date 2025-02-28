@@ -27,11 +27,17 @@ public class AddressBookEntriesPage extends BasePage{
     //success message element
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private WebElement addressSuccessMessage;
+    //warning message element
+    @FindBy(xpath = "//div[@class='alert alert-warning']")
+    private WebElement addressWarningMessage;
 
     public AddressBookEntriesPage(WebDriver driver) {super(driver);}
 
     //click 'Edit' button method
     public void clickEditAddressButton(int index) {addressBookEntryEditButtonElements.get(index).click();}
+
+    //click 'Delete' button method
+    public void clickDeleteAddressButton(int index) {addressBookEntryDeleteButtonElements.get(index).click();}
 
     //address book entries data getter
     public List<String> getAddressBookEntryData(){return addressBookEntryDataElements.stream().map(WebElement::getText).collect(Collectors.toList());}
@@ -45,6 +51,9 @@ public class AddressBookEntriesPage extends BasePage{
 
     //address addition success message getter
     public String getAddressAdditionSuccessMessage() {return addressSuccessMessage.getText();}
+
+    //address removal warning message getter
+    public String getAddressRemovalWarningMessage() {return addressWarningMessage.getText();}
 
     //address book entries web element assert methods
     public boolean isAddressBookEntriesPageTitleDisplayed() {

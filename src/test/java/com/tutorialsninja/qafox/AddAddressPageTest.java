@@ -356,4 +356,24 @@ public class AddAddressPageTest extends TestMethods{
         editUserAddressTest(addAddressPage);
     }
 
+    //user address delete tests
+
+    //Test 007u -> user address delete (default) test
+    @Test
+    @DisplayName("User Default Address Delete Test")
+    @Tag("Singular_Address_Delete")
+    @Tag("Default_Address")
+    void validAccountDefaultAddressDeleteTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserSingleMainAddressAdditionTest(addAddressPage);
+        //user address (default) delete test
+        deleteUserDefaultAddressTest(addAddressPage);
+    }
+
 }
