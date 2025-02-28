@@ -3994,6 +3994,35 @@ public class TestMethods extends BaseTest{
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
+    //wishlist page web element assert test method
+    protected void isWishlistPageWebElementDisplayed(WishlistPage wishlistPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert wishlist page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The wishlist page breadcrumb isn't displayed");
+        //main
+        //assert wishlist page title is displayed
+        assertTrue(wishlistPage.isWishlistPageTitleDisplayed(), "The wishlist page title isn't displayed");
+        //assert wishlist page 'Continue' button is displayed
+        assertTrue(wishlistPage.isWishlistPageContinueButtonDisplayed(), "The wishlist page 'Continue' button isn't displayed");
+        //table elements
+        //assert wishlist page product image links are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductImageLinkDisplayed(), "The wishlist page table product image links aren't displayed");
+        //assert wishlist page product name links are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductNameLinkDisplayed(), "The wishlist page table product name links aren't displayed");
+        //assert wishlist page product models are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductModelDisplayed(), "The wishlist page table product models aren't displayed");
+        //assert wishlist page product stocks are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductStockDisplayed(), "The wishlist page table product stocks aren't displayed");
+        //assert wishlist page product unit prices are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductUnitPriceDisplayed(), "The wishlist page table product unit prices aren't displayed");
+        //assert wishlist page product 'Add to cart' buttons are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductAddToCartDisplayed(), "The wishlist page table product 'Add to cart' buttons aren't displayed");
+        //assert wishlist page product 'Remove' buttons are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistPageProductRemoveButtonDisplayed(), "The wishlist page table product 'Remove' buttons aren't displayed");
+        //aside section web element assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -4135,6 +4164,12 @@ public class TestMethods extends BaseTest{
         assertEquals("Region / State", addAddressPage.getAddAddressStateSubtext(), "The add address page state subtext doesn't match expectations.");
         //assert add address page default address subtext is as expected
         assertEquals("Default Address", addAddressPage.getAddAddressDefaultAddressSubtext(), "The add address page default address subtext doesn't match expectations.");
+    }
+
+    //wishlist page text element assert test method
+    protected void isWishlistPageTextElementAsExpected(WishlistPage wishlistPage){
+        //assert wishlist page title is as expected
+        assertEquals("My Wish List", wishlistPage.getWishlistPageTitle(), "The wishlist page title doesn't match expectations.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
