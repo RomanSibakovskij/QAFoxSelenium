@@ -239,4 +239,20 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionTooLongLastNameTest(addAddressPage);
     }
 
+    //Test 007n -> invalid user address addition test - too long address  (129 chars)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long Address")
+    @Tag("Invalid_Singular_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAddressAdditionTooLongAddressTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - too long address (129 chars)
+        invalidUserSingleAddressAdditionTooLongAddressTest(addAddressPage);
+    }
+
 }

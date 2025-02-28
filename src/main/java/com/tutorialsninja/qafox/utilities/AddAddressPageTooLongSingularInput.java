@@ -32,6 +32,7 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
     //too long singular input data
     private String tooLongFirstName;
     private String tooLongLastName;
+    private String tooLongAddress;
 
     public AddAddressPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -78,10 +79,28 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user address data getter - too long address (129 chars)
+    public void invalidUserAddressDataTooLongAddressGetter(RegisterPage registerPage) {
+
+        addressFirstName = registerPage.getUserFirstName();
+        addressLastName = registerPage.getUserLastName();
+        tooLongAddress = "23, Fcgjhdffdgfgfgdsdsdsfgjhdffgrretrthsfsgdghkmjnbhffwretyuiolukmjynhbgvdfsjghkmhjhgfsdasdsdsadsadwqwrwetrytyddddsfsfdgfhdfhtnbv";
+        city = TestDataGenerator.getRandomCity();
+        postCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid generated user address data (too long user address): " + "\n");
+        logger.info("Valid user first name (too long user address): " + addressFirstName);
+        logger.info("Valid user last name (too long user address): " + addressLastName);
+        logger.info("Too long user address 1: " + tooLongAddress);
+        logger.info("Valid user city (too long user address): " + city);
+        logger.info("Valid user post code (too long user address): " + postCode);
+        System.out.println("\n");
+    }
+
     //invalid user data input methods - too long singular input
     public void inputTooLongFirstNameIntoFirstNameInputField(){addAddressFirstNameInputField.sendKeys(tooLongFirstName);}
     public void inputTooLongLastNameIntoLastNameInputField(){addAddressLastNameInputField.sendKeys(tooLongLastName);}
-
+    public void inputTooLongAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(tooLongAddress);}
 
     //invalid input error getter
     public String getInvalidInputError(){return addAddressInvalidSingularInputError.getText();}
