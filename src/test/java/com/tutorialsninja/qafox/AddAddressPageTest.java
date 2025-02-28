@@ -337,4 +337,23 @@ public class AddAddressPageTest extends TestMethods{
         invalidUserSingleAddressAdditionInvalidCityFormatTest(addAddressPage);
     }
 
+    //user address edit test
+
+    //Test 007t -> user address edit test
+    @Test
+    @DisplayName("User Address Edit Test")
+    @Tag("Singular_Address_Edit")
+    void validAccountAddressEditTest(){
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserSingleMainAddressAdditionTest(addAddressPage);
+        //user address edit test
+        editUserAddressTest(addAddressPage);
+    }
+
 }

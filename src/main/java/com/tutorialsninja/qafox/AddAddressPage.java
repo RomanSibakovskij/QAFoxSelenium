@@ -73,6 +73,13 @@ public class AddAddressPage extends BasePage{
     private String city;
     private int postCode;
 
+    //valid edited address data
+    private String editedAddressFirstName;
+    private String editedAddressLastName;
+    private String editedAddress1;
+    private String editedCity;
+    private int editedPostCode;
+
     public AddAddressPage(WebDriver driver) {super(driver);}
 
     //valid user address data getter
@@ -99,6 +106,46 @@ public class AddAddressPage extends BasePage{
     public void inputValidAddress1IntoAddress1InputField(){addAddressAddress1InputField.sendKeys(address1);}
     public void inputValidCityIntoCityInputField(){addAddressCityInputField.sendKeys(city);}
     public void inputValidPostCodeIntoPostCodeInputField(){addAddressPostCodeInputField.sendKeys(String.valueOf(postCode));}
+
+    //valid user address edited data getter
+    public void validUserAddressEditedDataGetter() {
+
+        editedAddressFirstName = "Tolmen";
+        editedAddressLastName = "Griffs";
+        editedAddress1 = TestDataGenerator.generateRandomAddress(13);
+        editedCity = TestDataGenerator.getRandomCity();
+        editedPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Valid generated user edited address data: " + "\n");
+        logger.info("Valid user edited first name: " + editedAddressFirstName);
+        logger.info("Valid user edited last name: " + editedAddressLastName);
+        logger.info("Valid user edited address 1: " + editedAddress1);
+        logger.info("Valid user edited city: " + editedCity);
+        logger.info("Valid user edited post code: " + editedPostCode);
+        System.out.println("\n");
+    }
+
+    //valid user address edit methods
+    public void inputValidEditedFirstNameIntoFirstNameInputField(){
+        addAddressFirstNameInputField.clear();
+        addAddressFirstNameInputField.sendKeys(editedAddressFirstName);
+    }
+    public void inputValidEditedLastNameIntoLastNameInputField(){
+        addAddressLastNameInputField.clear();
+        addAddressLastNameInputField.sendKeys(editedAddressLastName);
+    }
+    public void inputValidEditedAddress1IntoAddress1InputField(){
+        addAddressAddress1InputField.clear();
+        addAddressAddress1InputField.sendKeys(editedAddress1);
+    }
+    public void inputValidEditedCityIntoCityInputField(){
+        addAddressCityInputField.clear();
+        addAddressCityInputField.sendKeys(editedCity);
+    }
+    public void inputValidEditedPostCodeIntoPostCodeInputField(){
+        addAddressPostCodeInputField.clear();
+        addAddressPostCodeInputField.sendKeys(String.valueOf(editedPostCode));
+    }
 
     //click country dropdown menu
     public void clickCountryDropdownMenu(){

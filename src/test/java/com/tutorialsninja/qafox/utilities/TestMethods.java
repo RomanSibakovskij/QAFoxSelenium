@@ -2382,6 +2382,48 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid Multiple Addresses Input Test Result");
     }
 
+    //user address edit test
+    protected void editUserAddressTest(AddAddressPage addAddressPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        AddressBookEntriesPage addressBookEntriesPage = new AddressBookEntriesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Edit' address button
+        addressBookEntriesPage.clickEditAddressButton(0);
+        //assert the user gets onto correct page
+        assertEquals("Edit Address", addAddressPage.getAddAddressPageTitle(), "The page title doesn't match expectations or the user is on the wrong page.");
+        //valid user address edited data getter
+        addAddressPage.validUserAddressEditedDataGetter();
+        //input valid user first name (edited)
+        addAddressPage.inputValidEditedFirstNameIntoFirstNameInputField();
+        //input valid user last name (edited)
+        addAddressPage.inputValidEditedLastNameIntoLastNameInputField();
+        //input valid user address (address1) (edited)
+        addAddressPage.inputValidEditedAddress1IntoAddress1InputField();
+        //input valid user city (edited)
+        addAddressPage.inputValidEditedCityIntoCityInputField();
+        //input valid user post code (edited)
+        addAddressPage.inputValidEditedPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        addAddressPage.clickCountryDropdownMenu();
+        //select 'United States'
+        addAddressPage.selectUsCountryOption();
+        //click state dropdown menu
+        addAddressPage.clickStateDropdownMenu();
+        //select 'Alabama' option
+        addAddressPage.selectAlabamaStateOption();
+        //click 'Continue' button
+        addAddressPage.clickAddressContinueButton();
+        //assert the user get an expected success message
+        assertEquals("Your address has been successfully updated", addressBookEntriesPage.getAddressAdditionSuccessMessage(), "The address edit success message doesn't match expectations or the address addition has failed.");
+        //log updated address data
+        logAddressBookEntriesPageEntryData(addressBookEntriesPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Address Edit Test Result");
+    }
+
     //invalid user address addition tests
 
     //no singular input

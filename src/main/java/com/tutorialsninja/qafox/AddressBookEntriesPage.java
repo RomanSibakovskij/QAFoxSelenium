@@ -30,6 +30,9 @@ public class AddressBookEntriesPage extends BasePage{
 
     public AddressBookEntriesPage(WebDriver driver) {super(driver);}
 
+    //click 'Edit' button method
+    public void clickEditAddressButton(int index) {addressBookEntryEditButtonElements.get(index).click();}
+
     //address book entries data getter
     public List<String> getAddressBookEntryData(){return addressBookEntryDataElements.stream().map(WebElement::getText).collect(Collectors.toList());}
 
