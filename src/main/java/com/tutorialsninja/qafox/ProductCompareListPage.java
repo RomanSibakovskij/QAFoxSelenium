@@ -16,7 +16,8 @@ public class ProductCompareListPage extends BasePage {
     @FindBy(xpath = "//div[@id='content']/h1")
     private WebElement productCompareListPageTitle;
     //comparison list table elements
-    private List<WebElement> productCompareNameLinkElements = driver.findElements(By.xpath("//table/tbody[1]/tr[1]/td/a"));
+    @FindBy(xpath = "//table/tbody[1]/tr[1]/td/a")
+    private List<WebElement> productCompareNameLinkElements;
     @FindBy(xpath = "//table/tbody[1]/tr[2]//img")
     private List<WebElement> productCompareImageElements;
     @FindBy(xpath = "//table/tbody[1]/tr[3]/td[position() > 1]")
