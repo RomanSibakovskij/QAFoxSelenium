@@ -3240,6 +3240,71 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Main Address Input Test Result - Too Long User City");
     }
 
+    //invalid singular input format
+
+    //invalid user address addition test method - invalid user first name format (special symbols and digits) (the error wasn't triggered, test has failed)
+    protected void invalidUserSingleAddressAdditionInvalidFirstNameFormatTest(AddAddressPage addAddressPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        AddressBookEntriesPage addressBookEntriesPage = new AddressBookEntriesPage(driver);
+        AddAddressPageInvalidSingularInput addAddressPageInvalidSingularInput = new AddAddressPageInvalidSingularInput(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click aside 'Address Book' link
+        myAccountPage.clickAsideAddressBookLink();
+        //address book entries text element assert
+        isAddressBookEntriesPageTextElementAsExpected(addressBookEntriesPage);
+        //assert the user gets an expected message (since the user doesn't have the address yet)
+        assertEquals("You have no addresses in your account.", addressBookEntriesPage.getAddressBookEntriesPageNoAddressMessage(), "The 'No address' message text doesn't match expectations or the message isn't displayed.");
+        //capture screenshot to verify no addresses have been input yet
+        captureScreenshot(driver, "Address Book Entries Page Display With No Addresses");
+        //click 'New Address' button
+        addressBookEntriesPage.clickNewAddressButton();
+        //add address page web element assert
+        isAddAddressPageWebElementDisplayed(addAddressPage);
+        //add address text element assert
+        isAddAddressPageTextElementAsExpected(addAddressPage);
+        //capture screenshot before invalid user address input
+        captureScreenshot(driver, "Address Page Display Before Invalid Address Data Input");
+        //invalid user address data getter - invalid user first name format (special symbols and digits)
+        addAddressPageInvalidSingularInput.invalidUserAddressDataInvalidFirstNameFormatGetter(registerPage);
+        //input invalid user first name format (special symbols and digits)
+        addAddressPageInvalidSingularInput.inputInvalidFirstNameFormatIntoFirstNameInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid Address Data Input - Invalid First Name Format");
+        //input valid user last name
+        addAddressPageInvalidSingularInput.inputValidLastNameIntoLastNameInputField();
+        //input valid user address (address1)
+        addAddressPageInvalidSingularInput.inputValidAddress1IntoAddress1InputField();
+        //input valid user city
+        addAddressPageInvalidSingularInput.inputValidCityIntoCityInputField();
+        //input valid user post code
+        addAddressPageInvalidSingularInput.inputValidPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        addAddressPage.clickCountryDropdownMenu();
+        //select 'United States'
+        addAddressPage.selectUsCountryOption();
+        //click state dropdown menu
+        addAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        addAddressPage.selectIllinoisStateOption();
+        //click 'Yes' default address radio button
+        addAddressPage.clickYesDefaultAddressRadioButton();
+        //click 'Continue' button
+        addAddressPage.clickAddressContinueButton();
+        //assert the user get an expected error message, otherwise, log the issue
+        try {
+            assertEquals("First Name cannot consist of special symbols and digits!", addAddressPageInvalidSingularInput.getInvalidInputError(), "The invalid first name input format error doesn't match expectations.");
+        } catch (NoSuchElementException nse) {
+            logger.error("The invalid first name input format error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Main Address Input Test Result - Invalid User First Name Format");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
