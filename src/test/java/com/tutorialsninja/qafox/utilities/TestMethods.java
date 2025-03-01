@@ -3640,6 +3640,92 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Add Multiple Featured Products (MacBook, Iphone, Apple Cinema 30'') To Wishlist Page Test Result");
     }
 
+    //add available product from wishlist to cart test method
+    protected void addAvailableProductToCartFromWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //hover over 'Desktops' nav bar link
+        generalPage.hoverOverDesktopsNavBarLink();
+        //click 'Show all desktops' dropdown link
+        generalPage.clickShowAllDesktopsDropdownLink();
+        //assert the user is on the correct dashboard page
+        assertEquals("Desktops", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageTitle(), "The 'Desktops' category page title doesn't match expectations or the user is on the wrong category page.");
+        //single product category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category dashboard additional page web element assert(not all categories have them)
+        isSingleProductCategoryDashboardPageAdditionalWebElementDisplayed(singleProductCategoryDashboardPage);
+        //log 'Desktops' category page product table data
+        logSingleProductCategoryProductData(singleProductCategoryDashboardPage);
+        //click 'HP LP3065' product 'Add to Wishlist' button
+        singleProductCategoryDashboardPage.clickAddToWishlistButton(2);
+        //click header navbar wishlist button
+        generalPage.clickWishlistIconLinkButton();
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page test element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //capture screenshot of the wishlist page
+        captureScreenshot(driver, "Wishlist Page Display (MacBook)");
+        //log wishlist product table data
+        logWishlistProductTableData(wishlistPage);
+        //click 'Add to Cart' product from wishlist button
+        wishlistPage.clickAddToCartFromWishlistButton(0);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page additional web element assert (for this page)
+        isSingleProductPageAdditionalWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page
+        captureScreenshot(driver, "HP LP3065 Product Page Display (redirect from wishlist)");
+        //log single product data
+        logSingleProductPageData(singleProductPage);
+        //add delivery date
+        singleProductPage.addDeliveryDate();
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input guest username
+        singleProductPage.inputGuestUserNameIntoUserNameInputField();
+        //input user review
+        singleProductPage.inputUserReview();
+        //click 'Average' rating radio button
+        singleProductPage.clickRatingRadioButton();
+        //click 'Submit' review button
+        singleProductPage.clickSubmitReviewButton();
+        //assert the user gets the review submission confirmation message
+        assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
+        //capture screenshot of the review submission
+        captureScreenshot(driver, "HP LP3065 Product Review Submitted (redirect from wishlist)");
+        //click 'Specifications' link
+        singleProductPage.clickSpecificationsLink();
+        //log product specification data
+        logSingleProductPageProductSpecificationData(singleProductPage);
+        //capture screenshot of the single product specification
+        captureScreenshot(driver, "HP LP3065 Product Page Specification (redirect from wishlist)");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //assert the user gets the addition to cart confirmation message
+        assertEquals("Success: You have added HP LP3065 to your shopping cart!\n" + "×", singleProductPage.getAdditionToCartSuccessMessage(), "The addition to cart success message doesn't match expectations or the user has failed to add the product to cart.");
+        //click 'Shopping Cart' dropdown button
+        generalPage.clickShoppingCartDropdownButton();
+        //shopping cart dropdown web element assert
+        isShoppingCartDropdownWebElementDisplayed(generalPage);
+        //log shopping cart dropdown product data
+        logShoppingCartDropdownProductData(generalPage);
+        //capture screenshot of the single product shopping cart dropdown menu
+        captureScreenshot(driver, "HP LP3065 Product Shopping Cart Dropdown Menu Display (redirect from wishlist)");
+        //click 'View Cart' link (to proceed to shopping cart page)
+        generalPage.clickViewCartLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Addition From Wishlist To Cart Test Result");
+    }
+
     //remove product from wishlist test - the result is similar for all categories / product quantities
 
     //featured product removal to wishlist test
@@ -4422,6 +4508,32 @@ public class TestMethods extends BaseTest{
         assertTrue(singleProductPage.isSingleProductPageImagesDisplayed(), "The single product page product images aren't displayed");
     }
 
+    //shopping cart dropdown menu web elements assert test method (general page element)
+    protected void isShoppingCartDropdownWebElementDisplayed(GeneralPage generalPage) {
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert shopping cart dropdown menu product images are displayed (as a list)
+        assertTrue(generalPage.isShoppingCartDropdownProductImageDisplayed(), "The shopping cart dropdown menu product images aren't displayed");
+        //assert shopping cart dropdown menu product names are displayed (as a list)
+        assertTrue(generalPage.isShoppingCartDropdownProductNameDisplayed(), "The shopping cart dropdown menu product names aren't displayed");
+        //assert shopping cart dropdown menu product descriptions are displayed (as a list)
+        assertTrue(generalPage.isShoppingCartDropdownProductDescDisplayed(), "The shopping cart dropdown menu product descriptions aren't displayed");
+        //assert shopping cart dropdown menu product quantities are displayed (as a list)
+        assertTrue(generalPage.isShoppingCartDropdownProductQtyDisplayed(), "The shopping cart dropdown menu product quantities aren't displayed");
+        //assert shopping cart dropdown menu product unit price are displayed (as a list)
+        assertTrue(generalPage.isShoppingCartDropdownProductUnitPriceDisplayed(), "The shopping cart dropdown menu product unit prices aren't displayed");
+        //assert shopping cart dropdown menu product remove button are displayed (as a list)
+        assertTrue(generalPage.isShoppingCartDropdownProductRemoveButtonDisplayed(), "The shopping cart dropdown menu product remove button aren't displayed");
+        //assert shopping cart dropdown menu subtotal price is displayed
+        //assertTrue(generalPage.isShoppingCartDropdownSubTotalPriceDisplayed(), "The shopping cart dropdown menu sub total price isn't displayed");
+        //assert shopping cart dropdown menu total price is displayed
+        //assertTrue(generalPage.isShoppingCartDropdownTotalPriceDisplayed(), "The shopping cart dropdown menu total price isn't displayed");
+        //assert shopping cart dropdown menu view cart link is displayed
+        assertTrue(generalPage.isShoppingCartDropdownViewCartLinkDisplayed(), "The shopping cart dropdown menu view cart link isn't displayed");
+        //assert shopping cart dropdown menu shopping cart link is displayed
+        assertTrue(generalPage.isShoppingCartDropdownShoppingCartLinkDisplayed(), "The shopping cart dropdown menu shopping cart link isn't displayed");
+    }
+
     //shopping cart page web element assert test method
     protected void isShoppingCartPageWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
         MyAccountPage myAccountPage = new MyAccountPage(driver);
@@ -4741,6 +4853,35 @@ public class TestMethods extends BaseTest{
         System.out.println("\n");
     }
 
+    //single product page data logger method
+    protected void logSingleProductPageData(SingleProductPage singleProductPage){
+        System.out.println("Single product page displayed data: " + "\n");
+        logger.info("Single product page title/name: " + singleProductPage.getSingleProductPageTitle());
+        logger.info("Single product page product short description: " + singleProductPage.getSingleProductPageProductShortDescription());
+        logger.info("Single product page product short unit price: " + singleProductPage.getSingleProductPageProductShortUnitPrice());
+        logger.info("Single product page product short ex tax price: " + singleProductPage.getSingleProductPageProductShortExTaxPrice());
+        logger.info("Single product page product description: " + singleProductPage.getSingleProductPageProductDescription());
+    }
+
+    //single product cart specification table list data logger method
+    protected void logSingleProductPageProductSpecificationData(SingleProductPage singleProductPage){
+        System.out.println("Single product page specification data: " + "\n");
+        logger.info("Single product page specification name: " + singleProductPage.getSingleProductPageProductSpecificationName());
+        logger.info("Single product page specification: " + singleProductPage.getSingleProductPageProductSpecification());
+        System.out.println("\n");
+    }
+
+    //single product page shopping cart dropdown menu data logger method
+    protected void logShoppingCartDropdownProductData(GeneralPage generalPage){
+        System.out.println("Shopping cart dropdown product displayed data: " + "\n");
+        logger.info("Shopping cart dropdown product name(s): " + generalPage.getShoppingCartDropdownProductName());
+        logger.info("Shopping cart dropdown product description(s): " + generalPage.getShoppingCartDropdownProductDesc());
+        logger.info("Shopping cart dropdown product quantity(ies): " + generalPage.getShoppingCartDropdownProductQty());
+        logger.info("Shopping cart dropdown product unit price(s): " + generalPage.getShoppingCartDropdownProductUnitPrice());
+        logger.info("Shopping cart dropdown product sub total price: " + generalPage.getShoppingCartDropdownSubTotalPrice());
+        logger.info("Shopping cart dropdown product total price: " + generalPage.getShoppingCartDropdownTotalPrice());
+        System.out.println("\n");
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class GeneralPage extends BasePage {
 
@@ -155,6 +156,26 @@ public class GeneralPage extends BasePage {
 
     //click 'Show all desktops' link method
     public void clickShowAllDesktopsDropdownLink(){showAllDesktopsDropdownLink.click();}
+
+    //click 'Shopping Cart' dropdown button method
+    public void clickShoppingCartDropdownButton(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1200));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", shoppingCartButton);
+    }
+
+    //shopping cart dropdown menu product data getters
+    public List<String> getShoppingCartDropdownProductName(){return shoppingCartDropdownProductNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getShoppingCartDropdownProductDesc(){return shoppingCartDropdownProductDescElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getShoppingCartDropdownProductQty(){return shoppingCartDropdownProductQtyElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getShoppingCartDropdownProductUnitPrice(){return shoppingCartDropdownProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    public String getShoppingCartDropdownSubTotalPrice(){return shoppingCartSubTotalPrice.getText();}
+    public String getShoppingCartDropdownTotalPrice(){return shoppingCartTotalPrice.getText();}
+
+    //click 'View Cart' link method
+    public void clickViewCartLink(){shoppingCartViewCartLink.click();}
 
     //element wait load method (so that Selenium would stop skipping test methods during run)
     public void waitForElementsToLoad() {

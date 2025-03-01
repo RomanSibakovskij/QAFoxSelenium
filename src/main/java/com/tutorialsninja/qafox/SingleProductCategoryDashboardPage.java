@@ -63,7 +63,8 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     @FindBy(xpath = "//div[@class='product-thumb']//p[2]")
     private List<WebElement> productTableUnitPriceElements;
     private List<WebElement> productTableAddToCartButtonElements = driver.findElements(By.xpath("//div[@class='button-group']/button[1]"));
-    private List<WebElement> productTableAddToWishlistButtonElements = driver.findElements(By.xpath("//div[@class='button-group']/button[2]"));
+    @FindBy(xpath = "//div[@class='button-group']/button[2]")
+    private List<WebElement> productTableAddToWishlistButtonElements;
     private List<WebElement> productTableAddToCompareButtonElements = driver.findElements(By.xpath("//div[@class='button-group']/button[3]"));
     //singular element
     @FindBy(xpath = "//div[@class='col-sm-6 text-right']")

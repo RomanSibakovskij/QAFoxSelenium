@@ -24,8 +24,9 @@ public class WishlistPage extends BasePage{
     private List<WebElement> wishlistPageProductStockElements;
     @FindBy(xpath = "//table/tbody/tr/td[5]")
     private List<WebElement> wishlistPageProductUnitPriceElements;
-    private List<WebElement> wishlistPageProductAddToCartButtonElements = driver.findElements(By.xpath("//table/tbody/tr/td[6]/button"));;
-    private List<WebElement> wishlistPageProductRemoveButtonElements = driver.findElements(By.xpath("//table/tbody/tr/td[6]/a"));;
+    @FindBy(xpath = "//table/tbody/tr/td[6]/button")
+    private List<WebElement> wishlistPageProductAddToCartButtonElements;
+    private List<WebElement> wishlistPageProductRemoveButtonElements = driver.findElements(By.xpath("//table/tbody/tr/td[6]/a"));
     //buttons
     @FindBy(xpath = "//table/tbody/tr/td[6]/a")
     private WebElement wishlistPageRemoveButton;
@@ -37,6 +38,8 @@ public class WishlistPage extends BasePage{
 
     public WishlistPage(WebDriver driver) {super(driver);}
 
+    //wishlist product 'Add to Cart' button click method
+    public void clickAddToCartFromWishlistButton(int index) {wishlistPageProductAddToCartButtonElements.get(index).click();}
     //wishlist product 'Remove' button click method
     public void clickRemoveFromWishlistButton() {wishlistPageRemoveButton.click();}
 
