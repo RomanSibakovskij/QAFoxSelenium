@@ -56,6 +56,13 @@ public class ProductCompareListPage extends BasePage {
     //product compare list page text element getter
     public String getProductCompareListPageTitle() {return productCompareListPageTitle.getText();}
 
+    //click 'Add to Cart' button method
+    public void clickAddToCartFromCompareListButton(int index) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1150));
+        wait.until(ExpectedConditions.elementToBeClickable(productCompareAddToCartButtonElements.get(index)));
+        productCompareAddToCartButtonElements.get(index).click();
+    }
+
     //click 'Remove' button method
     public void clickRemoveProductFromCompareListButton(int index) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1150));
