@@ -4422,6 +4422,68 @@ public class TestMethods extends BaseTest{
         assertTrue(singleProductPage.isSingleProductPageImagesDisplayed(), "The single product page product images aren't displayed");
     }
 
+    //shopping cart page web element assert test method
+    protected void isShoppingCartPageWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert single product page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The shopping cart page breadcrumb isn't displayed");
+        //main
+        //assert shopping cart page title is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageTitleDisplayed(), "The shopping cart page title isn't displayed");
+        //shopping cart table
+        //assert shopping cart page product images are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductImageDisplayed(), "The shopping cart product table images aren't displayed");
+        //assert shopping cart page product name links are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductNameLinkDisplayed(), "The shopping cart product table name links aren't displayed");
+        //assert shopping cart page product descriptions are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductDescDisplayed(), "The shopping cart product table descriptions aren't displayed");
+        //assert shopping cart page product models are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductModelDisplayed(), "The shopping cart product table models aren't displayed");
+        //assert shopping cart page product quantity input fields are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductQtyInputFieldDisplayed(), "The shopping cart product table quantity input fields aren't displayed");
+        //assert shopping cart page product quantity update button are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductQtyUpdateButtonDisplayed(), "The shopping cart product quantity update buttons aren't displayed");
+        //assert shopping cart page product remove buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductRemoveButtonDisplayed(), "The shopping cart product remove buttons aren't displayed");
+        //assert shopping cart page product unit prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductUnitPriceDisplayed(), "The shopping cart product unit prices aren't displayed");
+        //assert shopping cart page product total prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTotalPriceDisplayed(), "The shopping cart product total prices aren't displayed");
+        //to-do section
+        //assert shopping cart page to-do next section title is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextSectionTitleDisplayed(), "The shopping cart page to-do section title isn't displayed");
+        //assert shopping cart page to-do next section subtitle is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextSectionSubtitleDisplayed(), "The shopping cart page to-do section subtitle isn't displayed");
+        //assert shopping cart page coupon code dropdown link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextCouponCodeDropdownLinkDisplayed(), "The shopping cart page to-do section coupon dropdown link isn't displayed");
+        //assert shopping cart page to-do section gift certificate dropdown link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextGiftCertificateDropdownLinkDisplayed(), "The shopping cart page to-do section gift certificate dropdown link isn't displayed");
+        //assert shopping cart page order subtotal price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartOrderSubtotalPriceDisplayed(), "The shopping cart page order subtotal price isn't displayed");
+        //assert shopping cart page order total price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartOrderTotalPriceDisplayed(), "The shopping cart page order total price isn't displayed");
+        //assert shopping cart page 'Continue shopping' button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartContinueShoppingButtonDisplayed(), "The shopping cart page 'Continue shopping' button isn't displayed");
+        //assert shopping cart page 'Checkout' button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartCheckoutButtonDisplayed(), "The shopping cart page 'Checkout' button isn't displayed");
+    }
+
+    //shopping cart page 'Estimate shipping' section web elements assert test method
+    protected void isShoppingCartPageEstimateShippingSectionWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page estimate shipping dropdown link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingDropdownLinkDisplayed(), "The shopping cart page to-do section estimate shipping dropdown link isn't displayed");
+        //assert shopping cart page estimate shipping subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingSubtextDisplayed(), "The shopping cart page to-do section estimate shipping subtext isn't displayed");
+        //assert shopping cart page estimate shipping country dropdown menu is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingCountryDropdownMenuDisplayed(), "The shopping cart page to-do section estimate shipping country dropdown menu isn't displayed");
+        //assert shopping cart page estimate shipping state dropdown menu is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingStateDropdownMenuDisplayed(), "The shopping cart page to-do section estimate shipping state dropdown menu isn't displayed");
+        //assert shopping cart page estimate shipping post code input field is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingPostCodeInputFieldDisplayed(), "The shopping cart page to-do section estimate shipping post code input field isn't displayed");
+        //assert shopping cart page estimate shipping 'submit' button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingSubmitButtonDisplayed(), "The shopping cart page to-do section estimate shipping 'Submit' button isn't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -4587,6 +4649,16 @@ public class TestMethods extends BaseTest{
         assertEquals("Rating", singleProductPage.getSingleProductPageProductRatingSubtext(), "The single product page rating subtext doesn't match expectations.");
     }
 
+    //shopping cart page text element assert test method
+    protected void isShoppingCartPageTextElementAsExpected(ShoppingCartPage shoppingCartPage){
+        //assert shopping cart page to-do next section title is as expected
+        assertEquals("What would you like to do next?", shoppingCartPage.getShoppingCartToDoNextSectionTitle(), "The shopping cart page to-do next section title doesn't match expectations.");
+        //assert shopping cart page to-do next section subtitle is as expected
+        assertEquals("Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.", shoppingCartPage.getShoppingCartToDoNextSectionSubtitle(), "The shopping cart page to-do next section subtitle doesn't match expectations.");
+        //assert shopping cart page to-do next section subtext is as expected
+        assertEquals("Enter your destination to get a shipping estimate.", shoppingCartPage.getShoppingCartEstimateShippingSectionSubtext(), "The shopping cart page estimate shipping section subtext doesn't match expectations.");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //valid user account creation message assert method
@@ -4668,6 +4740,7 @@ public class TestMethods extends BaseTest{
         logger.info("HP LP3065 core number: " + productCompareListPage.getProductCompareCoreNumber());
         System.out.println("\n");
     }
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
