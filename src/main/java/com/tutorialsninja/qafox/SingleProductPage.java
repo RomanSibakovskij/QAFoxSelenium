@@ -109,12 +109,6 @@ public class SingleProductPage extends BasePage{
         singleProductPageProductReviewUserNameInputField.sendKeys(guestUserName);
     }
 
-    //add username method (registered user)
-    public void inputRegUserNameIntoUserNameInputField(RegisterPage registerPage){
-        userName = registerPage.getUserFirstName();
-        singleProductPageProductReviewUserNameInputField.sendKeys(userName);
-    }
-
     //input review text method
     public void inputUserReview(){
         userReview = TestDataGenerator.getRandomReviewText();

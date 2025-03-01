@@ -36,7 +36,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         //navigate to 'Desktops' category page test (as a registered user)
         navigateToDesktopsCategoryDashboardPageRegUserTest();
         //single product (HP LP3065) addition to cart page test (as a registered user)
-        addHPLP3065ToCartTest();
+        addHPLP3065RegUserToCartTest();
     }
 
     //single (specific category) product addition to cart tests
