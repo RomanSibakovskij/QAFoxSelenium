@@ -96,6 +96,7 @@ public class SingleProductPage extends BasePage{
     private String noDeliveryDate;
     //invalid singular input (date)
     private String reversedDeliveryDateFormat;
+    private String pastDeliveryDate;
 
     public SingleProductPage(WebDriver driver) {super(driver);}
 
@@ -117,6 +118,12 @@ public class SingleProductPage extends BasePage{
         reversedDeliveryDateFormat = "20-03-2025";
         logger.info("Reversed delivery date: " + reversedDeliveryDateFormat + "\n");
         singleProductPageProductDeliveryDateInputField.sendKeys(reversedDeliveryDateFormat);
+    }
+    public void addPastDeliveryDate(){
+        singleProductPageProductDeliveryDateInputField.clear();
+        pastDeliveryDate = "2000-01-01";
+        logger.info("Past delivery date: " + pastDeliveryDate + "\n");
+        singleProductPageProductDeliveryDateInputField.sendKeys(pastDeliveryDate);
     }
 
     //reviews link click method
@@ -168,7 +175,11 @@ public class SingleProductPage extends BasePage{
     }
 
     //delivery date input error message getter
-    public String getDeliveryDateErrorMessage(){return singleProductPageDeliveryDateErrorMessage.getText();}
+    public String getDeliveryDateErrorMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.visibilityOf(singleProductPageDeliveryDateErrorMessage));
+        return singleProductPageDeliveryDateErrorMessage.getText();
+    }
 
     //single product page text element getters
     public String getSingleProductPageTitle() {return singleProductPageTitle.getText();}

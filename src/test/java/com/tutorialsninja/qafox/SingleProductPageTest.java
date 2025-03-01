@@ -132,4 +132,17 @@ public class SingleProductPageTest extends TestMethods{
         invalidAddHPLP3065ToCartReversedDeliveryDateTest();
     }
 
+    //Test 013b -> single product (HP LP3065) addition to cart page with past delivery date test
+    @Test
+    @DisplayName("Add Single Product (HP LP3065) To Cart With Past Delivery Date Test")
+    @Tag("Single_Product_Addition_To_Cart")
+    @Tag("Invalid_Delivery_Date_Test")
+    @Tag("Invalid_Singular_Input")
+    void singleProductAdditionToCartPastDeliveryDateTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page with past delivery date test
+        invalidAddHPLP3065ToCartPastDeliveryDateTest();
+    }
+
 }
