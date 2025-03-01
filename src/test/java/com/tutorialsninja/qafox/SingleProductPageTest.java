@@ -35,4 +35,17 @@ public class SingleProductPageTest extends TestMethods{
         addHPLP3065ToCartWithoutReviewTextTest();
     }
 
+    //Test 012b -> single product (HP LP3065) addition to cart page without review rating test
+    @Test
+    @DisplayName("Add Single Product (HP LP3065) To Cart Without Review Rating Test")
+    @Tag("Single_Product_Addition_To_Cart")
+    @Tag("Invalid_Review_Test")
+    @Tag("No_Singular_Input")
+    void singleProductAdditionToCartNoReviewRatingTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page without review rating test
+        addHPLP3065ToCartWithoutReviewRatingTest();
+    }
+
 }
