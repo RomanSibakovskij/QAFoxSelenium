@@ -104,4 +104,19 @@ public class SingleProductPageTest extends TestMethods{
         addHPLP3065ToCartWithTooLongReviewTextTest();
     }
 
+    //single product page invalid delivery date submission tests (only guest branch is tested since both guest and registered user will have the same output)
+
+    //Test 013 -> single product (HP LP3065) addition to cart page without delivery date test
+    @Test
+    @DisplayName("Add Single Product (HP LP3065) To Cart With No Delivery Date Test")
+    @Tag("Single_Product_Addition_To_Cart")
+    @Tag("Invalid_Delivery_Date_Test")
+    @Tag("No_Singular_Input")
+    void singleProductAdditionToCartNoDeliveryDateTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page without delivery date test
+        invalidAddHPLP3065ToCartNoDeliveryDateTest();
+    }
+
 }

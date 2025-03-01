@@ -62,8 +62,8 @@ public class SingleProductPage extends BasePage{
     private WebElement singleProductPageProductSubmitReviewButton;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private WebElement singleProductPageProductReviewSuccessMessage;
-    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
-    private WebElement singleProductPageProductReviewFailMessage;
+    @FindBy(xpath = "//div[@class='text-danger']")
+    private WebElement singleProductPageDeliveryDateErrorMessage;
     @FindBy(xpath = "//div[@id='product-product']/div[@class='alert alert-success alert-dismissible']")
     private WebElement singleProductPageAdditionToCartSuccessMessage;
     //radio buttons list
@@ -92,13 +92,21 @@ public class SingleProductPage extends BasePage{
     private String guestUserName;
     //valid review text input
     private String userReview;
+    //no singular input
+    private String noDeliveryDate;
 
     public SingleProductPage(WebDriver driver) {super(driver);}
 
     //single product page delivery date addition method
     public void addDeliveryDate(){
         singleProductPageProductDeliveryDateInputField.clear();
-        singleProductPageProductDeliveryDateInputField.sendKeys("2025-03-10");
+        singleProductPageProductDeliveryDateInputField.sendKeys("2025-03-20");
+    }
+
+    //single product page invalid delivery date addition methods
+    public void addNoDeliveryDate(){
+        singleProductPageProductDeliveryDateInputField.clear();
+        singleProductPageProductDeliveryDateInputField.sendKeys("");
     }
 
     //reviews link click method
@@ -147,6 +155,13 @@ public class SingleProductPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
         wait.until(ExpectedConditions.visibilityOf(singleProductPageAdditionToCartSuccessMessage));
         return singleProductPageAdditionToCartSuccessMessage.getText();
+    }
+
+    //delivery date input error message getter
+    public String getDeliveryDateErrorMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.visibilityOf(singleProductPageDeliveryDateErrorMessage));
+        return singleProductPageDeliveryDateErrorMessage.getText();
     }
 
     //single product page text element getters

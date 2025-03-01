@@ -4543,6 +4543,49 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
     }
 
+    //invalid delivery date input tests
+
+    //invalid add 'HP LP3065' to cart test method - no delivery date -> since guest and registered user will have the same output, only guest branch will be tested
+    protected void invalidAddHPLP3065ToCartNoDeliveryDateTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add to Cart' (HP LP3065) button
+        singleProductCategoryDashboardPage.clickAddToCartButton(2);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page additional web element assert (for this page)
+        isSingleProductPageAdditionalWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page
+        captureScreenshot(driver, "HP LP3065 Product Page Display");
+        //log single product data
+        logSingleProductPageData(singleProductPage);
+        //don't input delivery date
+        singleProductPage.addNoDeliveryDate();
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input guest review
+        guestProductReviewSubmission(singleProductPage);
+        //click 'Specifications' link
+        singleProductPage.clickSpecificationsLink();
+        //log product specification data
+        logSingleProductPageProductSpecificationData(singleProductPage);
+        //capture screenshot of the single product specification
+        captureScreenshot(driver, "HP LP3065 Product Page Specification");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //assert the user gets the expected error
+        assertEquals("Delivery Date required!", singleProductPage.getDeliveryDateErrorMessage(), "The delivery date error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Addition To Cart With No Delivery Date Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
