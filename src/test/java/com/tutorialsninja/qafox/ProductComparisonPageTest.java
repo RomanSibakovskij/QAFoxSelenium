@@ -43,7 +43,7 @@ public class ProductComparisonPageTest extends TestMethods{
         removeProductsFromCompareListTest();
     }
 
-    //test as a registered user
+    //tests as a registered user
 
     //Test 010c -> add set products (HP LP3065, Iphone, Canon EOS 5ED) to product compare page test (as a registered user)
     @Test
@@ -63,6 +63,26 @@ public class ProductComparisonPageTest extends TestMethods{
         navigateToDesktopsCategoryDashboardPageRegUserTest();
         //add products (HP LP3065, Iphone, Canon EOS 5ED) to compare list (as a registered user)
         addProductsToCompareListTest();
+    }
+
+    //Test 010d -> add set products (HP LP3065) to cart from product compare page test (as a registered user)
+    @Test
+    @DisplayName("Add Set Products (HP LP3065) To Cart From Compare Page Test (as a registered user)")
+    @Tag("Add_Products_To_Cart_From_Comparison_Page")
+    @Tag("Test_As_A_Reg_User")
+    void addProductToCartFromCompareListAsRegUserTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserSingleMainAddressAdditionTest(addAddressPage);
+        //navigate to 'Desktops' category page test (as a registered user)
+        navigateToDesktopsCategoryDashboardPageRegUserTest();
+        //add products (HP LP3065) to cart from compare list (as a registered user)
+        addProductsToCartFromCompareListTest();
     }
 
 }
