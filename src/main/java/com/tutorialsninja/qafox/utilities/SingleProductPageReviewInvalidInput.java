@@ -25,6 +25,7 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
 
     //missing singular input data
     private String noGuestUserName;
+    private String noReview;
 
     public SingleProductPageReviewInvalidInput(WebDriver driver) {super(driver);}
 
@@ -48,6 +49,12 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
     public void inputNoGuestUserNameIntoUserNameInputField(){
         noGuestUserName = "";
         singleProductPageProductReviewUserNameInputField.sendKeys(noGuestUserName);
+    }
+
+    //add no review text method
+    public void inputNoUserReview(){
+        noReview = "";
+        singleProductPageProductReviewInputField.sendKeys(noReview);
     }
 
     //rate the product radio button click
