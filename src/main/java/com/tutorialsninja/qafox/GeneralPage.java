@@ -50,7 +50,8 @@ public class GeneralPage extends BasePage {
     private List<WebElement> shoppingCartDropdownProductQtyElements;
     @FindBy(xpath = "//table[@class='table table-striped']//tr/td[4]")
     private List<WebElement> shoppingCartDropdownProductUnitPriceElements;
-    private List<WebElement> shoppingCartDropdownProductRemoveButtonElements = driver.findElements(By.xpath("//table[@class='table table-striped']//tr/td[5]/button"));
+    @FindBy(xpath = "//table[@class='table table-striped']//tr/td[5]/button")
+    private List<WebElement> shoppingCartDropdownProductRemoveButtonElements;
     @FindBy(xpath = "//ul[@class='dropdown-menu pull-right']//table[@class='table table-bordered']/tbody/tr[1]/td[2]")
     private WebElement shoppingCartSubTotalPrice;
     @FindBy(xpath = "//ul[@class='dropdown-menu pull-right']//table[@class='table table-bordered']/tbody/tr[2]/td[2]")
@@ -59,6 +60,9 @@ public class GeneralPage extends BasePage {
     private WebElement shoppingCartViewCartLink;
     @FindBy(xpath = "//p[@class='text-right']/a[2]")
     private WebElement shoppingCartShoppingCartLink;
+    //empty shopping cart message
+    @FindBy(xpath = "//p[@class='text-center']")
+    private WebElement shoppingCartEmptyMessage;
 
     //header navbar
     @FindBy(xpath = "//nav[@id='menu']//ul[@class='nav navbar-nav']/li[1]/a")
@@ -185,6 +189,8 @@ public class GeneralPage extends BasePage {
 
     //click 'View Cart' link method
     public void clickViewCartLink(){shoppingCartViewCartLink.click();}
+    //click shopping cart dropdown menu 'Remove' button method
+    public void clickShoppingCartDropdownRemoveButtonLink(int index){shoppingCartDropdownProductRemoveButtonElements.get(index).click();}
 
     //element wait load method (so that Selenium would stop skipping test methods during run)
     public void waitForElementsToLoad() {
@@ -203,6 +209,9 @@ public class GeneralPage extends BasePage {
     public String getFooterExtrasSectionTitle() {return footerExtrasSectionTitle.getText();}
     public String getFooterMyAccountSectionTitle() {return footerMyAccountSectionTitle.getText();}
     public String getFooterCopyrightText() {return footerCopyrightText.getText();}
+
+    //empty shopping cart dropdown menu message getter
+    public String getShoppingCartEmptyMessage() {return shoppingCartEmptyMessage.getText();}
 
     //general page web element assert methods
     //top navbar

@@ -39,9 +39,23 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addHPLP3065RegUserToCartTest();
     }
 
+    //single (specific category) product removal from shopping cart dropdown menu test
+
+    //Test 011b -> single product (HP LP3065) removal from shopping cart dropdown menu test (guest and registered user will have the same output)
+    @Test
+    @DisplayName("Remove Single Product (HP LP3065) From Shopping Cart Dropdown Menu Test (as a guest)")
+    @Tag("Single_Product_Removal_From_Dropdown_Cart")
+    @Tag("Test_As_A_Guest")
+    void singleProductRemovalFromDropdownCartAsGuestTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) removal from shopping cart dropdown menu test (as a guest)
+        removeHPLP3065ProductFromShoppingCartDropdownMenuTest();
+    }
+
     //single (specific category) product addition to cart tests
 
-    //Test 011b -> single searched product (Ipod Touch) addition to cart page test (as a guest) (it's not currently in stock)
+    //Test 011c -> single searched product (Ipod Touch) addition to cart page test (as a guest) (it's not currently in stock)
     @Test
     @DisplayName("Add Single Searched Product (Ipod Touch) To Cart Test (as a guest)")
     @Tag("Single_Searched_Product_Addition_To_Cart")
@@ -51,7 +65,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addSearchedIpodTouchToCartTest();
     }
 
-    //Test 011c -> single searched product (Ipod Touch) addition to cart page test (as a registered user) (it's not currently in stock)
+    //Test 011d -> single searched product (Ipod Touch) addition to cart page test (as a registered user) (it's not currently in stock)
     @Test
     @DisplayName("Add Single Searched Product (Ipod Touch) To Cart Test (as a registered user)")
     @Tag("Single_Searched_Product_Addition_To_Cart")
