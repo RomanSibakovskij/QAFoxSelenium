@@ -4009,18 +4009,8 @@ public class TestMethods extends BaseTest{
         singleProductPage.clickReviewsLink();
         //reviews section text element assert
         isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
-        //input guest username
-        singleProductPage.inputGuestUserNameIntoUserNameInputField();
-        //input user review
-        singleProductPage.inputUserReview();
-        //click 'Average' rating radio button
-        singleProductPage.clickRatingRadioButton();
-        //click 'Submit' review button
-        singleProductPage.clickSubmitReviewButton();
-        //assert the user gets the review submission confirmation message
-        assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
-        //capture screenshot of the review submission
-        captureScreenshot(driver, "HP LP3065 Product Review Submitted");
+        //input guest review
+        guestProductReviewSubmission(singleProductPage);
         //click 'Specifications' link
         singleProductPage.clickSpecificationsLink();
         //log product specification data
@@ -4066,20 +4056,8 @@ public class TestMethods extends BaseTest{
         logSingleProductPageData(singleProductPage);
         //add delivery date
         singleProductPage.addDeliveryDate();
-        //click 'Reviews' link
-        singleProductPage.clickReviewsLink();
-        //reviews section text element assert
-        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
-        //input user review
-        singleProductPage.inputUserReview();
-        //click 'Average' rating radio button
-        singleProductPage.clickRatingRadioButton();
-        //click 'Submit' review button
-        singleProductPage.clickSubmitReviewButton();
-        //assert the user gets the review submission confirmation message
-        assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
-        //capture screenshot of the review submission
-        captureScreenshot(driver, "HP LP3065 Product Review Submitted (registered user)");
+        //input registered user review
+        regUserProductReviewSubmission(singleProductPage);
         //click 'Specifications' link
         singleProductPage.clickSpecificationsLink();
         //log product specification data
@@ -4168,18 +4146,8 @@ public class TestMethods extends BaseTest{
         singleProductPage.clickReviewsLink();
         //reviews section text element assert
         isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
-        //input guest username
-        singleProductPage.inputGuestUserNameIntoUserNameInputField();
-        //input user review
-        singleProductPage.inputUserReview();
-        //click 'Average' rating radio button
-        singleProductPage.clickRatingRadioButton();
-        //click 'Submit' review button
-        singleProductPage.clickSubmitReviewButton();
-        //assert the user gets the review submission confirmation message
-        assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
-        //capture screenshot of the review submission
-        captureScreenshot(driver, "HP LP3065 Product Review Submitted (registered user)");
+        //input guest review
+        guestProductReviewSubmission(singleProductPage);
         //click 'Specifications' link
         singleProductPage.clickSpecificationsLink();
         //log product specification data
@@ -5226,6 +5194,46 @@ public class TestMethods extends BaseTest{
         logger.info("Shopping cart dropdown product sub total price: " + generalPage.getShoppingCartDropdownSubTotalPrice());
         logger.info("Shopping cart dropdown product total price: " + generalPage.getShoppingCartDropdownTotalPrice());
         System.out.println("\n");
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //product review submission method (as a guest)
+    protected void guestProductReviewSubmission(SingleProductPage singleProductPage){
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input review username
+        singleProductPage.inputGuestUserNameIntoUserNameInputField();
+        //input user review
+        singleProductPage.inputUserReview();
+        //click 'Average' rating radio button
+        singleProductPage.clickRatingRadioButton();
+        //click 'Submit' review button
+        singleProductPage.clickSubmitReviewButton();
+        //assert the user gets the review submission confirmation message
+        assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
+        //capture screenshot of the review submission
+        captureScreenshot(driver, "HP LP3065 Product Review Submitted");
+    }
+
+    //product review submission method (as a registered user)
+    protected void regUserProductReviewSubmission(SingleProductPage singleProductPage){
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input user review
+        singleProductPage.inputUserReview();
+        //click 'Average' rating radio button
+        singleProductPage.clickRatingRadioButton();
+        //click 'Submit' review button
+        singleProductPage.clickSubmitReviewButton();
+        //assert the user gets the review submission confirmation message
+        assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
+        //capture screenshot of the review submission
+        captureScreenshot(driver, "HP LP3065 Product Review Submitted (registered user)");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

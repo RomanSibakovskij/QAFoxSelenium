@@ -62,6 +62,8 @@ public class SingleProductPage extends BasePage{
     private WebElement singleProductPageProductSubmitReviewButton;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private WebElement singleProductPageProductReviewSuccessMessage;
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement singleProductPageProductReviewFailMessage;
     @FindBy(xpath = "//div[@id='product-product']/div[@class='alert alert-success alert-dismissible']")
     private WebElement singleProductPageAdditionToCartSuccessMessage;
     //radio buttons list
@@ -139,6 +141,13 @@ public class SingleProductPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
         wait.until(ExpectedConditions.visibilityOf(singleProductPageProductReviewSuccessMessage));
         return singleProductPageProductReviewSuccessMessage.getText();
+    }
+
+    //review submission failure message text getter
+    public String getReviewFailedMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.visibilityOf(singleProductPageProductReviewFailMessage));
+        return singleProductPageProductReviewFailMessage.getText();
     }
 
     //addition to cart success message getter
