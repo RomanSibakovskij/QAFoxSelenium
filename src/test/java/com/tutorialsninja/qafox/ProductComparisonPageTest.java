@@ -19,10 +19,10 @@ public class ProductComparisonPageTest extends TestMethods{
         addProductsToCompareListTest();
     }
 
-    //Test 010a -> add set products (HP LP3065) to cart from product compare page test (as a guest)
+    //Test 010a -> add set product (HP LP3065) to cart from product compare page test (as a guest)
     @Test
     @DisplayName("Add Set Product (HP LP3065) To Cart From Compare Page Test (as a guest)")
-    @Tag("Add_Products_To_Cart_From_Comparison_Page")
+    @Tag("Add_Product_To_Cart_From_Comparison_Page")
     @Tag("Test_As_A_Guest")
     void addProductsToCartFromCompareListAsGuestTest() {
         //navigate to 'Desktops' category page test (as a guest)
@@ -65,10 +65,10 @@ public class ProductComparisonPageTest extends TestMethods{
         addProductsToCompareListTest();
     }
 
-    //Test 010d -> add set products (HP LP3065) to cart from product compare page test (as a registered user)
+    //Test 010d -> add set product (HP LP3065) to cart from product compare page test (as a registered user)
     @Test
-    @DisplayName("Add Set Products (HP LP3065) To Cart From Compare Page Test (as a registered user)")
-    @Tag("Add_Products_To_Cart_From_Comparison_Page")
+    @DisplayName("Add Set Product (HP LP3065) To Cart From Compare Page Test (as a registered user)")
+    @Tag("Add_Product_To_Cart_From_Comparison_Page")
     @Tag("Test_As_A_Reg_User")
     void addProductToCartFromCompareListAsRegUserTest() {
         RegisterPage registerPage = new RegisterPage(driver);
