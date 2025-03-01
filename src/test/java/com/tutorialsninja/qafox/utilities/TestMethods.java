@@ -4378,6 +4378,50 @@ public class TestMethods extends BaseTest{
         assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryRefinedSearchLinkDisplayed(), "The single product category dashboard page product refined search links aren't displayed");
     }
 
+    //single product page web element assert test method
+    protected void isSingleProductPageWebElementDisplayed(SingleProductPage singleProductPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert single product page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The single product category dashboard page breadcrumb isn't displayed");
+        //main
+        //assert single product page title is displayed
+        assertTrue(singleProductPage.isSingleProductPageTitleDisplayed(), "The single product page title isn't displayed");
+        //assert single product page 'Add to wishlist' button is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAddToWishlistButtonDisplayed(), "The single product page 'Add to wishlist' button isn't displayed");
+        //assert single product page 'Add to compare' button is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAddToCompareButtonDisplayed(), "The single product page 'Add to compare' button isn't displayed");
+        //assert single product page short product description is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShortDescriptionDisplayed(), "The single product page short product description isn't displayed");
+        //assert single product page unit price is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShortUnitPriceDisplayed(), "The single product page product unit price isn't displayed");
+        //assert single product page product 'ex.tax'  is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShortExTaxPriceDisplayed(), "The single product page product 'ex.tax' isn't displayed");
+        //assert single product page product quantity subtitle is displayed
+        assertTrue(singleProductPage.isSingleProductPageQtySubtitleDisplayed(), "The single product page product quantity subtitle isn't displayed");
+        //assert single product page product quantity input field is displayed
+        assertTrue(singleProductPage.isSingleProductPageQtyInputFieldDisplayed(), "The single product page product quantity input field isn't displayed");
+        //assert single product page product 'Add to cart' button is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAddToCartButtonDisplayed(), "The single product page product 'Add to cart' button isn't displayed");
+        //assert single product page product review counter is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewCounterDisplayed(), "The single product page product review counter isn't displayed");
+        //assert single product page product write review link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductWriteReviewLinkDisplayed(), "The single product page write product review isn't displayed");
+        //assert single product page product review radio buttons are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewButtonsDisplayed(), "The single product page product review radio buttons aren't displayed");
+        //assert single product page product descriptions link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductDescriptionLinkDisplayed(), "The single product page product descriptions isn't displayed");
+        //assert single product page product reviews link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsLinkDisplayed(), "The single product page product reviews isn't displayed");
+    }
+
+    //single product page additional assert test method (HP and Ipod Touch)
+    protected void isSingleProductPageAdditionalWebElementDisplayed(SingleProductPage singleProductPage) {
+        //assert single product page product main image is displayed
+        assertTrue(singleProductPage.isSingleProductPageMainImageDisplayed(), "The single product page product main image isn't displayed");
+        //assert single product page product images are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageImagesDisplayed(), "The single product page product images aren't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -4531,6 +4575,16 @@ public class TestMethods extends BaseTest{
     protected void isProductComparisonPageTextElementAsExpected(ProductCompareListPage productCompareListPage){
         //assert product comparison list page title is as expected
         assertEquals("Product Comparison", productCompareListPage.getProductCompareListPageTitle(), "The product comparison list page title doesn't match expectations.");
+    }
+
+    //single product page review text element assert test method
+    protected void isSingleProductPageReviewsSectionTextElementAsExpected(SingleProductPage singleProductPage){
+        //assert single product page review username subtext is as expected
+        assertEquals("Your Name", singleProductPage.getSingleProductPageProductReviewUserNameSubtext(), "The single product page review user name subtext doesn't match expectations.");
+        //assert single product page review  subtext is as expected
+        assertEquals("Your Review", singleProductPage.getSingleProductPageProductReviewSubtext(), "The single product page review subtext doesn't match expectations.");
+        //assert single product page rating subtext is as expected
+        assertEquals("Rating", singleProductPage.getSingleProductPageProductRatingSubtext(), "The single product page rating subtext doesn't match expectations.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
