@@ -51,4 +51,22 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addSearchedIpodTouchToCartTest();
     }
 
+    //Test 011c -> single searched product (Ipod Touch) addition to cart page test (as a registered user) (it's not currently in stock)
+    @Test
+    @DisplayName("Add Single Searched Product (Ipod Touch) To Cart Test (as a registered user)")
+    @Tag("Single_Searched_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void singleSearchedProductAdditionToCartAsRegUserTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserSingleMainAddressAdditionTest(addAddressPage);
+        //single searched product (Ipod Touch) addition to cart page test (as a registered user)
+        addSearchedIpodTouchToCartTest();
+    }
+
 }

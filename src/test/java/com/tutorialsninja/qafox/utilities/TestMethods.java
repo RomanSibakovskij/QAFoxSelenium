@@ -4049,7 +4049,7 @@ public class TestMethods extends BaseTest{
     protected void addSearchedIpodTouchToCartTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
-        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -4074,6 +4074,12 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Ipod Touch Product Shopping Cart Dropdown Menu Display");
         //click 'View Cart' link (to proceed to shopping cart page)
         generalPage.clickViewCartLink();
+        //if the product isn't available or in-stock, assert the user gets the expected warning message
+        if(shoppingCartPage.isShoppingCartWarningMessageDisplayed()) {
+            assertEquals("Products marked with *** are not available in the desired quantity or not in stock!\n" + "×", shoppingCartPage.getShoppingCartWarningMessage(), "The shopping cart warning message doesn't match expectations or the warning wasn't triggered.");
+        } else {
+            logger.info("The searched product (Ipod Touch) is in stock.");
+        }
         //capture screenshot of the test result
         captureScreenshot(driver, "Ipod Touch Product Addition To Cart Test Result");
     }

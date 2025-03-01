@@ -73,6 +73,9 @@ public class ShoppingCartPage extends BasePage{
     //shipping rate application success message element
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private WebElement shoppingCartShippingAppliedSuccessMessage;
+    //shopping cart warning message element
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement shoppingCartWarningMessage;
 
     public ShoppingCartPage(WebDriver driver) {super(driver);}
 
@@ -143,6 +146,13 @@ public class ShoppingCartPage extends BasePage{
         return shoppingCartShippingAppliedSuccessMessage.getText();
     }
 
+    //shopping cart warning message getter
+    public String getShoppingCartWarningMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(900));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartWarningMessage));
+        return shoppingCartWarningMessage.getText();
+    }
+
     //shopping cart product table list getters
     public List<String> getShoppingCartProductName(){return shoppingCartTableProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getShoppingCartProductDescription(){return shoppingCartTableProductDescElements.stream().map(WebElement::getText).collect(Collectors.toList());}
@@ -210,5 +220,7 @@ public class ShoppingCartPage extends BasePage{
     public boolean isShoppingCartContinueShoppingButtonDisplayed() {return shoppingCartContinueShoppingButton.isDisplayed();}
     public boolean isShoppingCartCheckoutButtonDisplayed() {return shoppingCartCheckoutButton.isDisplayed();}
 
+    //warning message display assert
+    public boolean isShoppingCartWarningMessageDisplayed() {return shoppingCartWarningMessage.isDisplayed();}
 
 }
