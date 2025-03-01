@@ -3756,7 +3756,7 @@ public class TestMethods extends BaseTest{
         //log wishlist product table data
         logWishlistProductTableData(wishlistPage);
         //click 'Remove' product from wishlist button
-        wishlistPage.clickRemoveFromWishlistButton();
+        wishlistPage.clickRemoveFromWishlistButton(0);
         //assert the user gets an expected success message
         assertEquals("Success: You have modified your wish list!\n" + "×", wishlistPage.getWishlistSuccessMessage(), "The wishlist success message doesn't match expectations or its update has failed.");
         //capture screenshot of the test result
@@ -4815,7 +4815,7 @@ public class TestMethods extends BaseTest{
     //wishlist page product table data logger method
     protected void logWishlistProductTableData(WishlistPage wishlistPage){
         System.out.println("Wishlist page product table displayed data: " + "\n");
-        //logger.info("Wishlist product name(s): " + wishlistPage.getWishlistPageProductName()); //Selenium throws StaleElementRefException even if the page isn't reloaded and the element isn't obstructed, waits don't fix the issue, selector IS valid
+        logger.info("Wishlist product name(s): " + wishlistPage.getWishlistPageProductName());
         logger.info("Wishlist product model(s): " + wishlistPage.getWishlistPageProductModel());
         logger.info("Wishlist product stock(s): " + wishlistPage.getWishlistPageProductStock());
         logger.info("Wishlist product unit price(s): " + wishlistPage.getWishlistPageProductUnitPrice());
