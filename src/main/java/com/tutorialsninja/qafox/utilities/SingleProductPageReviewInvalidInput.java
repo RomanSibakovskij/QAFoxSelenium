@@ -29,6 +29,7 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
 
     //too short singular input data
     private String tooShortGuestUserName;
+    private String tooShortReview;
 
     public SingleProductPageReviewInvalidInput(WebDriver driver) {super(driver);}
 
@@ -67,6 +68,13 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
         tooShortGuestUserName = "Dk";
         logger.info("Too short guest user name: " + tooShortGuestUserName);
         singleProductPageProductReviewUserNameInputField.sendKeys(tooShortGuestUserName);
+    }
+
+    //add too short review text method (24 chars)
+    public void inputTooShortUserReview(){
+        tooShortReview = "I wonder it's too short?";
+        logger.info("Too short guest user review: " + tooShortReview);
+        singleProductPageProductReviewInputField.sendKeys(tooShortReview);
     }
 
     //rate the product radio button click

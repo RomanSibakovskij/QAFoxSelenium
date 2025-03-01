@@ -50,7 +50,7 @@ public class SingleProductPageTest extends TestMethods{
 
     //too short singular input
 
-    //Test 012 -> single product (HP LP3065) addition to cart page with too short review username test (2 chars)
+    //Test 012c -> single product (HP LP3065) addition to cart page with too short review username test (2 chars)
     @Test
     @DisplayName("Add Single Product (HP LP3065) To Cart With Too Short Review Username Test")
     @Tag("Single_Product_Addition_To_Cart")
@@ -61,6 +61,19 @@ public class SingleProductPageTest extends TestMethods{
         navigateToDesktopsCategoryDashboardPageTest();
         //single product (HP LP3065) addition to cart page with too short review username test (2 chars)
         addHPLP3065ToCartWithTooShortReviewUserNameTest();
+    }
+
+    //Test 012d -> single product (HP LP3065) addition to cart page with too short review text test (24 chars)
+    @Test
+    @DisplayName("Add Single Product (HP LP3065) To Cart With Too Short Review Text Test")
+    @Tag("Single_Product_Addition_To_Cart")
+    @Tag("Invalid_Review_Test")
+    @Tag("Too_Short_Singular_Input")
+    void singleProductAdditionToCartTooShortReviewTextTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page with too short review text test (24 chars)
+        addHPLP3065ToCartWithTooShortReviewTextTest();
     }
 
 }
