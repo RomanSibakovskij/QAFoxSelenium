@@ -27,6 +27,9 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
     private String noGuestUserName;
     private String noReview;
 
+    //too short singular input data
+    private String tooShortGuestUserName;
+
     public SingleProductPageReviewInvalidInput(WebDriver driver) {super(driver);}
 
     //valid review input methods (for remaining inputs)
@@ -55,6 +58,15 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
     public void inputNoUserReview(){
         noReview = "";
         singleProductPageProductReviewInputField.sendKeys(noReview);
+    }
+
+    //invalid review input methods - too short singular input
+
+    //add too short guest username method (guest) (2 chars)
+    public void inputTooShortGuestUserNameIntoUserNameInputField(){
+        tooShortGuestUserName = "Dk";
+        logger.info("Too short guest user name: " + tooShortGuestUserName);
+        singleProductPageProductReviewUserNameInputField.sendKeys(tooShortGuestUserName);
     }
 
     //rate the product radio button click
