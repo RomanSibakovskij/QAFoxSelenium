@@ -83,11 +83,11 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addSearchedIpodTouchToCartTest();
     }
 
-    //single (specific category) product addition to cart tests
+    //multiple (specific category) products addition to cart tests
 
     //Test 014 -> multiple products (HP LP3065) addition to cart page test (as a guest)
     @Test
-    @DisplayName("Add Multiple Product (HP LP3065) To Cart Test (as a guest)")
+    @DisplayName("Add Multiple Products (HP LP3065) To Cart Test (as a guest)")
     @Tag("Multiple_Products_Addition_To_Cart")
     @Tag("Test_As_A_Guest")
     void multipleProductAdditionToCartAsGuestTest() {
@@ -95,6 +95,26 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         navigateToDesktopsCategoryDashboardPageTest();
         //multiple products (HP LP3065) addition to cart page test (as a guest)
         addMultipleHPLP3065ProductsToCartGuestTest();
+    }
+
+    //Test 014a -> multiple products (HP LP3065) addition to cart page test (as a registered user)
+    @Test
+    @DisplayName("Add Multiple Products (HP LP3065) To Cart Test (as a registered user)")
+    @Tag("Multiple_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void multipleProductAdditionToCartAsRegUserTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //user navigation to 'Register' page test
+        userNavigationToRegisterPageTest();
+        //valid user account creation
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserSingleMainAddressAdditionTest(addAddressPage);
+        //navigate to 'Desktops' category page test (as a registered user)
+        navigateToDesktopsCategoryDashboardPageRegUserTest();
+        //multiple products (HP LP3065) addition to cart page test (as a registered user)
+        addMultipleHPLP3065ProductsToCartRegUserTest();
     }
 
 }
