@@ -83,4 +83,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addSearchedIpodTouchToCartTest();
     }
 
+    //single (specific category) product addition to cart tests
+
+    //Test 014 -> multiple products (HP LP3065) addition to cart page test (as a guest)
+    @Test
+    @DisplayName("Add Multiple Product (HP LP3065) To Cart Test (as a guest)")
+    @Tag("Multiple_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleProductAdditionToCartAsGuestTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //multiple products (HP LP3065) addition to cart page test (as a guest)
+        addMultipleHPLP3065ProductsToCartGuestTest();
+    }
+
 }

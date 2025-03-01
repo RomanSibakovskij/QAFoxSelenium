@@ -97,6 +97,8 @@ public class SingleProductPage extends BasePage{
     //invalid singular input (date)
     private String reversedDeliveryDateFormat;
     private String pastDeliveryDate;
+    //changed quantity
+    private String threeProductQuantity;
 
     public SingleProductPage(WebDriver driver) {super(driver);}
 
@@ -153,6 +155,14 @@ public class SingleProductPage extends BasePage{
 
     //specifications link click method
     public void clickSpecificationsLink(){singleProductPageProductSpecificationLink.click();}
+
+    //change product quantity
+    public void changeProductQuantity(){
+        singleProductPageProductQtyInputField.clear();
+        threeProductQuantity = "3";
+        logger.info("Changed product quantity in single product page: " + threeProductQuantity + "\n");
+        singleProductPageProductQtyInputField.sendKeys(threeProductQuantity);
+    }
 
     //click 'Add to Cart' button method
     public void clickAddToCartButton(){

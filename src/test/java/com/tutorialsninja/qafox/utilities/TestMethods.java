@@ -4082,6 +4082,61 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
     }
 
+    //add multiple 'HP LP3065' products to cart test method (as a guest)
+    protected void addMultipleHPLP3065ProductsToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add to Cart' (HP LP3065) button
+        singleProductCategoryDashboardPage.clickAddToCartButton(2);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page additional web element assert (for this page)
+        isSingleProductPageAdditionalWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page
+        captureScreenshot(driver, "HP LP3065 Product Page Display");
+        //log single product data
+        logSingleProductPageData(singleProductPage);
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input guest review
+        guestProductReviewSubmission(singleProductPage);
+        //click 'Specifications' link
+        singleProductPage.clickSpecificationsLink();
+        //log product specification data
+        logSingleProductPageProductSpecificationData(singleProductPage);
+        //capture screenshot of the single product specification
+        captureScreenshot(driver, "HP LP3065 Product Page Specification");
+        //add delivery date
+        singleProductPage.addDeliveryDate();
+        //setup product quantity
+        singleProductPage.changeProductQuantity();
+        //capture screenshot of the quantity input
+        captureScreenshot(driver, "HP LP3065 Multiple Product Quantity Input (as a guest)");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //assert the user gets the addition to cart confirmation message
+        assertEquals("Success: You have added HP LP3065 to your shopping cart!\n" + "×", singleProductPage.getAdditionToCartSuccessMessage(), "The addition to cart success message doesn't match expectations or the user has failed to add the product to cart.");
+        //click 'Shopping Cart' dropdown button
+        generalPage.clickShoppingCartDropdownButton();
+        //shopping cart dropdown web element assert
+        isShoppingCartDropdownWebElementDisplayed(generalPage);
+        //log shopping cart dropdown product data
+        logShoppingCartDropdownProductData(generalPage);
+        //capture screenshot of the single product shopping cart dropdown menu
+        captureScreenshot(driver, "HP LP3065 Multiple Products Shopping Cart Dropdown Menu Display (as a guest)");
+        //click 'View Cart' link (to proceed to shopping cart page)
+        generalPage.clickViewCartLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Multiple Products Addition To Cart Test Result (as a guest)");
+    }
+
     //add searched (Ipod Touch) product to cart test method (it's not currently in stock)
     protected void addSearchedIpodTouchToCartTest(){
         GeneralPage generalPage = new GeneralPage(driver);
