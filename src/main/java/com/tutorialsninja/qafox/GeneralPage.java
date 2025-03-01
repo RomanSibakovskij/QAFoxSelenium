@@ -165,6 +165,15 @@ public class GeneralPage extends BasePage {
         js.executeScript("arguments[0].click();", shoppingCartButton);
     }
 
+    //input 'Ipod Touch' into search bar method
+    public void inputIpodTouchSearchQueryIntoSearchInputField(){searchBarInputField.sendKeys("ipod touch");}
+
+    //click 'Search' header button
+    public void clickSearchHeaderButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(searchButton).click().perform();
+    }
+
     //shopping cart dropdown menu product data getters
     public List<String> getShoppingCartDropdownProductName(){return shoppingCartDropdownProductNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getShoppingCartDropdownProductDesc(){return shoppingCartDropdownProductDescElements.stream().map(WebElement::getText).collect(Collectors.toList());}

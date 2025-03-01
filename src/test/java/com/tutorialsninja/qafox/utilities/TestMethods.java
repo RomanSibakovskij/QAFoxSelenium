@@ -4045,6 +4045,39 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
     }
 
+    //add searched (Ipod Touch) product to cart test method (it's not currently in stock)
+    protected void addSearchedIpodTouchToCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //input 'Ipod Touch' (lowercase) into search input field
+        generalPage.inputIpodTouchSearchQueryIntoSearchInputField();
+        //click 'Search' button
+        generalPage.clickSearchHeaderButton();
+        //searched product dashboard page web element assert
+        isSearchedProductDashboardPageWebElementDisplayed();
+        //click 'Add to Cart' (Ipod Touch) button
+        singleProductCategoryDashboardPage.clickAddToCartButton(0);
+        //assert the user gets the addition to cart confirmation message
+        assertEquals("Success: You have added iPod Touch to your shopping cart!\n" + "×", singleProductCategoryDashboardPage.getAdditionToCartSuccessMessage(), "The addition to cart success message doesn't match expectations or the user has failed to add the product to cart.");
+        //click 'Shopping Cart' dropdown button
+        generalPage.clickShoppingCartDropdownButton();
+        //shopping cart dropdown web element assert
+        isShoppingCartDropdownWebElementDisplayed(generalPage);
+        //log shopping cart dropdown product data
+        logShoppingCartDropdownProductData(generalPage);
+        //capture screenshot of the single product shopping cart dropdown menu
+        captureScreenshot(driver, "Ipod Touch Product Shopping Cart Dropdown Menu Display");
+        //click 'View Cart' link (to proceed to shopping cart page)
+        generalPage.clickViewCartLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Ipod Touch Product Addition To Cart Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -4609,6 +4642,41 @@ public class TestMethods extends BaseTest{
         //list elements
         //assert single product category dashboard page product refined search links are displayed (as a list)
         assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryRefinedSearchLinkDisplayed(), "The single product category dashboard page product refined search links aren't displayed");
+    }
+
+    //searched product dashboard page web element assert test method (it's single product category dashboard page but without aside content)
+    protected void isSearchedProductDashboardPageWebElementDisplayed(){
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //main
+        //assert single product category dashboard page title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryPageTitleDisplayed(), "The single product category dashboard page title isn't displayed");
+        //assert single product category dashboard page grid view button is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryGridViewButtonDisplayed(), "The single product category dashboard page grid view button isn't displayed");
+        //assert single product category dashboard page list view button is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryListViewButtonDisplayed(), "The single product category dashboard page list view button isn't displayed");
+        //assert single product category dashboard page product compare link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryProductCompareLinkDisplayed(), "The single product category dashboard page product compare link isn't displayed");
+        //assert single product category dashboard page sort by dropdown menu is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategorySortByDropdownMenuDisplayed(), "The single product category dashboard page sort by dropdown menu isn't displayed");
+        //assert single product category dashboard page show dropdown menu is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryShowDropdownMenuDisplayed(), "The single product category dashboard page show dropdown menu isn't displayed");
+        //assert single product category dashboard page product counter is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryShowingProductCounterDisplayed(), "The single product category dashboard page product counter isn't displayed");
+        //product table list elements
+        //assert single product category dashboard page product image links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableImageLinkDisplayed(), "The single product category dashboard page product image links aren't displayed");
+        //assert single product category dashboard page product name links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableNameLinkDisplayed(), "The single product category dashboard page product name links aren't displayed");
+        //assert single product category dashboard page product descriptions are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableDescriptionDisplayed(), "The single product category dashboard page product name descriptions aren't displayed");
+        //assert single product category dashboard page product unit prices are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductTableUnitPriceDisplayed(), "The single product category dashboard page product unit prices aren't displayed");
+        //assert single product category dashboard page product 'add to cart' buttons are displayed (as a list) (buttons throw StaleElementReferenceException even if they are NOT obscured/refreshed)
+        //assertTrue(singleProductCategoryDashboardPage.isProductTableAddToCartButtonDisplayed(), "The single product category dashboard page product 'Add to cart' buttons aren't displayed");
+        //assert single product category dashboard page product 'add to wishlist' buttons are displayed (as a list)
+        //assertTrue(singleProductCategoryDashboardPage.isProductTableAddToWishlistButtonDisplayed(), "The single product category dashboard page product 'Add to wishlist' buttons aren't displayed");
+        //assert single product category dashboard page product 'add to compare' buttons are displayed (as a list)
+        //assertTrue(singleProductCategoryDashboardPage.isProductTableAddToCompareButtonDisplayed(), "The single product category dashboard page product 'Add to compare' buttons aren't displayed");
     }
 
     //single product page web element assert test method

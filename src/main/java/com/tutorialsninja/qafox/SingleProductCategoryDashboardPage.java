@@ -62,13 +62,16 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private List<WebElement> productTableDescriptionElements;
     @FindBy(xpath = "//div[@class='product-thumb']//p[2]")
     private List<WebElement> productTableUnitPriceElements;
-    private List<WebElement> productTableAddToCartButtonElements = driver.findElements(By.xpath("//div[@class='button-group']/button[1]"));
+    @FindBy(xpath = "//div[@class='button-group']/button[1]")
+    private List<WebElement> productTableAddToCartButtonElements;
     @FindBy(xpath = "//div[@class='button-group']/button[2]")
     private List<WebElement> productTableAddToWishlistButtonElements;
     private List<WebElement> productTableAddToCompareButtonElements = driver.findElements(By.xpath("//div[@class='button-group']/button[3]"));
     //singular element
     @FindBy(xpath = "//div[@class='col-sm-6 text-right']")
     private WebElement singleProductCategoryShowingProductCounter;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    private WebElement singleProductCategoryDashboardPageAdditionToCartSuccessMessage;
 
     public SingleProductCategoryDashboardPage(WebDriver driver) {super(driver);}
 
@@ -113,6 +116,13 @@ public class SingleProductCategoryDashboardPage extends BasePage {
 
     //single product category dashboard page text getters
     public String getSingleProductCategoryDashboardPageTitle(){return singleProductCategoryPageTitle.getText();}
+
+    //addition to cart success message getter (searched product dashboard)
+    public String getAdditionToCartSuccessMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.visibilityOf(singleProductCategoryDashboardPageAdditionToCartSuccessMessage));
+        return singleProductCategoryDashboardPageAdditionToCartSuccessMessage.getText();
+    }
 
     //single product category dashboard page web element assert methods
     //aside

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 public class SingleProductCategoryDashboardPageTest extends TestMethods{
 
-    //single product addition to cart tests
+    //single (specific category) product addition to cart tests
 
     //Test 011 -> single product (HP LP3065) addition to cart page test (as a guest)
     @Test
@@ -37,6 +37,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         navigateToDesktopsCategoryDashboardPageRegUserTest();
         //single product (HP LP3065) addition to cart page test (as a registered user)
         addHPLP3065ToCartTest();
+    }
+
+    //single (specific category) product addition to cart tests
+
+    //Test 011b -> single searched product (Ipod Touch) addition to cart page test (as a guest) (it's not currently in stock)
+    @Test
+    @DisplayName("Add Single Searched Product (Ipod Touch) To Cart Test (as a guest)")
+    @Tag("Single_Searched_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void singleSearchedProductAdditionToCartAsGuestTest() {
+        //single searched product (Ipod Touch) addition to cart page test (as a guest)
+        addSearchedIpodTouchToCartTest();
     }
 
 }
