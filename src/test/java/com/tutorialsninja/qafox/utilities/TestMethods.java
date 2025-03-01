@@ -4543,9 +4543,9 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
     }
 
-    //invalid delivery date input tests
+    //invalid delivery date input tests -> since guest and registered user will have the same output, only guest branch will be tested
 
-    //invalid add 'HP LP3065' to cart test method - no delivery date -> since guest and registered user will have the same output, only guest branch will be tested
+    //invalid add 'HP LP3065' to cart test method - no delivery date
     protected void invalidAddHPLP3065ToCartNoDeliveryDateTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
@@ -4566,6 +4566,8 @@ public class TestMethods extends BaseTest{
         logSingleProductPageData(singleProductPage);
         //don't input delivery date
         singleProductPage.addNoDeliveryDate();
+        //capture screenshot of the invalid delivery date input
+        captureScreenshot(driver, "No Delivery Date Input For HP LP3065 Product");
         //click 'Reviews' link
         singleProductPage.clickReviewsLink();
         //reviews section text element assert
@@ -4584,6 +4586,53 @@ public class TestMethods extends BaseTest{
         assertEquals("Delivery Date required!", singleProductPage.getDeliveryDateErrorMessage(), "The delivery date error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart With No Delivery Date Test Result");
+    }
+
+    //invalid add 'HP LP3065' to cart test method - reversed delivery date
+    protected void invalidAddHPLP3065ToCartReversedDeliveryDateTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add to Cart' (HP LP3065) button
+        singleProductCategoryDashboardPage.clickAddToCartButton(2);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page additional web element assert (for this page)
+        isSingleProductPageAdditionalWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page
+        captureScreenshot(driver, "HP LP3065 Product Page Display");
+        //log single product data
+        logSingleProductPageData(singleProductPage);
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input guest review
+        guestProductReviewSubmission(singleProductPage);
+        //click 'Specifications' link
+        singleProductPage.clickSpecificationsLink();
+        //log product specification data
+        logSingleProductPageProductSpecificationData(singleProductPage);
+        //capture screenshot of the single product specification
+        captureScreenshot(driver, "HP LP3065 Product Page Specification");
+        //input reversed delivery date
+        singleProductPage.addReversedDeliveryDate();
+        //capture screenshot of the invalid delivery date input
+        captureScreenshot(driver, "Invalid Delivery Date Input For HP LP3065 Product");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //assert the user gets the expected error, otherwise, log the issue
+        try {
+            assertEquals("Delivery Date format has to be 'YYYY-MMM-DD'!", singleProductPage.getDeliveryDateErrorMessage(), "The delivery date error message doesn't match expectations.");
+        } catch(NoSuchElementException nse){
+            logger.error("The invalid delivery date error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Addition To Cart With Reversed Delivery Date Test Result");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

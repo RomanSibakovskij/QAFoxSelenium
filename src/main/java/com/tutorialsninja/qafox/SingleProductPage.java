@@ -94,6 +94,8 @@ public class SingleProductPage extends BasePage{
     private String userReview;
     //no singular input
     private String noDeliveryDate;
+    //invalid singular input (date)
+    private String reversedDeliveryDateFormat;
 
     public SingleProductPage(WebDriver driver) {super(driver);}
 
@@ -106,7 +108,15 @@ public class SingleProductPage extends BasePage{
     //single product page invalid delivery date addition methods
     public void addNoDeliveryDate(){
         singleProductPageProductDeliveryDateInputField.clear();
-        singleProductPageProductDeliveryDateInputField.sendKeys("");
+        noDeliveryDate = "";
+        logger.info("No delivery date: " + noDeliveryDate + "\n");
+        singleProductPageProductDeliveryDateInputField.sendKeys(noDeliveryDate);
+    }
+    public void addReversedDeliveryDate(){
+        singleProductPageProductDeliveryDateInputField.clear();
+        reversedDeliveryDateFormat = "20-03-2025";
+        logger.info("Reversed delivery date: " + reversedDeliveryDateFormat + "\n");
+        singleProductPageProductDeliveryDateInputField.sendKeys(reversedDeliveryDateFormat);
     }
 
     //reviews link click method
@@ -158,11 +168,7 @@ public class SingleProductPage extends BasePage{
     }
 
     //delivery date input error message getter
-    public String getDeliveryDateErrorMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
-        wait.until(ExpectedConditions.visibilityOf(singleProductPageDeliveryDateErrorMessage));
-        return singleProductPageDeliveryDateErrorMessage.getText();
-    }
+    public String getDeliveryDateErrorMessage(){return singleProductPageDeliveryDateErrorMessage.getText();}
 
     //single product page text element getters
     public String getSingleProductPageTitle() {return singleProductPageTitle.getText();}
