@@ -90,7 +90,6 @@ public class SingleProductPage extends BasePage{
 
     //user name input data
     private String guestUserName;
-    private String userName;
     //valid review text input
     private String userReview;
 
@@ -141,13 +140,6 @@ public class SingleProductPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
         wait.until(ExpectedConditions.visibilityOf(singleProductPageProductReviewSuccessMessage));
         return singleProductPageProductReviewSuccessMessage.getText();
-    }
-
-    //review submission failure message text getter
-    public String getReviewFailedMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
-        wait.until(ExpectedConditions.visibilityOf(singleProductPageProductReviewFailMessage));
-        return singleProductPageProductReviewFailMessage.getText();
     }
 
     //addition to cart success message getter

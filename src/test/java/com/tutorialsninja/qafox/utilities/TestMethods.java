@@ -4178,6 +4178,64 @@ public class TestMethods extends BaseTest{
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //single product page invalid submission data tests (review, delivery date) -> since guest and registered user will have the same output, only guest branch will be tested
+
+    //no singular input
+
+    //single product set category review submission without username test
+    protected void addHPLP3065ToCartWithoutReviewUserNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        SingleProductPageReviewInvalidInput singleProductPageReviewInvalidInput = new SingleProductPageReviewInvalidInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add to Cart' (HP LP3065) button
+        singleProductCategoryDashboardPage.clickAddToCartButton(2);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page additional web element assert (for this page)
+        isSingleProductPageAdditionalWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page
+        captureScreenshot(driver, "HP LP3065 Product Page Display");
+        //log single product data
+        logSingleProductPageData(singleProductPage);
+        //add delivery date
+        singleProductPage.addDeliveryDate();
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input guest review (no guest username)
+        guestProductReviewNoUsernameSubmission(singleProductPage);
+        //click 'Specifications' link
+        singleProductPage.clickSpecificationsLink();
+        //log product specification data
+        logSingleProductPageProductSpecificationData(singleProductPage);
+        //capture screenshot of the single product specification
+        captureScreenshot(driver, "HP LP3065 Product Page Specification");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //assert the user gets the addition to cart confirmation message
+        assertEquals("Success: You have added HP LP3065 to your shopping cart!\n" + "×", singleProductPage.getAdditionToCartSuccessMessage(), "The addition to cart success message doesn't match expectations or the user has failed to add the product to cart.");
+        //click 'Shopping Cart' dropdown button
+        generalPage.clickShoppingCartDropdownButton();
+        //shopping cart dropdown web element assert
+        isShoppingCartDropdownWebElementDisplayed(generalPage);
+        //log shopping cart dropdown product data
+        logShoppingCartDropdownProductData(generalPage);
+        //capture screenshot of the single product shopping cart dropdown menu
+        captureScreenshot(driver, "HP LP3065 Product Shopping Cart Dropdown Menu Display");
+        //click 'View Cart' link (to proceed to shopping cart page)
+        generalPage.clickViewCartLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web elements assert test method (elements all pages possess)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //top navbar
@@ -5198,6 +5256,8 @@ public class TestMethods extends BaseTest{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid single product review submission test methods
+
     //product review submission method (as a guest)
     protected void guestProductReviewSubmission(SingleProductPage singleProductPage){
         //click 'Reviews' link
@@ -5234,6 +5294,27 @@ public class TestMethods extends BaseTest{
         assertEquals("Thank you for your review. It has been submitted to the webmaster for approval.", singleProductPage.getReviewSuccessMessage(), "The review submission success message doesn't match expectations or the user has failed to submit the review.");
         //capture screenshot of the review submission
         captureScreenshot(driver, "HP LP3065 Product Review Submitted (registered user)");
+    }
+
+    //invalid single product review submission test methods
+
+    //no singular input
+
+    //invalid single product review input test method - no guest username
+    protected void guestProductReviewNoUsernameSubmission(SingleProductPage singleProductPage){
+        SingleProductPageReviewInvalidInput singleProductPageReviewInvalidInput = new SingleProductPageReviewInvalidInput(driver);
+        //input no guest username
+        singleProductPageReviewInvalidInput.inputNoGuestUserNameIntoUserNameInputField();
+        //input user review
+        singleProductPage.inputUserReview();
+        //click 'Average' rating radio button
+        singleProductPage.clickRatingRadioButton();
+        //click 'Submit' review button
+        singleProductPage.clickSubmitReviewButton();
+        //assert the user gets the review submission failure message
+        assertEquals("Warning: Review Name must be between 3 and 25 characters!", singleProductPageReviewInvalidInput.getReviewFailedMessage(), "The review submission failure message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the review submission failure
+        captureScreenshot(driver, "HP LP3065 Product Review (No Username) Submission Failure");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
