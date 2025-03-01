@@ -31,6 +31,9 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
     private String tooShortGuestUserName;
     private String tooShortReview;
 
+    //too long singular input data
+    private String tooLongGuestUserName;
+
     public SingleProductPageReviewInvalidInput(WebDriver driver) {super(driver);}
 
     //valid review input methods (for remaining inputs)
@@ -66,22 +69,24 @@ public class SingleProductPageReviewInvalidInput extends BasePage{
     //add too short guest username method (guest) (2 chars)
     public void inputTooShortGuestUserNameIntoUserNameInputField(){
         tooShortGuestUserName = "Dk";
-        logger.info("Too short guest user name: " + tooShortGuestUserName);
+        logger.info("Too short guest user name: " + tooShortGuestUserName + "\n");
         singleProductPageProductReviewUserNameInputField.sendKeys(tooShortGuestUserName);
     }
 
     //add too short review text method (24 chars)
     public void inputTooShortUserReview(){
         tooShortReview = "I wonder it's too short?";
-        logger.info("Too short guest user review: " + tooShortReview);
+        logger.info("Too short guest user review: " + tooShortReview + "\n");
         singleProductPageProductReviewInputField.sendKeys(tooShortReview);
     }
 
-    //rate the product radio button click
-    public void clickRatingRadioButton(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(800));
-        wait.until(ExpectedConditions.elementToBeClickable(singleProductPageProductAvgRatingRadioButton));
-        singleProductPageProductAvgRatingRadioButton.click();
+    //invalid review input methods - too long singular input
+
+    //add too long guest username method (guest) (26 chars)
+    public void inputTooLongGuestUserNameIntoUserNameInputField(){
+        tooLongGuestUserName = "Ffgdfdsfbfgjhjhfgcxxcvcxbc";
+        logger.info("Too long guest user name: " + tooLongGuestUserName + "\n");
+        singleProductPageProductReviewUserNameInputField.sendKeys(tooLongGuestUserName);
     }
 
     //review submission failure message text getter

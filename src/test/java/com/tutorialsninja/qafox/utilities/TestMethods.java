@@ -4439,6 +4439,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
     }
 
+    //too short singular input
+
+    //single product (set category) review submission with too long username test (26 chars)
+    protected void addHPLP3065ToCartWithTooLongReviewUserNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add to Cart' (HP LP3065) button
+        singleProductCategoryDashboardPage.clickAddToCartButton(2);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page additional web element assert (for this page)
+        isSingleProductPageAdditionalWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page
+        captureScreenshot(driver, "HP LP3065 Product Page Display");
+        //log single product data
+        logSingleProductPageData(singleProductPage);
+        //add delivery date
+        singleProductPage.addDeliveryDate();
+        //click 'Reviews' link
+        singleProductPage.clickReviewsLink();
+        //reviews section text element assert
+        isSingleProductPageReviewsSectionTextElementAsExpected(singleProductPage);
+        //input guest review (too long guest username) (26 chars)
+        guestProductReviewTooLongUsernameSubmission(singleProductPage);
+        //click 'Specifications' link
+        singleProductPage.clickSpecificationsLink();
+        //log product specification data
+        logSingleProductPageProductSpecificationData(singleProductPage);
+        //capture screenshot of the single product specification
+        captureScreenshot(driver, "HP LP3065 Product Page Specification");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //assert the user gets the addition to cart confirmation message
+        assertEquals("Success: You have added HP LP3065 to your shopping cart!\n" + "×", singleProductPage.getAdditionToCartSuccessMessage(), "The addition to cart success message doesn't match expectations or the user has failed to add the product to cart.");
+        //click 'Shopping Cart' dropdown button
+        generalPage.clickShoppingCartDropdownButton();
+        //shopping cart dropdown web element assert
+        isShoppingCartDropdownWebElementDisplayed(generalPage);
+        //log shopping cart dropdown product data
+        logShoppingCartDropdownProductData(generalPage);
+        //capture screenshot of the single product shopping cart dropdown menu
+        captureScreenshot(driver, "HP LP3065 Product Shopping Cart Dropdown Menu Display");
+        //click 'View Cart' link (to proceed to shopping cart page)
+        generalPage.clickViewCartLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Addition To Cart Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -5556,10 +5609,10 @@ public class TestMethods extends BaseTest{
 
     //too short singular input
 
-    //invalid single product review input test method - too short guest username
+    //invalid single product review input test method - too short guest username (2 chars)
     protected void guestProductReviewTooShortUsernameSubmission(SingleProductPage singleProductPage){
         SingleProductPageReviewInvalidInput singleProductPageReviewInvalidInput = new SingleProductPageReviewInvalidInput(driver);
-        //input too short guest username
+        //input too short guest username (2 chars)
         singleProductPageReviewInvalidInput.inputTooShortGuestUserNameIntoUserNameInputField();
         //input user review
         singleProductPage.inputUserReview();
@@ -5570,10 +5623,10 @@ public class TestMethods extends BaseTest{
         //assert the user gets the review submission failure message
         assertEquals("Warning: Review Name must be between 3 and 25 characters!", singleProductPageReviewInvalidInput.getReviewFailedMessage(), "The review submission failure message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the review submission failure
-        captureScreenshot(driver, "HP LP3065 Product Review (No Username) Submission Failure");
+        captureScreenshot(driver, "HP LP3065 Product Review (Too Short Username) Submission Failure");
     }
 
-    //invalid single product review input test method - too short guest review text
+    //invalid single product review input test method - too short guest review text (24 chars)
     protected void guestProductReviewTooShortReviewTextSubmission(SingleProductPage singleProductPage){
         SingleProductPageReviewInvalidInput singleProductPageReviewInvalidInput = new SingleProductPageReviewInvalidInput(driver);
         //input guest username
@@ -5588,6 +5641,25 @@ public class TestMethods extends BaseTest{
         assertEquals("Warning: Review Text must be between 25 and 1000 characters!", singleProductPageReviewInvalidInput.getReviewFailedMessage(), "The review submission failure message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the review submission failure
         captureScreenshot(driver, "HP LP3065 Product Review (Too Short Review Text) Submission Failure");
+    }
+
+    //too long singular input
+
+    //invalid single product review input test method - too long guest username (26 chars)
+    protected void guestProductReviewTooLongUsernameSubmission(SingleProductPage singleProductPage){
+        SingleProductPageReviewInvalidInput singleProductPageReviewInvalidInput = new SingleProductPageReviewInvalidInput(driver);
+        //input too long guest username (26 chars)
+        singleProductPageReviewInvalidInput.inputTooLongGuestUserNameIntoUserNameInputField();
+        //input user review
+        singleProductPage.inputUserReview();
+        //click 'Average' rating radio button
+        singleProductPage.clickRatingRadioButton();
+        //click 'Submit' review button
+        singleProductPage.clickSubmitReviewButton();
+        //assert the user gets the review submission failure message
+        assertEquals("Warning: Review Name must be between 3 and 25 characters!", singleProductPageReviewInvalidInput.getReviewFailedMessage(), "The review submission failure message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the review submission failure
+        captureScreenshot(driver, "HP LP3065 Product Review (Too Long Username) Submission Failure");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

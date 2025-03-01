@@ -76,4 +76,19 @@ public class SingleProductPageTest extends TestMethods{
         addHPLP3065ToCartWithTooShortReviewTextTest();
     }
 
+    //too long singular input
+
+    //Test 012e -> single product (HP LP3065) addition to cart page with too long review username test (26 chars)
+    @Test
+    @DisplayName("Add Single Product (HP LP3065) To Cart With Too Long Review Username Test")
+    @Tag("Single_Product_Addition_To_Cart")
+    @Tag("Invalid_Review_Test")
+    @Tag("Too_Long_Singular_Input")
+    void singleProductAdditionToCartTooLongReviewUsernameTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page with too long review username test (26 chars)
+        addHPLP3065ToCartWithTooLongReviewUserNameTest();
+    }
+
 }
