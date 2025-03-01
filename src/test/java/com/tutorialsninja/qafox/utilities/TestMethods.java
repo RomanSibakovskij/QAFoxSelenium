@@ -4792,6 +4792,50 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Addition To Cart With Reversed Delivery Date Test Result");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //add single product to check out test method (as a guest)
+    protected void addHPLP3065ProductToCheckoutGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //click 'Estimate shipping' dropdown link
+        shoppingCartPage.clickEstimateShippingDropdownLink();
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart 'Estimate shipping' page web element assert (this product has this section)
+        isShoppingCartPageEstimateShippingSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click shipping country dropdown menu
+        shoppingCartPage.clickShippingCountryDropdownMenu();
+        //select 'United States' option
+        shoppingCartPage.selectUsCountryOption();
+        //click shipping state dropdown menu
+        shoppingCartPage.clickShippingStateDropdownMenu();
+        //select 'Illinois' option
+        shoppingCartPage.selectIllinoisStateOption();
+        //click 'Get quotes' button
+        shoppingCartPage.clickGetQuotesButton();
+        //click 'Flat shipping' radio button
+        shoppingCartPage.clickFlatShippingRadioButton();
+        //click 'Apply shipping' radio button
+        shoppingCartPage.clickApplyShippingButton();
+        //assert the shipping rate has been applied
+        assertEquals("Success: Your shipping estimate has been applied!\n" + "×", shoppingCartPage.getShippingRateApplicationSuccessMessage(), "The shipping rate application success message doesn't match expectations or the shipping rate application has failed.");
+        //click 'Checkout' button
+        shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Product (HP LP3065) Addition To Checkout Test Result (guest)");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -5809,6 +5853,21 @@ public class TestMethods extends BaseTest{
         logger.info("Shopping cart dropdown product unit price(s): " + generalPage.getShoppingCartDropdownProductUnitPrice());
         logger.info("Shopping cart dropdown product sub total price: " + generalPage.getShoppingCartDropdownSubTotalPrice());
         logger.info("Shopping cart dropdown product total price: " + generalPage.getShoppingCartDropdownTotalPrice());
+        System.out.println("\n");
+    }
+
+    //shopping cart product page product data logger method
+    protected void logShoppingCartPageProductData(ShoppingCartPage shoppingCartPage){
+        System.out.println("Shopping cart page product displayed data: " + "\n");
+        logger.info("Shopping cart product name(s): " + shoppingCartPage.getShoppingCartProductName());
+        logger.info("Shopping cart product description(s): " + shoppingCartPage.getShoppingCartProductDescription());
+        logger.info("Shopping cart product model(s): " + shoppingCartPage.getShoppingCartProductModel());
+        logger.info("Shopping cart product quantity(ies): " + shoppingCartPage.getShoppingCartProductQty());
+        logger.info("Shopping cart product unit price(s): " + shoppingCartPage.getShoppingCartProductUnitPrice());
+        logger.info("Shopping cart product total price(s): " + shoppingCartPage.getShoppingCartProductTotalPrice());
+        logger.info("Shopping cart product order subtotal price: " + shoppingCartPage.getShoppingCartOrderSubtotalPrice());
+        logger.info("Shopping cart product order flat shipping rate: " + shoppingCartPage.getShoppingCartOrderTotalPrice());
+        logger.info("Shopping cart product order total price: " + shoppingCartPage.getShoppingCartOrderTotalPrice());
         System.out.println("\n");
     }
 
