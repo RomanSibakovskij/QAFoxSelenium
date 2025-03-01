@@ -4836,6 +4836,32 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Single Product (HP LP3065) Addition To Checkout Test Result (guest)");
     }
 
+    //add single product to check out test method (as a registered user)
+    protected void addHPLP3065ProductToCheckoutRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //click 'Estimate shipping' dropdown link
+        shoppingCartPage.clickEstimateShippingDropdownLink();
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart 'Estimate shipping' page web element assert (this product has this section)
+        isShoppingCartPageEstimateShippingSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click 'Checkout' button
+        shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Product (HP LP3065) Addition To Checkout Test Result (registered user)");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
