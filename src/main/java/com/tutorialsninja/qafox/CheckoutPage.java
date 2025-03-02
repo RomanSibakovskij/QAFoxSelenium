@@ -104,7 +104,8 @@ public class CheckoutPage extends BasePage {
     private WebElement checkoutPagePaymentContinueButton;
     //confirm order section
     //table list elements
-    private List<WebElement> checkoutPageConfirmOrderProductNameLinkElements = driver.findElements(By.xpath("//div[@id='collapse-checkout-confirm']//tbody/tr/td[1]/a"));
+    @FindBy(xpath = "//div[@id='collapse-checkout-confirm']//tbody/tr/td[1]/a")
+    private List<WebElement> checkoutPageConfirmOrderProductNameLinkElements;
     @FindBy(xpath = "//div[@id='collapse-checkout-confirm']//tbody/tr/td[2]")
     private List<WebElement> checkoutPageConfirmOrderProductModelElements;
     @FindBy(xpath = "//div[@id='collapse-checkout-confirm']//tbody/tr/td[3]")

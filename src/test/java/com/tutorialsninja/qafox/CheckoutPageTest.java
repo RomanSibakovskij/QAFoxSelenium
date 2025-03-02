@@ -47,9 +47,25 @@ public class CheckoutPageTest extends TestMethods{
         validHPLP3065ProductOrderCheckoutConfirmationRegUserTest();
     }
 
+    //Test 016b -> multiple products (HP LP3065) check out confirmation test (as a guest)
+    @Test
+    @DisplayName("Multiple Products (HP LP3065) Checkout Confirmation Test (as a guest)")
+    @Tag("Multiple_Products_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleProductCheckoutConfirmationAsGuestTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //multiple products (HP LP3065) addition to cart page test (as a guest)
+        addMultipleHPLP3065ProductsToCartGuestTest();
+        //multiple products (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //multiple products (HP LP3065) check out confirmation test (as a guest)
+        validHPLP3065ProductOrderCheckoutConfirmationGuestTest();
+    }
+
     //invalid check out confirmation tests (as a guest) -> only guest branch is being tested since few negative scenarios registered user has, are similar to the guest
 
-    //Test 016b -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest first name
+    //Test 016c -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest first name
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest First Name")
     @Tag("Invalid_Single_Product_Checkout")
@@ -66,7 +82,7 @@ public class CheckoutPageTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestFirstNameTest();
     }
 
-    //Test 016c -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest last name
+    //Test 016d -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest last name
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest Last Name")
     @Tag("Invalid_Single_Product_Checkout")
@@ -83,7 +99,7 @@ public class CheckoutPageTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestLastNameTest();
     }
 
-    //Test 016d -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest email
+    //Test 016e -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest email
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest Email")
     @Tag("Invalid_Single_Product_Checkout")
@@ -100,7 +116,7 @@ public class CheckoutPageTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestEmailTest();
     }
 
-    //Test 016e -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest phone
+    //Test 016f -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest phone
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest Phone")
     @Tag("Invalid_Single_Product_Checkout")
