@@ -48,10 +48,14 @@ public class ShoppingCartPage extends BasePage{
     private WebElement shoppingCartToDoNextEstimateShippingCountryDropdownMenu;
     @FindBy(xpath = "//select[@id='input-country']/option[@value='223']")
     private WebElement shoppingCartToDoNextEstimateShippingUsCountryOption;
+    @FindBy(xpath = "//select[@id='input-country']/option[1]")
+    private WebElement shoppingCartToDoNextEstimateShippingPleaseSelectOption;
     @FindBy(xpath = "//div[@id='collapse-shipping']//select[@id='input-zone']")
     private WebElement shoppingCartToDoNextEstimateShippingStateDropdownMenu;
     @FindBy(xpath = "//select[@id='input-zone']/option[@value='3635']")
     private WebElement shoppingCartToDoNextEstimateShippingIllinoisOption;
+    @FindBy(xpath = "//select[@id='input-zone']/option[1]")
+    private WebElement shoppingCartToDoNextEstimateShippingSelectStateOption;
     @FindBy(xpath = "//div[@id='collapse-shipping']//input")
     private WebElement shoppingCartToDoNextEstimateShippingPostCodeInputField;
     @FindBy(xpath = "//button[@id='button-quote']")
@@ -81,6 +85,11 @@ public class ShoppingCartPage extends BasePage{
     //cart is empty message element
     @FindBy(xpath = "//div[@id='content']/p[.='Your shopping cart is empty!']")
     private WebElement shoppingCartEmptyMessage;
+    //select country / state error message elements
+    @FindBy(xpath = "//div[@class='text-danger']")
+    private WebElement shoppingCartSelectCountryMessage;
+    @FindBy(xpath = "//div[.='Please select a region / state!']")
+    private WebElement shoppingCartSelectStateMessage;
 
     public ShoppingCartPage(WebDriver driver) {super(driver);}
 
@@ -100,6 +109,13 @@ public class ShoppingCartPage extends BasePage{
         shoppingCartToDoNextEstimateShippingUsCountryOption.click();
     }
 
+    //select 'Please Select' country option
+    public void selectPleaseSelectCountryOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartToDoNextEstimateShippingPleaseSelectOption));
+        shoppingCartToDoNextEstimateShippingPleaseSelectOption.click();
+    }
+
     //click 'Estimate shipping' state dropdown menu method
     public void clickShippingStateDropdownMenu(){
         Actions actions = new Actions(driver);
@@ -111,6 +127,13 @@ public class ShoppingCartPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartToDoNextEstimateShippingIllinoisOption));
         shoppingCartToDoNextEstimateShippingIllinoisOption.click();
+    }
+
+    //select 'Please Select' state option
+    public void selectPleaseSelectsStateOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartToDoNextEstimateShippingSelectStateOption));
+        shoppingCartToDoNextEstimateShippingSelectStateOption.click();
     }
 
     //click 'Get quotes' button method
@@ -175,6 +198,20 @@ public class ShoppingCartPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1700));
         wait.until(ExpectedConditions.visibilityOf(shoppingCartEmptyMessage));
         return shoppingCartEmptyMessage.getText();
+    }
+
+    //shopping cart select country error message getter
+    public String getShoppingCartCountryErrorMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1700));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartSelectCountryMessage));
+        return shoppingCartSelectCountryMessage.getText();
+    }
+
+    //shopping cart select state error message getter
+    public String getShoppingCartStateErrorMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1700));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartSelectStateMessage));
+        return shoppingCartSelectStateMessage.getText();
     }
 
     //shopping cart product table list getters

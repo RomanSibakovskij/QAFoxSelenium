@@ -4958,6 +4958,45 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Product (HP LP3065) Removal From Shopping Cart Test Result");
     }
 
+    //add single product to check out without selecting shipping country / state test method  -> both guest and registered user will have the same output, guest branch only is being tested
+    protected void addHPLP3065ProductToCheckoutWithoutShippingCountryStateTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //click 'Estimate shipping' dropdown link
+        shoppingCartPage.clickEstimateShippingDropdownLink();
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart 'Estimate shipping' page web element assert (this product has this section)
+        isShoppingCartPageEstimateShippingSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click shipping country dropdown menu
+        shoppingCartPage.clickShippingCountryDropdownMenu();
+        //select 'Please Select' option
+        shoppingCartPage.selectPleaseSelectCountryOption();
+        //click shipping state dropdown menu
+        shoppingCartPage.clickShippingStateDropdownMenu();
+        //select 'Illinois' option
+        shoppingCartPage.selectPleaseSelectsStateOption();
+        //click 'Get quotes' button
+        shoppingCartPage.clickGetQuotesButton();
+        //assert the user gets an expected error messages
+        assertEquals("Please select a country!", shoppingCartPage.getShoppingCartCountryErrorMessage(), "The select country error message doesn't match expectations or the error wasn't triggered.");
+        assertEquals("Please select a region / state!", shoppingCartPage.getShoppingCartStateErrorMessage(), "The select state error message doesn't match expectations or the error wasn't triggered.");
+        //click 'Checkout' button
+        shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Product (HP LP3065) Addition To Checkout Without Shipping Country and State Test Result (guest)");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)

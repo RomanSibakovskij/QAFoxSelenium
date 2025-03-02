@@ -97,7 +97,7 @@ public class ShoppingCartPageTest extends TestMethods{
         updateHPLP3065ProductQtyToCheckoutTest();
     }
 
-    //update product quantity during addition to check out test (guest and registered user will have the same output, guest branch only is tested)
+    //product remove from shopping cart test (guest and registered user will have the same output, guest branch only is tested)
 
     //Test 015e -> product remove (HP LP3065) from shopping cart test
     @Test
@@ -111,6 +111,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addHPLP3065ToCartTest();
         //product remove (HP LP3065) from shopping cart test (as a guest)
         removeHPLP3065ProductFromShoppingCartTest();
+    }
+
+    //update product quantity during addition to check out test (guest and registered user will have the same output, guest branch only is tested)
+
+    //Test 015f -> single product (HP LP3065) addition to check out (without shipping country and state) page test
+    @Test
+    @DisplayName("Add Single Product (HP LP3065) To Checkout Without Shipping Country And State Test")
+    @Tag("Single_Product_Addition_To_Checkout")
+    @Tag("Product_Addition_Without_Shipping_Country_State")
+    @Tag("Test_As_A_Guest")
+    void addProductToCheckoutWithoutShipCountryStateTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out (without shipping country and state) page test (as a guest)
+        addHPLP3065ProductToCheckoutWithoutShippingCountryStateTest();
     }
 
 }
