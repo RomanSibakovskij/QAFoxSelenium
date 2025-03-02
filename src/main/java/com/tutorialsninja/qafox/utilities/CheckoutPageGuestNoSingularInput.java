@@ -43,31 +43,9 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
     private String noGuestFirstName;
     private String noGuestLastName;
     private String noGuestEmail;
+    private String noGuestPhone;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
-
-    //valid guest user data input getter (for remaining inputs)
-    public void validGuestAccountDataInputGetter(){
-
-        validGuestFirstName = TestDataGenerator.getRandomFirstName();
-        validGuestLastName = TestDataGenerator.getRandomLastName();
-        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
-        validGuestPhone = TestDataGenerator.generatePhoneNumber(7);
-        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
-        validGuestCity = TestDataGenerator.getRandomCity();
-        validGuestPostCode = TestDataGenerator.getRandomPostalCode();
-
-        System.out.println("Valid guest user input generated data: " + "\n");
-        logger.info("Valid guest user first name: " + validGuestFirstName);
-        logger.info("Valid guest user last name: " + validGuestLastName);
-        logger.info("Valid guest user email: " + validGuestEmail);
-        logger.info("Valid guest user phone number: " + validGuestPhone);
-        logger.info("Valid guest user address: " + validGuestAddress);
-        logger.info("Valid guest user city: " + validGuestCity);
-        logger.info("Valid guest user post code: " + validGuestPostCode);
-        System.out.println("\n");
-
-    }
 
     //valid guest user data input methods (for remaining inputs)
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(validGuestFirstName);}
@@ -147,11 +125,34 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
 
     }
 
+    //invalid guest user data input getter - no guest phone
+    public void invalidGuestAccountDataNoPhoneInputGetter(){
+
+        validGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestLastName = TestDataGenerator.getRandomLastName();
+        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
+        noGuestPhone = "";
+        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validGuestCity = TestDataGenerator.getRandomCity();
+        validGuestPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid guest user input generated data (no guest phone): " + "\n");
+        logger.info("Valid guest user first name (no guest phone): " + validGuestFirstName);
+        logger.info("Valid guest user last name (no guest phone): " + validGuestLastName);
+        logger.info("Valid guest user email (no guest phone): " + validGuestEmail);
+        logger.info("No guest user phone number: " + noGuestPhone);
+        logger.info("Valid guest user address (no guest phone): " + validGuestAddress);
+        logger.info("Valid guest user city (no guest phone): " + validGuestCity);
+        logger.info("Valid guest user post code (no guest phone): " + validGuestPostCode);
+        System.out.println("\n");
+
+    }
+
     //invalid guest user data input methods - no singular input
     public void inputNoGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(noGuestFirstName);}
     public void inputNoGuestLastNameIntoLastNameInputField(){checkoutPageLastNameInputField.sendKeys(noGuestLastName);}
     public void inputNoGuestEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(noGuestEmail);}
-
+    public void inputNoGuestPhoneIntoPhoneInputField(){checkoutPagePhoneInputField.sendKeys(noGuestPhone);}
 
     //guest checkout invalid singular input error getter
     public String getInvalidGuestCheckoutInputError(){
