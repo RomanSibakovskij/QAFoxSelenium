@@ -5730,6 +5730,143 @@ public class TestMethods extends BaseTest{
         assertTrue(shoppingCartPage.isShoppingCartToDoNextEstimateShippingSubmitButtonDisplayed(), "The shopping cart page to-do section estimate shipping 'Submit' button isn't displayed");
     }
 
+    //checkout page section web element assert methods
+
+    //checkout page general page web element assert test method
+    protected void isCheckoutPageWebElementDisplayed(CheckoutPage checkoutPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert single product page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The checkout page breadcrumb isn't displayed");
+        //assert checkout page title is displayed
+        assertTrue(checkoutPage.isCheckoutPageTitleDisplayed(), "The checkout page title isn't displayed");
+    }
+
+    //checkout page new customer section web element assert test method
+    protected void isCheckoutPageNewCustomerSectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page new customer section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageNewCustomerSectionTitleDisplayed(), "The checkout page new customer section title isn't displayed");
+        //assert checkout page new customer section subtitle is displayed
+        assertTrue(checkoutPage.isCheckoutPageNewCustomerSectionSubtitleDisplayed(), "The checkout page new customer section subtitle isn't displayed");
+        //assert checkout page new customer register radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPageNewCustomerRegisterAccountRadioButtonDisplayed(), "The checkout page new customer section 'Register Account' radio button isn't displayed");
+        //assert checkout page new customer guest account radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPageNewCustomerGuestAccountRadioButtonDisplayed(), "The checkout page new customer section 'Guest Account' radio button isn't displayed");
+        //assert checkout page new customer section description is displayed
+        assertTrue(checkoutPage.isCheckoutPageNewCustomerSectionDescriptionDisplayed(), "The checkout page new customer section description isn't displayed");
+        //assert checkout page new customer section continue button is displayed
+        assertTrue(checkoutPage.isCheckoutPageNewCustomerContinueButtonDisplayed(), "The checkout page new customer section 'Continue' button isn't displayed");
+    }
+
+    //checkout page returning customer section web element assert test method
+    protected void isCheckoutPageReturningCustomerSectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page returning customer section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageReturningCustomerSectionTitleDisplayed(), "The checkout page returning customer section title isn't displayed");
+        //assert checkout page returning customer section subtitle is displayed
+        assertTrue(checkoutPage.isCheckoutPageReturningCustomerSectionSubtitleDisplayed(), "The checkout page returning customer section subtitle isn't displayed");
+        //assert checkout page returning customer section email input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageReturningCustomerSectionEmailInputFieldDisplayed(), "The checkout page returning customer section email input field isn't displayed");
+        //assert checkout page returning customer section password input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageReturningCustomerSectionPasswordInputFieldDisplayed(), "The checkout page returning customer section password input field isn't displayed");
+        //assert checkout page returning customer section forgot password link is displayed
+        assertTrue(checkoutPage.isCheckoutPageReturningCustomerSectionForgotPasswordLinkDisplayed(), "The checkout page returning customer section 'Forgot Password' link isn't displayed");
+        //assert checkout page returning customer section login button is displayed
+        assertTrue(checkoutPage.isCheckoutPageReturningCustomerLoginButtonDisplayed(), "The checkout page returning customer section 'Login' button isn't displayed");
+    }
+
+    //checkout page guest section web element assert test method
+    protected void isCheckoutPageGuestSectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert checkout page guest personal details section title is displayed
+        assertTrue(checkoutPage.isCheckoutPagePersonalDetailsSectionTitleDisplayed(), "The checkout page guest personal details section title isn't displayed");
+        //assert checkout page guest section first name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageFirstNameInputFieldDisplayed(), "The checkout page guest customer section first name input field isn't displayed");
+        //assert checkout page guest section last name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageLastNameInputFieldDisplayed(), "The checkout page guest customer section last name input field isn't displayed");
+        //assert checkout page guest section email input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageEmailInputFieldDisplayed(), "The checkout page guest customer section email input field isn't displayed");
+        //assert checkout page guest section phone input field is displayed
+        assertTrue(checkoutPage.isCheckoutPagePhoneInputFieldDisplayed(), "The checkout page guest customer section phone input field isn't displayed");
+        //assert checkout page guest section address details section is displayed
+        assertTrue(checkoutPage.isCheckoutPageAddressDetailsSectionTitleDisplayed(), "The checkout page guest address section title isn't displayed");
+        //assert checkout page guest section company input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageCompanyInputFieldDisplayed(), "The checkout page guest customer section company input field isn't displayed");
+        //assert checkout page guest section address1 input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageAddress1InputFieldDisplayed(), "The checkout page guest customer section address1 input field isn't displayed");
+        //assert checkout page guest section address2 input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageAddress2InputFieldDisplayed(), "The checkout page guest customer section address2 input field isn't displayed");
+        //assert checkout page guest section city input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageCityInputFieldDisplayed(), "The checkout page guest customer section city input field isn't displayed");
+        //assert checkout page guest section post code input field is displayed
+        assertTrue(checkoutPage.isCheckoutPagePostCodeInputFieldDisplayed(), "The checkout page guest customer section post code input field isn't displayed");
+        //assert checkout page guest section country dropdown menu is displayed
+        assertTrue(checkoutPage.isCheckoutPageCountryDropdownMenuDisplayed(), "The checkout page guest customer section country dropdown menu isn't displayed");
+        //assert checkout page guest section state dropdown menu is displayed
+        assertTrue(checkoutPage.isCheckoutPageStateDropdownMenuDisplayed(), "The checkout page guest customer section state dropdown menu isn't displayed");
+        //assert checkout page guest section 'billing and shipping address are same' checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageDeliveryBillingAddressSameCheckboxDisplayed(), "The checkout page guest customer section 'Billing and Shipping address are same' checkbox isn't displayed");
+        //assert checkout page guest section 'Continue' button is displayed
+        assertTrue(checkoutPage.isCheckoutPageGuestAccContinueButtonDisplayed(), "The checkout page guest customer section 'Continue' button isn't displayed");
+    }
+
+    //checkout page delivery method section web element assert test method
+    protected void isCheckoutPageDeliverySectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        GeneralPage generalPage = new GeneralPage(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert checkout page delivery method subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageDeliveryMethodSubtextDisplayed(), "The checkout page delivery method section subtext isn't displayed");
+        //assert checkout page delivery method flat shipping rate radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPageDeliveryFlatShippingRateRadioButtonDisplayed(), "The checkout page delivery method section flat shipping rate radio button isn't displayed");
+        //assert checkout page delivery method comments textbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageDeliveryCommentsTextboxDisplayed(), "The checkout page delivery method comments textbox isn't displayed");
+        //assert checkout page delivery method 'Continue' button is displayed
+        //assertTrue(checkoutPage.isCheckoutPageDeliveryContinueButtonDisplayed(), "The checkout page delivery method section 'Continue' button isn't displayed");
+    }
+
+    //checkout page payment method section web element assert test method
+    protected void isCheckoutPagePaymentSectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page payment method subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPagePaymentMethodSubtextDisplayed(), "The checkout page payment method section subtext isn't displayed");
+        //assert checkout page payment method cash on delivery radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPagePaymentMethodCodRadioButtonDisplayed(), "The checkout page payment method 'CoD' radio button isn't displayed");
+        //assert checkout page payment method comments textbox is displayed
+        assertTrue(checkoutPage.isCheckoutPagePaymentCommentsTextboxDisplayed(), "The checkout page payment method comments textbox isn't displayed");
+        //assert checkout page payment method 'Agree to Terms and Conditions' checkbox is displayed
+        //assertTrue(checkoutPage.isCheckoutPagePaymentTermsConditionsCheckboxDisplayed(), "The checkout page payment method 'Agree to Terms and Conditions' checkbox isn't displayed");
+        //assert checkout page payment method 'Agree to Terms and Conditions' link is displayed
+        assertTrue(checkoutPage.isCheckoutPagePaymentTermsConditionsLinkDisplayed(), "The checkout page payment method 'Agree to Terms and Conditions' link isn't displayed");
+        //assert checkout page payment method 'Continue' button is displayed
+        assertTrue(checkoutPage.isCheckoutPagePaymentContinueButtonDisplayed(), "The checkout page payment method 'Continue' button isn't displayed");
+    }
+
+    //checkout page payment method section web element assert test method
+    protected void isCheckoutPageConfirmOrderSectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page confirm order product name links are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageProductNameLinkDisplayed(), "The checkout page confirm order product name links aren't displayed");
+        //assert checkout page confirm order product models are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageProductModelDisplayed(), "The checkout page confirm order product models aren't displayed");
+        //assert checkout page confirm order product quantities are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageProductQuantityDisplayed(), "The checkout page confirm order product quantities aren't displayed");
+        //assert checkout page confirm order product unit prices are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageProductUnitPriceDisplayed(), "The checkout page confirm order product unit prices aren't displayed");
+        //assert checkout page confirm order product total prices are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageProductTotalPriceDisplayed(), "The checkout page confirm order product total prices aren't displayed");
+        //assert checkout page confirm order product subtotal price is displayed
+        //assertTrue(checkoutPage.isCheckoutPageConfirmSubtotalPriceDisplayed(), "The checkout page confirm order product subtotal price isn't displayed");
+        //assert checkout page confirm order product flat shipping price is displayed
+        //assertTrue(checkoutPage.isCheckoutPageConfirmFlatShippingRateDisplayed(), "The checkout page confirm order product flat shipping price isn't displayed");
+        //assert checkout page confirm order product eco tax price is displayed
+        //assertTrue(checkoutPage.isCheckoutPageConfirmEcoTaxDisplayed(), "The checkout page confirm order product eco tax price isn't displayed");
+        //assert checkout page confirm order product VAT price is displayed
+        //assertTrue(checkoutPage.isCheckoutPageConfirmVATPriceDisplayed(), "The checkout page confirm order product VAT price isn't displayed");
+        //assert checkout page confirm order product total price is displayed
+        //assertTrue(checkoutPage.isCheckoutPageConfirmTotalPriceDisplayed(), "The checkout page confirm order product total price isn't displayed");
+        //assert checkout page 'Confirm Order' button is displayed
+        //assertTrue(checkoutPage.isCheckoutPageConfirmOrderButtonDisplayed(), "The checkout page 'Confirm Order' button isn't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -5905,6 +6042,46 @@ public class TestMethods extends BaseTest{
         assertEquals("Enter your destination to get a shipping estimate.", shoppingCartPage.getShoppingCartEstimateShippingSectionSubtext(), "The shopping cart page estimate shipping section subtext doesn't match expectations.");
     }
 
+    //checkout page (new customer) text element assert test method
+    protected void isCheckoutPageNewCustomerSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page new customer section title is as expected
+        assertEquals("New Customer", checkoutPage.getCheckoutPageNewCustomerSectionTitle(), "The checkout page new customer section title doesn't match expectations.");
+        //assert checkout page new customer section subtitle is as expected
+        assertEquals("Checkout Options:", checkoutPage.getCheckoutPageNewCustomerSectionSubtitle(), "The checkout page new customer section subtitle doesn't match expectations.");
+        //assert checkout page new customer section description is as expected
+        assertEquals("By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.", checkoutPage.getCheckoutPageNewCustomerSectionDescription(), "The checkout page new customer section description doesn't match expectations.");
+        //assert checkout page returning customer section title is as expected
+        assertEquals("Returning Customer", checkoutPage.getCheckoutPageReturningCustomerSectionTitle(), "The checkout page returning customer section title doesn't match expectations.");
+        //assert checkout page returning section customer section subtitle is as expected
+        assertEquals("I am a returning customer", checkoutPage.getCheckoutPageReturningCustomerSectionSubtitle(), "The checkout page returning customer section subtitle doesn't match expectations.");
+    }
+
+    //checkout page text element assert test method
+    protected void isCheckoutPageTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page title is as expected
+        assertEquals("Checkout", checkoutPage.getCheckoutPageTitle(), "The checkout page title doesn't match expectations.");
+    }
+
+    //checkout page (billing details) text element assert test method
+    protected void isCheckoutPageBillingDetailsSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page personal details section title is as expected
+        assertEquals("Your Personal Details", checkoutPage.getCheckoutPagePersonalDetailsSectionTitle(), "The checkout page personal details section title doesn't match expectations.");
+        //assert checkout page address details section title is as expected
+        assertEquals("Your Address", checkoutPage.getCheckoutPageAddressDetailsSectionTitle(), "The checkout page address details section title doesn't match expectations.");
+    }
+
+    //checkout page (delivery method) text element assert test method
+    protected void isCheckoutPageDeliveryMethodSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page delivery method section subtext is as expected
+        assertEquals("Please select the preferred shipping method to use on this order.", checkoutPage.getCheckoutPageDeliveryMethodSubtext(), "The checkout page delivery method section subtext doesn't match expectations.");
+    }
+
+    //checkout page (payment method) text element assert test method
+    protected void isCheckoutPagePaymentMethodSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page payment method section subtext is as expected
+        assertEquals("Please select the preferred payment method to use on this order.", checkoutPage.getCheckoutPagePaymentMethodSubtext(), "The checkout page payment method section subtext doesn't match expectations.");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //valid user account creation message assert method
@@ -6029,6 +6206,20 @@ public class TestMethods extends BaseTest{
         logger.info("Shopping cart product order subtotal price: " + shoppingCartPage.getShoppingCartOrderSubtotalPrice());
         logger.info("Shopping cart product order flat shipping rate: " + shoppingCartPage.getShoppingCartOrderTotalPrice());
         logger.info("Shopping cart product order total price: " + shoppingCartPage.getShoppingCartOrderTotalPrice());
+        System.out.println("\n");
+    }
+
+    //checkout page product table data logger method
+    protected void logCheckoutPageProductTableData(CheckoutPage checkoutPage){
+        System.out.println("Checkout page product (order) table displayed data: " + "\n");
+        logger.info("Checkout page product name(s): " + checkoutPage.getCheckoutPageProductName());
+        logger.info("Checkout page product model(s): " + checkoutPage.getCheckoutPageProductModel());
+        logger.info("Checkout page product quantity(ies): " + checkoutPage.getCheckoutPageProductQuantity());
+        logger.info("Checkout page product unit price(s): " + checkoutPage.getCheckoutPageProductUnitPrice());
+        logger.info("Checkout page product total price(s): " + checkoutPage.getCheckoutPageProductTotalPrice());
+        logger.info("Checkout page order subtotal price: " + checkoutPage.getCheckoutOrderSubtotalPrice());
+        logger.info("Checkout page order flat shipping rate: " + checkoutPage.getCheckoutOrderFlatShippingRate());
+        logger.info("Checkout page order total price: " + checkoutPage.getCheckoutOrderSubtotalPrice());
         System.out.println("\n");
     }
 
