@@ -45,6 +45,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
     private String noGuestEmail;
     private String noGuestPhone;
     private String noGuestAddress;
+    private String noGuestCity;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -172,12 +173,36 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
 
     }
 
+    //invalid guest user data input getter - no guest city
+    public void invalidGuestAccountDataNoCityInputGetter(){
+
+        validGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestLastName = TestDataGenerator.getRandomLastName();
+        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
+        validGuestPhone = TestDataGenerator.generatePhoneNumber(7);
+        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        noGuestCity = "";
+        validGuestPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid guest user input generated data (no guest city): " + "\n");
+        logger.info("Valid guest user first name (no guest city): " + validGuestFirstName);
+        logger.info("Valid guest user last name (no guest city): " + validGuestLastName);
+        logger.info("Valid guest user email (no guest city): " + validGuestEmail);
+        logger.info("Valid guest user phone number (no guest city): " + validGuestPhone);
+        logger.info("Valid guest user address (no guest city): " + validGuestAddress);
+        logger.info("No guest user city: " + noGuestCity);
+        logger.info("Valid guest user post code (no guest city): " + validGuestPostCode);
+        System.out.println("\n");
+
+    }
+
     //invalid guest user data input methods - no singular input
     public void inputNoGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(noGuestFirstName);}
     public void inputNoGuestLastNameIntoLastNameInputField(){checkoutPageLastNameInputField.sendKeys(noGuestLastName);}
     public void inputNoGuestEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(noGuestEmail);}
     public void inputNoGuestPhoneIntoPhoneInputField(){checkoutPagePhoneInputField.sendKeys(noGuestPhone);}
     public void inputNoGuestAddress1IntoAddress1InputField(){checkoutPageAddress1InputField.sendKeys(noGuestAddress);}
+    public void inputNoGuestCityIntoCityInputField(){checkoutPageCityInputField.sendKeys(noGuestCity);}
 
     //guest checkout invalid singular input error getter
     public String getInvalidGuestCheckoutInputError(){
