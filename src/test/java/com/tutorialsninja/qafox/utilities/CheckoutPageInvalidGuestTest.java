@@ -7,6 +7,8 @@ public class CheckoutPageInvalidGuestTest extends TestMethods{
 
     //invalid check out confirmation tests (as a guest) -> only guest branch is being tested since few negative scenarios registered user has, are similar to the guest
 
+    //no singular input
+
     //Test 016d -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest first name
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest First Name")
@@ -175,6 +177,25 @@ public class CheckoutPageInvalidGuestTest extends TestMethods{
         addHPLP3065ProductToCheckoutGuestTest();
         //invalid single product (HP LP3065) check out confirmation test (as a guest) - no "Agree To Terms' checkbox selection
         invalidHPLP3065ProductOrderCheckoutConfirmationGuestNoAgreeToTermsTest();
+    }
+
+    //too short singular input
+
+    //Test 016n -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest first name (1 char) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest First Name")
+    @Tag("Invalid_Single_Product_Checkout")
+    @Tag("Test_As_A_Guest")
+    @Tag("Too_Short_Singular_Input")
+    void invalidSingleProductCheckoutConfirmationAsGuestTooShortFirstNameTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest first name (1 char)
+        invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestFirstNameTest();
     }
 
 }
