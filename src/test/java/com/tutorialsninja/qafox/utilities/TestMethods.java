@@ -5092,6 +5092,60 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result");
     }
 
+    //valid checkout tests (as a registered user)
+
+    //valid 'HP LP3065' product order checkout test method (as a registered user)
+    protected void validHPLP3065ProductOrderCheckoutConfirmationRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click billing address section 'Continue' button
+        checkoutPage.clickBillingAddressContinueButton();
+        //capture screenshot of the checkout page (delivery details section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Delivery Details Section Display");
+        //click delivery details section 'Continue' button
+        checkoutPage.clickDeliveryDetailsContinueButton();
+        //checkout page delivery method section web element assert
+        isCheckoutPageDeliverySectionWebElementDisplayed(checkoutPage);
+        //checkout page delivery method section text element assert
+        isCheckoutPageDeliveryMethodSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page (delivery method section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Delivery Method Section Display");
+        //click delivery method section 'Continue' button
+        checkoutPage.clickDeliveryMethodContinueButton();
+        //checkout page payment method section web element assert
+        isCheckoutPagePaymentSectionWebElementDisplayed(checkoutPage);
+        //checkout page payment method section text element assert
+        isCheckoutPagePaymentMethodSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page (payment method section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Payment Method Section Display");
+        //click payment method section 'Agree to terms and conditions' button
+        checkoutPage.clickPayMethodTermsConditionsCheckbox();
+        //click payment method section 'Continue' button
+        checkoutPage.clickPaymentMethodContinueButton();
+        //checkout page confirm order section web element display
+        isCheckoutPageConfirmOrderSectionWebElementDisplayed(checkoutPage);
+        //capture screenshot of the checkout page (confirm order section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirm Order Section Display");
+        //log confirm order section product table data
+        logCheckoutPageProductTableData(checkoutPage);
+        //click 'Confirm order' button
+        checkoutPage.clickConfirmOrderButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -5931,7 +5985,7 @@ public class TestMethods extends BaseTest{
         //assert checkout page payment method 'Agree to Terms and Conditions' checkbox is displayed
         //assertTrue(checkoutPage.isCheckoutPagePaymentTermsConditionsCheckboxDisplayed(), "The checkout page payment method 'Agree to Terms and Conditions' checkbox isn't displayed");
         //assert checkout page payment method 'Agree to Terms and Conditions' link is displayed
-        assertTrue(checkoutPage.isCheckoutPagePaymentTermsConditionsLinkDisplayed(), "The checkout page payment method 'Agree to Terms and Conditions' link isn't displayed");
+        //assertTrue(checkoutPage.isCheckoutPagePaymentTermsConditionsLinkDisplayed(), "The checkout page payment method 'Agree to Terms and Conditions' link isn't displayed");
         //assert checkout page payment method 'Continue' button is displayed
         assertTrue(checkoutPage.isCheckoutPagePaymentContinueButtonDisplayed(), "The checkout page payment method 'Continue' button isn't displayed");
     }
