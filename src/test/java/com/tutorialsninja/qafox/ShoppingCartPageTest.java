@@ -80,4 +80,20 @@ public class ShoppingCartPageTest extends TestMethods{
         //multiple products (HP LP3065) addition to check out page test (as a registered user)
         addHPLP3065ProductToCheckoutRegUserTest();
     }
+
+    //update product quantity during addition to check out test (guest and registered user will have the same output, guest branch only is tested)
+
+    //Test 015d -> product quantity update during (HP LP3065) addition to check out page test (as a guest)
+    @Test
+    @DisplayName("Product Quantity Update During Addition (HP LP3065) To Checkout Test (as a guest)")
+    @Tag("Products_Qty_Update_During_Addition_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void productQtyUpdateDuringAdditionToCheckoutTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //product quantity update (HP LP3065) during addition to check out page test (as a guest)
+        updateHPLP3065ProductQtyToCheckoutGuestTest();
+    }
 }

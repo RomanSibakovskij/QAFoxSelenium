@@ -4862,7 +4862,55 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Single Product (HP LP3065) Addition To Checkout Test Result (registered user)");
     }
 
-
+    //update product qty during addition to check out test method (as a guest)
+    protected void updateHPLP3065ProductQtyToCheckoutGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //click 'Estimate shipping' dropdown link
+        shoppingCartPage.clickEstimateShippingDropdownLink();
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart 'Estimate shipping' page web element assert (this product has this section)
+        isShoppingCartPageEstimateShippingSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //assert the title matches expectations
+        assertEquals("Shopping Cart  (1.00kg)", shoppingCartPage.getShoppingCartPageTitle(), "The shopping cart page title doesn't match expectations.");
+        //click shipping country dropdown menu
+        shoppingCartPage.clickShippingCountryDropdownMenu();
+        //select 'United States' option
+        shoppingCartPage.selectUsCountryOption();
+        //click shipping state dropdown menu
+        shoppingCartPage.clickShippingStateDropdownMenu();
+        //select 'Illinois' option
+        shoppingCartPage.selectIllinoisStateOption();
+        //click 'Get quotes' button
+        shoppingCartPage.clickGetQuotesButton();
+        //click 'Flat shipping' radio button
+        shoppingCartPage.clickFlatShippingRadioButton();
+        //click 'Apply shipping' radio button
+        shoppingCartPage.clickApplyShippingButton();
+        //assert the shipping rate has been applied
+        assertEquals("Success: Your shipping estimate has been applied!\n" + "×", shoppingCartPage.getShippingRateApplicationSuccessMessage(), "The shipping rate application success message doesn't match expectations or the shipping rate application has failed.");
+        //input updated quantity
+        shoppingCartPage.inputProductQtyIntoQtyInputField(0);
+        //click 'Update' quantity button
+        shoppingCartPage.clickUpdateQuantityButton(0);
+        //assert the shipping rate has been applied
+        assertEquals("Success: You have modified your shopping cart!\n" + "×", shoppingCartPage.getShippingRateApplicationSuccessMessage(), "The product quantity update success message doesn't match expectations or the product quantity update has failed.");
+        //click 'Checkout' button
+        shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Updated Product (HP LP3065) Addition To Checkout Test Result (guest)");
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

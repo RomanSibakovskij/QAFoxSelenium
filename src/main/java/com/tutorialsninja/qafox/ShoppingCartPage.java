@@ -24,7 +24,8 @@ public class ShoppingCartPage extends BasePage{
     private List<WebElement> shoppingCartTableProductModelElements;
     @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[4]//input")
     private List<WebElement> shoppingCartTableProductQtyInputFieldElements;
-    private List<WebElement> shoppingCartTableProductQtyUpdateButtonElements = driver.findElements(By.xpath("//div[@class='table-responsive']//tbody/tr/td[4]//button[1]"));
+    @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[4]//button[1]")
+    private List<WebElement> shoppingCartTableProductQtyUpdateButtonElements;
     private List<WebElement> shoppingCartTableProductRemoveButtonElements = driver.findElements(By.xpath("//div[@class='table-responsive']//tbody/tr/td[4]//button[2]"));
     @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[5]")
     private List<WebElement> shoppingCartTableProductUnitPriceElements;
@@ -126,6 +127,15 @@ public class ShoppingCartPage extends BasePage{
         Actions actions = new Actions(driver);
         actions.moveToElement(shoppingCartApplyShippingButton).click().perform();
     }
+
+    //update product quantity method
+    public void inputProductQtyIntoQtyInputField(int index){
+        shoppingCartTableProductQtyInputFieldElements.get(index).clear();
+        shoppingCartTableProductQtyInputFieldElements.get(index).sendKeys("5");
+    }
+
+    //click 'Checkout' button method
+    public void clickUpdateQuantityButton(int index){shoppingCartTableProductQtyUpdateButtonElements.get(index).click();}
 
     //click 'Checkout' button method
     public void clickCheckoutButton(){
