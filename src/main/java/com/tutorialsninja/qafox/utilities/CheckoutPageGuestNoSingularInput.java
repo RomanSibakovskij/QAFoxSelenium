@@ -26,6 +26,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
     private WebElement checkoutPageCityInputField;
     @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][2]//input[@id='input-payment-postcode']")
     private WebElement checkoutPagePostCodeInputField;
+    @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][2]//select[@id='input-payment-country']")
+    private WebElement checkoutPageCountryDropdownMenu;
+    @FindBy(xpath = "//select[@id='input-payment-country']/option[1]")
+    private WebElement checkoutPagePleaseSelectCountryOption;
+    @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][2]//select[@id='input-payment-zone']")
+    private WebElement checkoutPageStateDropdownMenu;
+    @FindBy(xpath = "//select[@id='input-payment-zone']/option[1]")
+    private WebElement checkoutPagePleaseSelectStateOption;
     //invalid singular input error message element
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement checkoutPageInvalidGuestInputError;
@@ -228,6 +236,19 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
     public void inputNoGuestAddress1IntoAddress1InputField(){checkoutPageAddress1InputField.sendKeys(noGuestAddress);}
     public void inputNoGuestCityIntoCityInputField(){checkoutPageCityInputField.sendKeys(noGuestCity);}
     public void inputNoGuestPostCodeIntoPostCodeInputField(){checkoutPagePostCodeInputField.sendKeys(noGuestPostCode);}
+
+    //click 'Billing details' section country dropdown menu method
+    public void clickBillingDetailsCountryDropdownMenu(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(checkoutPageCountryDropdownMenu).click().perform();
+    }
+
+    //select 'Please Select' option
+    public void selectPleaseSelectCountryOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPagePleaseSelectCountryOption));
+        checkoutPagePleaseSelectCountryOption.click();
+    }
 
     //guest checkout invalid singular input error getter
     public String getInvalidGuestCheckoutInputError(){

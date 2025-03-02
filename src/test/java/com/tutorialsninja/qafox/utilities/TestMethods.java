@@ -5211,7 +5211,7 @@ public class TestMethods extends BaseTest{
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message
-        assertEquals("First Name must be between 1 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account first name input error doesn't match expectations or the error hasn't been triggered.");
+        assertEquals("First Name must be between 1 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account first name input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest First Name");
     }
@@ -5279,7 +5279,7 @@ public class TestMethods extends BaseTest{
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message
-        assertEquals("Last Name must be between 1 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account last name input error doesn't match expectations or the error hasn't been triggered.");
+        assertEquals("Last Name must be between 1 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account last name input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Last Name");
     }
@@ -5347,7 +5347,7 @@ public class TestMethods extends BaseTest{
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message
-        assertEquals("E-Mail address does not appear to be valid!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account email input error doesn't match expectations or the error hasn't been triggered.");
+        assertEquals("E-Mail address does not appear to be valid!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account email input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Email");
     }
@@ -5415,7 +5415,7 @@ public class TestMethods extends BaseTest{
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message
-        assertEquals("Telephone must be between 3 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account phone input error doesn't match expectations or the error hasn't been triggered.");
+        assertEquals("Telephone must be between 3 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account phone input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Phone");
     }
@@ -5483,7 +5483,7 @@ public class TestMethods extends BaseTest{
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message
-        assertEquals("Address 1 must be between 3 and 128 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account address input error doesn't match expectations or the error hasn't been triggered.");
+        assertEquals("Address 1 must be between 3 and 128 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account address input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Address");
     }
@@ -5551,7 +5551,7 @@ public class TestMethods extends BaseTest{
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message
-        assertEquals("City must be between 2 and 128 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account city input error doesn't match expectations or the error hasn't been triggered.");
+        assertEquals("City must be between 2 and 128 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account city input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest City");
     }
@@ -5618,12 +5618,78 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("Post code must have 5-digit format!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account post code input error doesn't match expectations.");
+            assertEquals("Post code must have 5-digit format!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account post code input error doesn't match expectations.");
         } catch (Exception e){
-            logger.error("The invalid post code input error wasn't triggered.");
+            logger.error("The missing post code input error wasn't triggered.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Postal Code");
+    }
+
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - no guest country
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestCountryTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestNoSingularInput checkoutPageGuestNoSingularInput = new CheckoutPageGuestNoSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //valid guest input data getter (for guest account creation) - no guest country selection
+        checkoutPageGuest.validGuestAccountDataInputGetter();
+        //input valid guest first name into first name input field
+        checkoutPageGuest.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageGuest.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageGuest.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuest.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageGuest.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageGuest.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageGuest.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuestNoSingularInput.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuestNoSingularInput.selectPleaseSelectCountryOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - No Country");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Please select a country!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account country input error doesn't match expectations.");
+        } catch (Exception e){
+            logger.error("The missing country input error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Country");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

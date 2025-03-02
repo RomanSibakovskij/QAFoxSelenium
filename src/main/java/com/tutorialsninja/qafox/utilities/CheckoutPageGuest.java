@@ -72,19 +72,6 @@ public class CheckoutPageGuest extends BasePage{
         action.moveToElement(checkoutPageNewCustomerContinueButton).click().perform();
     }
 
-    //click 'Billing details' section country dropdown menu method
-    public void clickBillingDetailsCountryDropdownMenu(){
-        Actions actions = new Actions(driver);
-        actions.moveToElement(checkoutPageCountryDropdownMenu).click().perform();
-    }
-
-    //select 'United States' option
-    public void selectUsCountryOption(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
-        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageUsCountryOption));
-        checkoutPageUsCountryOption.click();
-    }
-
     //valid guest user data input getter
     public void validGuestAccountDataInputGetter(){
 
@@ -116,6 +103,19 @@ public class CheckoutPageGuest extends BasePage{
     public void inputValidGuestAddress1IntoAddress1InputField(){checkoutPageAddress1InputField.sendKeys(validGuestAddress);}
     public void inputValidGuestCityIntoCityInputField(){checkoutPageCityInputField.sendKeys(validGuestCity);}
     public void inputValidGuestPostCodeIntoPostCodeInputField(){checkoutPagePostCodeInputField.sendKeys(String.valueOf(validGuestPostCode));}
+
+    //click 'Billing details' section country dropdown menu method
+    public void clickBillingDetailsCountryDropdownMenu(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(checkoutPageCountryDropdownMenu).click().perform();
+    }
+
+    //select 'United States' option
+    public void selectUsCountryOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageUsCountryOption));
+        checkoutPageUsCountryOption.click();
+    }
 
     //click 'Billing details' section state dropdown menu method
     public void clickBillingDetailsStateDropdownMenu(){

@@ -191,7 +191,7 @@ public class CheckoutPageTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestCityTest();
     }
 
-    //Test 016j -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest post code
+    //Test 016j -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest post code (the error wasn't triggered, test has failed)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest Post Code")
     @Tag("Invalid_Single_Product_Checkout")
@@ -206,6 +206,23 @@ public class CheckoutPageTest extends TestMethods{
         addHPLP3065ProductToCheckoutGuestTest();
         //invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest post code
         invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestPostCodeTest();
+    }
+
+    //Test 016k -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest country
+    @Test
+    @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest Country")
+    @Tag("Invalid_Single_Product_Checkout")
+    @Tag("Test_As_A_Guest")
+    @Tag("No_Singular_Input")
+    void invalidSingleProductCheckoutConfirmationAsGuestNoCountryTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest country
+        invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestCountryTest();
     }
 
 }
