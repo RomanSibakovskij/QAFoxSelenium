@@ -12,7 +12,7 @@ public class CheckoutPageTest extends TestMethods{
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation Test (as a guest)")
     @Tag("Single_Product_Checkout")
     @Tag("Test_As_A_Guest")
-    void singleProductAdditionToCheckoutAsGuestTest() {
+    void singleProductCheckoutConfirmationAsGuestTest() {
         //navigate to 'Desktops' category page test (as a guest)
         navigateToDesktopsCategoryDashboardPageTest();
         //single product (HP LP3065) addition to cart page test (as a guest)
@@ -26,9 +26,9 @@ public class CheckoutPageTest extends TestMethods{
     //Test 016a -> single product (HP LP3065) addition to check out page test (as a registered user)
     @Test
     @DisplayName("Add Single Product (HP LP3065) To Checkout Test (as a registered user)")
-    @Tag("Single_Product_Addition_To_Checkout")
+    @Tag("Single_Product_Checkout")
     @Tag("Test_As_A_Reg_User")
-    void singleProductAdditionToCheckoutAsRegUserTest() {
+    void singleProductCheckoutConfirmationAsRegUserTest() {
         RegisterPage registerPage = new RegisterPage(driver);
         AddAddressPage addAddressPage = new AddAddressPage(driver);
         //user navigation to 'Register' page test
@@ -45,6 +45,25 @@ public class CheckoutPageTest extends TestMethods{
         addHPLP3065ProductToCheckoutRegUserTest();
         //single product (HP LP3065) check out confirmation test (as a registered user)
         validHPLP3065ProductOrderCheckoutConfirmationRegUserTest();
+    }
+
+    //invalid check out confirmation tests (as a guest) -> only guest branch is being tested since few negative scenarios registered user has, are similar to the guest
+
+    //Test 016b -> invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest first name
+    @Test
+    @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - No Guest First Name")
+    @Tag("Invalid_Single_Product_Checkout")
+    @Tag("Test_As_A_Guest")
+    @Tag("No_Singular_Input")
+    void invalidSingleProductCheckoutConfirmationAsGuestNoFirstNameTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //invalid single product (HP LP3065) check out confirmation test (as a guest) - no guest first name
+        invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestFirstNameTest();
     }
 
 }
