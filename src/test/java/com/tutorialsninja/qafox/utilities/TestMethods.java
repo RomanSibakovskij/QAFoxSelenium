@@ -5210,8 +5210,78 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - No First Name");
         //click 'Billing details' section 'Continue' button
         checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("First Name must be between 1 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account first name input error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest First Name");
+    }
+
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - no guest account last name
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestNoSingularInput checkoutPageGuestNoSingularInput = new CheckoutPageGuestNoSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //invalid guest input data getter (for guest account creation) - no guest last name
+        checkoutPageGuestNoSingularInput.invalidGuestAccountDataNoLastNameInputGetter();
+        //input valid guest first name into first name input field
+        checkoutPageGuestNoSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        //don't input guest last name into last name input field
+        checkoutPageGuestNoSingularInput.inputNoGuestLastNameIntoLastNameInputField();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - No Guest Last Name");
+        //input valid guest email into email input field
+        checkoutPageGuestNoSingularInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuestNoSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageGuestNoSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageGuestNoSingularInput.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageGuestNoSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuest.clickBillingDetailsStateDropdownMenu();
+        //select 'Illinois' option
+        checkoutPageGuest.selectIllinoisStateOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - No Last Name");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message
+        assertEquals("Last Name must be between 1 and 32 characters!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account last name input error doesn't match expectations or the error hasn't been triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Last Name");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

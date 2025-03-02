@@ -41,6 +41,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
 
     //missing singular input
     private String noGuestFirstName;
+    private String noGuestLastName;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -99,10 +100,40 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
 
     }
 
+    //invalid guest user data input getter - no guest last name
+    public void invalidGuestAccountDataNoLastNameInputGetter(){
+
+        validGuestFirstName = TestDataGenerator.getRandomFirstName();
+        noGuestLastName = "";
+        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
+        validGuestPhone = TestDataGenerator.generatePhoneNumber(7);
+        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validGuestCity = TestDataGenerator.getRandomCity();
+        validGuestPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid guest user input generated data (no guest last name): " + "\n");
+        logger.info("Valid guest user first name (no guest last name): " + validGuestFirstName);
+        logger.info("No guest user last name: " + noGuestLastName);
+        logger.info("Valid guest user email (no guest last name): " + validGuestEmail);
+        logger.info("Valid guest user phone number (no guest last name): " + validGuestPhone);
+        logger.info("Valid guest user address (no guest last name): " + validGuestAddress);
+        logger.info("Valid guest user city (no guest last name): " + validGuestCity);
+        logger.info("Valid guest user post code (no guest last name): " + validGuestPostCode);
+        System.out.println("\n");
+
+    }
+
     //invalid guest user data input methods - no singular input
     public void inputNoGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(noGuestFirstName);}
+    public void inputNoGuestLastNameIntoLastNameInputField(){checkoutPageLastNameInputField.sendKeys(noGuestLastName);}
+
+
 
     //guest checkout invalid singular input error getter
-    public String getInvalidGuestCheckoutInputError(){return checkoutPageInvalidGuestInputError.getText();}
+    public String getInvalidGuestCheckoutInputError(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
+        wait.until(ExpectedConditions.visibilityOf(checkoutPageInvalidGuestInputError));
+        return checkoutPageInvalidGuestInputError.getText();
+    }
 
 }
