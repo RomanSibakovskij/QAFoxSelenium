@@ -26,7 +26,8 @@ public class ShoppingCartPage extends BasePage{
     private List<WebElement> shoppingCartTableProductQtyInputFieldElements;
     @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[4]//button[1]")
     private List<WebElement> shoppingCartTableProductQtyUpdateButtonElements;
-    private List<WebElement> shoppingCartTableProductRemoveButtonElements = driver.findElements(By.xpath("//div[@class='table-responsive']//tbody/tr/td[4]//button[2]"));
+    @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[4]//button[2]")
+    private List<WebElement> shoppingCartTableProductRemoveButtonElements;
     @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[5]")
     private List<WebElement> shoppingCartTableProductUnitPriceElements;
     @FindBy(xpath = "//div[@class='table-responsive']//tbody/tr/td[6]")
@@ -77,6 +78,9 @@ public class ShoppingCartPage extends BasePage{
     //shopping cart warning message element
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
     private WebElement shoppingCartWarningMessage;
+    //cart is empty message element
+    @FindBy(xpath = "//div[@id='content']/p[.='Your shopping cart is empty!']")
+    private WebElement shoppingCartEmptyMessage;
 
     public ShoppingCartPage(WebDriver driver) {super(driver);}
 
@@ -134,8 +138,11 @@ public class ShoppingCartPage extends BasePage{
         shoppingCartTableProductQtyInputFieldElements.get(index).sendKeys("5");
     }
 
-    //click 'Checkout' button method
+    //click 'Update product quantity' button method
     public void clickUpdateQuantityButton(int index){shoppingCartTableProductQtyUpdateButtonElements.get(index).click();}
+
+    //click 'Remove product' button method
+    public void clickRemoveProductButton(int index){shoppingCartTableProductRemoveButtonElements.get(index).click();}
 
     //click 'Checkout' button method
     public void clickCheckoutButton(){
@@ -161,6 +168,13 @@ public class ShoppingCartPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(900));
         wait.until(ExpectedConditions.visibilityOf(shoppingCartWarningMessage));
         return shoppingCartWarningMessage.getText();
+    }
+
+    //shopping cart empty message getter
+    public String getShoppingCartEmptyMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1700));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartEmptyMessage));
+        return shoppingCartEmptyMessage.getText();
     }
 
     //shopping cart product table list getters
