@@ -4999,7 +4999,7 @@ public class TestMethods extends BaseTest{
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //valid checkout tests (as a guest)
+    //valid checkout test (as a guest)
 
     //valid 'HP LP3065' product order checkout test method (as a guest)
     protected void validHPLP3065ProductOrderCheckoutConfirmationGuestTest(){
@@ -5089,10 +5089,10 @@ public class TestMethods extends BaseTest{
         //click 'Confirm order' button
         checkoutPage.clickConfirmOrderButton();
         //capture screenshot of the test result
-        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result");
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result (as a guest)");
     }
 
-    //valid checkout tests (as a registered user)
+    //valid checkout test (as a registered user)
 
     //valid 'HP LP3065' product order checkout test method (as a registered user)
     protected void validHPLP3065ProductOrderCheckoutConfirmationRegUserTest(){
@@ -5143,7 +5143,7 @@ public class TestMethods extends BaseTest{
         //click 'Confirm order' button
         checkoutPage.clickConfirmOrderButton();
         //capture screenshot of the test result
-        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result");
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result (as a registered user)");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
