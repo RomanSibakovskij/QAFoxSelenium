@@ -18,8 +18,6 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
     private WebElement checkoutPageEmailInputField;
     @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][1]//input[@id='input-payment-telephone']")
     private WebElement checkoutPagePhoneInputField;
-    @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][2]//input[@id='input-payment-company']")
-    private WebElement checkoutPageCompanyInputField;
     @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][2]//input[@id='input-payment-address-1']")
     private WebElement checkoutPageAddress1InputField;
     @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][2]//input[@id='input-payment-city']")
