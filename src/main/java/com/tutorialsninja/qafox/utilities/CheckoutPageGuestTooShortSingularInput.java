@@ -44,6 +44,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     private String tooShortGuestPhone;
     private String tooShortGuestAddress;
     private String tooShortGuestCity;
+    private int tooShortGuestPostCode;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -194,6 +195,29 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest user data input getter - too short guest post code (1 digit)
+    public void invalidGuestAccountDataTooShortPostCodeInputGetter(){
+
+        validGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestLastName = TestDataGenerator.getRandomLastName();
+        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
+        validGuestPhone = TestDataGenerator.generatePhoneNumber(7);
+        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validGuestCity = TestDataGenerator.getRandomCity();
+        tooShortGuestPostCode = 1;
+
+        System.out.println("Invalid guest user input generated data (too short guest post code): " + "\n");
+        logger.info("Valid guest user first name (too short guest post code): " + validGuestFirstName);
+        logger.info("Valid guest user last name (too short guest post code): " + validGuestLastName);
+        logger.info("Valid guest user email (too short guest post code): " + validGuestEmail);
+        logger.info("Valid guest user phone number (too short guest post code): " + validGuestPhone);
+        logger.info("Valid guest user address (too short guest post code): " + validGuestAddress);
+        logger.info("Valid guest user city (too short guest post code): " + validGuestCity);
+        logger.info("Too short guest user post code: " + tooShortGuestPostCode);
+        System.out.println("\n");
+
+    }
+
     //invalid guest user data input methods - too short singular input
     public void inputTooShortGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(tooShortGuestFirstName);}
     public void inputTooShortGuestLastNameIntoLastNameInputField(){checkoutPageLastNameInputField.sendKeys(tooShortGuestLastName);}
@@ -201,6 +225,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     public void inputTooShortGuestPhoneIntoPhoneInputField(){checkoutPagePhoneInputField.sendKeys(tooShortGuestPhone);}
     public void inputTooShortGuestAddress1IntoAddress1InputField(){checkoutPageAddress1InputField.sendKeys(tooShortGuestAddress);}
     public void inputTooShortGuestCityIntoCityInputField(){checkoutPageCityInputField.sendKeys(tooShortGuestCity);}
+    public void inputTooShortGuestPostCodeIntoPostCodeInputField(){checkoutPagePostCodeInputField.sendKeys(String.valueOf(tooShortGuestPostCode));}
 
     //guest checkout invalid singular input error getter
     public String getInvalidGuestCheckoutInputError(){
