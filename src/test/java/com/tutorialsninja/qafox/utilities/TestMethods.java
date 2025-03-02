@@ -6063,7 +6063,7 @@ public class TestMethods extends BaseTest{
             logger.error("The too short guest account email error wasn't triggered.");
         }
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Short Guest Last Email");
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Short Guest Email");
     }
 
     //invalid 'HP LP3065' product order checkout test method (as a guest) - too short guest account phone (2 digits)
@@ -6182,6 +6182,8 @@ public class TestMethods extends BaseTest{
         checkoutPageGuestTooShortSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input too short guest address 1 into address 1 input field (2 chars)
         checkoutPageGuestTooShortSingularInput.inputTooShortGuestAddress1IntoAddress1InputField();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Short Guest Address");
         //input valid guest city into city input field
         checkoutPageGuestTooShortSingularInput.inputValidGuestCityIntoCityInputField();
         //input valid guest post code into post code input field
@@ -6205,7 +6207,79 @@ public class TestMethods extends BaseTest{
             logger.error("The too short guest account address error wasn't triggered.");
         }
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Short Guest Last Address");
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Short Guest Address");
+    }
+
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - too short guest account city (1 char)
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestTooShortSingularInput checkoutPageGuestTooShortSingularInput = new CheckoutPageGuestTooShortSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //invalid guest input data getter (for guest account creation) - too short guest city (1 char)
+        checkoutPageGuestTooShortSingularInput.invalidGuestAccountDataTooShortCityInputGetter();
+        //input valid guest first name into first name input field
+        checkoutPageGuestTooShortSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageGuestTooShortSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageGuestTooShortSingularInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuestTooShortSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageGuestTooShortSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        //input too short guest city into city input field (1 char)
+        checkoutPageGuestTooShortSingularInput.inputTooShortGuestCityIntoCityInputField();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Short Guest City");
+        //input valid guest post code into post code input field
+        checkoutPageGuestTooShortSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuest.clickBillingDetailsStateDropdownMenu();
+        //select 'Illinois' option
+        checkoutPageGuest.selectIllinoisStateOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - Too Short City");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message
+        try {
+            assertEquals("City must be between 2 and 128 characters!", checkoutPageGuestTooShortSingularInput.getInvalidGuestCheckoutInputError(), "The too short guest account city input error doesn't match expectations.");
+        } catch(Exception e){
+            logger.error("The too short guest account city error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Short Guest City");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
