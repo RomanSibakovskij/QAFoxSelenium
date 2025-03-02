@@ -243,11 +243,24 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         actions.moveToElement(checkoutPageCountryDropdownMenu).click().perform();
     }
 
-    //select 'Please Select' option
+    //select 'Please Select' country option
     public void selectPleaseSelectCountryOption(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
         wait.until(ExpectedConditions.elementToBeClickable(checkoutPagePleaseSelectCountryOption));
         checkoutPagePleaseSelectCountryOption.click();
+    }
+
+    //click 'Billing details' section state dropdown menu method
+    public void clickBillingDetailsStateDropdownMenu(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(checkoutPageStateDropdownMenu).click().perform();
+    }
+
+    //select 'Please Select' state option
+    public void selectPleaseSelectStateOption(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPagePleaseSelectStateOption));
+        checkoutPagePleaseSelectStateOption.click();
     }
 
     //guest checkout invalid singular input error getter

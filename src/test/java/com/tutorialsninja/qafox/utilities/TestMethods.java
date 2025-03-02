@@ -5556,7 +5556,7 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest City");
     }
 
-    //invalid 'HP LP3065' product order checkout test method (as a guest) - no guest account post code
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - no guest account post code (the error wasn't triggered, test has failed)
     protected void invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestPostCodeTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
@@ -5676,7 +5676,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuestNoSingularInput.clickBillingDetailsCountryDropdownMenu();
-        //select 'United States' option
+        //select 'Please Select' country option
         checkoutPageGuestNoSingularInput.selectPleaseSelectCountryOption();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - No Country");
@@ -5690,6 +5690,76 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest Country");
+    }
+
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - no guest state
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationNoGuestStateTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestNoSingularInput checkoutPageGuestNoSingularInput = new CheckoutPageGuestNoSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //valid guest input data getter (for guest account creation) - no guest country selection
+        checkoutPageGuest.validGuestAccountDataInputGetter();
+        //input valid guest first name into first name input field
+        checkoutPageGuest.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageGuest.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageGuest.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuest.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageGuest.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageGuest.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageGuest.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuestNoSingularInput.clickBillingDetailsStateDropdownMenu();
+        //select 'Please Select' state option
+        checkoutPageGuestNoSingularInput.selectPleaseSelectStateOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - No State");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Please select a region / state!", checkoutPageGuestNoSingularInput.getInvalidGuestCheckoutInputError(), "The missing guest account state input error doesn't match expectations.");
+        } catch (Exception e){
+            logger.error("The missing state input error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest State");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
