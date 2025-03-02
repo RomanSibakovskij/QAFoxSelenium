@@ -37,6 +37,9 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
     //invalid singular input error message element
     @FindBy(xpath = "//div[@class='text-danger']")
     private WebElement checkoutPageInvalidGuestInputError;
+    //terms and conditions error message element
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    private WebElement termsAndConditionsError;
 
     //valid guest input data (for remaining inputs)
     private String validGuestFirstName;
@@ -268,6 +271,13 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
         wait.until(ExpectedConditions.visibilityOf(checkoutPageInvalidGuestInputError));
         return checkoutPageInvalidGuestInputError.getText();
+    }
+
+    //terms and conditions error getter
+    public String getTermsAndConditionsError(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
+        wait.until(ExpectedConditions.visibilityOf(termsAndConditionsError));
+        return termsAndConditionsError.getText();
     }
 
 }

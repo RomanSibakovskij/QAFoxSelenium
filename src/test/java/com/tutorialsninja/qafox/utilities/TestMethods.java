@@ -5762,6 +5762,92 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No Guest State");
     }
 
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - no 'Agree to Terms' checkbox selection
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationGuestNoAgreeToTermsTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestNoSingularInput checkoutPageGuestNoSingularInput = new CheckoutPageGuestNoSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //valid guest input data getter (for guest account creation)
+        checkoutPageGuest.validGuestAccountDataInputGetter();
+        //input valid guest first name into first name input field
+        checkoutPageGuest.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageGuest.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageGuest.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuest.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageGuest.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageGuest.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageGuest.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuest.clickBillingDetailsStateDropdownMenu();
+        //select 'Illinois' option
+        checkoutPageGuest.selectIllinoisStateOption();
+        //capture screenshot of the checkout page display - valid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Valid Guest Account Data Input");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //checkout page delivery method section web element assert
+        isCheckoutPageDeliverySectionWebElementDisplayed(checkoutPage);
+        //checkout page delivery method section text element assert
+        isCheckoutPageDeliveryMethodSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page (delivery method section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Delivery Method Section Display");
+        //click delivery method section 'Continue' button
+        checkoutPage.clickDeliveryMethodContinueButton();
+        //checkout page payment method section web element assert
+        isCheckoutPagePaymentSectionWebElementDisplayed(checkoutPage);
+        //checkout page payment method section text element assert
+        isCheckoutPagePaymentMethodSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page (payment method section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Payment Method Section Display");
+        //click payment method section 'Continue' button
+        checkoutPage.clickPaymentMethodContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Warning: You must agree to the Terms & Conditions!\n" + "×", checkoutPageGuestNoSingularInput.getTermsAndConditionsError(), "The terms and conditions error doesn't match expectations.");
+        } catch(Exception e){
+            logger.error("The terms and conditions error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - No 'Agree To Terms' Checkbox Selection");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
