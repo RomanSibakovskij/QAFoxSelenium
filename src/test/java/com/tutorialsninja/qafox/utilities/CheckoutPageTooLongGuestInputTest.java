@@ -6,7 +6,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
 
     //too long singular input
 
-    //Test 016u -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest first name (33 chars)
+    //Test 015u -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest first name (33 chars)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest First Name")
     @Tag("Invalid_Single_Product_Checkout")
@@ -23,7 +23,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestFirstNameTest();
     }
 
-    //Test 016v -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest last name (33 chars)
+    //Test 015v -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest last name (33 chars)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest Last Name")
     @Tag("Invalid_Single_Product_Checkout")
@@ -40,7 +40,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestLastNameTest();
     }
 
-    //Test 016w -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest email (100 chars -> name, domain)
+    //Test 015w -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest email (100 chars -> name, domain)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest Email")
     @Tag("Invalid_Single_Product_Checkout")
@@ -57,7 +57,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestEmailTest();
     }
 
-    //Test 016x -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest phone (33 digits)
+    //Test 015x -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest phone (33 digits)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest Phone")
     @Tag("Invalid_Single_Product_Checkout")
@@ -74,7 +74,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestPhoneTest();
     }
 
-    //Test 016y -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest address (129 chars)
+    //Test 015y -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest address (129 chars)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest Address")
     @Tag("Invalid_Single_Product_Checkout")
@@ -91,7 +91,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestAddressTest();
     }
 
-    //Test 016z -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest city (129 chars)
+    //Test 015z -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest city (129 chars)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest City")
     @Tag("Invalid_Single_Product_Checkout")
@@ -108,7 +108,7 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestCityTest();
     }
 
-    //Test 016aa -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest post code (11 digits) (the error wasn't triggered, test has failed(in manual testing the error gets triggered))
+    //Test 015aa -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest post code (11 digits) (the error wasn't triggered, test has failed(in manual testing the error gets triggered))
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest Post Code")
     @Tag("Invalid_Single_Product_Checkout")

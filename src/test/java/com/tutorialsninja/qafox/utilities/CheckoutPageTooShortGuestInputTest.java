@@ -6,7 +6,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
 
     //too short singular input
 
-    //Test 016n -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest first name (1 char) (the error wasn't triggered, test has failed)
+    //Test 015n -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest first name (1 char) (the error wasn't triggered, test has failed)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest First Name")
     @Tag("Invalid_Single_Product_Checkout")
@@ -23,7 +23,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestFirstNameTest();
     }
 
-    //Test 016o -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest last name (1 char) (the error wasn't triggered, test has failed)
+    //Test 015o -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest last name (1 char) (the error wasn't triggered, test has failed)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest Last Name")
     @Tag("Invalid_Single_Product_Checkout")
@@ -40,7 +40,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestLastNameTest();
     }
 
-    //Test 016p -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest email (1 char -> name, domain) (the error wasn't triggered, test has failed)
+    //Test 015p -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest email (1 char -> name, domain) (the error wasn't triggered, test has failed)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest Email")
     @Tag("Invalid_Single_Product_Checkout")
@@ -57,7 +57,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestEmailTest();
     }
 
-    //Test 016q -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest phone (2 digits)
+    //Test 015q -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest phone (2 digits)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest Phone")
     @Tag("Invalid_Single_Product_Checkout")
@@ -74,7 +74,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestPhoneTest();
     }
 
-    //Test 016r -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest address (2 chars)
+    //Test 015r -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest address (2 chars)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest Address")
     @Tag("Invalid_Single_Product_Checkout")
@@ -91,7 +91,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestAddressTest();
     }
 
-    //Test 016s -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest city (1 char)
+    //Test 015s -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest city (1 char)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest City")
     @Tag("Invalid_Single_Product_Checkout")
@@ -108,7 +108,7 @@ public class CheckoutPageTooShortGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooShortGuestCityTest();
     }
 
-    //Test 016t -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest post code (1 char) (the error wasn't triggered, test has failed(in manual testing the error gets triggered))
+    //Test 015t -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too short guest post code (1 char) (the error wasn't triggered, test has failed(in manual testing the error gets triggered))
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Short Guest Post Code")
     @Tag("Invalid_Single_Product_Checkout")

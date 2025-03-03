@@ -7,7 +7,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //single product addition to check out tests
 
-    //Test 015 -> single product (HP LP3065) addition to check out page test (as a guest)
+    //Test 014 -> single product (HP LP3065) addition to check out page test (as a guest)
     @Test
     @DisplayName("Add Single Product (HP LP3065) To Checkout Test (as a guest)")
     @Tag("Single_Product_Addition_To_Checkout")
@@ -21,7 +21,7 @@ public class ShoppingCartPageTest extends TestMethods{
         addHPLP3065ProductToCheckoutGuestTest();
     }
 
-    //Test 015a -> single product (HP LP3065) addition to check out page test (as a registered user)
+    //Test 014a -> single product (HP LP3065) addition to check out page test (as a registered user)
     @Test
     @DisplayName("Add Single Product (HP LP3065) To Checkout Test (as a registered user)")
     @Tag("Single_Product_Addition_To_Checkout")
@@ -45,7 +45,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //multiple product addition to check out tests
 
-    //Test 015b -> multiple products (HP LP3065) addition to check out page test (as a guest)
+    //Test 014b -> multiple products (HP LP3065) addition to check out page test (as a guest)
     @Test
     @DisplayName("Add Multiple Products (HP LP3065) To Checkout Test (as a guest)")
     @Tag("Multiple_Products_Addition_To_Checkout")
@@ -59,7 +59,7 @@ public class ShoppingCartPageTest extends TestMethods{
         addHPLP3065ProductToCheckoutGuestTest();
     }
 
-    //Test 015c -> multiple products (HP LP3065) addition to check out page test (as a registered user)
+    //Test 014c -> multiple products (HP LP3065) addition to check out page test (as a registered user)
     @Test
     @DisplayName("Add Multiple Products (HP LP3065) To Checkout Test (as a registered user)")
     @Tag("Multiple_Products_Addition_To_Checkout")
@@ -83,7 +83,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //update product quantity during addition to check out test (guest and registered user will have the same output, guest branch only is tested)
 
-    //Test 015d -> product quantity update during (HP LP3065) addition to check out page test
+    //Test 014d -> product quantity update during (HP LP3065) addition to check out page test
     @Test
     @DisplayName("Product Quantity Update During Addition (HP LP3065) To Checkout Test")
     @Tag("Products_Qty_Update_During_Addition_To_Checkout")
@@ -99,7 +99,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //product remove from shopping cart test (guest and registered user will have the same output, guest branch only is tested)
 
-    //Test 015e -> product remove (HP LP3065) from shopping cart test
+    //Test 014e -> product remove (HP LP3065) from shopping cart test
     @Test
     @DisplayName("Product Remove (HP LP3065) From Shopping Cart Test")
     @Tag("Product_Remove_From_Shopping_Cart")
@@ -115,7 +115,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //update product quantity during addition to check out test (guest and registered user will have the same output, guest branch only is tested)
 
-    //Test 015f -> single product (HP LP3065) addition to check out (without shipping country and state) page test
+    //Test 014f -> single product (HP LP3065) addition to check out (without shipping country and state) page test
     @Test
     @DisplayName("Add Single Product (HP LP3065) To Checkout Without Shipping Country And State Test")
     @Tag("Single_Product_Addition_To_Checkout")

@@ -8,7 +8,7 @@ public class CheckoutPageRegUserLoginTest extends TestMethods{
 
     //valid check out confirmation with valid checkout login test
 
-    //Test 017 -> single product (HP LP3065) check out confirmation with valid checkout login test (as a registered user)
+    //Test 016 -> single product (HP LP3065) check out confirmation with valid checkout login test (as a registered user)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation With Valid Checkout Login Test (as a registered user)")
     @Tag("Single_Product_Checkout")
@@ -39,7 +39,7 @@ public class CheckoutPageRegUserLoginTest extends TestMethods{
 
     //no singular input
 
-    //Test 017a -> single product (HP LP3065) check out confirmation with invalid checkout login test - no email (as a registered user)
+    //Test 016a -> single product (HP LP3065) check out confirmation with invalid checkout login test - no email (as a registered user)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation With Invalid Checkout Login Test - No Email (as a registered user)")
     @Tag("Single_Product_Checkout")
@@ -67,7 +67,7 @@ public class CheckoutPageRegUserLoginTest extends TestMethods{
         invalidCheckoutLoginNoEmailTest(registerPage);
     }
 
-    //Test 017b -> single product (HP LP3065) check out confirmation with invalid checkout login test - no password (as a registered user)
+    //Test 016b -> single product (HP LP3065) check out confirmation with invalid checkout login test - no password (as a registered user)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation With Invalid Checkout Login Test - No Password (as a registered user)")
     @Tag("Single_Product_Checkout")
@@ -97,7 +97,7 @@ public class CheckoutPageRegUserLoginTest extends TestMethods{
 
     //invalid singular input
 
-    //Test 017c -> single product (HP LP3065) check out confirmation with invalid checkout login test - invalid email (as a registered user)
+    //Test 016c -> single product (HP LP3065) check out confirmation with invalid checkout login test - invalid email (as a registered user)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation With Invalid Checkout Login Test - Invalid Email (as a registered user)")
     @Tag("Single_Product_Checkout")
@@ -125,7 +125,7 @@ public class CheckoutPageRegUserLoginTest extends TestMethods{
         invalidCheckoutLoginInvalidEmailTest(registerPage);
     }
 
-    //Test 017d -> single product (HP LP3065) check out confirmation with invalid checkout login test - invalid password (as a registered user)
+    //Test 016d -> single product (HP LP3065) check out confirmation with invalid checkout login test - invalid password (as a registered user)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation With Invalid Checkout Login Test - Invalid Password (as a registered user)")
     @Tag("Single_Product_Checkout")

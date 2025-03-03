@@ -7,7 +7,7 @@ public class CheckoutPageTest extends TestMethods{
 
     //valid check out confirmation tests
 
-    //Test 016 -> single product (HP LP3065) check out confirmation test (as a guest)
+    //Test 015 -> single product (HP LP3065) check out confirmation test (as a guest)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation Test (as a guest)")
     @Tag("Single_Product_Checkout")
@@ -23,7 +23,7 @@ public class CheckoutPageTest extends TestMethods{
         validHPLP3065ProductOrderCheckoutConfirmationGuestTest();
     }
 
-    //Test 016a -> single product (HP LP3065) check out confirmation test (as a registered user)
+    //Test 015a -> single product (HP LP3065) check out confirmation test (as a registered user)
     @Test
     @DisplayName("Single Product (HP LP3065) Checkout Confirmation Test (as a registered user)")
     @Tag("Single_Product_Checkout")
@@ -47,7 +47,9 @@ public class CheckoutPageTest extends TestMethods{
         validHPLP3065ProductOrderCheckoutConfirmationRegUserTest();
     }
 
-    //Test 016b -> multiple products (HP LP3065) check out confirmation test (as a guest)
+    //multiple products tests
+
+    //Test 015b -> multiple products (HP LP3065) check out confirmation test (as a guest)
     @Test
     @DisplayName("Multiple Products (HP LP3065) Checkout Confirmation Test (as a guest)")
     @Tag("Multiple_Products_Checkout")
@@ -63,7 +65,7 @@ public class CheckoutPageTest extends TestMethods{
         validHPLP3065ProductOrderCheckoutConfirmationGuestTest();
     }
 
-    //Test 016c ->  multiple products (HP LP3065) check out confirmation test (as a registered user)
+    //Test 015c ->  multiple products (HP LP3065) check out confirmation test (as a registered user)
     @Test
     @DisplayName("Multiple Products (HP LP3065) Checkout Confirmation Test (as a registered user)")
     @Tag("Multiple_Product_Checkout")
