@@ -40,5 +40,22 @@ public class CheckoutPageTooLongGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestLastNameTest();
     }
 
+    //Test 016w -> invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest email (100 chars -> name, domain)
+    @Test
+    @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Too Long Guest Email")
+    @Tag("Invalid_Single_Product_Checkout")
+    @Tag("Test_As_A_Guest")
+    @Tag("Too_Long_Singular_Input")
+    void invalidSingleProductCheckoutConfirmationAsGuestTooLongEmailTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //invalid single product (HP LP3065) check out confirmation test (as a guest) - too long guest email (100 chars -> name, domain)
+        invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestEmailTest();
+    }
+
 
 }
