@@ -6354,6 +6354,80 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Short Guest Post Code");
     }
 
+    //too long singular input
+
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - too long guest account first name (33 chars) (the error wasn't triggered, test has failed)
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationTooLongGuestFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //invalid guest input data getter (for guest account creation) - too long guest first name (33 chars)
+        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongFirstNameInputGetter();
+        //input too short guest first name into first name input field (33 chars)
+        checkoutPageTooLongSingularInput.inputTooLongGuestFirstNameIntoFirstNameInputField();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest First Name");
+        //input valid guest last name into last name input field
+        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuest.clickBillingDetailsStateDropdownMenu();
+        //select 'Illinois' option
+        checkoutPageGuest.selectIllinoisStateOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - Too Long First Name");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message
+        try {
+            assertEquals("First Name must be between 1 and 32 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account first name input error doesn't match expectations.");
+        } catch(Exception e){
+            logger.error("The too long guest account first name error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Long Guest First Name");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
