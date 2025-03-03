@@ -35,7 +35,7 @@ public class CheckoutPageInvalidRegUserLogin extends BasePage{
     public void inputCheckoutLoginEmailIntoEmailInputField() {checkoutPageReturningCustomerSectionEmailInputField.sendKeys(validRegUserLoginEmail);}
     public void inputCheckoutLoginPasswordIntoPasswordInputField() {checkoutPageReturningCustomerSectionPasswordInputField.sendKeys(validRegUserLoginPassword);}
 
-    //valid registered user credentials getter
+    //invalid registered user credentials getter - no login email
     public void invalidRegUserLoginCheckoutDataNoEmailGetter(RegisterPage registerPage) {
 
         noValidRegUserLoginEmail = "";
@@ -50,7 +50,6 @@ public class CheckoutPageInvalidRegUserLogin extends BasePage{
 
     //invalid registered user login credentials input methods - no singular input
     public void inputNoCheckoutLoginEmailIntoEmailInputField() {checkoutPageReturningCustomerSectionEmailInputField.sendKeys(noValidRegUserLoginEmail);}
-
 
     //invalid singular input error message getter
     public String getInvalidSingularInputErrorMessage() {

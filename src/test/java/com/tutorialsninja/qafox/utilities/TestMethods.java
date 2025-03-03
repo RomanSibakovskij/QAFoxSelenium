@@ -7559,6 +7559,38 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Invalid Login Test Result - No Email");
     }
 
+    //invalid registered user login test method - no checkout login password
+    protected void invalidCheckoutLoginNoPasswordTest(RegisterPage registerPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageValidRegUserLogin checkoutPageValidRegUserLogin = new CheckoutPageValidRegUserLogin(driver);
+        CheckoutPageInvalidRegUserLogin checkoutPageInvalidRegUserLogin = new CheckoutPageInvalidRegUserLogin(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //invalid login data getter (for checkout) -> no login password
+        checkoutPageInvalidRegUserLogin.invalidRegUserLoginCheckoutDataNoPasswordGetter(registerPage);
+        //input valid login email
+        checkoutPageInvalidRegUserLogin.inputCheckoutLoginEmailIntoEmailInputField();
+        //don't input login password
+        checkoutPageInvalidRegUserLogin.inputNoCheckoutLoginPasswordIntoPasswordInputField();
+        //click 'Login' button
+        checkoutPageValidRegUserLogin.clickCheckoutLoginButton();
+        //assert the user gets an expected error message
+        assertEquals("Warning: No match for E-Mail Address and/or Password.\n" + "×", checkoutPageInvalidRegUserLogin.getInvalidSingularInputErrorMessage(), "The missing singular input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Invalid Login Test Result - No Password");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
