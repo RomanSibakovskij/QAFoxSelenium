@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 
-public class CheckoutPageTooLongSingularInput extends BasePage{
+public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     //billing details section
     @FindBy(xpath = "//div[@id='collapse-payment-address']//div[@class='col-sm-6'][1]//input[@id='input-payment-firstname']")
@@ -45,7 +45,7 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     private String tooLongGuestCity;
     private String tooLongGuestPostCode;
 
-    public CheckoutPageTooLongSingularInput(WebDriver driver) {super(driver);}
+    public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
     //valid guest user data input methods (for remaining inputs)
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(validGuestFirstName);}

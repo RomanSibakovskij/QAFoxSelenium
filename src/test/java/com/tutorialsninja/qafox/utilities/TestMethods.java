@@ -6361,7 +6361,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6389,23 +6389,23 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest first name (33 chars)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongFirstNameInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongFirstNameInputGetter();
         //input too long guest first name into first name input field (33 chars)
-        checkoutPageTooLongSingularInput.inputTooLongGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestFirstNameIntoFirstNameInputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest First Name");
         //input valid guest last name into last name input field
-        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
         //input valid guest email into email input field
-        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
         //input valid guest phone into phone input field
-        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input valid guest address 1 into address 1 input field
-        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
         //input valid guest city into city input field
-        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestCityIntoCityInputField();
         //input valid guest post code into post code input field
-        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
         //select 'United States' option
@@ -6420,7 +6420,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("First Name must be between 1 and 32 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account first name input error doesn't match expectations.");
+            assertEquals("First Name must be between 1 and 32 characters!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account first name input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account first name error wasn't triggered.");
         }
@@ -6433,7 +6433,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6461,23 +6461,23 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest last name (33 chars)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongLastNameInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongLastNameInputGetter();
         //input valid guest first name into first name input field
-        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
         //input too short guest last name into last name input field (33 chars)
-        checkoutPageTooLongSingularInput.inputTooLongGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestLastNameIntoLastNameInputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest Last Name");
         //input valid guest email into email input field
-        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
         //input valid guest phone into phone input field
-        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input valid guest address 1 into address 1 input field
-        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
         //input valid guest city into city input field
-        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestCityIntoCityInputField();
         //input valid guest post code into post code input field
-        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
         //select 'United States' option
@@ -6492,7 +6492,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("Last Name must be between 1 and 32 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account last name input error doesn't match expectations.");
+            assertEquals("Last Name must be between 1 and 32 characters!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account last name input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account last name error wasn't triggered.");
         }
@@ -6505,7 +6505,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6533,23 +6533,23 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest emil (100 chars -> name,domain)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongEmailInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongEmailInputGetter();
         //input valid guest first name into first name input field
-        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
         //input valid guest last name into last name input field
-        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
         //input too long guest email into email input field (100 chars -> name,domain)
-        checkoutPageTooLongSingularInput.inputTooLongGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestEmailIntoEmailInputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest Email");
         //input valid guest phone into phone input field
-        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input valid guest address 1 into address 1 input field
-        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
         //input valid guest city into city input field
-        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestCityIntoCityInputField();
         //input valid guest post code into post code input field
-        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
         //select 'United States' option
@@ -6564,7 +6564,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("E-Mail address does not appear to be valid!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account email input error doesn't match expectations.");
+            assertEquals("E-Mail address does not appear to be valid!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account email input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account email error wasn't triggered.");
         }
@@ -6577,7 +6577,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6605,23 +6605,23 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest phone (33 digits)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongPhoneInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongPhoneInputGetter();
         //input valid guest first name into first name input field
-        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
         //input valid guest last name into last name input field
-        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
         //input valid guest email into email input field
-        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
         //input too long guest phone into phone input field (33 digits)
-        checkoutPageTooLongSingularInput.inputTooLongGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestPhoneIntoPhoneInputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest Phone");
         //input valid guest address 1 into address 1 input field
-        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
         //input valid guest city into city input field
-        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestCityIntoCityInputField();
         //input valid guest post code into post code input field
-        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
         //select 'United States' option
@@ -6636,7 +6636,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("Telephone must be between 3 and 32 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account phone input error doesn't match expectations.");
+            assertEquals("Telephone must be between 3 and 32 characters!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account phone input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account phone error wasn't triggered.");
         }
@@ -6649,7 +6649,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6677,23 +6677,23 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest address (129 chars)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongAddressInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongAddressInputGetter();
         //input valid guest first name into first name input field
-        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
         //input valid guest last name into last name input field
-        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
         //input valid guest email into email input field
-        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
         //input valid guest phone into phone input field
-        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input too long guest address 1 into address 1 input field (129 chars)
-        checkoutPageTooLongSingularInput.inputTooLongGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestAddress1IntoAddress1InputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest Address");
         //input valid guest city into city input field
-        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestCityIntoCityInputField();
         //input valid guest post code into post code input field
-        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
         //select 'United States' option
@@ -6708,7 +6708,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("Address 1 must be between 3 and 128 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account address input error doesn't match expectations.");
+            assertEquals("Address 1 must be between 3 and 128 characters!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account address input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account address error wasn't triggered.");
         }
@@ -6721,7 +6721,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6749,23 +6749,23 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest city (129 chars)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongCityInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongCityInputGetter();
         //input valid guest first name into first name input field
-        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
         //input valid guest last name into last name input field
-        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
         //input valid guest email into email input field
-        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
         //input valid guest phone into phone input field
-        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input valid guest address 1 into address 1 input field
-        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
         //input too long guest city into city input field (129 chars)
-        checkoutPageTooLongSingularInput.inputTooLongGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestCityIntoCityInputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest City");
         //input valid guest post code into post code input field
-        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
         //click country dropdown menu
         checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
         //select 'United States' option
@@ -6780,7 +6780,7 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("City must be between 2 and 128 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account city input error doesn't match expectations.");
+            assertEquals("City must be between 2 and 128 characters!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account city input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account city error wasn't triggered.");
         }
@@ -6793,7 +6793,7 @@ public class TestMethods extends BaseTest{
         GeneralPage generalPage = new GeneralPage(driver);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
-        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
         //general page web element assert (elements all pages share)
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert (elements all pages share)
@@ -6821,21 +6821,21 @@ public class TestMethods extends BaseTest{
         //checkout page billing details section text element assert
         isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
         //invalid guest input data getter (for guest account creation) - too long guest post code (129 chars)
-        checkoutPageTooLongSingularInput.invalidGuestAccountDataTooLongPostCodeInputGetter();
+        checkoutPageGuestTooLongSingularInput.invalidGuestAccountDataTooLongPostCodeInputGetter();
         //input valid guest first name into first name input field
-        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
         //input valid guest last name into last name input field
-        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
         //input valid guest email into email input field
-        checkoutPageTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestEmailIntoEmailInputField();
         //input valid guest phone into phone input field
-        checkoutPageTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestPhoneIntoPhoneInputField();
         //input valid guest address 1 into address 1 input field
-        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
         //input valid guest city into city input field
-        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        checkoutPageGuestTooLongSingularInput.inputValidGuestCityIntoCityInputField();
         //input too long guest post code into post code input field (11 digits)
-        checkoutPageTooLongSingularInput.inputTooLongGuestPostCodeIntoPostCodeInputField();
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestPostCodeIntoPostCodeInputField();
         //capture screenshot of the checkout page display - invalid guest account data input
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Too Long Guest Post Code");
         //click country dropdown menu
@@ -6852,12 +6852,86 @@ public class TestMethods extends BaseTest{
         checkoutPageGuest.clickBillingDetailsContinueButton();
         //assert the user gets an expected error message, otherwise, log the issue
         try {
-            assertEquals("Postcode must be between 2 and 10 characters!", checkoutPageTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account post code input error doesn't match expectations.");
+            assertEquals("Postcode must be between 2 and 10 characters!", checkoutPageGuestTooLongSingularInput.getInvalidGuestCheckoutInputError(), "The too long guest account post code input error doesn't match expectations.");
         } catch(Exception e){
             logger.error("The too long guest account post code error wasn't triggered.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Too Long Guest Post Code");
+    }
+
+    //invalid singular input format
+
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - invalid guest account first name format (special symbols only) (the error wasn't triggered, test has failed)
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestFirstNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestInvalidSingularInput checkoutPageGuestInvalidSingularInput = new CheckoutPageGuestInvalidSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //invalid guest input data getter (for guest account creation) - invalid guest first name format (special symbols only)
+        checkoutPageGuestInvalidSingularInput.invalidGuestAccountDataInvalidFirstNameInputFormatGetter();
+        //input invalid guest first name format into first name input field (special symbols only)
+        checkoutPageGuestInvalidSingularInput.inputInvalidGuestFirstNameFormatIntoFirstNameInputField();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest First Name Format");
+        //input valid guest last name into last name input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuest.clickBillingDetailsStateDropdownMenu();
+        //select 'Illinois' option
+        checkoutPageGuest.selectIllinoisStateOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - Invalid First Name Format");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("First Name cannot consist of special symbols!", checkoutPageGuestInvalidSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account first name input format error doesn't match expectations.");
+        } catch(Exception e){
+            logger.error("The invalid guest account first name format error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Invalid Guest First Name Format");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
