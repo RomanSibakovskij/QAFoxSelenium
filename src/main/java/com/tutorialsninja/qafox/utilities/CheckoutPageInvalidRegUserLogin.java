@@ -28,6 +28,7 @@ public class CheckoutPageInvalidRegUserLogin extends BasePage{
 
     //no singular input
     private String noValidRegUserLoginEmail;
+    private String noValidRegUserLoginPassword;
 
     public CheckoutPageInvalidRegUserLogin(WebDriver driver) {super(driver);}
 
@@ -48,8 +49,22 @@ public class CheckoutPageInvalidRegUserLogin extends BasePage{
 
     }
 
+    //invalid registered user credentials getter - no login password
+    public void invalidRegUserLoginCheckoutDataNoPasswordGetter(RegisterPage registerPage) {
+
+        validRegUserLoginEmail = registerPage.getUserEmail();
+        noValidRegUserLoginPassword = "";
+
+        System.out.println("Invalid checkout registered user login credentials (no login password): " + "\n");
+        logger.info("Valid checkout login email (no login password): " + validRegUserLoginEmail);
+        logger.info("No checkout login password: " + noValidRegUserLoginPassword);
+        System.out.println("\n");
+
+    }
+
     //invalid registered user login credentials input methods - no singular input
     public void inputNoCheckoutLoginEmailIntoEmailInputField() {checkoutPageReturningCustomerSectionEmailInputField.sendKeys(noValidRegUserLoginEmail);}
+    public void inputNoCheckoutLoginPasswordIntoPasswordInputField() {checkoutPageReturningCustomerSectionPasswordInputField.sendKeys(noValidRegUserLoginPassword);}
 
     //invalid singular input error message getter
     public String getInvalidSingularInputErrorMessage() {
