@@ -69,14 +69,14 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (invalid guest first name format): " + "\n");
-        logger.info("Invalid guest user first name format: " + invalidGuestFirstNameFormat);
-        logger.info("Valid guest user last name (invalid guest first name format): " + validGuestLastName);
-        logger.info("Valid guest user email (invalid guest first name format): " + validGuestEmail);
-        logger.info("Valid guest user phone number (invalid guest first name format): " + validGuestPhone);
-        logger.info("Valid guest user address (invalid guest first name format): " + validGuestAddress);
-        logger.info("Valid guest user city (invalid guest first name format): " + validGuestCity);
-        logger.info("Valid guest user post code (invalid guest first name format): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (invalid guest first name format): " + "\n");
+        logger.info("Invalid guest first name format: " + invalidGuestFirstNameFormat);
+        logger.info("Valid guest last name (invalid guest first name format): " + validGuestLastName);
+        logger.info("Valid guest email (invalid guest first name format): " + validGuestEmail);
+        logger.info("Valid guest phone number (invalid guest first name format): " + validGuestPhone);
+        logger.info("Valid guest address (invalid guest first name format): " + validGuestAddress);
+        logger.info("Valid guest city (invalid guest first name format): " + validGuestCity);
+        logger.info("Valid guest post code (invalid guest first name format): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -92,14 +92,14 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (invalid guest last name format): " + "\n");
-        logger.info("Valid guest user first name (invalid guest last name format): " + validGuestFirstName);
-        logger.info("Invalid guest user last name format: " + invalidGuestLastNameFormat);
-        logger.info("Valid guest user email (invalid guest last name format): " + validGuestEmail);
-        logger.info("Valid guest user phone number (invalid guest last name format): " + validGuestPhone);
-        logger.info("Valid guest user address (invalid guest last name format): " + validGuestAddress);
-        logger.info("Valid guest user city (invalid guest last name format): " + validGuestCity);
-        logger.info("Valid guest user post code (invalid guest last name format): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (invalid guest last name format): " + "\n");
+        logger.info("Valid guest first name (invalid guest last name format): " + validGuestFirstName);
+        logger.info("Invalid guest last name format: " + invalidGuestLastNameFormat);
+        logger.info("Valid guest email (invalid guest last name format): " + validGuestEmail);
+        logger.info("Valid guest phone number (invalid guest last name format): " + validGuestPhone);
+        logger.info("Valid guest address (invalid guest last name format): " + validGuestAddress);
+        logger.info("Valid guest city (invalid guest last name format): " + validGuestCity);
+        logger.info("Valid guest post code (invalid guest last name format): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -115,14 +115,14 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (invalid guest email format): " + "\n");
-        logger.info("Valid guest user first name (invalid guest email format): " + validGuestFirstName);
-        logger.info("Valid guest user last name (invalid guest email format): " + validGuestLastName);
-        logger.info("Invalid guest user email format: " + invalidGuestEmailFormat);
-        logger.info("Valid guest user phone number (invalid guest email format): " + validGuestPhone);
-        logger.info("Valid guest user address (invalid guest email format): " + validGuestAddress);
-        logger.info("Valid guest user city (invalid guest email format): " + validGuestCity);
-        logger.info("Valid guest user post code (invalid guest email format): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (invalid guest email format): " + "\n");
+        logger.info("Valid guest first name (invalid guest email format): " + validGuestFirstName);
+        logger.info("Valid guest last name (invalid guest email format): " + validGuestLastName);
+        logger.info("Invalid guest email format: " + invalidGuestEmailFormat);
+        logger.info("Valid guest phone number (invalid guest email format): " + validGuestPhone);
+        logger.info("Valid guest address (invalid guest email format): " + validGuestAddress);
+        logger.info("Valid guest city (invalid guest email format): " + validGuestCity);
+        logger.info("Valid guest post code (invalid guest email format): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -138,14 +138,14 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (existing email): " + "\n");
-        logger.info("Valid guest user first name (existing email): " + validGuestFirstName);
-        logger.info("Valid guest user last name (existing email): " + validGuestLastName);
+        System.out.println("Invalid guest input generated data (existing email): " + "\n");
+        logger.info("Valid guest first name (existing email): " + validGuestFirstName);
+        logger.info("Valid guest last name (existing email): " + validGuestLastName);
         logger.info("Pre-existing user email: " + existingEmail);
-        logger.info("Valid guest user phone number (existing email): " + validGuestPhone);
-        logger.info("Valid guest user address (existing email): " + validGuestAddress);
-        logger.info("Valid guest user city (existing email): " + validGuestCity);
-        logger.info("Valid guest user post code (existing email): " + validGuestPostCode);
+        logger.info("Valid guest phone number (existing email): " + validGuestPhone);
+        logger.info("Valid guest address (existing email): " + validGuestAddress);
+        logger.info("Valid guest city (existing email): " + validGuestCity);
+        logger.info("Valid guest post code (existing email): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -161,14 +161,14 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (invalid guest phone format): " + "\n");
-        logger.info("Valid guest user first name (invalid guest phone format): " + validGuestFirstName);
-        logger.info("Valid guest user last name (invalid guest phone format): " + validGuestLastName);
-        logger.info("Valid guest user email (invalid guest phone format): " + validGuestEmail);
-        logger.info("Invalid guest user phone number format: " + invalidGuestPhoneFormat);
-        logger.info("Valid guest user address (invalid guest phone format): " + validGuestAddress);
-        logger.info("Valid guest user city (invalid guest phone format): " + validGuestCity);
-        logger.info("Valid guest user post code (invalid guest phone format): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (invalid guest phone format): " + "\n");
+        logger.info("Valid guest first name (invalid guest phone format): " + validGuestFirstName);
+        logger.info("Valid guest last name (invalid guest phone format): " + validGuestLastName);
+        logger.info("Valid guest email (invalid guest phone format): " + validGuestEmail);
+        logger.info("Invalid guest phone number format: " + invalidGuestPhoneFormat);
+        logger.info("Valid guest address (invalid guest phone format): " + validGuestAddress);
+        logger.info("Valid guest city (invalid guest phone format): " + validGuestCity);
+        logger.info("Valid guest post code (invalid guest phone format): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -184,14 +184,14 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (invalid guest address format): " + "\n");
-        logger.info("Valid guest user first name (invalid guest address format): " + validGuestFirstName);
-        logger.info("Valid guest user last name (invalid guest address format): " + validGuestLastName);
-        logger.info("Valid guest user email (invalid guest address format): " + validGuestEmail);
-        logger.info("Valid guest user phone number (invalid guest address format): " + validGuestPhone);
-        logger.info("Invalid guest user address format: " + invalidGuestAddressFormat);
-        logger.info("Valid guest user city (invalid guest address format): " + validGuestCity);
-        logger.info("Valid guest user post code (invalid guest address format): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (invalid guest address format): " + "\n");
+        logger.info("Valid guest first name (invalid guest address format): " + validGuestFirstName);
+        logger.info("Valid guest last name (invalid guest address format): " + validGuestLastName);
+        logger.info("Valid guest email (invalid guest address format): " + validGuestEmail);
+        logger.info("Valid guest phone number (invalid guest address format): " + validGuestPhone);
+        logger.info("Invalid guest address format: " + invalidGuestAddressFormat);
+        logger.info("Valid guest city (invalid guest address format): " + validGuestCity);
+        logger.info("Valid guest post code (invalid guest address format): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -208,13 +208,13 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
         System.out.println("Invalid guest user input generated data (invalid guest city format): " + "\n");
-        logger.info("Valid guest user first name (invalid guest city format): " + validGuestFirstName);
-        logger.info("Valid guest user last name (invalid guest city format): " + validGuestLastName);
-        logger.info("Valid guest user email (invalid guest city format): " + validGuestEmail);
-        logger.info("Valid guest user phone number (invalid guest city format): " + validGuestPhone);
-        logger.info("Valid guest user address (invalid guest city format): " + validGuestAddress);
-        logger.info("Invalid guest user city format: " + invalidGuestCityFormat);
-        logger.info("Valid guest user post code (invalid guest city format): " + validGuestPostCode);
+        logger.info("Valid guest first name (invalid guest city format): " + validGuestFirstName);
+        logger.info("Valid guest last name (invalid guest city format): " + validGuestLastName);
+        logger.info("Valid guest email (invalid guest city format): " + validGuestEmail);
+        logger.info("Valid guest phone number (invalid guest city format): " + validGuestPhone);
+        logger.info("Valid guest address (invalid guest city format): " + validGuestAddress);
+        logger.info("Invalid guest city format: " + invalidGuestCityFormat);
+        logger.info("Valid guest post code (invalid guest city format): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -231,13 +231,13 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
         invalidGuestPostCodeFormat = "*&$%^";
 
         System.out.println("Invalid guest user input generated data (invalid guest post code format): " + "\n");
-        logger.info("Valid guest user first name (invalid guest post code format): " + validGuestFirstName);
-        logger.info("Valid guest user last name (invalid guest post code format): " + validGuestLastName);
-        logger.info("Valid guest user email (invalid guest post code format): " + validGuestEmail);
-        logger.info("Valid guest user phone number (invalid guest post code format): " + validGuestPhone);
-        logger.info("Valid guest user address (invalid guest post code format): " + validGuestAddress);
-        logger.info("Valid guest user city (invalid guest post code format): " + validGuestCity);
-        logger.info("Invalid guest user post code format: " + invalidGuestPostCodeFormat);
+        logger.info("Valid guest first name (invalid guest post code format): " + validGuestFirstName);
+        logger.info("Valid guest last name (invalid guest post code format): " + validGuestLastName);
+        logger.info("Valid guest email (invalid guest post code format): " + validGuestEmail);
+        logger.info("Valid guest phone number (invalid guest post code format): " + validGuestPhone);
+        logger.info("Valid guest address (invalid guest post code format): " + validGuestAddress);
+        logger.info("Valid guest city (invalid guest post code format): " + validGuestCity);
+        logger.info("Invalid guest post code format: " + invalidGuestPostCodeFormat);
         System.out.println("\n");
 
     }

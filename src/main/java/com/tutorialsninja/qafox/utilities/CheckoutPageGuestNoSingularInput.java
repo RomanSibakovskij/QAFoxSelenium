@@ -79,14 +79,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (no guest first name): " + "\n");
-        logger.info("No guest user first name: " + noGuestFirstName);
-        logger.info("Valid guest user last name (no guest first name): " + validGuestLastName);
-        logger.info("Valid guest user email (no guest first name): " + validGuestEmail);
-        logger.info("Valid guest user phone number (no guest first name): " + validGuestPhone);
-        logger.info("Valid guest user address (no guest first name): " + validGuestAddress);
-        logger.info("Valid guest user city (no guest first name): " + validGuestCity);
-        logger.info("Valid guest user post code (no guest first name): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest first name): " + "\n");
+        logger.info("No guest first name: " + noGuestFirstName);
+        logger.info("Valid guest last name (no guest first name): " + validGuestLastName);
+        logger.info("Valid guest email (no guest first name): " + validGuestEmail);
+        logger.info("Valid guest phone number (no guest first name): " + validGuestPhone);
+        logger.info("Valid guest address (no guest first name): " + validGuestAddress);
+        logger.info("Valid guest city (no guest first name): " + validGuestCity);
+        logger.info("Valid guest post code (no guest first name): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -102,14 +102,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (no guest last name): " + "\n");
-        logger.info("Valid guest user first name (no guest last name): " + validGuestFirstName);
-        logger.info("No guest user last name: " + noGuestLastName);
-        logger.info("Valid guest user email (no guest last name): " + validGuestEmail);
-        logger.info("Valid guest user phone number (no guest last name): " + validGuestPhone);
-        logger.info("Valid guest user address (no guest last name): " + validGuestAddress);
-        logger.info("Valid guest user city (no guest last name): " + validGuestCity);
-        logger.info("Valid guest user post code (no guest last name): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest last name): " + "\n");
+        logger.info("Valid guest first name (no guest last name): " + validGuestFirstName);
+        logger.info("No guest last name: " + noGuestLastName);
+        logger.info("Valid guest email (no guest last name): " + validGuestEmail);
+        logger.info("Valid guest phone number (no guest last name): " + validGuestPhone);
+        logger.info("Valid guest address (no guest last name): " + validGuestAddress);
+        logger.info("Valid guest city (no guest last name): " + validGuestCity);
+        logger.info("Valid guest post code (no guest last name): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -125,14 +125,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (no guest email address): " + "\n");
-        logger.info("Valid guest user first name (no guest email address): " + validGuestFirstName);
-        logger.info("Valid guest user last name (no guest email address): " + validGuestLastName);
-        logger.info("No guest user email: " + noGuestEmail);
-        logger.info("Valid guest user phone number (no guest email address): " + validGuestPhone);
-        logger.info("Valid guest user address (no guest email address): " + validGuestAddress);
-        logger.info("Valid guest user city (no guest email address): " + validGuestCity);
-        logger.info("Valid guest user post code (no guest email address): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest email address): " + "\n");
+        logger.info("Valid guest first name (no guest email address): " + validGuestFirstName);
+        logger.info("Valid guest last name (no guest email address): " + validGuestLastName);
+        logger.info("No guest email: " + noGuestEmail);
+        logger.info("Valid guest phone number (no guest email address): " + validGuestPhone);
+        logger.info("Valid guest address (no guest email address): " + validGuestAddress);
+        logger.info("Valid guest city (no guest email address): " + validGuestCity);
+        logger.info("Valid guest post code (no guest email address): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -148,14 +148,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (no guest phone): " + "\n");
-        logger.info("Valid guest user first name (no guest phone): " + validGuestFirstName);
-        logger.info("Valid guest user last name (no guest phone): " + validGuestLastName);
-        logger.info("Valid guest user email (no guest phone): " + validGuestEmail);
-        logger.info("No guest user phone number: " + noGuestPhone);
-        logger.info("Valid guest user address (no guest phone): " + validGuestAddress);
-        logger.info("Valid guest user city (no guest phone): " + validGuestCity);
-        logger.info("Valid guest user post code (no guest phone): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest phone): " + "\n");
+        logger.info("Valid guest first name (no guest phone): " + validGuestFirstName);
+        logger.info("Valid guest last name (no guest phone): " + validGuestLastName);
+        logger.info("Valid guest email (no guest phone): " + validGuestEmail);
+        logger.info("No guest phone number: " + noGuestPhone);
+        logger.info("Valid guest address (no guest phone): " + validGuestAddress);
+        logger.info("Valid guest city (no guest phone): " + validGuestCity);
+        logger.info("Valid guest post code (no guest phone): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -171,14 +171,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (no guest address): " + "\n");
-        logger.info("Valid guest user first name (no guest address): " + validGuestFirstName);
-        logger.info("Valid guest user last name (no guest address): " + validGuestLastName);
-        logger.info("Valid guest user email (no guest address): " + validGuestEmail);
-        logger.info("Valid guest user phone number (no guest address): " + validGuestPhone);
-        logger.info("No guest user address: " + noGuestAddress);
-        logger.info("Valid guest user city (no guest address): " + validGuestCity);
-        logger.info("Valid guest user post code (no guest address): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest address): " + "\n");
+        logger.info("Valid guest first name (no guest address): " + validGuestFirstName);
+        logger.info("Valid guest last name (no guest address): " + validGuestLastName);
+        logger.info("Valid guest email (no guest address): " + validGuestEmail);
+        logger.info("Valid guest phone number (no guest address): " + validGuestPhone);
+        logger.info("No guest address: " + noGuestAddress);
+        logger.info("Valid guest city (no guest address): " + validGuestCity);
+        logger.info("Valid guest post code (no guest address): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -194,14 +194,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         noGuestCity = "";
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (no guest city): " + "\n");
-        logger.info("Valid guest user first name (no guest city): " + validGuestFirstName);
-        logger.info("Valid guest user last name (no guest city): " + validGuestLastName);
-        logger.info("Valid guest user email (no guest city): " + validGuestEmail);
-        logger.info("Valid guest user phone number (no guest city): " + validGuestPhone);
-        logger.info("Valid guest user address (no guest city): " + validGuestAddress);
-        logger.info("No guest user city: " + noGuestCity);
-        logger.info("Valid guest user post code (no guest city): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest city): " + "\n");
+        logger.info("Valid guest first name (no guest city): " + validGuestFirstName);
+        logger.info("Valid guest last name (no guest city): " + validGuestLastName);
+        logger.info("Valid guest email (no guest city): " + validGuestEmail);
+        logger.info("Valid guest phone number (no guest city): " + validGuestPhone);
+        logger.info("Valid guest address (no guest city): " + validGuestAddress);
+        logger.info("No guest city: " + noGuestCity);
+        logger.info("Valid guest post code (no guest city): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -217,14 +217,14 @@ public class CheckoutPageGuestNoSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         noGuestPostCode = "";
 
-        System.out.println("Invalid guest user input generated data (no guest post code): " + "\n");
-        logger.info("Valid guest user first name (no guest post code): " + validGuestFirstName);
-        logger.info("Valid guest user last name (no guest post code): " + validGuestLastName);
-        logger.info("Valid guest user email (no guest post code): " + validGuestEmail);
-        logger.info("Valid guest user phone number (no guest post code): " + validGuestPhone);
-        logger.info("Valid guest user address (no guest post code): " + validGuestAddress);
-        logger.info("Valid guest user city (no guest post code): " + validGuestCity);
-        logger.info("No guest user post code: " + noGuestPostCode);
+        System.out.println("Invalid guest input generated data (no guest post code): " + "\n");
+        logger.info("Valid guest first name (no guest post code): " + validGuestFirstName);
+        logger.info("Valid guest last name (no guest post code): " + validGuestLastName);
+        logger.info("Valid guest email (no guest post code): " + validGuestEmail);
+        logger.info("Valid guest phone number (no guest post code): " + validGuestPhone);
+        logger.info("Valid guest address (no guest post code): " + validGuestAddress);
+        logger.info("Valid guest city (no guest post code): " + validGuestCity);
+        logger.info("No guest post code: " + noGuestPostCode);
         System.out.println("\n");
 
     }

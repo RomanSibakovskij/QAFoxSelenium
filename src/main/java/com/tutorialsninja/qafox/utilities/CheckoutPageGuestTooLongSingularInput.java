@@ -67,14 +67,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too long guest first name): " + "\n");
-        logger.info("Too long guest user first name: " + tooLongGuestFirstName);
-        logger.info("Valid guest user last name (too long guest first name): " + validGuestLastName);
-        logger.info("Valid guest user email (too long guest first name): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too long guest first name): " + validGuestPhone);
-        logger.info("Valid guest user address (too long guest first name): " + validGuestAddress);
-        logger.info("Valid guest user city (too long guest first name): " + validGuestCity);
-        logger.info("Valid guest user post code (too long guest first name): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest first name): " + "\n");
+        logger.info("Too long guest first name: " + tooLongGuestFirstName);
+        logger.info("Valid guest last name (too long guest first name): " + validGuestLastName);
+        logger.info("Valid guest email (too long guest first name): " + validGuestEmail);
+        logger.info("Valid guest phone number (too long guest first name): " + validGuestPhone);
+        logger.info("Valid guest address (too long guest first name): " + validGuestAddress);
+        logger.info("Valid guest city (too long guest first name): " + validGuestCity);
+        logger.info("Valid guest post code (too long guest first name): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -90,14 +90,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too long guest last name): " + "\n");
-        logger.info("Valid guest user first name (too long guest last name): " + validGuestFirstName);
-        logger.info("Too long guest user last name: " + tooLongGuestLastName);
-        logger.info("Valid guest user email (too long guest last name): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too long guest last name): " + validGuestPhone);
-        logger.info("Valid guest user address (too long guest last name): " + validGuestAddress);
-        logger.info("Valid guest user city (too long guest last name): " + validGuestCity);
-        logger.info("Valid guest user post code (too long guest last name): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest last name): " + "\n");
+        logger.info("Valid guest first name (too long guest last name): " + validGuestFirstName);
+        logger.info("Too long guest last name: " + tooLongGuestLastName);
+        logger.info("Valid guest email (too long guest last name): " + validGuestEmail);
+        logger.info("Valid guest phone number (too long guest last name): " + validGuestPhone);
+        logger.info("Valid guest address (too long guest last name): " + validGuestAddress);
+        logger.info("Valid guest city (too long guest last name): " + validGuestCity);
+        logger.info("Valid guest post code (too long guest last name): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -113,14 +113,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too long guest email): " + "\n");
-        logger.info("Valid guest user first name (too long guest email): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too long guest email): " + validGuestLastName);
-        logger.info("Too long guest user email: " + tooLongGuestEmail);
-        logger.info("Valid guest user phone number (too long guest email): " + validGuestPhone);
-        logger.info("Valid guest user address (too long guest email): " + validGuestAddress);
-        logger.info("Valid guest user city (too long guest email): " + validGuestCity);
-        logger.info("Valid guest user post code (too long guest email): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest email): " + "\n");
+        logger.info("Valid guest first name (too long guest email): " + validGuestFirstName);
+        logger.info("Valid guest last name (too long guest email): " + validGuestLastName);
+        logger.info("Too long guest email: " + tooLongGuestEmail);
+        logger.info("Valid guest phone number (too long guest email): " + validGuestPhone);
+        logger.info("Valid guest address (too long guest email): " + validGuestAddress);
+        logger.info("Valid guest city (too long guest email): " + validGuestCity);
+        logger.info("Valid guest post code (too long guest email): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -136,14 +136,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too long guest phone): " + "\n");
-        logger.info("Valid guest user first name (too long guest phone): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too long guest phone): " + validGuestLastName);
-        logger.info("Valid guest user email (too long guest phone): " + validGuestEmail);
-        logger.info("Too long guest user phone number: " + tooLongGuestPhone);
-        logger.info("Valid guest user address (too long guest phone): " + validGuestAddress);
-        logger.info("Valid guest user city (too long guest phone): " + validGuestCity);
-        logger.info("Valid guest user post code (too long guest phone): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest phone): " + "\n");
+        logger.info("Valid guest first name (too long guest phone): " + validGuestFirstName);
+        logger.info("Valid guest last name (too long guest phone): " + validGuestLastName);
+        logger.info("Valid guest email (too long guest phone): " + validGuestEmail);
+        logger.info("Too long guest phone number: " + tooLongGuestPhone);
+        logger.info("Valid guest address (too long guest phone): " + validGuestAddress);
+        logger.info("Valid guest city (too long guest phone): " + validGuestCity);
+        logger.info("Valid guest post code (too long guest phone): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -159,14 +159,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too long guest address): " + "\n");
-        logger.info("Valid guest user first name (too long guest address): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too long guest address): " + validGuestLastName);
-        logger.info("Valid guest user email (too long guest address): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too long guest address): " + validGuestPhone);
-        logger.info("Too long guest user address: " + tooLongGuestAddress);
-        logger.info("Valid guest user city (too long guest address): " + validGuestCity);
-        logger.info("Valid guest user post code (too long guest address): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest address): " + "\n");
+        logger.info("Valid guest first name (too long guest address): " + validGuestFirstName);
+        logger.info("Valid guest last name (too long guest address): " + validGuestLastName);
+        logger.info("Valid guest email (too long guest address): " + validGuestEmail);
+        logger.info("Valid guest phone number (too long guest address): " + validGuestPhone);
+        logger.info("Too long guest address: " + tooLongGuestAddress);
+        logger.info("Valid guest city (too long guest address): " + validGuestCity);
+        logger.info("Valid guest post code (too long guest address): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -182,14 +182,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         tooLongGuestCity = "Sssfdfhfghtreytujynhrgfsdfhjghkmjnbhfdsfdadryutikolikjmyhtgrfsdgjhklhgfdsazdxfgjhhgfqwertyyhgrfdasfdghgrerrwerfdfdsgfdgddwsdsdwea";
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too long guest city): " + "\n");
-        logger.info("Valid guest user first name (too long guest city): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too long guest city): " + validGuestLastName);
-        logger.info("Valid guest user email (too long guest city): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too long guest city): " + validGuestPhone);
-        logger.info("Valid guest user address (too long guest city): " + validGuestAddress);
-        logger.info("Too long guest user city: " + tooLongGuestCity);
-        logger.info("Valid guest user post code (too long guest city): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest city): " + "\n");
+        logger.info("Valid guest first name (too long guest city): " + validGuestFirstName);
+        logger.info("Valid guest last name (too long guest city): " + validGuestLastName);
+        logger.info("Valid guest email (too long guest city): " + validGuestEmail);
+        logger.info("Valid guest phone number (too long guest city): " + validGuestPhone);
+        logger.info("Valid guest address (too long guest city): " + validGuestAddress);
+        logger.info("Too long guest city: " + tooLongGuestCity);
+        logger.info("Valid guest post code (too long guest city): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -205,14 +205,14 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         tooLongGuestPostCode = "34567832346";
 
-        System.out.println("Invalid guest user input generated data (too long guest post code): " + "\n");
-        logger.info("Valid guest user first name (too long guest post code): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too long guest post code): " + validGuestLastName);
-        logger.info("Valid guest user email (too long guest post code): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too long guest post code): " + validGuestPhone);
-        logger.info("Valid guest user address (too long guest post code): " + validGuestAddress);
-        logger.info("Valid guest user city (too long guest post code): " + validGuestCity);
-        logger.info("Too long guest user post code: " + tooLongGuestPostCode);
+        System.out.println("Invalid guest input generated data (too long guest post code): " + "\n");
+        logger.info("Valid guest first name (too long guest post code): " + validGuestFirstName);
+        logger.info("Valid guest last name (too long guest post code): " + validGuestLastName);
+        logger.info("Valid guest email (too long guest post code): " + validGuestEmail);
+        logger.info("Valid guest phone number (too long guest post code): " + validGuestPhone);
+        logger.info("Valid guest address (too long guest post code): " + validGuestAddress);
+        logger.info("Valid guest city (too long guest post code): " + validGuestCity);
+        logger.info("Too long guest post code: " + tooLongGuestPostCode);
         System.out.println("\n");
 
     }

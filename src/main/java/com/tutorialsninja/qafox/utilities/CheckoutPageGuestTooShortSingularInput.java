@@ -67,14 +67,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too short guest first name): " + "\n");
-        logger.info("Too short guest user first name: " + tooShortGuestFirstName);
-        logger.info("Valid guest user last name (too short guest first name): " + validGuestLastName);
-        logger.info("Valid guest user email (too short guest first name): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too short guest first name): " + validGuestPhone);
-        logger.info("Valid guest user address (too short guest first name): " + validGuestAddress);
-        logger.info("Valid guest user city (too short guest first name): " + validGuestCity);
-        logger.info("Valid guest user post code (too short guest first name): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest first name): " + "\n");
+        logger.info("Too short guest first name: " + tooShortGuestFirstName);
+        logger.info("Valid guest last name (too short guest first name): " + validGuestLastName);
+        logger.info("Valid guest email (too short guest first name): " + validGuestEmail);
+        logger.info("Valid guest phone number (too short guest first name): " + validGuestPhone);
+        logger.info("Valid guest address (too short guest first name): " + validGuestAddress);
+        logger.info("Valid guest city (too short guest first name): " + validGuestCity);
+        logger.info("Valid guest post code (too short guest first name): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -90,14 +90,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too short guest last name): " + "\n");
-        logger.info("Valid guest user first name (too short guest last name): " + validGuestFirstName);
-        logger.info("Too short guest user last name: " + tooShortGuestLastName);
-        logger.info("Valid guest user email (too short guest last name): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too short guest last name): " + validGuestPhone);
-        logger.info("Valid guest user address (too short guest last name): " + validGuestAddress);
-        logger.info("Valid guest user city (too short guest last name): " + validGuestCity);
-        logger.info("Valid guest user post code (too short guest last name): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest last name): " + "\n");
+        logger.info("Valid guest first name (too short guest last name): " + validGuestFirstName);
+        logger.info("Too short guest last name: " + tooShortGuestLastName);
+        logger.info("Valid guest email (too short guest last name): " + validGuestEmail);
+        logger.info("Valid guest phone number (too short guest last name): " + validGuestPhone);
+        logger.info("Valid guest address (too short guest last name): " + validGuestAddress);
+        logger.info("Valid guest city (too short guest last name): " + validGuestCity);
+        logger.info("Valid guest post code (too short guest last name): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -113,14 +113,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too short guest email): " + "\n");
-        logger.info("Valid guest user first name (too short guest email): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too short guest email): " + validGuestLastName);
-        logger.info("Too short guest user email: " + tooShortGuestEmail);
-        logger.info("Valid guest user phone number (too short guest email): " + validGuestPhone);
-        logger.info("Valid guest user address (too short guest email): " + validGuestAddress);
-        logger.info("Valid guest user city (too short guest email): " + validGuestCity);
-        logger.info("Valid guest user post code (too short guest email): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest email): " + "\n");
+        logger.info("Valid guest first name (too short guest email): " + validGuestFirstName);
+        logger.info("Valid guest last name (too short guest email): " + validGuestLastName);
+        logger.info("Too short guest email: " + tooShortGuestEmail);
+        logger.info("Valid guest phone number (too short guest email): " + validGuestPhone);
+        logger.info("Valid guest address (too short guest email): " + validGuestAddress);
+        logger.info("Valid guest city (too short guest email): " + validGuestCity);
+        logger.info("Valid guest post code (too short guest email): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -136,14 +136,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too short guest phone): " + "\n");
-        logger.info("Valid guest user first name (too short guest phone): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too short guest phone): " + validGuestLastName);
-        logger.info("Valid guest user email (too short guest phone): " + validGuestEmail);
-        logger.info("Too short guest user phone number: " + tooShortGuestPhone);
-        logger.info("Valid guest user address (too short guest phone): " + validGuestAddress);
-        logger.info("Valid guest user city (too short guest phone): " + validGuestCity);
-        logger.info("Valid guest user post code (too short guest phone): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest phone): " + "\n");
+        logger.info("Valid guest first name (too short guest phone): " + validGuestFirstName);
+        logger.info("Valid guest last name (too short guest phone): " + validGuestLastName);
+        logger.info("Valid guest email (too short guest phone): " + validGuestEmail);
+        logger.info("Too short guest phone number: " + tooShortGuestPhone);
+        logger.info("Valid guest address (too short guest phone): " + validGuestAddress);
+        logger.info("Valid guest city (too short guest phone): " + validGuestCity);
+        logger.info("Valid guest post code (too short guest phone): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -159,14 +159,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too short guest address): " + "\n");
-        logger.info("Valid guest user first name (too short guest address): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too short guest address): " + validGuestLastName);
-        logger.info("Valid guest user email (too short guest address): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too short guest address): " + validGuestPhone);
-        logger.info("Too short guest user address: " + tooShortGuestAddress);
-        logger.info("Valid guest user city (too short guest address): " + validGuestCity);
-        logger.info("Valid guest user post code (too short guest address): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest address): " + "\n");
+        logger.info("Valid guest first name (too short guest address): " + validGuestFirstName);
+        logger.info("Valid guest last name (too short guest address): " + validGuestLastName);
+        logger.info("Valid guest email (too short guest address): " + validGuestEmail);
+        logger.info("Valid guest phone number (too short guest address): " + validGuestPhone);
+        logger.info("Too short guest address: " + tooShortGuestAddress);
+        logger.info("Valid guest city (too short guest address): " + validGuestCity);
+        logger.info("Valid guest post code (too short guest address): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -182,14 +182,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         tooShortGuestCity = "G";
         validGuestPostCode = TestDataGenerator.getRandomPostalCode();
 
-        System.out.println("Invalid guest user input generated data (too short guest city): " + "\n");
-        logger.info("Valid guest user first name (too short guest city): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too short guest city): " + validGuestLastName);
-        logger.info("Valid guest user email (too short guest city): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too short guest city): " + validGuestPhone);
-        logger.info("Valid guest user address (too short guest city): " + validGuestAddress);
-        logger.info("Too short guest user city: " + tooShortGuestCity);
-        logger.info("Valid guest user post code (too short guest city): " + validGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest city): " + "\n");
+        logger.info("Valid guest first name (too short guest city): " + validGuestFirstName);
+        logger.info("Valid guest last name (too short guest city): " + validGuestLastName);
+        logger.info("Valid guest email (too short guest city): " + validGuestEmail);
+        logger.info("Valid guest phone number (too short guest city): " + validGuestPhone);
+        logger.info("Valid guest address (too short guest city): " + validGuestAddress);
+        logger.info("Too short guest city: " + tooShortGuestCity);
+        logger.info("Valid guest post code (too short guest city): " + validGuestPostCode);
         System.out.println("\n");
 
     }
@@ -205,14 +205,14 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         validGuestCity = TestDataGenerator.getRandomCity();
         tooShortGuestPostCode = 1;
 
-        System.out.println("Invalid guest user input generated data (too short guest post code): " + "\n");
-        logger.info("Valid guest user first name (too short guest post code): " + validGuestFirstName);
-        logger.info("Valid guest user last name (too short guest post code): " + validGuestLastName);
-        logger.info("Valid guest user email (too short guest post code): " + validGuestEmail);
-        logger.info("Valid guest user phone number (too short guest post code): " + validGuestPhone);
-        logger.info("Valid guest user address (too short guest post code): " + validGuestAddress);
-        logger.info("Valid guest user city (too short guest post code): " + validGuestCity);
-        logger.info("Too short guest user post code: " + tooShortGuestPostCode);
+        System.out.println("Invalid guest input generated data (too short guest post code): " + "\n");
+        logger.info("Valid guest first name (too short guest post code): " + validGuestFirstName);
+        logger.info("Valid guest last name (too short guest post code): " + validGuestLastName);
+        logger.info("Valid guest email (too short guest post code): " + validGuestEmail);
+        logger.info("Valid guest phone number (too short guest post code): " + validGuestPhone);
+        logger.info("Valid guest address (too short guest post code): " + validGuestAddress);
+        logger.info("Valid guest city (too short guest post code): " + validGuestCity);
+        logger.info("Too short guest post code: " + tooShortGuestPostCode);
         System.out.println("\n");
 
     }
