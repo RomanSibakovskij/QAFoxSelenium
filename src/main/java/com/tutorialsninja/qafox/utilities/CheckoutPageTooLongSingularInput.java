@@ -43,6 +43,7 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     private String tooLongGuestPhone;
     private String tooLongGuestAddress;
     private String tooLongGuestCity;
+    private String tooLongGuestPostCode;
 
     public CheckoutPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -193,6 +194,29 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest user data input getter - too long guest post code (11 digits)
+    public void invalidGuestAccountDataTooLongPostCodeInputGetter(){
+
+        validGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestLastName = TestDataGenerator.getRandomLastName();
+        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
+        validGuestPhone = TestDataGenerator.generatePhoneNumber(7);
+        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validGuestCity = TestDataGenerator.getRandomCity();
+        tooLongGuestPostCode = "34567832346";
+
+        System.out.println("Invalid guest user input generated data (too long guest post code): " + "\n");
+        logger.info("Valid guest user first name (too long guest post code): " + validGuestFirstName);
+        logger.info("Valid guest user last name (too long guest post code): " + validGuestLastName);
+        logger.info("Valid guest user email (too long guest post code): " + validGuestEmail);
+        logger.info("Valid guest user phone number (too long guest post code): " + validGuestPhone);
+        logger.info("Valid guest user address (too long guest post code): " + validGuestAddress);
+        logger.info("Valid guest user city (too long guest post code): " + validGuestCity);
+        logger.info("Too long guest user post code: " + tooLongGuestPostCode);
+        System.out.println("\n");
+
+    }
+
     //invalid guest user data input methods - too long singular input
     public void inputTooLongGuestFirstNameIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(tooLongGuestFirstName);}
     public void inputTooLongGuestLastNameIntoLastNameInputField(){checkoutPageLastNameInputField.sendKeys(tooLongGuestLastName);}
@@ -200,6 +224,7 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     public void inputTooLongGuestPhoneIntoPhoneInputField(){checkoutPagePhoneInputField.sendKeys(tooLongGuestPhone);}
     public void inputTooLongGuestAddress1IntoAddress1InputField(){checkoutPageAddress1InputField.sendKeys(tooLongGuestAddress);}
     public void inputTooLongGuestCityIntoCityInputField(){checkoutPageCityInputField.sendKeys(tooLongGuestCity);}
+    public void inputTooLongGuestPostCodeIntoPostCodeInputField(){checkoutPagePostCodeInputField.sendKeys(String.valueOf(tooLongGuestPostCode));}
 
     //guest checkout invalid singular input error getter
     public String getInvalidGuestCheckoutInputError(){
