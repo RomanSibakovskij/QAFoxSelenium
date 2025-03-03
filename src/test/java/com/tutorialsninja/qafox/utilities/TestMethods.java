@@ -7222,6 +7222,78 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Invalid Guest Phone Format");
     }
 
+    //invalid 'HP LP3065' product order checkout test method (as a guest) - invalid guest account address format (special symbols only) (the error wasn't triggered, test has failed)
+    protected void invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestAddressFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuest checkoutPageGuest = new CheckoutPageGuest(driver);
+        CheckoutPageGuestInvalidSingularInput checkoutPageGuestInvalidSingularInput = new CheckoutPageGuestInvalidSingularInput(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //checkout page new customer section web element assert
+        isCheckoutPageNewCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page returning customer section web element assert
+        isCheckoutPageReturningCustomerSectionWebElementDisplayed(checkoutPage);
+        //checkout page new customer section text element assert
+        isCheckoutPageNewCustomerSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //click 'Guest' account radio button
+        checkoutPageGuest.clickGuestAccountRadioButton();
+        //click new customer section 'Continue' button
+        checkoutPageGuest.clickNewCustomerContinueButton();
+        //checkout page billing details section web element assert
+        isCheckoutPageGuestSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing details section text element assert
+        isCheckoutPageBillingDetailsSectionTextElementAsExpected(checkoutPage);
+        //invalid guest input data getter (for guest account creation) - invalid guest address format (special symbols only)
+        checkoutPageGuestInvalidSingularInput.invalidGuestAccountDataInvalidAddressInputFormatGetter();
+        //input valid guest first name into first name input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest email into email input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestEmailIntoEmailInputField();
+        //input valid guest phone into phone input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestPhoneIntoPhoneInputField();
+        //input invalid guest address 1 format into address 1 input field (special symbols)
+        checkoutPageGuestInvalidSingularInput.inputInvalidGuestAddress1FormatIntoAddress1InputField();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Address Format");
+        //input valid guest city into city input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageGuestInvalidSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        //click country dropdown menu
+        checkoutPageGuest.clickBillingDetailsCountryDropdownMenu();
+        //select 'United States' option
+        checkoutPageGuest.selectUsCountryOption();
+        //click state dropdown menu
+        checkoutPageGuest.clickBillingDetailsStateDropdownMenu();
+        //select 'Illinois' option
+        checkoutPageGuest.selectIllinoisStateOption();
+        //capture screenshot of the checkout page display - invalid guest account data input
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - Invalid Guest Account Data Input - Invalid Address Format");
+        //click 'Billing details' section 'Continue' button
+        checkoutPageGuest.clickBillingDetailsContinueButton();
+        //assert the user gets an expected error message, otherwise, log the issue
+        try {
+            assertEquals("Address 1 cannot consist of special symbols!", checkoutPageGuestInvalidSingularInput.getInvalidGuestCheckoutInputError(), "The invalid guest account address input format error doesn't match expectations.");
+        } catch(Exception e){
+            logger.error("The invalid guest account address format error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Invalid Guest Address Format");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
