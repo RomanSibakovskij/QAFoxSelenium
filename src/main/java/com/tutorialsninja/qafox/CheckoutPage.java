@@ -159,6 +159,8 @@ public class CheckoutPage extends BasePage {
 
     //click billing address section 'Continue' button
     public void clickBillingAddressContinueButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageBillingAddressContinueButton));
         Actions action = new Actions(driver);
         action.moveToElement(checkoutPageBillingAddressContinueButton).click().perform();
     }

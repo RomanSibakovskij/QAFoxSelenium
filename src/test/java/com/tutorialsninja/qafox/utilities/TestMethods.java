@@ -1049,6 +1049,24 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "User Log Out Test Result");
     }
 
+    //user logout test method (for checkout login) -> without 'My Account web/text element asserts
+    protected void userLogOutForCheckoutTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Logout' link
+        myAccountPage.clickLogoutLink();
+        //assert the user gets the expected logout success message elements
+        assertLogoutSuccessMessageMatchesExpectations(myAccountPage);
+        //click 'Continue' button
+        myAccountPage.clickContinueButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "User Log Out Test Result");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //valid user login tests
@@ -7436,6 +7454,73 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid HP LP3065 Product Checkout Page Confirmation Test Result - Invalid Guest Post Code Format");
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid registered user checkout login test
+
+    //valid registered user login test method
+    protected void validCheckoutLoginTest(RegisterPage registerPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageValidRegUserLogin checkoutPageValidRegUserLogin = new CheckoutPageValidRegUserLogin(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the checkout page display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display");
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display - new customer section
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Display - New Customer Section");
+        //valid login data getter (for checkout)
+        checkoutPageValidRegUserLogin.validRegUserLoginCheckoutDataGetter(registerPage);
+        //input valid login email
+        checkoutPageValidRegUserLogin.inputCheckoutLoginEmailIntoEmailInputField();
+        //input valid login password
+        checkoutPageValidRegUserLogin.inputCheckoutLoginPasswordIntoPasswordInputField();
+        //click 'Login' button
+        checkoutPageValidRegUserLogin.clickCheckoutLoginButton();
+        //capture screenshot of the successful login
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Valid Login Result");
+        //click billing address section 'Continue' button
+        checkoutPage.clickBillingAddressContinueButton();
+        //capture screenshot of the checkout page (delivery details section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Delivery Details Section Display");
+        //click delivery details section 'Continue' button
+        checkoutPage.clickDeliveryDetailsContinueButton();
+        //checkout page delivery method section web element assert
+        isCheckoutPageDeliverySectionWebElementDisplayed(checkoutPage);
+        //checkout page delivery method section text element assert
+        isCheckoutPageDeliveryMethodSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page (delivery method section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Delivery Method Section Display");
+        //click delivery method section 'Continue' button
+        checkoutPage.clickDeliveryMethodContinueButton();
+        //checkout page payment method section web element assert
+        isCheckoutPagePaymentSectionWebElementDisplayed(checkoutPage);
+        //checkout page payment method section text element assert
+        isCheckoutPagePaymentMethodSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page (payment method section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Payment Method Section Display");
+        //click payment method section 'Agree to terms and conditions' button
+        checkoutPage.clickPayMethodTermsConditionsCheckbox();
+        //click payment method section 'Continue' button
+        checkoutPage.clickPaymentMethodContinueButton();
+        //checkout page confirm order section web element display
+        isCheckoutPageConfirmOrderSectionWebElementDisplayed(checkoutPage);
+        //capture screenshot of the checkout page (confirm order section) display
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirm Order Section Display");
+        //log confirm order section product table data
+        logCheckoutPageProductTableData(checkoutPage);
+        //click 'Confirm order' button
+        checkoutPage.clickConfirmOrderButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "HP LP3065 Product Checkout Page Confirmation Test Result (as a registered user)");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
