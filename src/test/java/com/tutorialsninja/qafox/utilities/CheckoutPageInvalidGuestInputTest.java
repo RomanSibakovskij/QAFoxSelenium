@@ -108,4 +108,21 @@ public class CheckoutPageInvalidGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestAddressFormatTest();
     }
 
+    //Test 016ah -> invalid single product (HP LP3065) check out confirmation test (as a guest) - invalid guest city format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Invalid Guest City Format")
+    @Tag("Invalid_Single_Product_Checkout")
+    @Tag("Test_As_A_Guest")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidSingleProductCheckoutConfirmationAsGuestInvalidCityFormatTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //invalid single product (HP LP3065) check out confirmation test (as a guest) - invalid guest city format (special symbols only)
+        invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestCityFormatTest();
+    }
+
 }
