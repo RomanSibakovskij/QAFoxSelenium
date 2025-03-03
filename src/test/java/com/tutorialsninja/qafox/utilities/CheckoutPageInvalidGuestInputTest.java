@@ -40,7 +40,7 @@ public class CheckoutPageInvalidGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestLastNameFormatTest();
     }
 
-    //Test 016ad -> invalid single product (HP LP3065) check out confirmation test (as a guest) - invalid guest email (special symbols and digits only)
+    //Test 016ad -> invalid single product (HP LP3065) check out confirmation test (as a guest) - invalid guest email format (special symbols and digits only)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Invalid Guest Email Format")
     @Tag("Invalid_Single_Product_Checkout")
@@ -57,7 +57,7 @@ public class CheckoutPageInvalidGuestInputTest extends TestMethods{
         invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestEmailFormatTest();
     }
 
-    //Test 016ae -> invalid single product (HP LP3065) check out confirmation test (as a guest) - pre-existing user email (used in other account)
+    //Test 016ae -> invalid single product (HP LP3065) check out confirmation test (as a guest) - pre-existing user email (used in other account) (the error wasn't triggered, test has failed)
     @Test
     @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Pre-Existing Email")
     @Tag("Invalid_Single_Product_Checkout")
@@ -72,6 +72,23 @@ public class CheckoutPageInvalidGuestInputTest extends TestMethods{
         addHPLP3065ProductToCheckoutGuestTest();
         //invalid single product (HP LP3065) check out confirmation test (as a guest) - pre-existing user email format (used in other account)
         invalidHPLP3065ProductOrderCheckoutConfirmationExistingEmailTest();
+    }
+
+    //Test 016af -> invalid single product (HP LP3065) check out confirmation test (as a guest) - invalid guest phone format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Product (HP LP3065) Checkout Confirmation Test - Invalid Guest Phone Format")
+    @Tag("Invalid_Single_Product_Checkout")
+    @Tag("Test_As_A_Guest")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidSingleProductCheckoutConfirmationAsGuestInvalidPhoneFormatTest() {
+        //navigate to 'Desktops' category page test (as a guest)
+        navigateToDesktopsCategoryDashboardPageTest();
+        //single product (HP LP3065) addition to cart page test (as a guest)
+        addHPLP3065ToCartTest();
+        //single product (HP LP3065) addition to check out page test (as a guest)
+        addHPLP3065ProductToCheckoutGuestTest();
+        //invalid single product (HP LP3065) check out confirmation test (as a guest) - invalid guest phone format (special symbols only)
+        invalidHPLP3065ProductOrderCheckoutConfirmationInvalidGuestPhoneFormatTest();
     }
 
 }
