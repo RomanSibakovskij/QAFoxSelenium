@@ -38,6 +38,7 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
 
     //invalid singular input (by format -> special symbols, digits only)
     private String invalidGuestFirstNameFormat;
+    private String invalidGuestLastNameFormat;
 
     public CheckoutPageGuestInvalidSingularInput(WebDriver driver) {super(driver);}
 
@@ -74,9 +75,32 @@ public class CheckoutPageGuestInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid guest user data input getter - invalid guest last name format (special symbols and digits only)
+    public void invalidGuestAccountDataInvalidLastNameInputFormatGetter(){
+
+        validGuestFirstName = TestDataGenerator.getRandomFirstName();
+        invalidGuestLastNameFormat = "!@$#$243%^$^$#$@#";
+        validGuestEmail = TestDataGenerator.generateRandomEmailAddress(11);
+        validGuestPhone = TestDataGenerator.generatePhoneNumber(7);
+        validGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validGuestCity = TestDataGenerator.getRandomCity();
+        validGuestPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Invalid guest user input generated data (invalid guest last name format): " + "\n");
+        logger.info("Valid guest user first name (invalid guest last name format): " + validGuestFirstName);
+        logger.info("Invalid guest user last name format: " + invalidGuestLastNameFormat);
+        logger.info("Valid guest user email (invalid guest last name format): " + validGuestEmail);
+        logger.info("Valid guest user phone number (invalid guest last name format): " + validGuestPhone);
+        logger.info("Valid guest user address (invalid guest last name format): " + validGuestAddress);
+        logger.info("Valid guest user city (invalid guest last name format): " + validGuestCity);
+        logger.info("Valid guest user post code (invalid guest last name format): " + validGuestPostCode);
+        System.out.println("\n");
+
+    }
+
     //invalid guest user data input methods - invalid singular input format
     public void inputInvalidGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageFirstNameInputField.sendKeys(invalidGuestFirstNameFormat);}
-
+    public void inputInvalidGuestLastNameFormatIntoLastNameInputField(){checkoutPageLastNameInputField.sendKeys(invalidGuestLastNameFormat);}
 
     //guest checkout invalid singular input error getter
     public String getInvalidGuestCheckoutInputError(){
