@@ -9,8 +9,15 @@ import java.time.Duration;
 
 public class CheckoutPageValidRegUserLogin extends BasePage{
 
+    //returning customer section web elements
+    @FindBy(xpath = "//div[@id='collapse-checkout-option']//div[@class='col-sm-6'][2]//input[@id='input-email']")
+    private WebElement checkoutPageReturningCustomerSectionEmailInputField;
+    @FindBy(xpath = "//div[@id='collapse-checkout-option']//div[@class='col-sm-6'][2]//input[@id='input-password']")
+    private WebElement checkoutPageReturningCustomerSectionPasswordInputField;
+    @FindBy(xpath = "//div[@id='collapse-checkout-option']//div[@class='col-sm-6'][2]/input")
+    private WebElement checkoutPageReturningCustomerLoginButton;
 
     public CheckoutPageValidRegUserLogin(WebDriver driver) {super(driver);}
 
-    
+
 }
