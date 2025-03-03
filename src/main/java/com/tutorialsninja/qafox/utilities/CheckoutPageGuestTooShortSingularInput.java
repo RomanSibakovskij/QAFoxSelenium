@@ -148,7 +148,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
-    //invalid guest user data input getter - too short guest address (2 digits)
+    //invalid guest user data input getter - too short guest address (2 chars)
     public void invalidGuestAccountDataTooShortAddressInputGetter(){
 
         validGuestFirstName = TestDataGenerator.getRandomFirstName();
