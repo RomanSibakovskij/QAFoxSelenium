@@ -32,6 +32,7 @@ public class CheckoutPageInvalidRegUserLogin extends BasePage{
 
     //invalid singular input
     private String invalidRegUserLoginEmail;
+    private String invalidRegUserLoginPassword;
 
     public CheckoutPageInvalidRegUserLogin(WebDriver driver) {super(driver);}
 
@@ -78,12 +79,26 @@ public class CheckoutPageInvalidRegUserLogin extends BasePage{
 
     }
 
+    //invalid registered user credentials getter - invalid login password
+    public void invalidRegUserLoginCheckoutDataInvalidPasswordGetter(RegisterPage registerPage) {
+
+        validRegUserLoginEmail = registerPage.getUserEmail();
+        invalidRegUserLoginPassword = "Fdfggrt433432dws";
+
+        System.out.println("Invalid checkout registered user login credentials (invalid login password): " + "\n");
+        logger.info("Valid checkout login email (invalid login password): " + validRegUserLoginEmail);
+        logger.info("Invalid checkout login password: " + invalidRegUserLoginPassword);
+        System.out.println("\n");
+
+    }
+
     //invalid registered user login credentials input methods - no singular input
     public void inputNoCheckoutLoginEmailIntoEmailInputField() {checkoutPageReturningCustomerSectionEmailInputField.sendKeys(noValidRegUserLoginEmail);}
     public void inputNoCheckoutLoginPasswordIntoPasswordInputField() {checkoutPageReturningCustomerSectionPasswordInputField.sendKeys(noValidRegUserLoginPassword);}
 
     //invalid registered user login credentials input methods - invalid singular input
     public void inputInvalidCheckoutLoginEmailIntoEmailInputField() {checkoutPageReturningCustomerSectionEmailInputField.sendKeys(invalidRegUserLoginEmail);}
+    public void inputInvalidCheckoutLoginPasswordIntoPasswordInputField() {checkoutPageReturningCustomerSectionPasswordInputField.sendKeys(invalidRegUserLoginPassword);}
 
     //invalid singular input error message getter
     public String getInvalidSingularInputErrorMessage() {
