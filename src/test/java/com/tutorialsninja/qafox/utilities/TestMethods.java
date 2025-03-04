@@ -8581,6 +8581,57 @@ public class TestMethods extends BaseTest{
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
+    //order history view page web element assert test method
+    protected void isOrderHistoryViewPageWebElementDisplayed(OrderHistoryPage orderHistoryPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert order history pre-view page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The order history pre-view page breadcrumb isn't displayed");
+        //aside section web element assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+        //main
+        //assert order history view page title is displayed
+        assertTrue(orderHistoryPage.isOrderViewHistoryPageTitleDisplayed(), "The order history view page title isn't displayed");
+        //details section
+        //assert order history view details section data is displayed
+        assertTrue(orderHistoryPage.isOrderViewDetailsTableDisplayed(), "The order history view details section data isn't displayed");
+        //assert order history view methods (payment/shipping) section data is displayed
+        assertTrue(orderHistoryPage.isOrderViewMethodTableDisplayed(), "The order history view payment/shipping methods data isn't displayed");
+        //assert order history view payment address is displayed
+        assertTrue(orderHistoryPage.isOrderViewPaymentAddressTableDisplayed(), "The order history view payment address isn't displayed");
+        //assert order history view shipping address is displayed
+        assertTrue(orderHistoryPage.isOrderViewShippingAddressTableDisplayed(), "The order history view shipping address isn't displayed");
+        //order table
+        //assert order history view order table product names are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductNameDisplayed(), "The order history view order table product names aren't displayed");
+        //assert order history view order table product models are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductModelDisplayed(), "The order history view order table product models aren't displayed");
+        //assert order history view order table product quantities are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductQtyDisplayed(), "The order history view order table product quantities aren't displayed");
+        //assert order history view order table product prices are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductPriceDisplayed(), "The order history view order table product prices aren't displayed");
+        //assert order history view order table product total prices are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductTotalPriceDisplayed(), "The order history view order table product total prices aren't displayed");
+        //assert order history view order table product 'Reorder' buttons are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductReorderButtonDisplayed(), "The order history view order table product 'Reorder' buttons' aren't displayed");
+        //assert order history view order table product 'Return' buttons are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderViewTableOrderProductReturnButtonDisplayed(), "The order history view order table product returns aren't displayed");
+        //assert order history view order table order subtotal price is displayed
+        assertTrue(orderHistoryPage.isOrderViewTableOrderSubtotalPriceDisplayed(), "The order history view order table order subtotal price isn't displayed");
+        //assert order history view order table order flat shipping rate is displayed
+        assertTrue(orderHistoryPage.isOrderViewTableOrderFlatShippingRateDisplayed(), "The order history view order table order flat shipping rate isn't displayed");
+        //assert order history view order table order total price is displayed
+        assertTrue(orderHistoryPage.isOrderViewTableOrderTotalPriceDisplayed(), "The order history view order table order total price isn't displayed");
+        //order history table
+        //assert order history view order history table dates added are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryDateAddedDisplayed(), "The order history view order history table order dates added aren't displayed");
+        //assert order history view order history table order statuses are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryStatusDisplayed(), "The order history view order history table order statuses aren't displayed");
+        //assert order history view order history table order comments sections are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryCommentsDisplayed(), "The order history view order history table order comments sections aren't displayed");
+        //assert order history view page 'Continue' button is displayed
+        assertTrue(orderHistoryPage.isOrderViewHistoryPageContinueButtonDisplayed(), "The order history view page 'Continue' button isn't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -8802,6 +8853,18 @@ public class TestMethods extends BaseTest{
         assertEquals("Your order has been placed!", confirmOrderSuccessPage.getConfirmOrderSuccessMessageTitle(), "The confirm order success page message title doesn't match expectations or the order checkout has failed.");
         //assert confirm order success page text is as expected
         assertEquals("Your order has been successfully processed!", confirmOrderSuccessPage.getConfirmOrderSuccessMessageText(), "The confirm order success page message text doesn't match expectations.");
+    }
+
+    //order history pre-view page text element assert test method
+    protected void isOrderHistoryPreviewPageTextElementAsExpected(OrderHistoryPage orderHistoryPage){
+        //assert order history pre-view page title is as expected
+        assertEquals("Order History", orderHistoryPage.getOrderHistoryPageTitle(), "The order history pre-view page title doesn't match expectations or the user is on the wrong page.");
+    }
+
+    //order history view page text element assert test method
+    protected void isOrderHistoryViewPageTextElementAsExpected(OrderHistoryPage orderHistoryPage){
+        //assert order history view page title is as expected
+        assertEquals("Order History", orderHistoryPage.getOrderViewHistoryPageTitle(), "The order history view page title doesn't match expectations or the user is on the wrong page.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
