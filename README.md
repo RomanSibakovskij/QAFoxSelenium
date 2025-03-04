@@ -1,7 +1,5 @@
 # QAFoxSelenium
 
-# AutomationPracticeShopSelenium
-
 Simple Selenium test suite on user account registration/login/logout, account information update, user address addition/update/removal, single category product display view, product addition to compare list, basic product addition to cart/checkout, order submission validation, product return. The test suite captures screenshots at the end of test case run (for logging purposes).
 
 #Tech Requirements:
