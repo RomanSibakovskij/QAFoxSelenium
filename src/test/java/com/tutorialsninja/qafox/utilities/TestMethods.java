@@ -7673,6 +7673,48 @@ public class TestMethods extends BaseTest{
         isConfirmOrderSuccessPageTextElementAsExpected(confirmOrderSuccessPage);
     }
 
+    //confirm order success page test method (as registered user)
+    protected void confirmPlacedOrderRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ConfirmOrderSuccessPage confirmOrderSuccessPage = new ConfirmOrderSuccessPage(driver);
+        OrderHistoryPage orderHistoryPage = new OrderHistoryPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the confirm order page display
+        captureScreenshot(driver, "Product Checkout Confirm Order (Reg User) Success Page Display");
+        //confirm order success page web element assert
+        isConfirmOrderSuccessPageRegUserWebElementDisplayed(confirmOrderSuccessPage);
+        //confirm order success page text element assert
+        isConfirmOrderSuccessPageTextElementAsExpected(confirmOrderSuccessPage);
+        //click 'Order History' link
+        confirmOrderSuccessPage.clickOrderHistoryLink();
+        //capture screenshot of the confirm order page display
+        captureScreenshot(driver, "Product Checkout Order History Pre-View Dashboard (Reg User) Page Display");
+        //order history pre-view page web element assert
+        isOrderHistoryPreviewPageWebElementDisplayed(orderHistoryPage);
+        //order history pre-view page text element assert
+        isOrderHistoryPreviewPageTextElementAsExpected(orderHistoryPage);
+        //log order history pre-view table data
+        logOrderHistoryPreviewPageOrderData(orderHistoryPage);
+        //click 'View Order History' button
+        orderHistoryPage.clickViewOrderHistoryButton();
+        //order history view page
+        //capture screenshot of the confirm order page display
+        captureScreenshot(driver, "Product Checkout Order History View (Reg User) Page Display");
+        //order history view page web element assert
+        isOrderHistoryViewPageWebElementDisplayed(orderHistoryPage);
+        //order history view page text element assert
+        isOrderHistoryViewPageTextElementAsExpected(orderHistoryPage);
+        //log order history view details table data
+        logOrderHistoryViewDetailsTableData(orderHistoryPage);
+        //log order history view order table data
+        logOrderHistoryViewOrderTableData(orderHistoryPage);
+        //log order history view order history table data
+        logOrderHistoryViewOrderHistoryData(orderHistoryPage);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -8577,8 +8619,32 @@ public class TestMethods extends BaseTest{
         assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessStoreOwnerLinkDisplayed(), "The confirm order success page 'Store owner' link isn't displayed");
         //assert confirm order success page 'Continue' button is displayed
         assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessContinueButtonDisplayed(), "The confirm order success page 'Continue' button isn't displayed");
-        //aside section web element assert
-        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
+    //order history pre-view page web element assert test method
+    protected void isOrderHistoryPreviewPageWebElementDisplayed(OrderHistoryPage orderHistoryPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert order history pre-view page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The order history pre-view page breadcrumb isn't displayed");
+        //main
+        //assert order history pre-view page title is displayed
+        assertTrue(orderHistoryPage.isOrderHistoryPageTitleDisplayed(), "The order history pre-view page title isn't displayed");
+        //assert order history pre-view page 'Continue' button is displayed
+        assertTrue(orderHistoryPage.isOrderHistoryContinueButtonDisplayed(), "The order history pre-view page 'Continue' button isn't displayed");
+        //assert order history pre-view page order IDs are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderIDDisplayed(), "The order history pre-view page order table order IDs aren't displayed");
+        //assert order history pre-view page order customers are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderCustomerDisplayed(), "The order history pre-view page order table order customers aren't displayed");
+        //assert order history pre-view page order product number are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderProductNumberDisplayed(), "The order history pre-view page order table order product numbers aren't displayed");
+        //assert order history pre-view page order statuses are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderStatusDisplayed(), "The order history pre-view page order table order statuses aren't displayed");
+        //assert order history pre-view page order total prices are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderTotalPriceDisplayed(), "The order history pre-view page order table order total prices aren't displayed");
+        //assert order history pre-view page order dates added are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderDateAddedDisplayed(), "The order history pre-view page order table order dates added aren't displayed");
+        //assert order history pre-view page order 'View History' buttons are displayed (as a list)
+        assertTrue(orderHistoryPage.isOrderHistoryPagePreviewTableOrderViewHistoryButtonDisplayed(), "The order history pre-view page order table order 'View History' buttons aren't displayed");
     }
 
     //order history view page web element assert test method
@@ -8630,6 +8696,8 @@ public class TestMethods extends BaseTest{
         assertTrue(orderHistoryPage.isOrderHistoryCommentsDisplayed(), "The order history view order history table order comments sections aren't displayed");
         //assert order history view page 'Continue' button is displayed
         assertTrue(orderHistoryPage.isOrderViewHistoryPageContinueButtonDisplayed(), "The order history view page 'Continue' button isn't displayed");
+        //aside section web element assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -9006,6 +9074,50 @@ public class TestMethods extends BaseTest{
         logger.info("Checkout page order flat shipping rate: " + checkoutPage.getCheckoutOrderFlatShippingRate());
         logger.info("Checkout page order total price: " + checkoutPage.getCheckoutOrderSubtotalPrice());
         System.out.println("\n");
+    }
+
+    //order history pre-view page order table data logger method
+    protected void logOrderHistoryPreviewPageOrderData(OrderHistoryPage orderHistoryPage){
+        System.out.println("Order history pre-view page displayed order data: " + "\n");
+        logger.info("Order history pre-view page displayed order ID(s): " + orderHistoryPage.getPreviewOrderID());
+        logger.info("Order history pre-view page displayed order customer(s): " + orderHistoryPage.getPreviewOrderCustomer());
+        logger.info("Order history pre-view page displayed order status(es): " + orderHistoryPage.getPreviewOrderStatus());
+        logger.info("Order history pre-view page displayed order total price(s): " + orderHistoryPage.getPreviewOrderTotalPrice());
+        logger.info("Order history pre-view page displayed order date(s) added: " + orderHistoryPage.getPreviewOrderDateAdded());
+        System.out.println("\n");
+    }
+
+    //order history view page details table data logger method
+    protected void logOrderHistoryViewDetailsTableData(OrderHistoryPage orderHistoryPage){
+        System.out.println("Order history view details table displayed order data: " + "\n");
+        logger.info("Order history view page order details: " + orderHistoryPage.getOrderViewDetails());
+        logger.info("Order history view page payment/shipping method details: " + orderHistoryPage.getOrderViewMethodDetails());
+        System.out.println("Order history view payment/shipping details table displayed order data: " + "\n");
+        logger.info("Order history view page order payment address details: " + orderHistoryPage.getOrderPaymentAddressDetails());
+        logger.info("Order history view page order shipping address details: " + orderHistoryPage.getOrderShippingAddressDetails());
+        System.out.println("\n");
+    }
+
+    //order history view page order table data logger method
+    protected void logOrderHistoryViewOrderTableData(OrderHistoryPage orderHistoryPage){
+        System.out.println("Order history view order table displayed data: " + "\n");
+        logger.info("Order history view order table product name(s): " + orderHistoryPage.getOrderViewProductName());
+        logger.info("Order history view order table product model(s): " + orderHistoryPage.getOrderViewProductModel());
+        logger.info("Order history view order table product quantity(ies): " + orderHistoryPage.getOrderViewProductQuantity());
+        logger.info("Order history view order table product price(s): " + orderHistoryPage.getOrderViewProductPrice());
+        logger.info("Order history view order table product total price(s): " + orderHistoryPage.getOrderViewProductTotalPrice());
+        logger.info("Order history view order table order subtotal price: " + orderHistoryPage.getOrderSubtotalPrice());
+        logger.info("Order history view order table order flat shipping rate: " + orderHistoryPage.getOrderFlatShippingRate());
+        logger.info("Order history view order table order total price: " + orderHistoryPage.getOrderTotalPrice());
+        System.out.println("\n");
+    }
+
+    //order history view page order history table data logger method
+    protected void logOrderHistoryViewOrderHistoryData(OrderHistoryPage orderHistoryPage){
+        System.out.println("Order history view order history table displayed data: " + "\n");
+        logger.info("Order history view order history table date(s) added: " + orderHistoryPage.getOrderHistoryDate());
+        logger.info("Order history view order history table status(es): " + orderHistoryPage.getOrderHistoryStatus());
+        logger.info("Order history view order history table comments: " + orderHistoryPage.getOrderHistoryComments());
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
