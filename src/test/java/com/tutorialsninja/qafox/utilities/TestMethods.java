@@ -7719,6 +7719,43 @@ public class TestMethods extends BaseTest{
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //product return test method ('Order Error' return reason)
+    protected void returnProductOrderErrorTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        OrderHistoryPage orderHistoryPage = new OrderHistoryPage(driver);
+        ProductReturnsPage productReturnsPage = new ProductReturnsPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Return' order button
+        orderHistoryPage.clickReturnOrderButton();
+        //capture screenshot of the product returns page display
+        captureScreenshot(driver, "Product Returns (Reg User) Page Display");
+        //product returns page web element display
+        isProductReturnsPageWebElementDisplayed(productReturnsPage);
+        //product returns page text element display
+        isProductReturnsPageTextElementAsExpected(productReturnsPage);
+        //click 'Order Error' radio button
+        productReturnsPage.clickOrderErrorRadioButton();
+        //click 'Continue' button
+        productReturnsPage.clickProductReturnsContinueButton();
+        /*
+        //assert the user gets the expected success title/message
+        assertEquals("Product Returns", productReturnsPage.getProductReturnsPageTitle(), "The product return message success title doesn't match expectations or the product return submission has failed.");
+        assertEquals("Thank you for submitting your return request. Your request has been sent to the relevant department for processing.", productReturnsPage.getProductReturnsPageSubtitle(), "The product return message success subtitle doesn't match expectations or the product return submission has failed.");
+        */
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Product Returns (Reg User) Page Return Submission Test Result");
+        //aside section assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+        //click 'Continue' button
+        productReturnsPage.clickProductContinueButton();
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web elements assert test method (elements all pages possess)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //top navbar
