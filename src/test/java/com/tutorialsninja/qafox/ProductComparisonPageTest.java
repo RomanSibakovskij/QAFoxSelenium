@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 public class ProductComparisonPageTest extends TestMethods{
 
-    //tests as a guest
+    //add products to compare tests as a guest
 
     //Test 010 -> add set products (HP LP3065, Iphone, Canon EOS 5ED) to product compare page test (as a guest)
     @Test
@@ -43,7 +43,7 @@ public class ProductComparisonPageTest extends TestMethods{
         removeProductsFromCompareListTest();
     }
 
-    //tests as a registered user
+    //add products to compare test as a registered user
 
     //Test 010c -> add set products (HP LP3065, Iphone, Canon EOS 5ED) to product compare page test (as a registered user)
     @Test

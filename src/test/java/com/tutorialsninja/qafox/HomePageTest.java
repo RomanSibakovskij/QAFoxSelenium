@@ -5,6 +5,8 @@ import org.junit.jupiter.api.*;
 
 public class HomePageTest extends TestMethods {
 
+    //navigate to 'Register' page test
+
     //Test 001 -> user navigation to 'Register' page test
     @Test
     @DisplayName("User Navigation To Register Page Test")

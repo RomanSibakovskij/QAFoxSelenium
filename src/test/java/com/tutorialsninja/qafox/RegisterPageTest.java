@@ -5,6 +5,8 @@ import org.junit.jupiter.api.*;
 
 public class RegisterPageTest extends TestMethods {
 
+    //valid user account creation test
+
     //Test 002 -> valid user account creation test
     @Test
     @DisplayName("Valid User Account Creation Test")
