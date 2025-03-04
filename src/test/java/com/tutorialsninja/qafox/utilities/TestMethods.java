@@ -7657,6 +7657,8 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Invalid Login Test Result - Invalid Password");
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //confirm order success page test method
     protected void confirmPlacedOrderGuestTest(){
         GeneralPage generalPage = new GeneralPage(driver);
@@ -8700,6 +8702,97 @@ public class TestMethods extends BaseTest{
         isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
     }
 
+    //product returns web element assert test method
+    protected void isProductReturnsPageWebElementDisplayed(ProductReturnsPage productReturnsPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        //assert order history pre-view page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The order history pre-view page breadcrumb isn't displayed");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //aside section web element assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+        //main
+        //assert product returns page title is displayed
+        assertTrue(productReturnsPage.isProductReturnsPageTitleDisplayed(), "The product returns page title isn't displayed");
+        //assert product returns page subtitle is displayed
+        assertTrue(productReturnsPage.isProductReturnsPageSubtitleDisplayed(), "The product returns page subtitle isn't displayed");
+        //order info
+        //assert product returns page order info section title is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionTitleDisplayed(), "The product returns page order info section title isn't displayed");
+        //assert product returns page first name subtext is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionFirstNameSubtextDisplayed(), "The product returns page first name subtext isn't displayed");
+        //assert product returns page first name input field is displayed
+        //assertTrue(productReturnsPage.isOrderInfoSectionFirstNameInputFieldDisplayed(), "The product returns page first name input field isn't displayed");
+        //assert product returns page last name subtext is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionLastNameSubtextDisplayed(), "The product returns page last name subtext isn't displayed");
+        //assert product returns page last name input field is displayed
+        //assertTrue(productReturnsPage.isOrderInfoSectionLastNameInputFieldDisplayed(), "The product returns page last name input field isn't displayed");
+        //assert product returns page email subtext is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionEmailSubtextDisplayed(), "The product returns page email subtext isn't displayed");
+        //assert product returns page email input field is displayed
+        //assertTrue(productReturnsPage.isOrderInfoSectionEmailInputFieldDisplayed(), "The product returns page email input field isn't displayed");
+        //assert product returns page phone subtext is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionPhoneSubtextDisplayed(), "The product returns page phone subtext isn't displayed");
+        //assert product returns page phone input field is displayed
+        //assertTrue(productReturnsPage.isOrderInfoSectionPhoneInputFieldDisplayed(), "The product returns page phone input field isn't displayed");
+        //assert product returns page order ID subtext is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionOrderIDSubtextDisplayed(), "The product returns page order ID subtext isn't displayed");
+        //assert product returns page order ID input field is displayed
+        //assertTrue(productReturnsPage.isOrderInfoSectionOrderIDInputFieldDisplayed(), "The product returns page order ID input field isn't displayed");
+        //assert product returns page order date subtext is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionOrderDateSubtextDisplayed(), "The product returns page order date subtext isn't displayed");
+        //assert product returns page order date input field is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionOrderDateInputFieldDisplayed(), "The product returns page order date input field isn't displayed");
+        //assert product returns page order date calendar button is displayed
+        assertTrue(productReturnsPage.isOrderInfoSectionOrderDateCalendarButtonDisplayed(), "The product returns page order date calendar button isn't displayed");
+        //product info section
+        //assert product returns page product info subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionTitleDisplayed(), "The product returns page product info subtext isn't displayed");
+        //assert product returns page product info subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionProductNameSubtextDisplayed(), "The product returns page product info subtext isn't displayed");
+        //assert product returns page product info input field is displayed
+        //assertTrue(productReturnsPage.isProductInfoSectionProductNameInputFieldDisplayed(), "The product returns page product info input field isn't displayed");
+        //assert product returns page product code subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionProductCodeSubtextDisplayed(), "The product returns page product code subtext isn't displayed");
+        //assert product returns page product code input field is displayed
+        //assertTrue(productReturnsPage.isProductInfoSectionProductCodeInputFieldDisplayed(), "The product returns page product code input field isn't displayed");
+        //assert product returns page product quantity subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionQuantitySubtextDisplayed(), "The product returns page product quantity subtext isn't displayed");
+        //assert product returns page product quantity input field is displayed
+        //assertTrue(productReturnsPage.isProductInfoSectionQuantityInputFieldDisplayed(), "The product returns page product quantity input field isn't displayed");
+        //assert product returns page return reasons subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionReturnReasonSubtextDisplayed(), "The product returns page return reasons subtext isn't displayed");
+        //radio buttons
+        /*
+        //assert product returns page product 'Dead on Arrival' return radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionDeadOnArrivalRadioButtonDisplayed(), "The product returns page product 'Dead on Arrival' return radio button isn't displayed");
+        //assert product returns page product 'Faulty' return radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionFaultyRadioButtonDisplayed(), "The product returns page product 'Faulty' return radio button isn't displayed");
+        //assert product returns page product 'Order Error' return radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionOrderErrorRadioButtonDisplayed(), "The product returns page product 'Order Error' return radio button isn't displayed");
+        //assert product returns page product 'Other' return radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionOtherRadioButtonDisplayed(), "The product returns page product 'Other' return radio button isn't displayed");
+        //assert product returns page product 'Wrong Item' return radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionWrongItemRadioButtonDisplayed(), "The product returns page product 'Wrong Item' return radio button isn't displayed");
+        //form elements
+        //assert product returns page product 'Is Opened' subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionProductIsOpenedSubTextDisplayed(), "The product returns page product 'Is Opened' subtext isn't displayed");
+        //assert product returns page product 'Opened' radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionOpenedRadioButtonDisplayed(), "The product returns page product 'Opened' radio button isn't displayed");
+        //assert product returns page product 'Not opened' radio button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionNotOpenedRadioButtonDisplayed(), "The product returns page product 'Not opened' radio button isn't displayed");
+        */
+        //assert product returns page product faulty comment subtext is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionFaultyCommentSubTextDisplayed(), "The product returns page product faulty comment subtext isn't displayed");
+        //assert product returns page product faulty comment textfield is displayed
+        //assertTrue(productReturnsPage.isProductInfoSectionFaultyCommentTextfieldDisplayed(), "The product returns page product faulty comment textfield isn't displayed");
+        //assert product returns page back button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionBackButtonDisplayed(), "The product returns page back button isn't displayed");
+        //assert product returns page continue button is displayed
+        assertTrue(productReturnsPage.isProductInfoSectionContinueButtonDisplayed(), "The product returns page continue button isn't displayed");
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -8933,6 +9026,44 @@ public class TestMethods extends BaseTest{
     protected void isOrderHistoryViewPageTextElementAsExpected(OrderHistoryPage orderHistoryPage){
         //assert order history view page title is as expected
         assertEquals("Order History", orderHistoryPage.getOrderViewHistoryPageTitle(), "The order history view page title doesn't match expectations or the user is on the wrong page.");
+    }
+
+    //product returns page text element assert test method
+    protected void isProductReturnsPageTextElementAsExpected(ProductReturnsPage productReturnsPage){
+        //assert product returns page title is as expected
+        assertEquals("Product Returns", productReturnsPage.getProductReturnsPageTitle(), "The product returns page title doesn't match expectations.");
+        //assert product returns page subtitle is as expected
+        assertEquals("Please complete the form below to request an RMA number.", productReturnsPage.getProductReturnsPageSubtitle(), "The product returns page subtitle doesn't match expectations.");
+        //order info
+        //assert product returns page order info section title is as expected
+        assertEquals("Order Information", productReturnsPage.getOrderInfoSectionTitle(), "The product returns page order info section title doesn't match expectations.");
+        //assert product returns page order info first name subtext is as expected
+        assertEquals("First Name", productReturnsPage.getOrderInfoSectionFirstNameSubText(), "The product returns page order info first name subtext doesn't match expectations.");
+        //assert product returns page order info last name subtext is as expected
+        assertEquals("Last Name", productReturnsPage.getOrderInfoSectionLastNameSubText(), "The product returns page order info last name subtext doesn't match expectations.");
+        //assert product returns page order info email subtext is as expected
+        assertEquals("E-Mail", productReturnsPage.getOrderInfoSectionEmailSubText(), "The product returns page order info email subtext doesn't match expectations.");
+        //assert product returns page order info phone subtext is as expected
+        assertEquals("Telephone", productReturnsPage.getOrderInfoSectionPhoneSubText(), "The product returns page order info phone subtext doesn't match expectations.");
+        //assert product returns page order info order ID subtext is as expected
+        assertEquals("Order ID", productReturnsPage.getOrderInfoSectionOrderIDSubText(), "The product returns page order info order ID subtext doesn't match expectations.");
+        //assert product returns page order info order date subtext is as expected
+        assertEquals("Order Date", productReturnsPage.getOrderInfoSectionOrderDateSubText(), "The product returns page order info order date subtext doesn't match expectations.");
+        //product info
+        //assert product returns page product info section title is as expected
+        assertEquals("Product Information", productReturnsPage.getProductInfoSectionTitle(), "The product returns page product info section title doesn't match expectations.");
+        //assert product returns page product name subtext is as expected
+        assertEquals("Product Name", productReturnsPage.getProductInfoSectionProductNameSubText(), "The product returns page product name subtext doesn't match expectations.");
+        //assert product returns page product code subtext is as expected
+        assertEquals("Product Code", productReturnsPage.getProductInfoSectionProductCodeSubText(), "The product returns page product code subtext doesn't match expectations.");
+        //assert product returns page product quantity subtext is as expected
+        assertEquals("Quantity", productReturnsPage.getProductInfoSectionQuantitySubText(), "The product returns page product quantity subtext doesn't match expectations.");
+        //assert product returns page product return reason subtext is as expected
+        assertEquals("Reason for Return", productReturnsPage.getProductInfoSectionReturnReasonSubText(), "The product returns page product return reason subtext doesn't match expectations.");
+        //assert product returns page product 'Is Opened' subtext is as expected
+        assertEquals("Product is opened", productReturnsPage.getProductInfoSectionProductIsOpenedSubText(), "The product returns page product 'Is Opened' subtext doesn't match expectations.");
+        //assert product returns page product faulty comment subtext is as expected
+        assertEquals("Faulty or other details", productReturnsPage.getProductInfoSectionFaultyCommentSubText(), "The product returns page product faulty comment subtext doesn't match expectations.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
