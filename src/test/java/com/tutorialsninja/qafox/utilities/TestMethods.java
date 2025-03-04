@@ -7657,6 +7657,22 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "HP LP3065 Product Checkout Page Invalid Login Test Result - Invalid Password");
     }
 
+    //confirm order success page test method
+    protected void confirmPlacedOrderGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ConfirmOrderSuccessPage confirmOrderSuccessPage = new ConfirmOrderSuccessPage(driver);
+        //general page web element assert (elements all pages share)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements all pages share)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot of the confirm order page display
+        captureScreenshot(driver, "Product Checkout Confirm Order Success (Guest) Page Display");
+        //confirm order success page web element assert
+        isConfirmOrderSuccessPageGuestWebElementDisplayed(confirmOrderSuccessPage);
+        //confirm order success page text element assert
+        isConfirmOrderSuccessPageTextElementAsExpected(confirmOrderSuccessPage);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web elements assert test method (elements all pages possess)
@@ -8527,6 +8543,44 @@ public class TestMethods extends BaseTest{
         //assertTrue(checkoutPage.isCheckoutPageConfirmOrderButtonDisplayed(), "The checkout page 'Confirm Order' button isn't displayed");
     }
 
+    //confirm order success page web element assert test method (guest)
+    protected void isConfirmOrderSuccessPageGuestWebElementDisplayed(ConfirmOrderSuccessPage confirmOrderSuccessPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert single product page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The confirm order success page breadcrumb isn't displayed");
+        //main
+        //assert confirm order success page message title is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessMessageTitleDisplayed(), "The confirm order success page message title isn't displayed");
+        //assert confirm order success page message text is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessMessageTextDisplayed(), "The confirm order success page message text isn't displayed");
+        //assert confirm order success page 'Continue' button is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessContinueButtonDisplayed(), "The confirm order success page 'Continue' button isn't displayed");
+    }
+
+    //confirm order success page web element assert test method (registered user)
+    protected void isConfirmOrderSuccessPageRegUserWebElementDisplayed(ConfirmOrderSuccessPage confirmOrderSuccessPage) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //assert confirm order success page breadcrumb is displayed (as a list)
+        assertTrue(myAccountPage.isPageBreadcrumbDisplayed(), "The confirm order success page breadcrumb isn't displayed");
+        //main
+        //assert confirm order success page message title is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessMessageTitleDisplayed(), "The confirm order success page message title isn't displayed");
+        //assert confirm order success page message text is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessMessageTextDisplayed(), "The confirm order success page message text isn't displayed");
+        //assert confirm order success page my account link is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessMyAccountLinkDisplayed(), "The confirm order success page 'My account' link isn't displayed");
+        //assert confirm order success page history link is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessHistoryLinkDisplayed(), "The confirm order success page 'History' link isn't displayed");
+        //assert confirm order success page downloads link is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessDownloadLinkDisplayed(), "The confirm order success page 'Downloads' link isn't displayed");
+        //assert confirm order success page store owner link is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessStoreOwnerLinkDisplayed(), "The confirm order success page 'Store owner' link isn't displayed");
+        //assert confirm order success page 'Continue' button is displayed
+        assertTrue(confirmOrderSuccessPage.isConfirmOrderSuccessContinueButtonDisplayed(), "The confirm order success page 'Continue' button isn't displayed");
+        //aside section web element assert
+        isMyAccountAsideSectionWebElementDisplayed(myAccountPage);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (elements all pages share)
@@ -8740,6 +8794,14 @@ public class TestMethods extends BaseTest{
     protected void isCheckoutPagePaymentMethodSectionTextElementAsExpected(CheckoutPage checkoutPage){
         //assert checkout page payment method section subtext is as expected
         assertEquals("Please select the preferred payment method to use on this order.", checkoutPage.getCheckoutPagePaymentMethodSubtext(), "The checkout page payment method section subtext doesn't match expectations.");
+    }
+
+    //confirm order page text element assert test method
+    protected void isConfirmOrderSuccessPageTextElementAsExpected(ConfirmOrderSuccessPage confirmOrderSuccessPage){
+        //assert confirm order success page title is as expected
+        assertEquals("Your order has been placed!", confirmOrderSuccessPage.getConfirmOrderSuccessMessageTitle(), "The confirm order success page message title doesn't match expectations or the order checkout has failed.");
+        //assert confirm order success page text is as expected
+        assertEquals("Your order has been successfully processed!", confirmOrderSuccessPage.getConfirmOrderSuccessMessageText(), "The confirm order success page message text doesn't match expectations.");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
